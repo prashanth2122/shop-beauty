@@ -1,0 +1,1621 @@
+
+<div style="visibility: hidden;height: 0px;padding:0px;margin:0px;" *ngFor="let s of sizes" class="{{s.css + ' ' + (prefix + s.id) }}">{{s.name}}</div>
+
+	
+	
+	<div class="container text-center app-holder mob-fragrance" >
+		<form  [ngClass]="getBGImg">
+
+			<div class="begin-copy" *ngIf="welcomeStep" >
+				<div class="welcome-holder">
+					<h1>Match Your Fragrance to You</h1>
+					<h3>Fragrance Finder</h3>
+					<h6>
+						Selecting a scent can be overwhelming; the Fragrance Finder will take you on an illuminating, interactive journey to connect you with your ideal match - not by getting you to think about fragrance, but by telling us about you. Our smart system will select a scent that is most suited to your highly distinctive, truly unique self.
+					</h6>
+					<img src="assets/resource/img/timeCounter.svg" />
+					<button (click)="beginExp()" type="button" class="btn btn-outline-primary">Begin your experience</button>
+				</div>
+			</div>
+
+
+			<div *ngIf="showSteps"  class="show-steps">
+				<div class="dot-container">
+					<hr class="dot-line" />
+					<span class="dot" [ngClass]="{ 'active': activeStage1}"></span>
+					<span class="dot" [ngClass]="{ 'active': activeStage2}"></span>
+					<span class="dot" [ngClass]="{ 'active': activeStage3}"></span>
+					<span class="dot" [ngClass]="{ 'active': activeStage4}"></span>
+					<span class="dot" [ngClass]="{ 'active': activeStage5}"></span>
+				</div>				
+			</div>
+
+
+			 <div *ngIf="showPref" >
+				<section *ngIf=preference>
+					<div class="type-container" *ngFor="let prefQuestions of preference[0].questions">
+						<h2>{{prefQuestions.title}}</h2>
+						<div class="container" *ngIf="startStep1" >
+							<div class="form-check form-check-inline">
+								<div class="pref-selector" *ngFor="let chosen of prefQOne">
+									<label class="pref-card"> 
+										<input
+										(click)="nextStep(1, chosen.key, prefQuestions.type, null, chosen.type)" 
+										type="radio"
+										name="{{chosen.type}}" 
+										[(ngModel)]="list.value"
+										value="{{chosen.key}}">
+										<img src="{{chosen.image_url}}" />
+									</label>
+								</div>
+							</div>				
+							<button class="restart-arrow-container btn" (click)="restartExp()">
+								<i class="fas fa-redo-alt fa-3x d-none"></i>
+								<img src="assets/resource/img/arrow-restart.svg" />
+								<span>Restart</span>
+							</button>
+
+						</div>
+						<div class="container" *ngIf="startStep2" >
+							<div class="form-check form-check-inline">
+								<div class="pref-selector" *ngFor="let chosen of prefQTwo">
+									<label class="pref-card"> 
+										<input
+										(click)="nextStep(2, chosen.key, prefQuestions.type, null, chosen.type)"
+										type="radio"
+										name="chosen.type"
+										value="{{chosen.key}}"
+										> 
+										<img src="{{chosen.image_url}}" />
+									</label>
+								</div>
+							</div>
+
+							<button class="left-arrow-container btn" 
+								(click)="prevStep(2, null, prefQuestions.type)">
+								<i class="fas fa-arrow-left fa-2x d-none"></i> 
+								<img src="assets/resource/img/arrow-back.svg" />
+								<span>back</span>
+							</button>
+
+							<button class="restart-arrow-container btn" (click)="restartExp()">
+								<i class="fas fa-redo-alt fa-3x d-none"></i>
+								<img src="assets/resource/img/arrow-restart.svg" />
+								<span>Restart</span>
+							</button>
+
+						</div>
+						<div class="container" *ngIf="startStep3" >
+							<div class="form-check form-check-inline">
+								<div class="pref-selector" *ngFor="let chosen of prefQThree">
+									<label class="pref-card"> 
+										<input
+										(click)="nextStep(3, chosen.key, prefQuestions.type, null, chosen.type)" type="radio"
+										name="{{chosen.type}}" 
+										value="{{chosen.key}}"
+										> 
+										<img src="{{chosen.image_url}}" />
+									</label>
+								</div>
+							</div>
+
+							<button class="left-arrow-container btn" (click)="prevStep(3, null, prefQuestions.type)">
+								<img src="assets/resource/img/arrow-back.svg" /> <span>back</span>
+							</button>
+
+							<button class="restart-arrow-container btn" (click)="restartExp()">
+								<img src="assets/resource/img/arrow-restart.svg" /> <span>Restart</span>
+							</button>
+
+						</div>				
+						<div class="container" *ngIf="startStep4" > 
+							<div class="form-check form-check-inline">
+								<div class="pref-selector" *ngFor="let chosen of prefQFour">
+									<label class="pref-card"> 
+										<input
+										(click)="nextStep(4, chosen.key, prefQuestions.type, null, chosen.type)" 
+										type="radio" 
+										name="{{chosen.type}}"
+										value="{{chosen.key}}"
+										> 
+										<img src="{{chosen.image_url}}" />
+									</label>
+								</div>
+							</div>
+												
+							<button 
+								class="left-arrow-container btn" 
+								(click)="prevStep(4, null, prefQuestions.type)">
+								<img src="assets/resource/img/arrow-back.svg" /> 
+								<span>back</span>
+							</button>
+
+							<button  
+									class="restart-arrow-container btn" 
+									(click)="restartExp()">
+									<img src="assets/resource/img/arrow-restart.svg" /> 
+									<span>Restart</span>
+							</button>
+						</div>					
+					</div>	
+				</section>
+			 </div>
+
+			<div *ngIf="showAttract" >
+				<section *ngIf="attractionQuestions">
+					<div 
+						  class="type-container" 
+						  *ngFor="let attractQuestions of attraction[0].questions" 
+					      >
+						<h2>{{attractQuestions.title}}</h2>
+						<div class="container" *ngIf="showAttractStep1" >
+							<div class="form-check form-check-inline">
+								<div class="pref-selector" *ngFor="let chosen of attrQOne">
+									<label class="pref-card"> 
+									<input 
+										(click)="nextStep(1,chosen.key, attractQuestions.type, null, chosen.type)"
+										type="radio" 
+										name="{{chosen.type}}" 
+										value="{{chosen.key}}"
+										> 
+										<img src="{{chosen.image_url}}" />
+									</label>
+								</div>
+							</div>
+	
+							<button class="left-arrow-container btn" (click)="prevStep(1, null, attractQuestions.type)">
+								<img src="assets/resource/img/arrow-back.svg" /> <span>back</span>
+							</button>
+	
+							<button class="restart-arrow-container btn" (click)="restartExp()">
+									<img src="assets/resource/img/arrow-restart.svg" /> <span>Restart</span>
+							</button>	
+						</div>
+						<div class="container" *ngIf="showAttractStep2" >
+							<div class="form-check form-check-inline">
+								<div 
+									class="pref-selector" 
+									*ngFor="let chosen of attrQTwo">
+									<label class="pref-card">
+										 <input 
+										 (click)="nextStep(2, chosen.key, attractQuestions.type, null, chosen.type)"
+										type="radio" name="{{chosen.type}}"
+										value="{{chosen.key}}"
+										> 
+										<img src="{{chosen.image_url}}" />
+									</label>
+								</div>
+							</div>
+	
+							<button class="left-arrow-container btn" (click)="prevStep(2, null, attractQuestions.type)">
+								<img src="assets/resource/img/arrow-back.svg" /> <span>back</span>
+							</button>
+	
+							<button class="restart-arrow-container btn" (click)="restartExp()">
+									<img src="assets/resource/img/arrow-restart.svg" /> <span>Restart</span>
+								</button>
+						</div>
+						<div class="container" *ngIf="showAttractStep3" >
+							<div class="form-check form-check-inline">
+								<div class="pref-selector" *ngFor="let chosen of attrQThree">
+									<label class="pref-card"> 
+										<input
+										(click)="nextStep(3,chosen.key, attractQuestions.type, null, chosen.type)"
+										type="radio"
+										name="{{chosen.type}}" 
+										value="{{chosen.key}}"> 
+										<img src="{{chosen.image_url}}" />
+									</label>
+								</div>
+							</div>
+	
+							<button class="left-arrow-container btn" (click)="prevStep(3, null, attractQuestions.type)">
+								<img src="assets/resource/img/arrow-back.svg" /> <span>back</span>
+							</button>
+	
+							<button class="restart-arrow-container btn" (click)="restartExp()">
+									<img src="assets/resource/img/arrow-restart.svg" /> <span>Restart</span>
+								</button>
+						</div>	
+						<div class="container" *ngIf="showAttractStep4" >
+							<div class="form-check form-check-inline">
+								<div class="pref-selector" *ngFor="let chosen of attrQFour">
+									<label class="pref-card"> <input
+										(click)="nextStep(4, chosen.key, attractQuestions.type, null, chosen.type)"
+										type="radio"
+										name="chosen.type" 
+										value="{{chosen.key}}"
+										> 
+										<img src="{{chosen.image_url}}" />
+									</label>
+								</div>
+							</div>
+	
+							<button class="left-arrow-container btn" (click)="prevStep(4, null, attractQuestions.type)">
+								<img src="assets/resource/img/arrow-back.svg" /> <span>back</span>
+							</button>
+	
+							<button class="restart-arrow-container btn" (click)="restartExp()">
+									<img src="assets/resource/img/arrow-restart.svg" /> <span>Restart</span>
+								</button>
+						</div>					
+					</div>			
+				</section>
+
+
+				<div *ngIf="attractIndulgentQuestions">
+					<div class="type-container" *ngFor="let indulgeQuestions of attraction[0].selection.indulgent[0].questions" >
+						<h2 *ngIf="indMainTitle">{{indulgeQuestions.title}}</h2>
+						<h2 *ngIf="indMindsetTitle">{{indulgeQuestions.mindset[0].questions[0].title}}</h2>
+	
+						<div class="container" *ngIf="indQuestions" >
+							<div class="form-check form-check-inline">
+								<div class="pref-selector" *ngFor="let chosen of attrIndQ">
+									<label class="pref-card"> <input
+										(click)="nextStep(6, chosen.key, indulgeQuestions.type, indulgeQuestions.parent)"
+										type="radio" 
+										name="chosen.type" 
+										value="{{chosen.key}}"
+										> 
+										<img src="{{chosen.image_url}}" />
+									</label>
+								</div>
+							</div>
+	
+							<button 
+								 class="left-arrow-container btn" 
+								(click)="prevStep(6, list, indulgeQuestions.type, indulgeQuestions.parent)">
+								<img src="assets/resource/img/arrow-back.svg" /> <span>back</span>
+							</button>
+	
+							<button class="restart-arrow-container btn" (click)="restartExp()">
+									<img src="assets/resource/img/arrow-restart.svg" /> <span>Restart</span>
+								</button>
+						</div>
+						
+						<div class="container" *ngIf="indTQuestions" >
+							<div class="form-check form-check-inline">
+								<div class="pref-selector" *ngFor="let chosen of attrIndQEdt">
+									<label class="pref-card">
+										 <input
+										(click)="nextStep(9, chosen.key, indulgeQuestions.type, indulgeQuestions.parent, chosen.key)"
+										type="radio" 
+										name="{{chosen.type}}" 
+										value="{{chosen.key}}"
+										> 
+										<img src="{{chosen.image_url}}" />
+									</label>
+								</div>
+							</div>
+	
+							<button class="left-arrow-container btn" (click)="prevStep(9, list, indulgeQuestions.type, indulgeQuestions.parent)">
+								<img src="assets/resource/img/arrow-back.svg" /> <span>back</span>
+							</button>
+	
+							<button class="restart-arrow-container btn" (click)="restartExp()">
+									<img src="assets/resource/img/arrow-restart.svg" /> <span>Restart</span>
+								</button>
+						</div>
+	
+						<div class="container" *ngIf="indPQuestions" >
+							<div class="form-check form-check-inline">
+								<div class="pref-selector" *ngFor="let  chosen of attrIndQEdp">
+									<label class="pref-card">
+										 <input
+										(click)="nextStep(9, chosen.key, indulgeQuestions.type, indulgeQuestions.parent, chosen.key)"
+										type="radio" 
+										name="{{chosen.type}}" 
+										value="{{chosen.key}}">
+										 <img src="{{chosen.image_url}}" />
+									</label>
+								</div>
+							</div>
+	
+							<button class="left-arrow-container btn" (click)="prevStep(9, list, indulgeQuestions.type, indulgeQuestions.parent)">
+								<img src="assets/resource/img/arrow-back.svg" /> <span>back</span>
+							</button>
+	
+							<button class="restart-arrow-container btn" (click)="restartExp()">
+									<img src="assets/resource/img/arrow-restart.svg" /> <span>Restart</span>
+								</button>
+						</div>
+
+						<div *ngIf="indMindsetQuestions" >
+							<div class="container" *ngIf="showIndMindsetStep1" >
+								<div class="form-check form-check-inline">
+									<div class="pref-selector" *ngFor="let chosen of attrIndMindQOne">
+										<label class="pref-card"> <input
+											(click)="nextStep(10, chosen.key, indulgeQuestions.mindset[0].questions[0].type, indulgeQuestions.parent, chosen.type)"
+											type="radio" name="{{chosen.type}}" 
+											value="{{chosen.key}}"> <img src="{{chosen.image_url}}" />
+										</label>
+									</div>
+								</div>
+							
+								<button class="left-arrow-container btn" (click)="prevStep(10, list, indulgeQuestions.mindset[0].questions[0].type, indulgeQuestions.parent)">
+									<img src="assets/resource/img/arrow-back.svg" /> <span>back</span>
+								</button>
+	
+								<button class="restart-arrow-container btn" (click)="restartExp()">
+									<img src="assets/resource/img/arrow-restart.svg" /> <span>Restart</span>
+								</button>
+							</div>
+							
+							<div class="container" *ngIf="showIndMindsetStep2" >
+								<div class="form-check form-check-inline">
+									<div class="pref-selector" *ngFor="let chosen of attrIndMindQTwo">
+										<label class="pref-card"> <input
+											(click)="nextStep(11,chosen.key, indulgeQuestions.mindset[0].questions[0].type, indulgeQuestions.parent, chosen.type)"
+											type="radio" name="{{chosen.type}}" 
+											value="{{chosen.key}}"> 
+											<video loop autoplay muted width="100%">
+												<source src="{{chosen.image_url}}" type="video/mp4" />
+											</video>
+										</label>
+									</div>
+								</div>
+							
+								<button class="left-arrow-container btn" (click)="prevStep(11, list, indulgeQuestions.mindset[0].questions[0].type, indulgeQuestions.parent)">
+									<img src="assets/resource/img/arrow-back.svg" /> <span>back</span>
+								</button>
+	
+								<button class="restart-arrow-container btn" (click)="restartExp()">
+									<img src="assets/resource/img/arrow-restart.svg" /> <span>Restart</span>
+								</button>
+							</div>
+							
+							<div class="container" *ngIf="showIndMindsetStep3" >
+								<div class="form-check form-check-inline">
+									<div class="pref-selector" *ngFor="let chosen of attrIndMindQThree">
+										<label class="pref-card"> <input
+											(click)="nextStep(12, chosen.key, indulgeQuestions.mindset[0].questions[0].type, indulgeQuestions.parent, chosen.type)"
+											type="radio" name="{{chosen.type}}" 
+											value="{{chosen.key}}"> <img src="{{chosen.image_url}}" />
+										</label>
+									</div>
+								</div>
+							
+								<button class="left-arrow-container btn" (click)="prevStep(12, list, indulgeQuestions.mindset[0].questions[0].type, indulgeQuestions.parent)">
+									<img src="assets/resource/img/arrow-back.svg" /> <span>back</span>
+								</button>
+	
+								<button class="restart-arrow-container btn" (click)="restartExp()">
+									<img src="assets/resource/img/arrow-restart.svg" /> <span>Restart</span>
+								</button>
+							</div>
+							
+							<div class="container" *ngIf="showIndMindsetStep4" >
+								<div class="form-check form-check-inline">
+									<div class="pref-selector" *ngFor="let chosen of attrIndMindQFour">
+										<label class="pref-card"> <input
+											(click)="nextStep(13, chosen.key, indulgeQuestions.mindset[0].questions[0].type, indulgeQuestions.parent, chosen.type)"
+											type="radio" name="{{chosen.type}}" 
+											value="{{chosen.key}}"> 
+											<img src="{{chosen.image_url}}" />
+										</label>
+									</div>
+								</div>
+							
+								<button class="left-arrow-container btn" (click)="prevStep(13, list, indulgeQuestions.mindset[0].questions[0].type, indulgeQuestions.parent)">
+									<img src="assets/resource/img/arrow-back.svg" /> <span>back</span>
+								</button>
+	
+								<button class="restart-arrow-container btn" (click)="restartExp()">
+									<img src="assets/resource/img/arrow-restart.svg" /> <span>Restart</span>
+								</button>
+							</div>
+						</div>	
+					</div>
+				</div>
+
+				<div *ngIf="attractBalancedQuestions">		
+					<div class="type-container" *ngFor="let balancedQuestions of attraction[0].selection.balanced[0].questions"  >				
+						<h2>{{balancedQuestions.mindset[0].questions[0].title}}</h2>				
+						<div *ngIf="balMindsetQuestions" >
+							<div class="container" *ngIf="showBalMindsetStep1" >
+								<div class="form-check form-check-inline">
+									<div class="pref-selector"
+										*ngFor="let chosen of attrBalMindQOne">
+										<label class="pref-card">
+											 <input
+											(click)="nextStep(10, chosen.key, balancedQuestions.mindset[0].questions[0].type, balancedQuestions.parent, chosen.type)"
+											type="radio" name="{{chosen.type}}"
+											value="{{chosen.key}}"> <img src="{{chosen.image_url}}" />
+										</label>
+									</div>
+								</div>
+							
+								<button class="left-arrow-container btn" (click)="prevStep(10, list, balancedQuestions.mindset[0].questions[0].type, balancedQuestions.parent)">
+									<img src="assets/resource/img/arrow-back.svg" /> <span>back</span>
+								</button>
+	
+								<button class="restart-arrow-container btn" (click)="restartExp()">
+									<img src="assets/resource/img/arrow-restart.svg" /> <span>Restart</span>
+								</button>
+							</div>
+							<div class="container" *ngIf="showBalMindsetStep2" >
+								<div class="form-check form-check-inline">
+									<div class="pref-selector"
+										*ngFor="let chosen of attrBalMindQTwo">
+										<label class="pref-card"> <input
+											(click)="nextStep(11, chosen.key, balancedQuestions.mindset[0].questions[0].type, balancedQuestions.parent, chosen.type)"
+											type="radio" name="{{chosen.type}}" 
+											value="{{chosen.key}}"> 
+											<video loop autoplay muted width="100%">
+												<source src="{{chosen.image_url}}" type="video/mp4" />
+											</video>
+										</label>
+									</div>
+								</div>
+							
+								<button class="left-arrow-container btn" (click)="prevStep(11, list, balancedQuestions.mindset[0].questions[0].type, balancedQuestions.parent)">
+									<img src="assets/resource/img/arrow-back.svg" /> <span>back</span>
+								</button>
+	
+								<button class="restart-arrow-container btn" (click)="restartExp()">
+									<img src="assets/resource/img/arrow-restart.svg" /> <span>Restart</span>
+								</button>
+							</div>
+							<div class="container" *ngIf="showBalMindsetStep3" >
+								<div class="form-check form-check-inline">
+									<div class="pref-selector"
+										*ngFor="let chosen of attrBalMindQThree">
+										<label class="pref-card"> 
+											<input
+											(click)="nextStep(12, chosen.key, balancedQuestions.mindset[0].questions[0].type, balancedQuestions.parent, chosen.type)"
+											type="radio" name="{{chosen.type}}"
+											value="{{chosen.key}}"> <img src="{{chosen.image_url}}" />
+										</label>
+									</div>
+								</div>
+							
+								<button class="left-arrow-container btn" (click)="prevStep(12, list, balancedQuestions.mindset[0].questions[0].type, balancedQuestions.parent)">
+									<img src="assets/resource/img/arrow-back.svg" /> <span>back</span>
+								</button>
+	
+								<button class="restart-arrow-container btn" (click)="restartExp()">
+									<img src="assets/resource/img/arrow-restart.svg" /> <span>Restart</span>
+								</button>
+							</div>
+							<div class="container" *ngIf="showBalMindsetStep4" >
+								<div class="form-check form-check-inline">
+									<div class="pref-selector"
+										*ngFor="let chosen of attrBalMindQFour">
+										<label class="pref-card"> <input
+											(click)="nextStep(13,chosen.key, balancedQuestions.mindset[0].questions[0].type, balancedQuestions.parent, chosen.type)"
+											type="radio" name="{{chosen.type}}"										value="{{chosen.key}}"> 
+											<img src="{{chosen.image_url}}" />
+										</label>
+									</div>
+								</div>
+							
+								<button class="left-arrow-container btn" (click)="prevStep(13, list, balancedQuestions.mindset[0].questions[0].type, balancedQuestions.parent)">
+									<img src="assets/resource/img/arrow-back.svg" /> <span>back</span>
+								</button>
+	
+								<button class="restart-arrow-container btn" (click)="restartExp()">
+									<img src="assets/resource/img/arrow-restart.svg" /> <span>Restart</span>
+								</button>
+							</div>
+						</div>					
+					</div>
+				 </div>
+				 
+				 <div *ngIf="attractGivingQuestions">
+				 <div class="type-container" *ngFor="let givingQuestions of attraction[0].selection.giving[0].questions" >
+					<h2 *ngIf="giveMainTitle">{{givingQuestions.title}}</h2>
+					<h2 *ngIf="giveMindsetTitle">{{givingQuestions.mindset[0].questions[0].title}}</h2>
+	
+					<div class="container" *ngIf="giveQuestions">
+						<div class="form-check form-check-inline">
+							<div class="pref-selector"
+								*ngFor="let chosen of attrGiveQ">
+								<label class="pref-card"> 
+									<input
+									(click)="nextStep(6, chosen.key, givingQuestions.type, givingQuestions.parent)"
+									type="radio" name="chosen.type" 
+									value="{{chosen.key}}"> 
+									<img src="{{chosen.image_url}}" />
+								</label>
+							</div>
+						</div>
+	
+						<button class="left-arrow-container btn" (click)="prevStep(6, list, givingQuestions.type, givingQuestions.parent)">
+							<img src="assets/resource/img/arrow-back.svg" /> <span>back</span>
+						</button>
+	
+						<button class="restart-arrow-container btn" (click)="restartExp()">
+							<img src="assets/resource/img/arrow-restart.svg" /> <span>Restart</span>
+						</button>
+					</div>
+					
+					<div class="container" *ngIf="giveTQuestions">
+						<div class="form-check form-check-inline">
+							<div class="pref-selector"
+								*ngFor="let chosen of attrGiveQEdt">
+								<label class="pref-card"> <input
+									(click)="nextStep(9, chosen.key, givingQuestions.type, givingQuestions.parent, chosen.key)"
+									type="radio" 
+									name="{{chosen.type}}" 
+									value="{{chosen.key}}">
+									 <img src="{{chosen.image_url}}" />
+								</label>
+							</div>
+						</div>
+	
+						<button class="left-arrow-container btn" (click)="prevStep(9, list, givingQuestions.type, givingQuestions.parent)">
+							<img src="assets/resource/img/arrow-back.svg" /> <span>back</span>
+						</button>
+	
+						<button class="restart-arrow-container btn" (click)="restartExp()">
+							<img src="assets/resource/img/arrow-restart.svg" /> <span>Restart</span>
+						</button>
+					</div>
+					
+					<div class="container" *ngIf="givePQuestions">
+						<div class="form-check form-check-inline">
+							<div class="pref-selector"
+								*ngFor="let chosen of attrGiveQEdp">
+								<label class="pref-card"> <input
+									(click)="nextStep(9,chosen.key, givingQuestions.type, givingQuestions.parent, chosen.key)"
+									type="radio" name="{{chosen.type}}" 
+									value="{{chosen.key}}"> <img src="{{chosen.image_url}}" />
+								</label>
+							</div>
+						</div>
+	
+						<button class="left-arrow-container btn" (click)="prevStep(9, list, givingQuestions.type, givingQuestions.parent)">
+							<img src="assets/resource/img/arrow-back.svg" /> <span>back</span>
+						</button>
+	
+						<button class="restart-arrow-container btn" (click)="restartExp()">
+							<img src="assets/resource/img/arrow-restart.svg" /> <span>Restart</span>
+						</button>
+					</div>
+					
+					<div *ngIf="giveMindsetQuestions">
+						<div class="container" *ngIf="showGiveMindsetStep1">
+							<div class="form-check form-check-inline">
+								<div class="pref-selector"
+									*ngFor="let chosen of attrGiveMindQOne">
+									<label class="pref-card"> 
+										<input
+										(click)="nextStep(10, chosen.key, givingQuestions.mindset[0].questions[0].type, givingQuestions.parent, chosen.type)"
+										type="radio" name="{{chosen.type}}" 
+										value="{{chosen.key}}"> <img src="{{chosen.image_url}}" />
+									</label>
+								</div>
+							</div>
+						
+							<button class="left-arrow-container btn" (click)="prevStep(10, list, givingQuestions.mindset[0].questions[0].type, givingQuestions.parent)">
+								<img src="assets/resource/img/arrow-back.svg" /> <span>back</span>
+							</button>
+	
+							<button class="restart-arrow-container btn" (click)="restartExp()">
+								<img src="assets/resource/img/arrow-restart.svg" /> <span>Restart</span>
+							</button>
+	
+						</div>
+						
+						<div class="container" *ngIf="showGiveMindsetStep2">
+							<div class="form-check form-check-inline">
+								<div class="pref-selector"
+									*ngFor="let chosen of attrGiveMindQTwo">
+									<label class="pref-card">
+										 <input
+										(click)="nextStep(11, chosen.key, givingQuestions.mindset[0].questions[0].type, givingQuestions.parent, chosen.type)"
+										type="radio" name="{{chosen.type}}"
+										value="{{chosen.key}}"> 
+										<video loop autoplay muted width="100%">
+											<source src="{{chosen.image_url}}" type="video/mp4" />
+										</video>
+									</label>
+								</div>
+							</div>
+						
+							<button class="left-arrow-container btn" (click)="prevStep(11, list, givingQuestions.mindset[0].questions[0].type, givingQuestions.parent)">
+								<img src="assets/resource/img/arrow-back.svg" /> <span>back</span>
+							</button>
+	
+							<button class="restart-arrow-container btn" (click)="restartExp()">
+								<img src="assets/resource/img/arrow-restart.svg" /> <span>Restart</span>
+							</button>
+						</div>
+						
+						<div class="container" *ngIf="showGiveMindsetStep3">
+							<div class="form-check form-check-inline">
+								<div class="pref-selector"
+									*ngFor="let chosen of attrGiveMindQThree">
+									<label class="pref-card"> 
+										<input
+										(click)="nextStep(12, chosen.key, givingQuestions.mindset[0].questions[0].type, givingQuestions.parent, chosen.type)"
+										type="radio" name="{{chosen.type}}"
+										value="{{chosen.key}}"> 
+										<img src="{{chosen.image_url}}" />
+									</label>
+								</div>
+							</div>
+						
+							<button class="left-arrow-container btn" (click)="prevStep(12, list, givingQuestions.mindset[0].questions[0].type, givingQuestions.parent)">
+								<img src="assets/resource/img/arrow-back.svg" /> <span>back</span>
+							</button>
+	
+							<button class="restart-arrow-container btn" (click)="restartExp()">
+								<img src="assets/resource/img/arrow-restart.svg" /> <span>Restart</span>
+							</button>
+						</div>
+						
+						<div class="container" *ngIf="showGiveMindsetStep4">
+							<div class="form-check form-check-inline">
+								<div class="pref-selector"
+									*ngFor="let chosen of attrGiveMindQFour">
+									<label class="pref-card"> <input
+										(click)="nextStep(13, chosen.key, givingQuestions.mindset[0].questions[0].type, givingQuestions.parent, chosen.type)"
+										type="radio" 
+										name="{{chosen.type}}" 
+										value="{{chosen.key}}"> 
+										<img src="{{chosen.image_url}}" />
+									</label>
+								</div>
+							</div>
+						
+							<button class="left-arrow-container btn" (click)="prevStep(13, list, givingQuestions.mindset[0].questions[0].type, givingQuestions.parent)">
+								<img src="assets/resource/img/arrow-back.svg" /> <span>back</span>
+							</button>
+	
+							<button class="restart-arrow-container btn" (click)="restartExp()">
+								<img src="assets/resource/img/arrow-restart.svg" /> <span>Restart</span>
+							</button>
+						 </div>
+						</div>		
+					</div>
+				 </div>			
+			  
+			</div> 
+			  
+
+
+
+
+		   <div *ngIf="showArticu">
+              <section *ngIf="articulationQuestions">
+				<div class="type-container" *ngFor="let articuQuestions of articulation[0].questions"  >
+					<h2>{{articuQuestions.title}}</h2>			  
+					<div class="container" *ngIf="showArticuStep1" >
+						<div class="form-check form-check-inline">
+							<div class="pref-selector"
+								*ngFor="let chosen of articuQOne">
+								<label class="pref-card"> <input
+									(click)="nextStep(1, chosen.key, articuQuestions.type, null, chosen.type)"
+									type="radio" name="{{chosen.type}}" 
+									value="{{chosen.key}}"> <img
+									src="{{chosen.image_url}}">
+								</label>
+							</div>
+						</div>
+
+						<button class="left-arrow-container btn" (click)="prevStep(1, list, articuQuestions.type)">
+							<img src="assets/resource/img/arrow-back.svg" /> <span>back</span>
+						</button>
+
+						<button class="restart-arrow-container btn" (click)="restartExp()">
+								<img src="assets/resource/img/arrow-restart.svg" /> <span>Restart</span>
+							</button>
+					</div>
+
+					<div class="container" *ngIf="showArticuStep2" >
+						<div class="form-check form-check-inline">
+							<div class="pref-selector"
+								*ngFor="let chosen of articuQTwo">
+								<label class="pref-card"> <input
+									(click)="nextStep(2, chosen.key, articuQuestions.type, null, chosen.type)"
+									type="radio" name="{{chosen.type}}"
+									value="{{chosen.key}}"> <img
+									src="{{chosen.image_url}}">
+								</label>
+							</div>
+						</div>
+
+						<button class="left-arrow-container btn" (click)="prevStep(2, list, articuQuestions.type)">
+							<img src="assets/resource/img/arrow-back.svg" /> <span>back</span>
+						</button>
+
+						<button class="restart-arrow-container btn" (click)="restartExp()">
+								<img src="assets/resource/img/arrow-restart.svg" /> <span>Restart</span>
+							</button>
+					</div>
+
+					<div class="container" *ngIf="showArticuStep3" >
+						<div class="form-check form-check-inline">
+							<div class="pref-selector"
+								*ngFor="let chosen of articuQThree">
+								<label class="pref-card"> <input
+									(click)="nextStep(3, chosen.key, articuQuestions.type, null, chosen.type)"
+									type="radio" name="{{chosen.type}}" 
+									value="{{chosen.key}}"> <img
+									src="{{chosen.image_url}}">
+								</label>
+							</div>
+						</div>
+
+						<button class="left-arrow-container btn" (click)="prevStep(3, list, articuQuestions.type)">
+							<img src="assets/resource/img/arrow-back.svg" /> <span>back</span>
+						</button>
+
+						<button class="restart-arrow-container btn" (click)="restartExp()">
+								<img src="assets/resource/img/arrow-restart.svg" /> <span>Restart</span>
+							</button>
+					</div>
+
+					<div class="container" *ngIf="showArticuStep4" >
+						<div class="form-check form-check-inline">
+							<div class="pref-selector"
+								*ngFor="let chosen of articuQFour">
+								<label class="pref-card"> <input
+									(click)="nextStep(4, chosen.key, articuQuestions.type, null, chosen.type)"
+									type="radio" name="{{chosen.type}}"
+									value="{{chosen.key}}"> <img
+									src="{{chosen.image_url}}">
+								</label>
+							</div>
+						</div>
+
+						<button class="left-arrow-container btn" (click)="prevStep(4, list, articuQuestions.type)">
+							<img src="assets/resource/img/arrow-back.svg" /> <span>back</span>
+						</button>
+
+						<button class="restart-arrow-container btn" (click)="restartExp()">
+								<img src="assets/resource/img/arrow-restart.svg" /> <span>Restart</span>
+							</button>
+					</div>
+				</div>	
+			  </section>
+			  
+			  <section *ngIf="articuIndulgentQuestions" >
+				<div class="type-container" *ngFor="let indulgeQuestions of articulation[0].selection.indulgent[0].questions" >
+
+					<h2 *ngIf="articuIndMainTitle">{{indulgeQuestions.title}}</h2>
+					<h2 *ngIf="articuIndMindsetTitle">{{indulgeQuestions.mindset[0].questions[0].title}}</h2>
+
+					<div class="container" *ngIf="articuIndQuestions" >
+						<div class="form-check form-check-inline">
+							<div class="pref-selector"
+								*ngFor="let chosen of articuIndQ">
+								<label class="pref-card"> 
+									<input
+									(click)="nextStep(6, chosen.key, indulgeQuestions.type, indulgeQuestions.parent)"
+									type="radio" name="{{chosen.type}}" 
+									value="{{chosen.key}}"> <img src="{{chosen.image_url}}" />
+								</label>
+							</div>
+						</div>
+
+						<button class="left-arrow-container btn" (click)="prevStep(6, list, indulgeQuestions.type, indulgeQuestions.parent)">
+							<img src="assets/resource/img/arrow-back.svg" /> <span>back</span>
+						</button>
+
+						<button class="restart-arrow-container btn" (click)="restartExp()">
+								<img src="assets/resource/img/arrow-restart.svg" /> <span>Restart</span>
+							</button>
+					</div>
+
+					<div *ngIf="articuIndMindsetQuestions" >
+						<div class="container" *ngIf="showArticuIndMindsetStep1" >
+							<div class="form-check form-check-inline">
+								<div class="pref-selector"
+									*ngFor="let chosen of articuIndMindQOne">
+									<label class="pref-card"> <input
+										(click)="nextStep(10, chosen.key, indulgeQuestions.mindset[0].questions[0].type, indulgeQuestions.parent, chosen.type)"
+										type="radio" name="{{chosen.type}}"
+										value="{{chosen.key}}"> <img src="{{chosen.image_url}}" />
+									</label>
+								</div>
+							</div>
+						
+							<button class="left-arrow-container btn" (click)="prevStep(10, list, indulgeQuestions.mindset[0].questions[0].type, indulgeQuestions.parent)">
+								<img src="assets/resource/img/arrow-back.svg" /> <span>back</span>
+							</button>
+
+							<button class="restart-arrow-container btn" (click)="restartExp()">
+								<img src="assets/resource/img/arrow-restart.svg" /> <span>Restart</span>
+							</button>
+						</div>
+						
+						<div class="container" *ngIf="showArticuIndMindsetStep2" >
+							<div class="form-check form-check-inline">
+								<div class="pref-selector"
+									*ngFor="let chosen of articuIndMindQTwo">
+									<label class="pref-card">
+										 <input
+										(click)="nextStep(11, chosen.key, indulgeQuestions.mindset[0].questions[0].type, indulgeQuestions.parent, chosen.type)"
+										type="radio" name="{{chosen.type}}" 
+										value="{{chosen.key}}"> 
+										<video loop autoplay muted width="100%">
+											<source src="{{chosen.image_url}}" type="video/mp4" />
+										</video>
+									</label>
+								</div>
+							</div>
+						
+							<button class="left-arrow-container btn" (click)="prevStep(11, list, indulgeQuestions.mindset[0].questions[0].type, indulgeQuestions.parent)">
+								<img src="assets/resource/img/arrow-back.svg" /> <span>back</span>
+							</button>
+
+							<button class="restart-arrow-container btn" (click)="restartExp()">
+								<img src="assets/resource/img/arrow-restart.svg" /> <span>Restart</span>
+							</button>
+						</div>
+						
+						<div class="container" *ngIf="showArticuIndMindsetStep3" >
+							<div class="form-check form-check-inline">
+								<div class="pref-selector"
+									*ngFor="let chosen of articuIndMindQThree">
+									<label class="pref-card"> <input
+										(click)="nextStep(12, chosen.key, indulgeQuestions.mindset[0].questions[0].type, indulgeQuestions.parent, chosen.type)"
+										type="radio" name="{{chosen.type}}"
+										value="{{chosen.key}}"> <img src="{{chosen.image_url}}" />
+									</label>
+								</div>
+							</div>
+						
+							<button class="left-arrow-container btn" (click)="prevStep(12, list, indulgeQuestions.mindset[0].questions[0].type, indulgeQuestions.parent)">
+								<img src="assets/resource/img/arrow-back.svg" /> <span>back</span>
+							</button>
+
+							<button class="restart-arrow-container btn" (click)="restartExp()">
+								<img src="assets/resource/img/arrow-restart.svg" /> <span>Restart</span>
+							</button>
+						</div>
+						
+						<div class="container" *ngIf="showArticuIndMindsetStep4" >
+							<div class="form-check form-check-inline">
+								<div class="pref-selector"
+									*ngFor="let chosen of articuIndMindQFour">
+									<label class="pref-card"> 
+										<input
+										(click)="nextStep(13, chosen.key, indulgeQuestions.mindset[0].questions[0].type, indulgeQuestions.parent, chosen.type)"
+										type="radio" name="{{chosen.type}}" 
+										value="{{chosen.key}}"> 
+										<img src="{{chosen.image_url}}" />
+									</label>
+								</div>
+							</div>
+						
+							<button class="left-arrow-container btn" (click)="prevStep(13, list, indulgeQuestions.mindset[0].questions[0].type, indulgeQuestions.parent)">
+								<img src="assets/resource/img/arrow-back.svg" /> <span>back</span>
+							</button>
+
+							<button class="restart-arrow-container btn" (click)="restartExp()">
+								<img src="assets/resource/img/arrow-restart.svg" /> <span>Restart</span>
+							</button>
+						</div>
+					</div>						
+				</div>
+			 </section>
+
+			<section *ngIf="articuBalancedQuestions">             
+				<div class="type-container" *ngFor="let balancedQuestions of articulation[0].selection.balanced[0].questions"  >
+					<h2 *ngIf="articuBalMainTitle">{{balancedQuestions.title}}</h2>
+					<h2 *ngIf="articuBalMindsetTitle">{{balancedQuestions.mindset[0].questions[0].title}}</h2>
+					<div class="container" *ngIf="articuBalQuestions" >
+						<div class="form-check form-check-inline">
+							<div class="pref-selector"
+								*ngFor="let chosen of articuBalQ">
+								<label class="pref-card"> <input
+									(click)="nextStep(6,chosen.key, balancedQuestions.type, balancedQuestions.parent)"
+									type="radio" name="{{chosen.type}}" 
+									value="{{chosen.key}}"> <img src="{{chosen.image_url}}" />
+								</label>
+							</div>
+						</div>
+						<button class="left-arrow-container btn" (click)="prevStep(6, list, balancedQuestions.type, balancedQuestions.parent)">
+							<img src="assets/resource/img/arrow-back.svg" /> <span>back</span>
+						</button>
+						<button class="restart-arrow-container btn" (click)="restartExp()">
+								<img src="assets/resource/img/arrow-restart.svg" /> <span>Restart</span>
+							</button>
+					</div>
+					
+					<div class="container" *ngIf="articuBalTQuestions" >
+						<div class="form-check form-check-inline">
+							<div class="pref-selector"
+								*ngFor="let chosen of articuBalQEdt">
+								<label class="pref-card"> <input
+									(click)="nextStep(9,chosen.key, balancedQuestions.type, balancedQuestions.parent, chosen.key)"
+									type="radio" name="{{chosen.type}}" 
+									value="{{chosen.key}}"> <img src="{{chosen.image_url}}" />
+								</label>
+							</div>
+						</div>
+
+						<button class="left-arrow-container btn" (click)="prevStep(9, list, balancedQuestions.type, balancedQuestions.parent)">
+							<img src="assets/resource/img/arrow-back.svg" /> <span>back</span>
+						</button>
+
+						<button class="restart-arrow-container btn" (click)="restartExp()">
+							<img src="assets/resource/img/arrow-restart.svg" /> <span>Restart</span>
+						</button>
+					</div>
+					
+					<div class="container" *ngIf="articuBalPQuestions" >
+						<div class="form-check form-check-inline">
+							<div class="pref-selector"
+								*ngFor="let chosen of articuBalQEdp">
+								<label class="pref-card" >
+								<input (click)="nextStep(9, chosen.key, balancedQuestions.type, balancedQuestions.parent, chosen.key)" 
+									type="radio" 
+									name="{{chosen.type}}"
+									value="{{chosen.key}}"> <img src="{{chosen.image_url}}">
+								</label>
+							</div>
+						</div>
+
+						<button class="left-arrow-container btn" (click)="prevStep(9, list, balancedQuestions.type, balancedQuestions.parent)">
+							<img src="assets/resource/img/arrow-back.svg" /> <span>back</span>
+						</button>
+
+						<button class="restart-arrow-container btn" (click)="restartExp()">
+							<img src="assets/resource/img/arrow-restart.svg" /> <span>Restart</span>
+						</button>
+					</div>
+					
+					<div *ngIf="articuBalMindsetQuestions" >
+						<div class="container" *ngIf="showArticuBalMindsetStep1" >
+							<div class="form-check form-check-inline">
+								<div class="pref-selector"
+									*ngFor="let chosen of articuBalMindQOne">
+									<label class="pref-card"> 
+										<input
+										(click)="nextStep(10, chosen.key, balancedQuestions.mindset[0].questions[0].type, balancedQuestions.parent, chosen.type)"
+										type="radio" name="{{chosen.type}}" 
+										value="{{chosen.key}}"> <img src="{{chosen.image_url}}" />
+									</label>
+								</div>
+							</div>
+						
+							<button class="left-arrow-container btn" (click)="prevStep(10, list, balancedQuestions.mindset[0].questions[0].type, balancedQuestions.parent)">
+								<img src="assets/resource/img/arrow-back.svg" /> <span>back</span>
+							</button>
+
+							<button class="restart-arrow-container btn" (click)="restartExp()">
+								<img src="assets/resource/img/arrow-restart.svg" /> <span>Restart</span>
+							</button>
+						</div>
+						
+						<div class="container" *ngIf="showArticuBalMindsetStep2" >
+							<div class="form-check form-check-inline">
+								<div class="pref-selector"
+									*ngFor="let chosen of articuBalMindQTwo">
+									<label class="pref-card"> 
+										<input
+										(click)="nextStep(11, chosen.key, balancedQuestions.mindset[0].questions[0].type, balancedQuestions.parent, chosen.type)"
+										type="radio" name="{{chosen.type}}"
+										value="{{chosen.key}}"> 
+										<video loop autoplay muted width="100%">
+											<source src="{{chosen.image_url}}" type="video/mp4" />
+										</video>
+									</label>
+								</div>
+							</div>
+						
+							<button class="left-arrow-container btn" (click)="prevStep(11, list, balancedQuestions.mindset[0].questions[0].type, balancedQuestions.parent)">
+								<img src="assets/resource/img/arrow-back.svg" /> <span>back</span>
+							</button>
+
+							<button class="restart-arrow-container btn" (click)="restartExp()">
+								<img src="assets/resource/img/arrow-restart.svg" /> <span>Restart</span>
+							</button>
+						</div>
+						
+						<div class="container" *ngIf="showArticuBalMindsetStep3" >
+							<div class="form-check form-check-inline">
+								<div class="pref-selector"
+									*ngFor="let chosen of articuBalMindQThree">
+									<label class="pref-card"> <input
+										(click)="nextStep(12, chosen.key, balancedQuestions.mindset[0].questions[0].type, balancedQuestions.parent, chosen.type)"
+										type="radio" name="{{chosen.type}}" 
+										value="{{chosen.key}}"> <img src="{{chosen.image_url}}" />
+									</label>
+								</div>
+							</div>
+						
+							<button class="left-arrow-container btn" (click)="prevStep(12, list, balancedQuestions.mindset[0].questions[0].type, balancedQuestions.parent)">
+								<img src="assets/resource/img/arrow-back.svg" /> <span>back</span>
+							</button>
+
+							<button class="restart-arrow-container btn" (click)="restartExp()">
+								<img src="assets/resource/img/arrow-restart.svg" /> <span>Restart</span>
+							</button>
+						</div>
+						
+						<div class="container" *ngIf="showArticuBalMindsetStep4" >
+							<div class="form-check form-check-inline">
+								<div class="pref-selector"
+									*ngFor="let chosen of articuBalMindQFour">
+									<label class="pref-card"> <input
+										(click)="nextStep(13, chosen.key, balancedQuestions.mindset[0].questions[0].type, balancedQuestions.parent, chosen.type)"
+										type="radio" name="{{chosen.type}}"
+										value="{{chosen.key}}"> 
+										<img src="{{chosen.image_url}}" />
+									</label>
+								</div>
+							</div>
+						
+							<button class="left-arrow-container btn" (click)="prevStep(13, list, balancedQuestions.mindset[0].questions[0].type, balancedQuestions.parent)">
+								<img src="assets/resource/img/arrow-back.svg" /> <span>back</span>
+							</button>
+
+							<button class="restart-arrow-container btn" (click)="restartExp()">
+								<img src="assets/resource/img/arrow-restart.svg" /> <span>Restart</span>
+							</button>
+						</div>
+					</div>				
+				</div>
+			</section>
+		 
+			<section *ngIf="articuGivingQuestions">
+				<div class="type-container" *ngFor="let givingQuestions of articulation[0].selection.giving[0].questions" >
+					<h2 *ngIf="articuGiveMainTitle">{{givingQuestions.title}}</h2>
+					<h2 *ngIf="articuGiveMindsetTitle">{{givingQuestions.mindset[0].questions[0].title}}</h2>
+					<div class="container" *ngIf="articuGiveQuestions" >
+						<div class="form-check form-check-inline">
+							<div class="pref-selector"
+								*ngFor="let chosen of articuGiveQ">
+								<label class="pref-card"> <input
+									(click)="nextStep(6, chosen.key, givingQuestions.type, givingQuestions.parent)"
+									type="radio" name="chosen.type" 
+									value="{{chosen.key}}"> 
+									<img src="{{chosen.image_url}}" />
+								</label>
+							</div>
+						</div>
+
+						<button class="left-arrow-container btn" (click)="prevStep(6, list, givingQuestions.type, givingQuestions.parent)">
+							<img src="assets/resource/img/arrow-back.svg" /> <span>back</span>
+						</button>
+
+						<button class="restart-arrow-container btn" (click)="restartExp()">
+							<img src="assets/resource/img/arrow-restart.svg" /> <span>Restart</span>
+						</button>
+					</div>
+					
+					<div class="container" *ngIf="articuGiveTQuestions" >
+						<div class="form-check form-check-inline">
+							<div class="pref-selector"
+								*ngFor="let chosen of articuGiveQEdt">
+								<label class="pref-card"> <input
+									(click)="nextStep(9, chosen.key, givingQuestions.type, givingQuestions.parent, chosen.key)"
+									type="radio" name="chosen.type" 
+									value="{{chosen.key}}"> <img src="{{chosen.image_url}}" />
+								</label>
+							</div>
+						</div>
+
+						<button class="left-arrow-container btn" (click)="prevStep(9, list, givingQuestions.type, givingQuestions.parent)">
+							<img src="assets/resource/img/arrow-back.svg" /> <span>back</span>
+						</button>
+
+						<button class="restart-arrow-container btn" (click)="restartExp()">
+							<img src="assets/resource/img/arrow-restart.svg" /> <span>Restart</span>
+						</button>
+					</div>
+					
+					<div class="container" *ngIf="articuGivePQuestions" >
+						<div class="form-check form-check-inline">
+							<div class="pref-selector"
+								*ngFor="let chosen of articuGiveQEdp">
+								<label class="pref-card"> <input
+									(click)="nextStep(9, chosen.key, givingQuestions.type, givingQuestions.parent, chosen.key)"
+									type="radio" name="chosen.type" 
+									value="{{chosen.key}}"> <img src="{{chosen.image_url}}" />
+								</label>
+							</div>
+						</div>
+
+						<button class="left-arrow-container btn" (click)="prevStep(9, list, givingQuestions.type, givingQuestions.parent)">
+							<img src="assets/resource/img/arrow-back.svg" /> <span>back</span>
+						</button>
+
+						<button class="restart-arrow-container btn" (click)="restartExp()">
+							<img src="assets/resource/img/arrow-restart.svg" /> <span>Restart</span>
+						</button>
+					</div>
+					
+					<div *ngIf="articuGiveMindsetQuestions" >
+						<div class="container" *ngIf="showArticuGiveMindsetStep1" >
+							<div class="form-check form-check-inline">
+								<div class="pref-selector"
+									*ngFor="let chosen of articuGiveMindQOne">
+									<label class="pref-card"> <input
+										(click)="nextStep(10, chosen.key, givingQuestions.mindset[0].questions[0].type, givingQuestions.parent, chosen.type)"
+										type="radio" name="{{chosen.type}}" 
+										value="{{chosen.key}}"> <img src="{{chosen.image_url}}" />
+									</label>
+								</div>
+							</div>
+						
+							<button class="left-arrow-container btn" (click)="prevStep(10, list, givingQuestions.mindset[0].questions[0].type, givingQuestions.parent)">
+								<img src="assets/resource/img/arrow-back.svg" /> <span>back</span>
+							</button>
+
+							<button class="restart-arrow-container btn" (click)="restartExp()">
+								<img src="assets/resource/img/arrow-restart.svg" /> <span>Restart</span>
+							</button>
+						</div>
+						
+						<div class="container" *ngIf="showArticuGiveMindsetStep2" >
+							<div class="form-check form-check-inline">
+								<div class="pref-selector"
+									*ngFor="let chosen of articuGiveMindQTwo">
+									<label class="pref-card"> <input
+										(click)="nextStep(11, chosen.key, givingQuestions.mindset[0].questions[0].type, givingQuestions.parent, chosen.type)"
+										type="radio" name="{{chosen.type}}" 
+										value="{{chosen.key}}"> 
+										<video loop autoplay muted width="100%">
+											<source src="{{chosen.image_url}}" type="video/mp4" />
+										</video>
+									</label>
+								</div>
+							</div>
+						
+							<button class="left-arrow-container btn" (click)="prevStep(11, list, givingQuestions.mindset[0].questions[0].type, givingQuestions.parent)">
+								<img src="assets/resource/img/arrow-back.svg" /> <span>back</span>
+							</button>
+
+							<button class="restart-arrow-container btn" (click)="restartExp()">
+								<img src="assets/resource/img/arrow-restart.svg" /> <span>Restart</span>
+							</button>
+						</div>
+						
+						<div class="container" *ngIf="showArticuGiveMindsetStep3" >
+							<div class="form-check form-check-inline">
+								<div class="pref-selector"
+									*ngFor="let chosen of articuGiveMindQThree">
+									<label class="pref-card"> <input
+										(click)="nextStep(12, chosen.key, givingQuestions.mindset[0].questions[0].type, givingQuestions.parent, chosen.type)"
+										type="radio" name="{{chosen.type}}" 
+										value="{{chosen.key}}"> <img src="{{chosen.image_url}}" />
+									</label>
+								</div>
+							</div>
+						
+							<button class="left-arrow-container btn" (click)="prevStep(12, list, givingQuestions.mindset[0].questions[0].type, givingQuestions.parent)">
+								<img src="assets/resource/img/arrow-back.svg" /> <span>back</span>
+							</button>
+
+							<button class="restart-arrow-container btn" (click)="restartExp()">
+								<img src="assets/resource/img/arrow-restart.svg" /> <span>Restart</span>
+							</button>
+						</div>
+						
+						<div class="container" *ngIf="showArticuGiveMindsetStep4" >
+							<div class="form-check form-check-inline">
+								<div class="pref-selector"
+									*ngFor="let chosen of articuGiveMindQFour">
+									<label class="pref-card"> <input
+										(click)="nextStep(13, chosen.key, givingQuestions.mindset[0].questions[0].type, givingQuestions.parent, chosen.type)"
+										type="radio" name="{{chosen.type}}" 
+										value="{{chosen.key}}"> 
+										<img src="{{chosen.image_url}}" />
+									</label>
+								</div>
+							</div>
+						
+							<button class="left-arrow-container btn" (click)="prevStep(13, list, givingQuestions.mindset[0].questions[0].type, givingQuestions.parent)">
+								<img src="assets/resource/img/arrow-back.svg" /> <span>back</span>
+							</button>
+
+							<button class="restart-arrow-container btn" (click)="restartExp()">
+								<img src="assets/resource/img/arrow-restart.svg" /> <span>Restart</span>
+							</button>
+						</div>
+					</div>					
+				</div>
+			</section>
+		   </div>
+
+
+
+		<div *ngIf="showFunc" >
+			<section  *ngIf="functionQuestions">
+			   <div class="type-container" *ngFor="let funcQuestions of function[0].questions" >
+			    	<h2>{{funcQuestions.title}}</h2>
+					<div class="container" *ngIf="showFuncStep1" >
+						<div class="form-check form-check-inline">
+							<div class="pref-selector"
+								*ngFor="let chosen of funcQOne">
+								<label class="pref-card">
+									<input
+									(click)="nextStep(1,chosen.key, funcQuestions.type, null, chosen.type)"
+									type="radio" name="{{chosen.type}}" 
+									value="{{chosen.key}}"> <img src="{{chosen.image_url}}" />
+								</label>
+							</div>
+						</div>
+
+						<button class="left-arrow-container btn" (click)="prevStep(1, list, funcQuestions.type)">
+							<img src="assets/resource/img/arrow-back.svg" /> <span>back</span>
+						</button>
+
+						<button class="restart-arrow-container btn" (click)="restartExp()">
+								<img src="assets/resource/img/arrow-restart.svg" /> <span>Restart</span>
+							</button>
+					</div>
+					<div class="container" *ngIf="showFuncStep2" >
+						<div class="form-check form-check-inline">
+							<div class="pref-selector"
+								*ngFor="let chosen of funcQTwo">
+								<label class="pref-card">
+									<input
+									(click)="nextStep(2,chosen.key, funcQuestions.type, null, chosen.type)"
+									type="radio" name="{{chosen.type}}" 
+									value="{{chosen.key}}">
+									<img src="{{chosen.image_url}}" />
+								</label>
+							</div>
+						</div>
+
+						<button class="left-arrow-container btn" (click)="prevStep(2, list, funcQuestions.type)">
+							<img src="assets/resource/img/arrow-back.svg" /> <span>back</span>
+						</button>
+
+						<button class="restart-arrow-container btn" (click)="restartExp()">
+								<img src="assets/resource/img/arrow-restart.svg" /> <span>Restart</span>
+							</button>
+
+					</div>
+					<div class="container" *ngIf="showFuncStep3" >
+						<div class="form-check form-check-inline">
+							<div class="pref-selector"
+								*ngFor="let chosen of funcQThree">
+								<label class="pref-card">
+									<input
+										(click)="nextStep(3,chosen.key, funcQuestions.type, null, chosen.type)"
+										type="radio" name="{{chosen.type}}" 
+										value="{{chosen.key}}"
+									> 
+									<img src="{{chosen.image_url}}" />
+								</label>
+							</div>
+						</div>
+
+						<button class="left-arrow-container btn" (click)="prevStep(3, list, funcQuestions.type)">
+							<img src="assets/resource/img/arrow-back.svg" /> <span>back</span>
+						</button>
+
+						<button class="restart-arrow-container btn" (click)="restartExp()">
+								<img src="assets/resource/img/arrow-restart.svg" /> <span>Restart</span>
+							</button>
+
+					</div>
+					<div class="container" *ngIf="showFuncStep4" >
+						<div class="form-check form-check-inline">
+							<div class="pref-selector"
+								*ngFor="let chosen of funcQFour">
+								<label class="pref-card">
+									<input
+									(click)="nextStep(4,chosen.key, funcQuestions.type, null, chosen.type)"
+									type="radio" 
+									name="{{chosen.type}}"
+									value="{{chosen.key}}"
+									> 
+									<img src="{{chosen.image_url}}" />
+								</label>
+							</div>
+						</div>
+
+						<button class="left-arrow-container" (click)="prevStep(4, list, funcQuestions.type)">
+							<img src="assets/resource/img/arrow-back.svg" /> <span>back</span>
+						</button>
+
+						<button class="restart-arrow-container btn" (click)="restartExp()">
+								<img src="assets/resource/img/arrow-restart.svg" /> <span>Restart</span>
+							</button>
+					</div>
+			  </div>
+			</section>
+			<section *ngIf="funcBalancedQuestions">
+				<div class="type-container" *ngFor="let balancedQuestions of function[0].selection.balanced[0].questions"  >	
+					<h2>{{balancedQuestions.mindset[0].questions[0].title}}</h2>			
+					<div *ngIf="funcBalMindsetQuestions" >
+						<div class="container" *ngIf="showFuncBalMindsetStep1" >
+							<div class="form-check form-check-inline">
+								<div class="pref-selector"
+									*ngFor="let chosen of balancedQuestions.mindset[0].questions[0].question_one">
+									<label class="pref-card"> 
+										<input
+										(click)="nextStep(10, chosen.key, balancedQuestions.mindset[0].questions[0].type, balancedQuestions.parent, chosen.type)"
+										type="radio" name="{{chosen.type}}" 
+										value="{{chosen.key}}"> 
+										<img src="{{chosen.image_url}}" />
+									</label>
+								</div>
+							</div>
+						
+							<button class="left-arrow-container btn" (click)="prevStep(10, list, balancedQuestions.mindset[0].questions[0].type, balancedQuestions.parent)">
+								<img src="assets/resource/img/arrow-back.svg" /> <span>back</span>
+							</button>
+
+							<button class="restart-arrow-container btn" (click)="restartExp()">
+								<img src="assets/resource/img/arrow-restart.svg" /> <span>Restart</span>
+							</button>
+
+						</div>
+						<div class="container" *ngIf="showFuncBalMindsetStep2" >
+							<div class="form-check form-check-inline">
+								<div class="pref-selector"
+									*ngFor="let chosen of balancedQuestions.mindset[0].questions[0].question_two">
+									<label class="pref-card"> 
+										<input
+										(click)="nextStep(11, chosen.key, balancedQuestions.mindset[0].questions[0].type, balancedQuestions.parent, chosen.type)"
+										type="radio" 
+										name="{{chosen.type}}" 
+										value="{{chosen.key}}"> 
+										<video loop autoplay muted width="100%">
+											<source src="{{chosen.image_url}}" type="video/mp4" />
+										</video>
+									</label>
+								</div>
+							</div>
+						
+							<button class="left-arrow-container btn" (click)="prevStep(11, list, balancedQuestions.mindset[0].questions[0].type, balancedQuestions.parent)">
+								<img src="assets/resource/img/arrow-back.svg" /> <span>back</span>
+							</button>
+
+							<button class="restart-arrow-container btn" (click)="restartExp()">
+								<img src="assets/resource/img/arrow-restart.svg" /> <span>Restart</span>
+							</button>
+						</div>
+						<div class="container" *ngIf="showFuncBalMindsetStep3" >
+							<div class="form-check form-check-inline">
+								<div class="pref-selector"
+									*ngFor="let chosen of balancedQuestions.mindset[0].questions[0].question_three">
+									<label class="pref-card"> <input
+										(click)="nextStep(12, chosen.key, balancedQuestions.mindset[0].questions[0].type, balancedQuestions.parent, chosen.type)"
+										type="radio" name="{{chosen.type}}" 
+										value="{{chosen.key}}"> <img src="{{chosen.image_url}}" />
+									</label>
+								</div>
+							</div>
+						
+							<button class="left-arrow-container btn" (click)="prevStep(12, list, balancedQuestions.mindset[0].questions[0].type, balancedQuestions.parent)">
+								<img src="assets/resource/img/arrow-back.svg" /> <span>back</span>
+							</button>
+
+							<button class="restart-arrow-container btn" (click)="restartExp()">
+								<img src="assets/resource/img/arrow-restart.svg" /> <span>Restart</span>
+							</button>
+						</div>
+						<div class="container" *ngIf="showFuncBalMindsetStep4" >
+							<div class="form-check form-check-inline">
+								<div class="pref-selector"
+									*ngFor="let chosen of balancedQuestions.mindset[0].questions[0].question_four">
+									<label class="pref-card"> <input
+										(click)="nextStep(13,chosen.key, balancedQuestions.mindset[0].questions[0].type, balancedQuestions.parent, chosen.type)"
+										type="radio" name="{{chosen.type}}" 
+										value="{{chosen.key}}"> 
+										<img src="{{chosen.image_url}}" />
+									</label>
+								</div>
+							</div>
+						
+							<button class="left-arrow-container btn" (click)="prevStep(13, list, balancedQuestions.mindset[0].questions[0].type, balancedQuestions.parent)">
+								<img src="assets/resource/img/arrow-back.svg" /> <span>back</span>
+							</button>
+
+							<button class="restart-arrow-container btn" (click)="restartExp()">
+								<img src="assets/resource/img/arrow-restart.svg" /> <span>Restart</span>
+							</button>
+						</div>
+					</div>
+				</div>
+		   </section>
+			<section  *ngIf="funcGivingQuestions">
+				<div class="type-container" *ngFor="let givingQuestions of function[0].selection.giving[0].questions" >
+					<h2 *ngIf="funcGiveMainTitle">{{givingQuestions.title}}</h2>
+					<h2 *ngIf="funcGiveMindsetTitle">{{givingQuestions.mindset[0].questions[0].title}}</h2>
+					<div class="container" *ngIf="funcGiveQuestions" >
+						<div class="form-check form-check-inline">
+							<div class="pref-selector"
+								*ngFor="let chosen of funcGiveQ">
+								<label class="pref-card"> <input
+									(click)="nextStep(6,chosen.key, givingQuestions.type, givingQuestions.parent)"
+									type="radio" name="chosen.type" 
+									value="{{chosen.key}}"> <img
+									src="{{chosen.image_url}}">
+								</label>
+							</div>
+						</div>
+
+						<button class="left-arrow-container btn" (click)="prevStep(6, list, givingQuestions.type, givingQuestions.parent)">
+							<img src="assets/resource/img/arrow-back.svg" /> <span>back</span>
+						</button>
+
+						<button class="restart-arrow-container btn" (click)="restartExp()">
+								<img src="assets/resource/img/arrow-restart.svg" /> <span>Restart</span>
+							</button>
+					</div>
+					<div class="container" *ngIf="funcGiveTQuestions" >
+						<div class="form-check form-check-inline">
+							<div class="pref-selector"
+								*ngFor="let chosen of funcGiveQEdt">
+								<label class="pref-card"> 
+									<input
+									(click)="nextStep(9,chosen.key, givingQuestions.type, givingQuestions.parent, chosen.key)"
+									type="radio" name="{{chosen.type}}" 
+									value="{{chosen.key}}"> <img
+									src="{{chosen.image_url}}">
+								</label>
+							</div>
+						</div>
+
+						<button class="left-arrow-container btn" (click)="prevStep(9, list, givingQuestions.type, givingQuestions.parent)">
+							<img src="assets/resource/img/arrow-back.svg" /> <span>back</span>
+						</button>
+
+						<button class="restart-arrow-container btn" (click)="restartExp()">
+								<img src="assets/resource/img/arrow-restart.svg" /> <span>Restart</span>
+							</button>
+					</div>
+					<div class="container" *ngIf="funcGivePQuestions" >
+						<div class="form-check form-check-inline">
+							<div class="pref-selector"
+								*ngFor="let chosen of funcGiveQEdp">
+								<label class="pref-card"> <input
+									(click)="nextStep(9, chosen.key, givingQuestions.type, givingQuestions.parent, chosen.key)"
+									type="radio" name="chosen.type"
+									value="{{chosen.key}}"> <img
+									src="{{chosen.image_url}}">
+								</label>
+							</div>
+						</div>
+
+						<button class="left-arrow-container btn" (click)="prevStep(9, list, givingQuestions.type, givingQuestions.parent)">
+							<img src="assets/resource/img/arrow-back.svg" /> <span>back</span>
+						</button>
+
+						<button class="restart-arrow-container btn" (click)="restartExp()">
+								<img src="assets/resource/img/arrow-restart.svg" /> <span>Restart</span>
+							</button>
+					</div>
+					<div *ngIf="funcGiveMindsetQuestions" >
+						<div class="container" *ngIf="showFuncGiveMindsetStep1" >
+							<div class="form-check form-check-inline">
+								<div class="pref-selector"
+									*ngFor="let chosen of funcGiveMindQOne">
+									<label class="pref-card">
+									<input
+										(click)="nextStep(10, chosen.key, givingQuestions.mindset[0].questions[0].type, givingQuestions.parent, chosen.type)"
+										type="radio" name="{{chosen.type}}" 
+										value="{{chosen.key}}"> <img src="{{chosen.image_url}}" />
+									</label>
+								</div>
+							</div>
+						
+							<button class="left-arrow-container btn" (click)="prevStep(10, list, givingQuestions.mindset[0].questions[0].type, givingQuestions.parent)">
+								<img src="assets/resource/img/arrow-back.svg" /> <span>back</span>
+							</button>
+
+							<button class="restart-arrow-container btn" (click)="restartExp()">
+								<img src="assets/resource/img/arrow-restart.svg" /> <span>Restart</span>
+							</button>
+						</div>
+						
+						<div class="container" *ngIf="showFuncGiveMindsetStep2" >
+							<div class="form-check form-check-inline">
+								<div class="pref-selector"
+									*ngFor="let chosen of funcGiveMindQTwo">
+									<label class="pref-card"> 
+									<input
+										(click)="nextStep(11, chosen.key, givingQuestions.mindset[0].questions[0].type, givingQuestions.parent, chosen.type)"
+										type="radio" name="{{chosen.type}}" 
+										value="{{chosen.key}}"> 
+										<video loop autoplay muted width="100%">
+											<source src="{{chosen.image_url}}" type="video/mp4" />
+										</video>
+									</label>
+								</div>
+							</div>
+						
+							<button class="left-arrow-container btn" (click)="prevStep(11, list, givingQuestions.mindset[0].questions[0].type, givingQuestions.parent)">
+								<img src="assets/resource/img/arrow-back.svg" /> <span>back</span>
+							</button>
+
+							<button class="restart-arrow-container btn" (click)="restartExp()">
+								<img src="assets/resource/img/arrow-restart.svg" /> <span>Restart</span>
+							</button>
+						</div>
+						
+						<div class="container" *ngIf="showFuncGiveMindsetStep3" >
+							<div class="form-check form-check-inline">
+								<div class="pref-selector"
+									*ngFor="let chosen of funcGiveMindQThree">
+									<label class="pref-card"> <input
+										(click)="nextStep(12, chosen.key, givingQuestions.mindset[0].questions[0].type, givingQuestions.parent, chosen.type)"
+										type="radio" name="{{chosen.type}}" 
+										value="{{chosen.key}}"> 
+										<img src="{{chosen.image_url}}" />
+									</label>
+								</div>
+							</div>
+						
+							<button class="left-arrow-container btn" (click)="prevStep(12, list, givingQuestions.mindset[0].questions[0].type, givingQuestions.parent)">
+								<img src="assets/resource/img/arrow-back.svg" /> <span>back</span>
+							</button>
+
+							<button class="restart-arrow-container btn" (click)="restartExp()">
+								<img src="assets/resource/img/arrow-restart.svg" /> <span>Restart</span>
+							</button>
+						</div>
+						
+						<div class="container" *ngIf="showFuncGiveMindsetStep4" >
+							<div class="form-check form-check-inline">
+								<div class="pref-selector"
+									*ngFor="let chosen of funcGiveMindQFour">
+									<label class="pref-card"> <input
+										(click)="nextStep(13, chosen.key, givingQuestions.mindset[0].questions[0].type, givingQuestions.parent, chosen.type)"
+										type="radio" name="{{chosen.type}}" 
+										value="{{chosen.key}}"> 
+										<img src="{{chosen.image_url}}" />
+									</label>
+								</div>
+							</div>
+						
+							<button class="left-arrow-container btn" (click)="prevStep(13, list, givingQuestions.mindset[0].questions[0].type, givingQuestions.parent)">
+								<img src="assets/resource/img/arrow-back.svg" /> <span>back</span>
+							</button>
+
+							<button class="restart-arrow-container btn" (click)="restartExp()">
+								<img src="assets/resource/img/arrow-restart.svg" /> <span>Restart</span>
+							</button>
+						</div>
+					</div>		
+				</div>
+			</section>
+		</div>
+
+
+
+		<div *ngIf="loadResults" class="load-container" >
+			<h3>We're finding your<br />perfect match...</h3>
+			<img src={{gifUrl}}/>
+			<h6>In the next step, you'll be able to choose two samples from three matches, delivered to your door.</h6>
+		</div>
+
+
+		<div *ngIf="showResults" class="results-container" >
+			<div *ngIf="primaryResults" class="container primary">
+				<h3>You are a</h3>
+				<h1 >{{profileType}}</h1> 
+				<h3>{{profileSecType}}</h3>
+				<h6 [innerHtml]="profileDesc"></h6> 
+				<h6 [innerHtml]="profileDescTwo"></h6> 
+				<button (click)="showFinalResults()" type="button" class="btn btn-outline-primary">Reveal my fragrance</button>
+			</div>
+		</div>
+		</form>
+	</div>
+
+<!-- <script async src="https://www.googletagmanager.com/gtag/js?id=UA-142414119-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-142414119-1');
+</script> -->
+
+<!-- Javascript Files -->
+<!--<script type="text/javascript" src="resource/js/angular_v1.6.0.js"></script>
+<script type="text/javascript" src="resource/js/angular-sanitize.min.js"></script> -->
+
+<!-- <script src="//code.angularjs.org/1.6.0/angular.min.js"></script>
+<script src="//code.angularjs.org/1.6.0/angular-sanitize.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.0/angular-animate.js"></script>
+<script type="text/javascript" src="resource/js/underscore.js"></script>
+<script type="text/javascript" src="resource/js/analytics.js"></script>
+<script type="text/javascript"src="resource/js/jquery-3.2.1.slim.min.js"></script>
+<script type="text/javascript" src="resource/js/popper.min.js"></script>
+<script type="text/javascript" src="resource/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="resource/js/form.js"></script> -->
+

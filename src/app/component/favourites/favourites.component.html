@@ -1,0 +1,100 @@
+<div class="my-account">
+       <h2>{{'favourites.favourites' | translate}}</h2>
+       <p>
+        {{'favourites.favouritesNotYetAdded' | translate}}
+       </p>
+       <div *ngIf="!pageLoad">
+        <section *ngIf="favouriteList">
+       <div class="favourite" *ngIf="favouriteList.length !=0;else noFavourites">
+              <h3 class="customer">{{'favourites.myFavourites' | translate}}</h3>
+              <div class="row">
+              <div class="text-center col-sm-3 favourite_product" *ngFor="let product of favouriteList">
+                     <div (click)="onShowProduct($event,product)">
+                     <a routerLink="{{getRouterPath(product)}}" routerLinkActive="active">
+             
+                <picture>  
+                      
+                  <source  srcset="{{product.amplienceImageName}}.webp?$mobMediumImg$ 1x, 
+                   {{product.amplienceImageName}}.webp?$mobMediumImgRetina$ 2x"  media="(max-width: 768px)"
+                    type="image/webp"
+                   />
+                 <source  srcset="{{product.amplienceImageName}}.webp?$smallImg$ 1x, 
+                         {{product.amplienceImageName}}.webp?$smallImgRetina$ 2x"  media="(min-width: 769px)"
+                   type="image/webp"
+                 />
+                 <img
+                   src="{{product.amplienceImageName}}?"
+                   srcset="{{product.amplienceImageName}}?$mobMediumImg$ 1x,
+                           {{product.amplienceImageName}}?$smallImg$ 2x"
+                   alt="{{product.productDisplayName}}"
+                 />
+               </picture>
+
+
+                     </a>
+                     <p class="imgText"><a [innerHtml]="product.productDisplayName"></a></p>
+                     <p></p>
+                     <div class="price-format pricePoint text-center" *ngIf="product.stock">
+                            <div
+                              *ngIf="
+                                product.stock.stockLevelStatus != 'outOfStock';
+                                else outOfStock
+                              "
+                            >
+                              <span *ngIf="!product.originalPrice">{{
+                                product.price ? product.price.formattedValue : "loading"
+                              }}</span>
+                              <span
+                                class="price-format-discount pricePoint-discount"
+                                *ngIf="product.originalPrice"
+                              >
+                                <del class="price-format-discount-retail-price">{{
+                                  product.originalPrice
+                                }}</del>
+                                &nbsp;
+                                <span class="ds-price" >{{
+                                  product.price ? product.price.formattedValue : "loading"
+                                }}</span>
+                              </span>
+                            </div>
+                            <ng-template #outOfStock>
+                              <div class="product_avial">
+                                <span>
+                                  {{'quickViewData.outOfStk' | translate}}
+                                </span>
+                              </div>
+                            </ng-template>
+                          </div>
+                          <div *ngIf="isocode=='de'"  class="fav-de-base-price">
+                            <span class="product-base-price" *ngIf="product.basePriceForProduct" [innerHtml]="product.basePriceForProduct">
+                            </span>
+                          </div>
+
+                     </div>
+                     <div *ngIf="product.stock ;else outOfStock">
+                       <div *ngIf="product.price" >
+                          <button 
+                                class="addToCartBtn"  
+                                *ngIf="product.stock.stockLevelStatus !='outOfStock' ;else outOfStock" 
+                                (click)="addToBasket(product)"
+                                >{{'favourites.addToBasket' | translate}}<span></span>
+                            </button>
+                          </div>
+                     </div>
+                   
+                     <ng-template #outOfStock>
+                        <span class="product_avial">
+                          {{'quickViewData.outOfStk' | translate}}
+                        </span>  
+                     </ng-template>
+                     
+                     <a class="removeProduct" (click)="removeFromWhislist(product)">{{'favourites.removeThisProduct' | translate}}</a>
+               </div>
+               </div>
+       </div> 
+       <ng-template #noFavourites>
+         <p class="no_favrites">No favourites selected</p>
+       </ng-template>
+      </section>
+      </div>
+</div>             

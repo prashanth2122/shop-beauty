@@ -1,0 +1,53 @@
+<section class="page-unavailable">
+        <div class="container">
+          <div class="rowComponents">
+          <aside class="col-sm-3 hidden-xs account page-404-links"> 
+          <h3 class="facet_header">{{'notFoundPage.Search' | translate}}</h3>
+         <ul>
+           <li><a routerLink="/store/about-us"   routerLinkActive="active" (click)="onRouteTo($event,'/store/about-us')" >{{'notFoundPage.AboutUs' | translate}}</a></li>
+           <li><a routerLink="/store/company/stores" routerLinkActive="active" (click)="onRouteTo($event,'/store/about-us')">{{'notFoundPage.mbStores' | translate}}</a></li>
+           <li><a routerLink="/store/contact-us" routerLinkActive="active" (click)="onRouteTo($event,'/store/about-us')">{{'notFoundPage.contactUs' | translate}}</a></li>	
+             
+           <li> <a routerLink="/store/delivery" routerLinkActive="active" (click)="onRouteTo($event,'/store/about-us')">{{'notFoundPage.delivery' | translate}}</a></li>
+           <li><a routerLink="/store/privacy-policy" routerLinkActive="active" (click)="onRouteTo($event,'/store/about-us')">{{'notFoundPage.privacyPolicy' | translate}}</a></li>
+           <li><a routerLink="/store/terms-conditions" routerLinkActive="active" (click)="onRouteTo($event,'/store/about-us')">{{'notFoundPage.t&c' | translate}}</a></li>
+           <li><a routerLink="/store/faqs" routerLinkActive="active" (click)="onRouteTo($event,'/store/about-us')">{{'notFoundPage.faqs' | translate}}</a></li>
+           <li><a routerLink="/store/sitemap" routerLinkActive="active" (click)="onRouteTo($event,'/store/about-us')">{{'notFoundPage.siteMap' | translate}}</a></li>		
+         </ul>
+         </aside>
+            <div class=" col-sm-9 rightColumn" >
+                <div>
+         <div style="float:right"></div><br>
+         <div><b>{{'notFoundPage.ohDearieMe' | translate}}</b></div><br>
+         <div>
+                <p>{{'notFoundPage.pageNotExsist' | translate}}</p><br>
+              <p>{{'notFoundPage.correctTheURL' | translate}}
+                  <u>
+                    <a  
+                      routerLink="/store/index"  
+                      routerLinkActive="active" 
+                      (click)="onRouteTo($event,'/store/index')"
+                      >
+                      {{'notFoundPage.homeLink' | translate}}
+                    </a>
+                 </u>
+                </p>
+                <br>
+                <p>
+                  {{'notFoundPage.mbSupport' | translate}} 
+                    <u><a href="mailto:customerservice@moltonbrown.com?subject=UK error page - please help">
+                      {{'notFoundPage.mbemail' | translate}}
+                    </a>
+                </u> 
+                {{'notFoundPage.giveUsCall' | translate}}
+                <br>
+            </p>
+         </div>
+     <br>
+    
+       </div>
+          </div>
+          </div>
+        </div>
+      </section>
+      

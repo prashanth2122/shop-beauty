@@ -1,0 +1,249 @@
+@import "../../../variable";
+.registration_form{
+    @media screen and(max-width:$screen-sm){
+        border:none;
+    }
+    .required_text{
+        font-size:12px;
+    }
+    h2 {
+        font-weight: 700;
+        font-size: 14px;padding-top: 15px;
+    }
+    .col-xs-12{
+        width: 100%;
+        margin-bottom: 5px;
+        padding: 10px 0 0 0;
+    }
+}
+
+.redcolor {
+    color: $err-color;
+}
+.register_label{
+    float:right;
+    padding-top: 5px;
+    color: #535353;
+    font-weight:normal;
+    font-size:12px;
+    @media screen and(max-width:767px) {
+        float: left;
+        padding-bottom: 4px;
+    }
+}
+.no-padding{
+    padding:0;
+}
+.guest-list {
+    font-size: 12px;
+}
+.checkboxAlignBox{
+    @media screen and (max-width:$screen-sm){
+        width:15%;float:left;
+    }
+}
+.checkboxAlign{
+    line-height: 12px;
+    padding-left: 0px;
+    @media screen and (max-width:$screen-sm){
+        width:80%;
+    }
+}
+.gender{
+    line-height: 13px;
+    margin-left: 5px;
+    margin-right: 15px;
+}
+.genderAlign{
+    margin-top: 8px;
+    // padding-left: 0px;
+}
+.login_fields{
+    width: 250px;
+    position: relative;
+    padding: 0!important;
+    display: inline-block;
+    input,select{
+        width:inherit;
+        width: 250px!important;
+        height: 25px!important;
+        padding: 0 5px!important;
+        &.not-valid{
+            background-position: 95% 2px;
+        }
+    }
+}
+
+.register-in {
+    padding: 3% 0 0 0;
+    margin: 10px 25px;
+@media screen and(max-width:$screen-sm){
+    display: block;
+    overflow: hidden;
+    padding: 15px;
+    margin: 0;
+    font-size: 15px;
+    font-weight: 700;
+    color: #000;
+}
+}
+
+
+.overlay-bg-show{
+    display:block;
+}
+.overlay-bg-hide{
+    display:none;
+}
+.update_btn{
+    position: absolute;
+    bottom: 12px;
+}
+input[type="text"].form-control,
+input[type="email"].form-control,
+input[type="password"].form-control,select {
+&.not-valid{
+    background-position:95% 2px !important;
+    background-size:4px !important;
+}
+}
+
+.expressCheckoutOptions{
+    @media screen and(max-width:768px) {
+        padding: 0px 15px!important;
+    }
+    p{
+    color: $primary-color !important;
+    line-height: 20px;
+    font-size: 13px!important;
+    @media screen and(max-width:768px) {
+        font-size: 12px!important;
+    }
+   }
+}
+.shipping_select{
+
+    height: 25px;
+    width:250px;
+}
+.login_fields .contextual-help ~ .not-valid, .login_fields .contextual-help ~ .valid {
+    background-position: 91% 4px !important;
+}
+.find-address{
+    span{
+        cursor: pointer;
+        color:$mb-white;
+    }
+}
+.sbmt-block{
+    padding: 5px;
+    display: flex;
+    justify-content: flex-end;
+    @media screen and(max-width:768px) {
+        padding-right: 15px;
+        padding-left: 15px;
+    }
+}
+
+.not-valid-postcode{
+    background-image: url(https://www.moltonbrown.co.uk/images/exclamation-symbol.png);
+    background-position: 93% 0px;
+    background-repeat: no-repeat;
+}
+.postcode-status{
+position: absolute;
+bottom: 100%;
+background-color: $mb-error-bg;
+color: $header-color-white;
+padding: 10px;
+left: 6%;
+text-align: center;
+width: 88%;
+z-index: 9;
+&::after{
+    content: "";
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    border: 0;
+    left: 5%;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+    background: $mb-error-bg;
+    bottom: -7px;
+}
+}
+@media screen and(max-width:768px) {
+    .ml-8 {
+        margin-left: 0;
+    }
+    .default-shipping-p{
+        font-size: 12px;
+        padding-bottom: 4px;
+    }
+    .edit-profile form .row {
+        margin-right: 0;
+        margin-left: 0;
+        padding: 0;
+    }
+    .expressCheckoutOptions {
+        padding: 0 15px;
+    }
+}
+.dl-overlay{
+    min-height: 250px;
+    background-color: $mb-white;
+    position: absolute;
+    width: 100%;
+    z-index: 9999;
+    height: 100%;
+    display: none;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    &-hide{
+      opacity: 0;
+      display: none;
+    }
+    &-show{
+      opacity: 1;
+      display: block;
+    }
+    transition: all ease-in 500ms;
+    .b2c-title {
+      position: absolute;
+      top: 5%;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 14px !important;
+      margin: 0 auto;
+      text-align: center;
+      &::before {
+        content: "";
+        background: url("../../../assets/imgs/loading-compass.svg") no-repeat center center;
+        background-size: 20px 20px;
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        transform: translateZ(0) scale(1, 1);
+        -webkit-transform: translateZ(0) scale(1, 1);
+        -ms-transform: translateZ(0) scale(1, 1);
+        transform: translateZ(0) scale(1, 1);
+        -webkit-animation: spin 2.5s linear infinite;
+        animation: spin 2.5s linear infinite;
+        outline: 1px solid transparent;
+    }
+    .loading-txt{
+      float: right !important;
+      padding-left: 5px !important;
+      font-size: 14px !important;
+     padding-top: 2px !important;
+    }
+   }
+  }
+  @media screen and(max-width:$screen-sm){
+    .lookupbtn-mobile{
+        width: 60%;
+    }
+  }

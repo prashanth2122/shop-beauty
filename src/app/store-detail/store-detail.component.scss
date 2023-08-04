@@ -1,0 +1,254 @@
+@import "../../variable";
+.find-store {
+  font-size: 13px;
+  margin-top: 10px;
+  p {
+    margin: 20px 0;
+    line-height: 20px;
+    color: $mb-strap-line-color;
+  }
+  h1 {
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 26px;
+    font-style: normal;
+    color: $mb-header-color;
+    margin:0 0 20px;
+  }
+  input {
+    width: 317px;
+    background: #ecebe5;
+    border: 1px solid $mb-strap-line-color;
+    color: $mb-strap-line-color;
+    height: 32px;
+    font-style: italic;
+    padding: 7px 10px;
+    float: left;
+    font-size: 14px;
+    @media screen and(max-width:768px){
+        width:235px;
+    }
+  }
+  button.findStore {
+    padding: 7px 13px;
+    height: 32px;
+    width: 93px;
+    background-color: #83756b;
+    color: $mb-white;
+    position: relative;
+    text-align: left;
+    font-size: 14px;
+       &::after {
+      content: "";
+      content: "";
+      position: absolute;
+      width: 0;
+      height: 0;
+      border-left: solid 7px #ecebe5;
+      border-bottom: solid 5px transparent;
+      border-top: solid 5px transparent;
+      right: 14px;
+      top: 10px;
+    }
+  }
+  }
+
+.find-store-search {
+    padding: 21px 0px 0;
+    .form-inline {
+         justify-content: start; 
+    }}
+.cc-stores-list-header{
+    float: left;
+    clear: both;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    border-bottom: 1px solid #6c6c6c;
+    .cc-stores-view-nav {
+        float: left;
+        a {
+            float: left;
+            text-decoration: none;
+            font-size: 12px;
+            font-weight: 400;   
+            font-style: normal;
+            color: $primary-color !important;
+            padding: 11px 25px 10px;
+            margin-right: 5px;
+            background-color: #e5e5e5;
+            border-radius: 0 25px 0 0;
+            cursor: pointer;
+            width: auto;
+            height: 33px;
+            line-height: 1;
+            &.selected {
+                background-color: #6c6c6c;
+                color: $mb-white !important;
+            }
+        }
+    }
+}
+.store_view{
+    &-icon{
+        padding: 21px 14px 0 0;
+        float:left;
+        img{
+            padding: 0 0 10px 5px;
+            width:35px;
+        }
+    }
+  &-dt{
+      display: inline;
+        &-info{
+            width: 175px;
+            float: left;
+            margin-top:20px;
+            h4{
+                font-weight: 700;
+                color: $primary-color;
+                font-size: 14px;
+                padding-bottom: 5px;
+            }
+            p {
+                font-size: 12px;
+                line-height: 15px;
+                margin: 0;
+            }
+        }
+        &-contact{
+            width: 40%;
+            float: right;
+            @media screen and(max-width:768px) {
+                width: 100%;
+                float: right;
+                padding-left: 50px;
+                padding-bottom: 20px;
+            }
+            &-mobile{
+                h4{
+                    font-weight: 700;
+                    color: $primary-color;
+                    font-size: 14px;
+                    padding-bottom: 5px;
+                }
+                margin-top: 20px;
+            }
+            &-events{
+                margin-top: 30px;
+                h4{
+                    font-weight: 700;
+                    color: $primary-color;
+                    font-size: 14px;
+                    padding-bottom: 5px;
+                }
+                p{
+                    text-transform: capitalize;
+                }
+            }
+        }
+    }
+ }
+ .open-time {
+    margin-top: 10px;
+    width: 155px;
+    background: #f2f0ef;
+    border-radius: 3px;
+     p {
+        font-size: 12px;
+        line-height: 15px;
+        margin: 0;
+        text-align: center;
+        padding: 5px 0 3px 0;
+    }
+}
+.opening_hours{
+    margin-top: 68px;
+    @media(max-width:$screen-xs){
+        margin-top:24px;
+    }
+    &-list{
+        padding-top:5px;
+        li{
+        color: #585858;
+        font-size: 12px;
+        overflow: hidden;
+        text-transform: capitalize;
+        span.day{
+            float:left;
+        }
+        span.time{
+            float:right;
+        }
+        }
+    }
+}
+a.back-res{
+    position: relative;
+    font-size: 18px;
+    color: $primary-color !important;
+    font-weight: 700;
+    text-decoration: none;
+    padding-left: 16px;
+    display: block;    margin: 15px 0px;
+    text-align: left;
+    &::before{
+        content: "";
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-right: solid 8px $primary-color;
+    border-bottom: solid 6px transparent;
+    border-top: solid 6px transparent;
+    left: 0px;
+    top:7px;
+    }
+}
+
+.store_finder{
+    agm-map {
+        height: 600px;
+      }
+      .gm-style {
+        .gm-style-iw-c{
+        padding:0;
+    
+      }
+      }
+     }
+     .store_form{
+         position: relative;
+         clear:both
+     }
+     .mb-stores{
+        justify-content: space-between;
+        .col-sm-6{
+            max-width: 49%;
+            @media screen and(max-width:768px) {
+                width: 100%;
+                max-width: 100%;
+            }
+        }
+        .store-detail-secton{
+            padding: 0px;
+        }
+    }
+    #storeDateMapView{
+        height: 450px;
+        
+      #map {
+        height: 450px;
+      }
+   }
+ .mb-stores{
+     &.store-detail-view-container{
+         @media (max-width:$screen-sm) {
+             flex-wrap: wrap-reverse;
+         }
+     }
+ }
+ .store-detail-tabs{
+     @media(max-width: $screen-xs){
+         margin-top:12px;
+     }
+ }

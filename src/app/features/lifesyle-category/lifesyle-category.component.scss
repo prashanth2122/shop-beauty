@@ -1,0 +1,24 @@
+@import"../../../variable";
+.mb_page_wrapper {
+    width: 878px;
+    margin: 0 auto;
+    text-align: left;
+}
+#journal-homepage{
+    text-align: center;
+width:878px;
+height:auto;
+}
+@media screen and (max-width:$screen-sm){
+    #journal-homepage{
+    width:100%;
+    height:auto;
+    }
+}
+#featureNavUnderneath {
+    .amp-dc-text {
+        font-size:14px;
+        padding: 15px;
+    }
+
+}

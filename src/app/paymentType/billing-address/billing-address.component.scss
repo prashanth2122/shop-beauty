@@ -1,0 +1,240 @@
+@import"../../../variable";
+.billing_form{
+    
+    .contextual-help{
+        right:31%;
+        top:3px;
+    }
+    .manual_field{
+        .form-group{
+            @media (max-width:$screen-sm) {
+                 
+                input.form-control.short-field{
+                  width:100% !important;
+                }
+            }
+    
+        }
+    }
+    .btn-find-address{
+        margin-right:10px;
+        background: $edition-color;
+        &:hover{
+            background: $mb-hovergray;
+        }
+    }
+    .not-valid-error-msg{
+        width:305px;
+        @media screen and(max-width:768px){
+            width:90%;
+        }
+    } 
+}
+.section-heading{
+    h2{
+        font-size: 18px;
+        margin: 0 0 12px 0;
+    }
+}
+.card_field{
+    &.postalcode-block{    
+        width:65% !important;        
+        .contextual-help{
+                right:39% !important;
+                top:3px;
+                z-index: 99;
+        @media(max-width:768px){
+            right: 0 !important;
+        }
+        }    
+        @media(max-width:768px){
+           .pcode{
+               width:calc(100% - 0px) !important;
+           }
+        width:100% !important;  
+        }    
+ }
+    position: relative;
+    input[type="text"].form-control.not-valid, input[type="tel"].form-control.not-valid {
+        background-position: 88% 11px !important;
+        background-size: 6px !important;
+    }
+    .form-control.valid{
+        background-position:85% 13px !important;
+    }
+    
+    
+}
+
+
+.shippingButtons{
+    justify-content: flex-start;
+    &_btn-block{
+    width:50%;
+
+    @media(max-width: 768px){
+        width:100% !important;
+        margin-top:10px;
+        .btn{
+            width:100% !important;
+        }
+    }
+    }
+    &_btn-full-width{
+        width:100%;
+    }
+    button{
+    &:focus{
+        box-shadow: none;
+        outline: none;
+    }  
+  }
+}
+
+.form-inline.manual_field{
+    margin-bottom: 10px;
+    align-items: flex-start !important;
+    justify-content: flex-start !important;
+    @media screen and(max-width:768px) {
+        .justifyContent{
+            justify-content:space-between;
+        }
+    }
+    
+}
+
+.reset-btn {
+    display: flex;
+    -webkit-writing-mode: horizontal-tb !important;
+    writing-mode: horizontal-tb !important;
+    text-rendering: auto;
+    justify-content: center;
+    align-items: center;
+    color:$mb-white !important;
+  }
+  .btn {
+    border: 0;
+    width: 180px;
+    height: 48px;
+    border-radius: 0;
+    text-transform: uppercase;
+    font-size: 14px;
+    transition: background 0.3s ease-in-out;
+    position: relative;
+    background: $primary-color;
+    color: $mb-white;
+    @media screen and(max-width:768px) {
+        width: 100%;
+    }
+  }
+  
+/*select dropdown start*/
+select {
+
+    /* styling */
+   
+    line-height: 1.5em;
+    padding: 0.5em 3.5em 0.5em 1em;
+    display: block;
+    // min-width: 240px;
+    height: 48px;
+    border: 1px solid $light-grey;
+    border-radius: 0;
+    /* background-image: url(/images/select-box-right-bg.png); */
+    background-position: right top;
+    background-repeat: no-repeat;
+    background-color: $mb-white;
+    color: #666;
+    text-transform: none;
+    font-size: 14px;
+    /* reset */
+  
+    margin: 0;      
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+  }
+  
+
+  select.selectDropdown {
+    background-image: linear-gradient(45deg, transparent 50%, #666666 50%), linear-gradient(135deg, #666666 50%, transparent 50%), linear-gradient(to right, $light-grey 1%, #ebebeb 2%);
+    background-position: calc(100% - 20px) calc(14px + 5px), calc(100% - 10px) calc(15px + 4px), 100% 0;
+    background-size: 11px 11px, 11px 12px, 43px 48px;
+    background-repeat: no-repeat;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+     -ms-appearance: none;
+      -o-appearance: none;
+         appearance: none;
+        &::-ms-expand {
+        display: none;
+        }
+  
+  }
+  /*select dropdown ends*/
+  .postalcode-block{
+      margin-top:12px;
+      margin: 0;
+      margin-bottom: 1rem;
+  }
+  .slct-post-address{
+    width:240px;
+    margin:0px 0px 18px 0px;
+    &:focus {
+        width: auto;
+    }
+}
+.billing-form-container{
+    .shippingButtons{
+        .disabled-active{
+            background-color: $light-grey !important;
+            opacity: 1;
+        }
+        .shippingbutton-cancel{
+            padding-top: 6px !important;
+        }
+    }
+    form .not-valid-error-msg span{
+        font-size: small !important;
+    }
+
+}
+.uk-post-code{
+    &::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+        text-transform: capitalize !important;
+      }
+      &::-moz-placeholder { /* Firefox 19+ */
+        text-transform: capitalize;
+      }
+      &:-ms-input-placeholder { /* IE 10+ */
+        text-transform: capitalize;
+      }
+      &:-moz-placeholder { /* Firefox 18- */
+        text-transform: capitalize;
+      }
+  }
+  .usStateDropdown{
+    width: 350px;
+     @media screen and (max-width:768px) {
+         width:100%;
+     }
+ }
+ @media screen and (max-width:874px) {
+    .form-inline .form-group {
+        margin-right: 0;
+    }
+    .form-inline {
+        display: block;
+    }
+    .mob-flot-left {
+        float: left;
+    }
+    .mob-flot-right {
+        float: right;
+    }
+ }

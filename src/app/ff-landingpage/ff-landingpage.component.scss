@@ -1,0 +1,104 @@
+
+@import "../../variable";
+.product-checkbox {
+.checker {
+    display:inline-block;
+    padding:0;
+    background:url("../../assets/resource/img/unchecked-sprite.png") no-repeat;
+    height: 40px;
+    width: 40px;;
+    background-size: 100%;
+}
+.ff-prod{
+    display:none;
+}
+.ff-prod:checked + .checker{
+    background:url("../../assets/resource/img/checked-sprite.png") no-repeat;
+    padding: 0;
+    height: 40px;
+    width: 40px;
+    display:inline-block;
+    background-size: 100%;
+}
+}
+.dl-overlay{
+    min-height: 250px;
+    background-color: $mb-white;
+    position: absolute;
+    width: 100%;
+    z-index: 9999;
+    height: 100%;
+    display: none;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    &-hide{
+      opacity: 0;
+      display: none;
+    }
+    &-show{
+      opacity: 1;
+      display: block;
+    }
+    transition: all ease-in 500ms;
+    .b2c-title {
+      position: absolute;
+      top: 5%;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 14px !important;
+      margin: 0 auto;
+      text-align: center;
+      &::before {
+        content: "";
+        background: url("../../assets/imgs/loading-compass.svg") no-repeat center center;
+        background-size: 20px 20px;
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        transform: translateZ(0) scale(1, 1);
+        -webkit-transform: translateZ(0) scale(1, 1);
+        -ms-transform: translateZ(0) scale(1, 1);
+        transform: translateZ(0) scale(1, 1);
+        -webkit-animation: spin 2.5s linear infinite;
+        animation: spin 2.5s linear infinite;
+        outline: 1px solid transparent;
+    }
+    .loading-txt{
+      float: right !important;
+      padding-left: 5px !important;
+      font-size: 14px !important;
+     padding-top: 2px !important;
+    }
+   }
+  }
+.drop-pin{
+  cursor: pointer;
+  a{
+    cursor: pointer; 
+  }
+}
+@media screen and (max-width:874px) {
+  .mob-container {
+      padding-left: 0;
+      padding-right: 0;
+  }
+  .results-container .container.secondary .primary-product .product-checkbox .checker,
+  .results-container .container.secondary .secondary-product .product-checkbox .checker {
+    height: 28px;
+    width: 28px;
+  }
+  .results-container .container.secondary .primary-product .product-checkbox span,
+  .results-container .container.secondary .secondary-product .product-checkbox span {
+    vertical-align: 8px;
+  }
+  .contact-us .input-group #email-submit span {
+    line-height: 15px;
+    font-size: 14px;
+  }
+  .results-container .container.secondary .secondary-product .product-checkbox,.results-container .container.secondary .primary-product .product-checkbox {
+    text-align: center;
+    padding-left: 0px;
+    padding-top: 20px;
+  }
+}

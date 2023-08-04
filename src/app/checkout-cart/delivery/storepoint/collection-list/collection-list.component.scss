@@ -1,0 +1,125 @@
+@import "../../../../../variable";
+.cc-stores-list-view {
+  background-color: $mb-white;
+  padding: 15px;
+  max-height: 450px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  border: 1px solid $light-grey;
+  margin-bottom: 20px;
+  .cc-store-list-item {
+    padding: 10px 0;
+    border-bottom: 1px solid $light-grey;
+    position: relative;
+    min-height: 150px;
+    display: flex;
+    justify-content: space-between;
+    @media screen and(max-width:$screen-tablet) {
+      width: 100%;
+      flex-direction: column;
+      height: auto;
+      padding: 15px 0;
+    }
+    .position-store-icon{
+      width:35px;
+      position: absolute;right:0px; padding-right:0;
+      // top:3px;
+    }
+    .us-distance{
+      position: absolute;
+      right:0px; 
+      padding-right:0;
+    }
+
+    &.unavailable {
+      .cc-store-address {
+        color: $light-grey;
+      }
+    }
+    .cc-store-address {
+      color: $primary-color;
+      width: 55%;
+      float: left;
+      margin-bottom: 5px;
+      @media screen and (max-width: $screen-sm){
+        padding-right: 44px;
+      }
+      @media screen and(max-width:$screen-tablet) {
+          width:100%;
+      }
+      .cc-store-address-line {
+        margin-bottom: 10px;
+        span{
+          font-size: 14px;
+        }
+      }
+      .cc-collectiontime{
+        margin-bottom: 10px !important;
+      }
+      p {
+        color: $edition-color !important;
+        font-size: 14px !important;
+        .ccprice {
+          font-weight: 700 !important;
+        }
+      }
+
+      h5 {
+        margin: 0 0 5px 0;
+        color: $primary-color;
+        font-weight: 700;
+      }
+      .ccprice {
+        margin: 0;
+        line-height: 22px;
+      }
+    }
+    .cc-store-distance {
+      text-align: right;
+      padding-bottom: 50px;
+      width: 35%;
+      margin-top:45px;
+      @media screen and(max-width:$screen-tablet) {
+        text-align: left;
+        width: 100%;
+        margin-top: 0px;
+      }
+      img {
+        height: 35px;
+        width: 35px;
+        margin-bottom: 10px;
+        @media screen and(max-width:$screen-tablet) {
+          top: 10px;
+          right: 0;
+        }
+      }
+      .usviewmap{
+        cursor: pointer;
+        text-decoration: underline;
+      }
+      p {
+        margin-bottom: 10px;
+        font-size: 14px;
+        color: $edition-color;
+      }
+      .btn-default,
+      .btn-default:hover {
+        position: absolute;
+        bottom: 10px;
+        right: 0;
+        width: 180px;
+        height: 48px;
+        font-size: 15px !important;
+        color: $mb-white;
+        @media screen and(max-width:768px) {
+         width:100%;
+         margin:0 auto 10px;
+        }
+      }
+    }
+  }
+}
+.btn-opening-hours {
+  text-decoration: underline !important;
+  cursor: pointer;
+}

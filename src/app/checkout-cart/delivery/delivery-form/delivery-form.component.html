@@ -1,0 +1,559 @@
+<div id="dlInfoBlock">
+  <div class="delivery-wrap" *ngIf="!loading; else loader">
+    <div class="error-info-block"  *ngIf="hazardous">
+      <p class="err_form_msg">
+          Due to customs restrictions or laws set by your country or state we are unable to deliver the following item(s). 
+          Please click the "Edit basket" link under "View your order" to remove and continue.
+      </p>
+      <div class="stock-list" >
+        <li class="err_form_msg" *ngFor="let data of hazardousData.list">
+          {{ data }}
+        </li>
+      </div>
+    </div>
+    <div class="error-info-block"  *ngIf="outofStock">
+      <p class="err_form_msg">
+        We're sorry you have selected more of the following product(s) than are in stock.
+        Please change the quantity to a number that's available. Thanks.
+      </p>
+      <div class="stock-list" >
+        <li class="err_form_msg" *ngFor="let data of outofStockList">
+          {{ data.name }}
+        </li>
+      </div>
+    </div>
+    <div class="section-heading">
+      <h2>{{'checkoutFlow.deliveryQuestion'| translate }}</h2>
+    </div>
+    <section
+      class="delivery-section-panel-body"
+      [ngClass]="{
+         'regUser-block': switchAddressMode, 
+         'regUser-hide': !switchAddressMode 
+        }"
+    >
+      <fieldset>
+        <form>
+          <div class="existing-reg-field-block delivery-radio-button">
+            <div
+              class="form-inline delivery-radio-block"
+              *ngFor="let address of addressList; let k = index">
+              <div class="radio existing-customer-list">
+                <input
+                  id="{{'dl'+address.id}}"
+                  name="address"
+                  type="radio"
+                  class="password-radio"
+                  [checked]="address.defaultAddress"
+                  (change)="onAddressChange(address, k)"
+                />
+                <label for="{{'dl'+address.id}}" class="radio-inline address_label">
+                  <span class="name-title" *ngIf="address.titleCode">{{ address.titleCode }}&nbsp;</span>
+                  <span>{{ address.firstName + "  " + address.lastName }},&nbsp;</span>
+                  <span *ngIf="address.line1"><span>{{address.line1}},&nbsp;</span>
+                  <span *ngIf="address.line2">{{address.line2}},&nbsp;</span></span>
+                  <span *ngIf="address.town"> {{address.town}},&nbsp;</span>
+                  <span *ngIf="address.district"> {{address.district}},&nbsp;</span>
+                  <span *ngIf="address.postalCode">{{address.postalCode}},&nbsp;</span>
+                  <span *ngIf="address.country">{{address.country.name}}</span>
+                  
+                </label>
+              </div>
+              <div class="action-link">
+                <span (click)="editAddress(address, k)">
+                  {{'myProfile.edit' | translate}}
+                </span>
+              </div>
+            </div>
+
+            <div class="form-group reg-add-address">
+              <a (click)="addAddress()">{{'addressBook.addNewAdd' | translate}}</a>
+            </div>
+            <div class="reg-confirm-address" *ngIf="addressList">
+              <div class="form-group clearfix" *ngIf="addressList.length!=0">
+                <button
+                  (click)="onSelectAddress()"
+                  class="btn btn-default pull-right"
+                >
+                {{'checkoutFlow.confirmCheckoutAddress' | translate}}
+                </button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </fieldset>
+    </section>
+    <section
+      class="delivery-new-form-body personal-details"
+      *ngIf="showDeliveryForm"
+    >
+    <div class="loading-backdrop"  *ngIf="constructFormLoader"
+    style="    
+    position: absolute;
+    z-index: 9999;
+    top: 0;
+    height: 100%;
+    width: 100%;">
+      <div class="b2c-title">
+        <span class="loading-txt"> loading... </span> 
+      </div>
+    </div>
+      <form
+        class="shippment_form"        
+        [formGroup]="shipmentForm"
+        (ngSubmit)="onSubmitForm($event)"
+        (keydown)="keyDownFunction($event)"
+        custom-focus
+      >
+        <fieldset id="dlFormFieldset">
+          <div class="section-heading"  *ngIf="reguser">
+          <legend *ngIf="!btnForDe">
+            {{ (updateAddress) ? "Edit address" : "Add new address" }}
+          </legend>
+          <legend *ngIf="btnForDe">
+            {{ (updateAddress) ? "Adresse bearbeiten" : "Neue Adresse hinzufügen" }}
+          </legend>
+         </div>
+          <div class="form-group sort-field" data-sortIndex="1">
+            <select
+            *ngIf ="!btnForDe"
+             id="select1"
+              formControlName="titleCode"
+              class="mandatory form-control selectDropdown cntry-select"
+              [ngClass]="{
+                'has-error  not-valid':!shipmentForm.controls['titleCode'].valid &&shipmentForm.get('titleCode').touched,
+                'valid': shipmentForm.get('titleCode').valid
+              }"
+            >
+              <option value="" selected>{{'addressBook.title' | translate}}*</option>
+              <option value="miss">Miss</option>
+              <option value="mrs">Mrs</option>
+              <option value="ms">Ms</option>
+              <option value="mr">Mr</option>
+              <option value="dr">Dr</option>
+            </select>
+
+            <select
+            *ngIf ="btnForDe"
+             id="select1"
+              formControlName="titleCode"
+              class="mandatory form-control selectDropdown cntry-select"
+              [ngClass]="{
+                'has-error  not-valid':!shipmentForm.controls['titleCode'].valid &&shipmentForm.get('titleCode').touched,
+                'valid': shipmentForm.get('titleCode').valid
+              }"
+            >
+              <option value="" selected>{{'addressBook.title' | translate}}*</option>
+              <option value="mrs">Frau</option>
+              <option value="mr">Herr</option>
+            </select>
+            <div
+              *ngIf="!shipmentForm.controls['titleCode'].valid &&shipmentForm.get('titleCode').touched"
+               class="not-valid-error-msg"
+            >
+              <span *ngIf="shipmentForm.controls['titleCode'].errors.required"
+                >{{'checkoutFlow.titleError' | translate}}</span
+              >
+            </div>
+          </div>
+          <div class="form-group sort-field" data-sortIndex="2">
+            <input
+              autocorrect="off"
+              formControlName="firstName"
+              placeholder="{{'checkoutFlow.placeHolderFirst' | translate}}"
+              type="text"
+              class="form-control  mandatory"
+              autocapitalize="on"
+              [ngClass]="{
+                'has-error not-valid':!shipmentForm.get('firstName').valid &&shipmentForm.get('firstName').touched,
+                'valid': shipmentForm.get('firstName').valid
+              }"
+            />
+            <div
+              *ngIf="!shipmentForm.controls['firstName'].valid && shipmentForm.get('firstName').touched"
+              class="not-valid-error-msg"
+            >
+              <span *ngIf="shipmentForm.controls['firstName'].errors.required">
+                {{'checkoutFlow.firstNameError' | translate}}
+              </span>
+              <span
+                *ngIf="shipmentForm.controls['firstName'].errors.patternInvalid"
+              >
+              {{'checkoutFlow.firstNameError' | translate}}
+              </span>
+            </div>
+          </div>
+          <div class="form-group sort-field" data-sortIndex="3">
+            <input
+              autocorrect="off"
+              formControlName="lastName"
+              placeholder="{{'checkoutFlow.placeHolderLast' | translate}}"
+              type="text"
+              class="form-control  mandatory"
+              autocapitalize="on"
+              [ngClass]="{
+                'has-error not-valid':!shipmentForm.get('lastName').valid && shipmentForm.get('lastName').touched,
+                'valid': shipmentForm.get('lastName').valid
+              }"
+            />
+            <div
+              *ngIf="!shipmentForm.controls['lastName'].valid && shipmentForm.get('lastName').touched"              class="not-valid-error-msg"
+            >
+              <span *ngIf="shipmentForm.controls['lastName'].errors.required">
+                {{'checkoutFlow.lastNameError' | translate}}
+              </span>
+              <span
+                *ngIf="shipmentForm.controls['lastName'].errors.patternInvalid"
+              >
+              {{'checkoutFlow.lastNameError' | translate}}
+              </span>
+            </div>
+          </div>
+          <div class="form-group sort-field" data-sortIndex="4">
+              <a
+              class="contextual-help"
+              show-delay="100"  tooltip-class="toolTipFont" 
+              ngbTooltip="{{'register.phonenumberInfo'|translate}}" 
+              [placement]="mobileDevice?'top':'right'" 
+            ></a>
+            <input
+              autocorrect="off"
+              formControlName="phone"
+              placeholder="{{'checkoutFlow.placeHolderPhone' | translate}}"
+              type="text"
+              class="telInput  mandatory form-control reg_field"
+              autocapitalize="on"
+              [ngClass]="{
+                'has-error not-valid':!shipmentForm.get('phone').valid &&shipmentForm.get('phone').touched,
+                'valid': shipmentForm.get('phone').valid
+              }"
+            />          
+            <div
+              *ngIf="!shipmentForm.controls['phone'].valid &&shipmentForm.get('phone').touched"
+              class="not-valid-error-msg"
+            >
+              <span *ngIf="shipmentForm.controls['phone'].errors.required"
+                >{{'checkoutFlow.phoneNoError' | translate}}</span
+              >
+              <span
+                *ngIf="shipmentForm.controls['phone'].errors.patternInvalid"
+              >
+              {{'checkoutFlow.phoneNoLenError' | translate}}
+              </span>
+            </div>
+        
+
+          </div>
+          <div class="form-group sort-field" data-sortIndex="10">
+            <div
+              class="form-inline marginB"
+              style="justify-content: flex-start;"
+            >
+              <div class="form-group">
+                  <app-custom-select 
+                  *ngIf="countries"
+                  [countries]="countries"
+                  (onSelectVal)="onChangeCountry($event)"
+                  formInnerControlName="country"
+                  [parentForm]="shipmentForm"
+                  [dropdownDetails]="countryMsgDtls"
+                  [ngClass]="{
+                    'has-error  not-valid':!shipmentForm.controls['country'].value.isocode && shipmentForm.get('country').touched,
+                    'valid': shipmentForm.get('country').valid
+                  }"
+                  >
+                </app-custom-select>         
+              </div>
+              <span *ngIf="ukSpecificForm">
+                  <span
+                    class="help-block inline postcodesearchreset"
+                    *ngIf="!manualAdress"
+                    style="display: inline;"
+                  >
+                    <a (click)="onSearchByPostal()">Search using postcode</a>
+                  </span>
+                </span>
+         </div>
+           </div>
+          <div class="sort-field" style="position: relative;" data-sortIndex="11">
+          <div
+            class="form-inline manual_field"
+            *ngIf="manualAdress; else fullDetail"
+          >
+            <div class="form-group">
+              <input
+                type="text"
+                formControlName="line1"
+                placeholder="House no."
+                class="form-control short-field"
+              />
+            </div>
+            <div class="form-group" custom-focus>
+            <!-- {{!shipmentForm.controls['postalCode'].valid && shipmentForm.controls['postalCode'].touched}} -->
+          <a    
+            class="contextual-help"   
+            *ngIf="!ukSpecificForm"
+            ngbTooltip="{{'register.exceptUkallCountryPostCode'|translate}}"  
+            [placement]="mobileDevice?'top':'right'"  
+            show-delay="100"></a>
+              <input
+                type="text"
+                formControlName="postalCode"
+                autocapitalize="characters"
+                (keydown)="onPostCodeKeyDown($event)"                           
+                placeholder="{{'checkoutFlow.placeHolderpostCode' | translate}}"
+                maxlength="10"
+                #myInput
+                class="form-control short-field postC pcode uk-post-code"
+                [ngClass]="{
+                  'has-error not-valid invalid':!shipmentForm.controls['postalCode'].valid && shipmentForm.controls['postalCode'].touched,
+                  'not-valid-postcode': !postCodeStatus,
+                  'valid': (shipmentForm.get('postalCode').valid && shipmentForm.controls['postalCode'].touched)&&postCodeStatus
+                }"
+              />
+              <a 
+               class="contextual-help"   
+               *ngIf="!ukSpecificForm" 
+               ngbTooltip="{{'register.exceptUkallCountryPostCode'|translate}}"  
+               [placement]="mobileDevice?'top':'right'" 
+               show-delay="100"></a>
+              <div
+                *ngIf="(!shipmentForm.controls['postalCode'].valid &&
+                    shipmentForm.get('postalCode').touched)"
+                class="not-valid-error-msg"
+              >
+              <span class="postcode-status" *ngIf="!postCodeStatus">Please enter a valid postcode or enter the address manually.</span>
+                <span
+                  *ngIf="shipmentForm.controls['postalCode'].errors.required"
+                  >{{'checkoutFlow.postCodeError' | translate}}</span
+                >
+                <span  *ngIf="shipmentForm.controls['postalCode'].errors.patternInvalid">
+                   {{'checkoutFlow.postCodeError' | translate}}
+                </span>
+              </div>
+              <div class="postcode-msg-block">
+                <span>Please enter a valid postcode or enter the address manually.</span>
+              </div>
+            </div>
+            <button
+              *ngIf="ukSpecificForm"
+              class="btn btn-default btn-find-address"
+              (click)="findAddress($event)"
+            >
+              FIND ADDRESS
+            </button>
+            <span *ngIf="ukSpecificForm" class="help-block"
+              >Or <a (click)="addressManual()">enter address manually</a></span
+            >
+          </div>
+
+          <div class="form-group" id="dlFormPostAddress">
+            <div class="form-inline" style="justify-content: flex-start;"  *ngIf="postalAddresses">
+              <div class="form-group">
+                <select
+                  class="mandatory form-control selectDropdown slct-address"
+                  formControlName="address"
+                  (change)="onSelectPlace($event.target.value)"
+                >
+                  <option value="" selected>Select address</option>
+                  <option
+                    *ngFor="let data of postalAddresses; let k = index"
+                    [value]="data.Id"
+                    >{{ data.StreetAddress }}, &nbsp;{{ data.Place }}</option
+                  >
+                </select>
+              </div>
+              <span
+                class="help-block inline postcodesearchreset"
+                *ngIf="!manualAdress"
+                style="display: inline;"
+              >
+              </span>
+            </div>
+          </div>
+          <div class="loading-backdrop loading-postcode-search"  *ngIf="findAddressLoad">
+            <div class="b2c-title">
+              <span class="loading-txt"> loading... </span> 
+            </div>
+          </div>
+          </div>
+
+          <ng-template #fullDetail>
+            <div class="form-group sort-field" data-sortIndex="5">
+              <input
+                autocorrect="off"
+                formControlName="line1"
+                placeholder="{{'checkoutFlow.placeHolderAdd' | translate}}"
+                type="text"
+                class="form-control  mandatory"
+                autocapitalize="on"
+                [ngClass]="{
+                  'has-error not-valid':!shipmentForm.get('line1').valid &&shipmentForm.get('line1').touched,
+                  'valid': shipmentForm.get('line1').valid
+                }"
+              />
+              <div
+                *ngIf="!shipmentForm.controls['line1'].valid &&shipmentForm.get('line1').touched"
+                class="not-valid-error-msg"
+              >
+                <span *ngIf="shipmentForm.controls['line1'].errors.required">
+                  {{'checkoutFlow.addError' | translate}}
+                </span>
+              </div>
+            </div>
+            <div class="form-group sort-field" data-sortIndex="6">
+              <input
+                autocorrect="off"
+                formControlName="line2"
+                placeholder="{{'checkoutFlow.placeHolderAddr' | translate}}"
+                type="text"
+                class="form-control  mandatory"
+                autocapitalize="on"
+              />
+            </div>
+            <div class="form-group sort-field" data-sortIndex="9">
+              <input
+                autocorrect="off"
+                formControlName="town"
+                placeholder="{{'checkoutFlow.placeHolderpostCity' | translate}}"
+                type="text"
+                class="form-control  mandatory"
+                autocapitalize="on"
+                [ngClass]="{
+                  'has-error not-valid':!shipmentForm.get('town').valid &&shipmentForm.get('town').touched,
+                  'valid': shipmentForm.get('town').valid
+                }"
+              />
+              <div
+                *ngIf="!shipmentForm.controls['town'].valid &&shipmentForm.get('town').touched"
+                class="not-valid-error-msg"
+              >
+                <span *ngIf="shipmentForm.controls['town'].errors.required">
+                  {{'checkoutFlow.cityError' | translate}}
+                </span>
+              </div>
+            </div>
+            <div class="form-group sort-field" data-sortIndex="8" *ngIf="isocode !='DE'">
+              <input
+                *ngIf="!usSpecificForm; else usStates"
+                autocorrect="off"
+                formControlName="district"
+                placeholder="County (optional)"
+                type="text"
+                class="form-control  mandatory"
+                autocapitalize="on"
+              />
+              <ng-template #usStates>
+                <select
+                  *ngIf="stateList"
+                  class="mandatory form-control selectDropdown dlformstateDropdown"
+                  data-dropup-auto="false"
+                  data-size="8"
+                  data-display="static"
+                  formControlName="district"
+                  (click)="onSelectState($event)"
+                  [ngClass]="{
+                    'has-error not-valid':!shipmentForm.get('district').valid && shipmentForm.get('district').touched
+                  }"
+                >
+                  <option value="" selected>State *</option>
+                  <option
+                    *ngFor="let data of stateList; let k = index"
+                    [ngValue]="data"
+                    >{{ data.name }}</option
+                  >
+                </select>
+                <input
+                  *ngIf="!stateList"
+                  autocorrect="off"
+                  formControlName="district"
+                  placeholder="{{ 'form.label.state' | translate }} *"
+                  type="text"
+                  class="form-control  mandatory"
+                  autocapitalize="on"
+                  [ngClass]="{
+                    'has-error not-valid':!shipmentForm.get('district').valid &&shipmentForm.get('district').touched
+                  }"
+                /> 
+              <div
+              *ngIf="!shipmentForm.controls['district'].valid && shipmentForm.get('district').touched"
+              class="not-valid-error-msg"
+            >
+              <span [hidden]="!shipmentForm.controls['district'].errors.required">
+                  {{  (stateList)?  'Please select a state' :'Please enter a County/State/Region'}}
+                </span>
+            </div>
+              </ng-template>
+            </div>
+            <div class="form-group postalcode-block sort-field" data-sortIndex="7">               
+              <input
+                autocorrect="off"
+                formControlName="postalCode"
+                placeholder="{{'checkoutFlow.placeHolderpostCode' |translate}}*"
+                type="text"
+                class="form-control  mandatory pcode"
+                autocapitalize="on"
+                (keyup)="onUpdatePostCode($event)" 
+                [ngClass]="{
+                  'has-error not-valid':!shipmentForm.get('postalCode').valid && shipmentForm.get('postalCode').touched,
+                  'valid': shipmentForm.get('postalCode').valid
+                }"
+              />
+              <a class="contextual-help"   *ngIf="!ukSpecificPostCode && !usSpecific" ngbTooltip="{{'register.exceptUkallCountryPostCode'|translate}}"   [placement]="mobileDevice?'top':'right'" 
+              show-delay="100"></a>
+              <div
+                *ngIf="!shipmentForm.controls['postalCode'].valid &&shipmentForm.get('postalCode').touched"
+                class="not-valid-error-msg"
+              >
+                <span *ngIf="shipmentForm.controls['postalCode'].errors.required">
+                {{'checkoutFlow.postCodeError' | translate}}
+                </span>
+                <span *ngIf="shipmentForm.controls['postalCode'].errors.patternInvalid"
+                  >{{'checkoutFlow.postCodeErr' | translate}}</span >
+              </div>
+            </div>
+          </ng-template>
+          <div 
+            data-sortIndex="12"
+            class="form-group shippingButtons sort-field"
+            [ngClass]="{ 
+              'f-space-between': currentUser 
+            }"
+          >
+            <button
+              class="btn btn-default disabled-active"
+              (click)="onResetForm()"
+              *ngIf="currentUser"
+            >
+            {{'checkoutFlow.cancelBtnCheckOut' |translate}}
+            </button>
+            <div class="pull-right" *ngIf="!manualAdress">
+              <button
+              [disabled]="enableAction"
+                class="btn btn-default "
+                *ngIf="updateAddress; else guestUserBtn"
+              >
+                {{'addressBook.saveChanges' | translate}}
+              </button>
+              <ng-template #guestUserBtn>
+                <button *ngIf="!btnForDe" class="btn btn-default"  [disabled]="enableAction">
+                  {{ currentUser ? "SAVE ADDRESS" : "CONFIRM DETAILS" }}
+                </button>
+                <button *ngIf="btnForDe" class="btn btn-default " [disabled]="enableAction">
+                  {{ currentUser ? "ADRESSE SPEICHERN" : "ADRESSE BESTÄTIGEN" }}
+                </button>
+              </ng-template>
+            </div>
+          </div>
+        </fieldset>
+      </form>
+    </section>
+  </div>
+  <ng-template #loader>
+    <div class="loading-backdrop">
+      <div class="b2c-title">
+        <span class="loading-txt"> loading... </span> 
+      </div>
+    </div>
+  </ng-template>
+</div>

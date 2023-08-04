@@ -1,0 +1,103 @@
+@import "../../../variable";
+
+.categorybanner_row {
+  display: flex;
+  flex-wrap: wrap;
+  padding-right: 80px;
+  padding-left: 80px;
+  text-align: center;
+  .categorybanner_products {
+    -ms-flex: 0 0 25%;
+    flex: 0 0 25%;
+    // max-width: 25%;
+    width: 100%;
+    text-align: center;
+    a {
+      color: $banner-color;
+      font-size: 12px;
+      line-height: 22px;
+      text-transform: capitalize;
+      text-decoration: none;
+      cursor: pointer;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+    @media (max-width:$screen-sm) {
+      display: none;
+    }
+  }
+}
+.category_banner-block {
+  width: 100%;
+  @media (max-width: $screen-sm) {
+    // display: none;
+  }
+  .catbanner {
+    text-align: center;
+    background: #fafafd;
+    width: 964px;
+    padding-bottom: 0;
+    .banner-container{
+    @media (max-width: $screen-sm) {
+      // display: none;
+      display: flex;
+      align-items: center;
+    }
+  }
+  h1 {
+        font-size: 25px;
+        color: $banner-color;
+        padding-top: 40px;
+        margin-top: 0;
+      @media (max-width:$screen-sm){
+        font-size: 14px;
+        float: left;
+        padding: 5px;
+        width: auto;
+        color: #333;
+        font-weight: bold;
+      }
+    }
+    .category-results{
+      display: none;
+      @media(max-width:$screen-sm){
+        display: inline-block;
+        float: left;
+        padding: 5px;
+        width: auto;
+        span{
+         color: #333;
+         font-size: 14px;
+         font-weight: bold;
+        }
+      }
+    }
+  }
+
+  .banner_childcategories {
+    padding-top: 25px;
+    position: relative;
+    padding-bottom: 20px;
+    table {
+      text-align: center;
+      margin: 0 auto;
+      td {
+        min-width: 165px;
+        a {
+          color: $banner-color;
+          font-size: 12px;
+          line-height: 22px;
+        }
+      }
+    }
+  }
+}
+.banner_description {
+    padding: 0 80px;
+    padding-top: 20px;
+    font-size:12px;
+    @media(max-width:$screen-sm){
+      display: none;
+    }
+}

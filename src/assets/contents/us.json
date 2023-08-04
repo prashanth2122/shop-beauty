@@ -1,0 +1,676 @@
+{  
+  "headerPromotion":{
+    "content":"f33cbe97-460f-49cd-83d4-7f8352784ef4"
+   },
+  "ampHome":[
+    {"content":"71d23a5f-2e54-43e6-863d-351c863b2e63","order":1,"templateName":"slot-contentWrapper","identifier":"#bannerslot"},
+    {"content":"89aaaace-c3b5-42ee-96d3-9fa5af67fe3e","order":2,"templateName":"slot-contentWrapper","identifier":"#dlBannerslot"},
+    {"content":"c8f6a50d-cf81-4edd-bf3a-16b9db8e6e65","order":3,"templateName":"slot-contentWrapper","identifier":"#card-list-slot1"},
+    {"content":"ceaa04f2-4b86-47c6-a0ec-14dbb3901e60","order":4,"templateName":"slot-contentWrapper","identifier":"#cardListslot"},
+    {"content":"7258a197-5216-49c6-8e13-7f88a6c02141","order":5,"templateName":"slot-contentWrapper","identifier":"#crSlot"},
+    {"content":"57d95981-2310-4f7d-99f9-081d0deba63c","order":6,"templateName":"slot-contentWrapper","identifier":"#heritageSlot"}
+  ],
+  "specialOffers":{
+    "titleName":"Molton Brown\u00AE Special Offers | Shop Now!",
+    "content":[
+    {"content":"9e8be922-9f09-48ba-aa64-79b0e92f1662","order":1,"templateName":"slot-contentWrapper","identifier":"#specialOffersFR"},
+    {"content":"bb08da20-30b6-4615-af15-02e92780c4a9","order":2,"templateName":"slot-contentWrapper","identifier":"#specialOfferBanner1"},
+    {"content":"75b643a7-a674-4815-acfd-84c431e0edb8","order":3,"templateName":"slot-contentWrapper","identifier":"#specialOfferBanner2"},
+    {"content":"1ecc9009-d73e-4d39-9c92-50179cd75fa8","order":4,"templateName":"slot-contentWrapper","identifier":"#specialOfferBanner3"},
+    {"content":"6b873355-f79d-4150-b507-075db63e082d","order":5,"templateName":"slot-contentWrapper","identifier":"#specialOfferBanner4"},
+    {"content":"564a0bfd-2cac-460a-9d11-94f1d50fd96c","order":6,"templateName":"slot-contentWrapper","identifier":"#specialOfferBanner5"},
+    {"content":"a769e76b-f0a0-44ce-836c-3169374ae4bf","order":7,"templateName":"slot-contentWrapper","identifier":"#specialOfferBanner6"},
+    {"content":"adb78e51-4c1f-4dd1-84e4-347d49a9ae5e","order":8,"templateName":"slot-contentWrapper","identifier":"#specialOfferCardlist"}
+
+  ]
+},
+  "feature":{
+    "Feature":[
+      {"content":"5bc0040c-e3fb-4f43-8cc8-aba006c3c8b6","order":1,"templateName":"slot-contentWrapper","identifier":"#featureNavBar"},
+      {"content":"4fdcf5ab-f785-4c8c-b508-30aae2c0038c","order":2,"templateName":"slot-contentWrapper","identifier":"#featureNavUnderneath"},
+      {"content":"241106d4-058e-40f8-8edc-fb2794fe8f84","order":3,"templateName":"slot-contentWrapper","identifier":"#featureBannner"},
+      {"content":"92f0f828-d06b-488f-b4ba-b1c89cda104d","order":4,"templateName":"slot-contentWrapper","identifier":"#featureCardList"},
+      {"content":"cf0d433d-6a7b-404f-8e74-984eb16250cd","order":5,"templateName":"slot-contentWrapper","identifier":"#featureFRQuote"},
+      {"content":"d2ad00b3-340f-486c-8e8a-c7b00b9de00a","order":6,"templateName":"slot-contentWrapper","identifier":"#featureCuralate"}
+    ],
+    "Lifestyle":[
+      {"content":"5bc0040c-e3fb-4f43-8cc8-aba006c3c8b6","order":1,"templateName":"slot-contentWrapper","identifier":"#featureNavBar","category":"Lifestyle","title":"Lifestyle"},
+      {"content":"ce61cb40-3b0d-4778-9f37-3dbbd2c30708","order":2,"templateName":"slot-contentWrapper","identifier":"#lifestyleNavUnderneath"},
+      {"content":"46626552-7a02-46fd-8589-03cfbaa28624","order":3,"templateName":"slot-contentWrapper","identifier":"#lifestyleBannner"},
+      {"content":"91a14e03-d0a4-48f1-8b21-1e49938550a9","order":4,"templateName":"slot-contentWrapper","identifier":"#lifestyleCardList"}
+    ],
+    "meettheperfumers":[
+      {"content":"5bc0040c-e3fb-4f43-8cc8-aba006c3c8b6","order":1,"templateName":"slot-contentWrapper","identifier":"#featureNavBar","category":"Perfumers","title":"MEET THE PERFUMERS"},
+      {"content":"094102ae-075c-49e0-a80b-00b25879f05a","order":2,"templateName":"slot-contentWrapper","identifier":"#meettheperfumersNavUnderneath"},
+      {"content":"473f824d-f44e-418b-8506-ff268555def5","order":3,"templateName":"slot-contentWrapper","identifier":"#meettheperfumersCardList"},
+      {"content":"7258a197-5216-49c6-8e13-7f88a6c02141","order":4,"templateName":"slot-contentWrapper","identifier":"#meettheperfumersCuralate"}
+      
+    ],
+    "travel":[
+      {"content":"5bc0040c-e3fb-4f43-8cc8-aba006c3c8b6","order":1,"templateName":"slot-contentWrapper","identifier":"#featureNavBar","category":"Travel","title":"Travel"},
+      {"content":"1ef65917-9f45-42f5-8235-f30b71ad0abe","order":2,"templateName":"slot-contentWrapper","identifier":"#travelNavUnderneath"},
+      {"content":"d3f7c4d7-eea8-4c34-9592-42e4a088cd2a","order":3,"templateName":"slot-contentWrapper","identifier":"#travelBannner"},
+      {"content":"6ae2ae0c-8952-4439-a636-0d2325205d86","order":4,"templateName":"slot-contentWrapper","identifier":"#travelCardList"}
+    ],
+    "news":[
+      {"content":"5bc0040c-e3fb-4f43-8cc8-aba006c3c8b6","order":1,"templateName":"slot-contentWrapper","identifier":"#featureNavBar","category":"News","title":"News"},
+      {"content":"690e6483-98f2-4488-a4a1-9dcd2c88690d","order":2,"templateName":"slot-contentWrapper","identifier":"#newsNavUnderneath"},
+      {"content":"456b12fb-2af7-4d3f-a47d-7d84570710eb","order":3,"templateName":"slot-contentWrapper","identifier":"#newsBannner"},
+      {"content":"5222d0c2-10f4-493b-b415-696b60950937","order":4,"templateName":"slot-contentWrapper","identifier":"#newsCardList"}
+
+    ],
+    "heritageEl":{
+      "content": "3d0fb6a1-9e1c-405f-bfb8-f9209f608d93",
+      "templateName":"slot-contentWrapper"
+    },
+    "perfumecollective":{
+      "content": "29ab8a38-bd75-46a0-b3b2-05473851c0c8",
+      "templateName":"slot-contentWrapper"
+    },
+    "suedeorris":{
+      "content": "5faaa289-2e2c-46c6-909e-aba37dab5aa3",
+      "templateName":"slot-contentWrapper",
+      "category":"Fragrance","title":"Suede Orris"
+    },
+    "blackpepper":{
+      "content": "7a8ca8ae-14d8-472a-a347-3cf1c6280466",
+      "templateName":"slot-contentWrapper",
+      "category":"Fragrance","title":"Re-Charge Black Pepper","readingTime":"2 Minutes"
+    },
+    "pinkpepper":{
+      "content": "c17b3367-d907-4a41-b69e-b3ffd6772d14",
+      "templateName":"slot-contentWrapper",
+      "category":"Fragrance","title":"Re-Charge Pink Pepper","readingTime":"2 Minutes"
+    },
+    "seafennel":{
+      "content": "35bc596c-6dec-4e5f-93ee-fda56c57f16b",
+      "templateName":"slot-contentWrapper",
+      "category":"Fragrance","title":"Coastal Cypress & Sea Fennel","readingTime":"2 Minutes"
+    },
+    "autumnhome":{
+      "content": "5156d590-486d-4db0-92d3-890cd6a3f8ef",
+      "templateName":"slot-contentWrapper",
+      "category":"Lifestyle","title":"YOUR AUTUMN SCENTS GUIDE: A Year In Fragrance"
+    },
+    "tobaccoabsolute":{
+      "content": "35e49841-8a5c-423b-911b-d534673fe8f1",
+      "templateName":"slot-contentWrapper",
+      "category":"Fragrance","title":"Tobacco Absolute"
+      
+    },
+    "oudhgold":{
+      "content": "9567d861-37d8-433b-b64c-3ec6a9ac6c79",
+      "templateName":"slot-contentWrapper",
+      "category":"Fragrance","title":"Mesmerising Oudh & Gold","readingTime":"2 Minutes"
+    },
+    "giftwrappingservice":{
+      "content": "3e58e935-3891-492f-91d5-632cd3641dca",
+      "templateName":"slot-contentWrapper",
+      "category":"News","title":"Complimentary Gift Wrapping"
+    },
+    "onlineexclusive":{
+      "content": "aeb18b09-6736-4857-aa67-fd897521264a",
+      "templateName":"slot-contentWrapper"
+    },
+    "russianleather":{
+      "content": "7dbd345f-5ade-42bb-80f0-e213f1842905",
+      "templateName":"slot-contentWrapper",
+      "category":"Fragrance","title":"Russian Leather"
+    },
+    "rosaabsolute":{
+      "content": "ecd8b005-aa21-4906-a322-481a91adc55f",
+      "templateName":"slot-contentWrapper",
+      "category":"Fragrance","title":"Rosa Absolute"
+    },
+    "blackpeppersport":{
+      "content": "0567d0c6-d6f0-4f37-a3b6-abbadfb6245e",
+      "templateName":"slot-contentWrapper"
+    },
+    "cocoandsandalwood":{
+      "content": "6a1f6da7-3af8-4301-a0fe-15d8f092d5a0",
+      "templateName":"slot-contentWrapper",
+      "category":"Fragrance","title":"Serene Coco & Sandalwood"
+    },
+    "rhubarbrose":{
+      "content": "dd045212-c2ab-4f76-82a8-75752a4e0b4e",
+      "templateName":"slot-contentWrapper",
+      "category":"Fragrance","title":"Delicious Rhubarb & Rose"
+    },
+    "bergamot":{
+      "content": "0ecf87a3-6e71-4fd7-b265-bd4e9aef0631",
+      "templateName":"slot-contentWrapper",
+      "category":"Fragrance","title":"Orange & Bergamot"
+    },
+    "grapefruit":{
+      "content": "8748507c-1a9f-482c-be02-df85e32dc941",
+      "templateName":"slot-contentWrapper"
+    },
+    "jasminsunrose":{
+      "content": "29764f8d-b91a-4e87-a045-d64fcf28185b",
+      "templateName":"slot-contentWrapper"
+    },
+    "mbhistory":{
+      "content": "3d0fb6a1-9e1c-405f-bfb8-f9209f608d93",
+      "templateName":"slot-contentWrapper"
+    },
+    "storeevents":{
+      "content": "e3cf3b6d-593c-4f77-a267-474ac90ad18b",
+      "templateName":"slot-contentWrapper",
+      "title":"Molton Brown | Store Events"
+
+    },
+    "maialemout":{
+      "content": "e7e7544f-0df1-44d1-b9f5-e6d013813e12",
+      "templateName":"Listicleandeditorialtemplate"
+    },
+    "refillablefragrance":{
+      "content": "4172ab2e-ca56-40a3-be2c-a0c778c0743b",
+      "templateName":"Listicleandeditorialtemplate"
+    },
+    "heavenlygingerlily":{
+      "content": "d8bca13e-8d22-4124-a040-2c3c21cee24a",
+      "templateName":"slot-contentWrapper"
+    },
+    "jeromedimarino":{
+      "content": "218fa9bc-5b5e-4086-9630-81f28d5ce890",
+      "templateName":"Listicleandeditorialtemplate"
+    },
+    "toiletteeau":{
+      "content": "0d8747af-2839-43af-8108-4270425aeb16",
+      "templateName":"Listicleandeditorialtemplate"
+    },
+    "onlineperfumeguide":{
+      "content": "edcf99ae-ee0e-413f-9f89-f7159397aa82",
+      "templateName":"Listicleandeditorialtemplate"
+    },
+    "jacqueschabert":{
+      "content": "749243c6-deba-40f9-bea5-ef6c71ba2f9a",
+      "templateName":"Listicleandeditorialtemplate"
+    },
+    "christmasrecipes":{
+      "content": "f9c23c48-7f5f-4092-9dde-cfefdd9b430b",
+      "templateName":"Listicleandeditorialtemplate"
+    },
+    "summerhome":{
+      "content": "af1dd281-70fe-405a-abba-6a4f07acc251",
+      "templateName":"Listicleandeditorialtemplate"
+    },
+    "relaxingbathguide":{
+      "content": "4f789e2e-3f64-47b1-b5b1-3a7255b55096",
+      "templateName":"Listicleandeditorialtemplate"
+    },
+    "healthyhaircareroutine":{
+      "content": "6986414b-0719-4edb-877f-ec890f286e03",
+      "templateName":"Listicleandeditorialtemplate"
+    },
+    "shopbycolour":{
+      "content": "2cc8f33b-a362-4177-84eb-4d5f2aad1d4c",
+      "templateName":"Listicleandeditorialtemplate"
+    },
+    "springhomefragrances":{
+      "content": "96336e39-aa19-4259-8216-a532e7052b79",
+      "templateName":"Listicleandeditorialtemplate"
+    },
+    "perfectPairWedding":{
+     "content": "9c812596-5f29-45bc-9cbc-813bb83136d8",
+     "templateName":"Listicleandeditorialtemplate"
+    },
+    "the-signature-journey-the-saxon-hotel":{
+     "content": "de1cb4b4-8f64-479a-b2b7-8aa3f689845d",
+     "templateName":"Listicleandeditorialtemplate",
+     "category":"Travel",
+     "title":"SAXON HOTEL, JOHANNESBURG"
+    },
+    "conde-nast-traveler-hotel-guide":{
+      "content": "ebf00e8d-ef35-4c18-b50d-e682e706ec03",
+      "templateName":"Listicleandeditorialtemplate"
+     },
+     "behind-the-fragrance":{
+      "content": "d20db6f2-5e86-4ba5-a154-23820ee61283",
+      "templateName":"slot-contentWrapper"
+     },
+     "meet-the-perfumers-carla-chabert":{
+      "content": "9a489fbc-fc6c-4b08-a9f2-81dee4eaa16c",
+      "templateName":"Perfumer-Profile"
+     }
+  },
+  "footers":[
+      {
+        "name":"Complimentary Gifts & Products",
+        "image":"https://www.moltonbrown.co.uk/images/4BottleBox.png",
+        "route":"/store/special-offers/catUSSpecialOffers"
+      },
+      {
+        "name":"FREE US SHIPPING ON EVERY ORDER",
+        "image":"https://www.moltonbrown.co.uk/images/DeliveryVan.png",
+        "route":"/store/shipping"
+      },
+      {
+        "name":"Complimentary Click & Collect",
+        "image":"https://www.moltonbrown.co.uk/images/Click&Collect.png",
+        "route":"/store/shipping"
+      },
+      {
+        "name":"SHOP IN YOUR LOCAL STORE",
+        "image":"https://www.moltonbrown.co.uk/images/DropPinIcon.png",
+        "route":"/store/company/stores"
+      }
+    ],
+  "moltonBrownPolicies" : [
+  {
+    "name": "Help & Information ",
+    "data": [
+      { "name": "Contact Us", "templateName": "contact-us", "org": true },
+      { "name": "FAQs & Help", "templateName": "faqs", "org": true },
+      { "name": "Affiliate Enquiries", "org": false, "routename": "affliate" },
+      {
+        "name": "Trade & Press Enquiries",
+        "templateName": "trade-inquiries",
+        "org": true
+      },
+      { "name": "Sitemap", "templateName": "sitemap", "org": true }
+    ]
+  },
+  {
+    "name": "About Us",
+    "data": [
+      { "name": "About Molton Brown", "templateName": "about-us", "org": true },
+      {
+        "name": "Our Heritage",
+        "templateName": "features",
+        "org": true,
+        "childroute": true,
+        "childRouteName": "molton-brown-history"
+      }
+    ]
+  },
+  {
+    "name": "Our services",
+    "data": [
+      { "name": "Shipping & Returns", "templateName": "shipping", "org": true },
+      {
+        "name": "Store Finder",
+        "templateName": "company",
+        "org": true,
+        "childroute": true,
+        "childRouteName": "stores"
+      },
+      { "name": "Hotel Amenities", "templateName": "hotel-amenities", "org": true },
+      { "name": "Refer a Friend", "templateName": "refer_a_friend", "org": true }
+    ]
+  },
+  {
+    "name": "our policies",
+    "data": [
+      {
+        "name": "Terms & Conditions",
+        "templateName": "terms-conditions",
+        "org": true
+      },
+      { "name": "Privacy Policy", "templateName": "privacy-policy", "org": true },
+      { "name": "Modern Slavery Act Statement", "routePDF":"https://www.moltonbrown.com/MBPromoImages/Social/Modern-Slavery-Act-Statement.pdf" },
+      { "name": "Online Accessibiliy Statement", "routePDF":"https://www.moltonbrown.com/MBPromoImages/Social/Online_Accessibility_Statement_Molton_Brown_2019.pdf" }
+    ]
+  },
+  {
+    "name": "corporate gifts",
+   
+    "templateId": "ee27602d-f776-483d-93b8-940f63858006",
+    "contentType": "containerwithMultipleContent",    
+    "templateName": "corporate-gifts",
+    "titleName":"Luxury Corporate Gifts | Molton Brown"
+  
+  
+  },
+  {
+    "name": "careers",
+    "templateName": "careers",
+    "templateId": "b53d52e2-5cce-430a-983c-9a1d4ea725e7",
+    "contentType": "homepage",    
+    "titleName":"Careers"
+  }
+  ],
+  "hotelAmenities" : [
+  {
+    "name": "Hotel-Amenities",
+    "filterBy": "hotel-amenities",
+    "templateId": "f6007e3f-bd5d-489a-bf5c-e8052dc6e856",
+    "contentType": "containerwithMultipleContent",
+    "templateName": "acc-template-homepage",
+    "titleName":"Molton Brown Hotel Amenities"
+  },
+  {
+    "name": "Why Molton Brown",
+    "filterBy": "about",
+    "contentType": "",
+    "templateId": "aff2b812-fbb1-4afd-b83e-6b1a8e8d27db",
+    "templateName": "acc-template-homepage",
+    "titleName": "Why Molton Brown?"
+  },
+  
+  {
+    "name": "Hotel-Products",
+    "filterBy": "hotel-products",
+    "templateId": "a237a9b4-7066-48f1-9474-ee6e54249727",
+    "contentType": "homepage",
+    "templateName": "acc-template-homepage",
+    "titleName": "Molton Brown Hotel Amenities Program",
+    "children": [
+      {
+        "name": "Luxury Collection I",
+        "filterBy": "luxury-collection-one",
+        "templateId": "94b53b02-998f-4ae0-a335-4d29fb893d0b",
+        "contentType": "homepage",
+        "templateName": "acc-template-homepage","titleName": "Luxury Collection I"
+      },
+      {
+        "name": "Luxury Collection II",
+        "filterBy": "luxury-collection-two",
+        "templateId": "8ffe8e10-974c-46b6-9551-5bec7e883442",
+        "contentType": "homepage",
+        "templateName": "acc-template-homepage",
+        "titleName": "Luxury Collection II"
+      },
+      {
+        "name": "The 1973 Collection",
+        "filterBy": "the-1973-collection",
+        "templateId": "869d31ab-20e6-4616-bdec-aaa8d42c178b",
+        "contentType": "homepage",
+        "templateName": "acc-template-homepage",
+        "titleName": "The 1973 Collection"
+      },
+      {
+        "name": "Essential Accessories",
+        "filterBy": "essential-accessories",
+        "templateId": "1c5712ba-5e2e-4e61-a83a-8ac94dd6ea69",
+        "contentType": "homepage",
+        "templateName": "acc-template-homepage",
+        "titleName": "Essential Accessories"
+      },
+      {
+        "name": "Turndown Service",
+        "filterBy": "turndown-service",
+        "templateId": "dfa6ab9e-f2a4-4ffd-bee0-6e9957240dda",
+        "contentType": "containerwithMultipleContent",
+        "templateName": "acc-template-homepage",
+        "titleName": "Turndown Service"
+      },
+      {
+        "name": "Hand Care",
+        "filterBy": "hand-care",
+        "templateId": "2e6cb9cb-d683-4962-83f9-80b2c8f2d9d2",
+        "contentType": "containerwithMultipleContent",
+        "templateName": "acc-template-homepage",
+        "titleName": "Hand Care"
+      },
+      {
+        "name": "Skin Care",
+        "filterBy": "skin-care",
+        "templateId": "218f5d8a-0c91-4645-a4f8-7d55bc2df2fa",
+        "contentType": "containerwithMultipleContent",
+        "templateName": "acc-template-homepage",
+        "titleName": "Skin Care"
+      },
+      {
+        "name": "The Home Collection",
+        "filterBy": "catUKHF",
+        "templateId": "",
+        "contentType": "",
+        "templateName": ""
+      }
+    ]
+  },
+  {
+    "name": "Bespoke Hotel Amenities",
+    "filterBy": "bespoke-hotel-amenities",
+    "templateId": "36fd8816-e9c5-4a14-a98f-4d401722c421",
+    "contentType": "homepage",
+    "templateName": "acc-template-homepage",
+    "titleName":"Molton Brown Bespoke Hotel Amenities"
+  },
+  {
+    "name": "Download Hotel Brochure",
+    "filterBy": "hotel-brochure",
+    "templateId": "efd1be5a-7a1f-4dd6-a107-d57b8cc1f518",
+    "contentType": "homepage",
+    "templateName": "acc-template-homepage",
+    "titleName": "Download Hotel Brochure"
+  
+  },
+  {
+    "name": "Contact Hotel Amenities",
+    "filterBy": "hotel-brochure",
+    "templateId": "Contact-Hotel-Amenities",
+    "contentType": "",
+    "templateName": ""
+  }
+  ],
+  "organisation" : [
+  {
+    "name": "About Us",
+    "filterBy": "about-us",
+    "templateId": "1b7ab2df-f35f-4509-9bec-c6cabf7bd0d5",
+    "contentType": "homepage",
+    "templateName": "acc-template-homepage",
+    "titleName": "About Us | Molton Brown" ,
+    "routepath":"/store/about-us" 
+  
+  },
+  {
+    "name": "Contact Us",
+    "filterBy": "contact-us",
+    "templateId": "0d85bf11-95a0-4116-8408-34b9a1c4a173",
+    "contentType": "text",
+    "templateName": "acc-template-homepage",
+    "titleName": "Contact Us" ,
+    "routepath":"/store/contact-us" 
+  },
+  {
+    "name": "Trade Enquiries",
+    "filterBy": "trade-inquiries",
+    "templateId": "da98298f-7c7c-4ea1-bfa2-894b0a82ad03",
+    "contentType": "homepage",
+    "templateName": "acc-template-homepage",
+    "titleName": "Trade Enquiries | Molton Brown" ,
+    "routepath":"/store/trade-inquiries"
+  },
+  {
+    "name": "Shipping & Returns",
+    "filterBy": "shipping",
+    "templateId": "ee1745a7-5e99-4c04-8882-3e121bc68cb1",
+    "contentType": "homepage",
+    "templateName": "acc-template-homepage",
+    "titleName": "Shipping & Returns" ,
+    "routepath":"/store/shipping"
+  },
+  {
+    "name": "Molton Brown Stores",
+    "route":"store/company/stores"
+  },
+  {
+    "name": "Terms & Conditions",
+    "filterBy": "terms-conditions",
+    "templateId": "b3b8c0d7-6131-4594-9ae9-50564435d349",
+    "contentType": "homepage",
+    "templateName": "acc-template-homepage",
+    "titleName": "Molton Brown Terms & Conditions",
+    "routepath":"/store/terms-conditions",
+    "children": [
+      {
+        "name": "Gift Cards Terms & Conditions",
+        "filterBy": "gift-terms-conditions",
+        "templateId": "ee3ca8cc-6cd8-4068-8540-81f413ae0108",
+        "contentType": "homepage",
+        "templateName": "acc-template-homepage",
+        "titleName": "Gift Card Terms & Conditions",
+        "routepath":"/store/gift-terms-conditions"
+      },
+      {
+        "name": "Promotional Terms & Conditions",
+        "filterBy": "promo-terms-conditions",
+        "templateId": "bc1b0cf9-e785-4fa0-a1bb-7c9ec0329f27",
+        "contentType": "homepage",
+        "templateName": "acc-template-homepage",
+        "titleName": "Promotional Terms & Conditions",
+        "routepath":"/store/promo-terms-conditions" 
+      }
+    ]
+  },
+  {
+    "name": "Privacy & Cookie Policy",
+    "templateId": "f4e22cd7-8cb7-4d19-b063-5b2a7dde5b8d",
+    "filterBy": "privacy-policy",
+    "contentType": "homepage",
+    "templateName": "acc-template-homepage",
+    "titleName": "Molton Brown US Privacy Policy",
+    "routepath":"/store/privacy-policy"
+  
+  },
+  {
+    "name": "FAQs & Help",
+    "filterBy": "faqs-list",
+    "header":true,
+    "templateId": "72e0566a-a3e3-4fde-858c-43567bc3c71d",
+    "contentType": "text",
+    "templateName": "acc-template-homepage",
+    "titleName": "Delivery FAQs",
+    "routepath":"/store/faqs-list",
+    "children": [
+      {
+        "name": "Placing an Order",
+        "filterBy": "faqs-order",
+        "templateId": "3a09d1be-0e23-4656-9b85-67b0c53cb36a",
+        "contentType": "text",
+        "templateName": "acc-template-homepage",
+        "titleName": "Placing an Order FAQs",
+        "routepath":"/store/faqs-order"
+      },
+      {
+        "name": "Delivery",
+        "filterBy": "faqs",
+        "templateId": "72e0566a-a3e3-4fde-858c-43567bc3c71d",
+        "contentType": "text",
+        "templateName": "acc-template-homepage",
+        "titleName": "Delivery FAQs",
+        "routepath":"/store/faqs"
+      },
+      {
+        "name": "Online Account",
+        "filterBy": "faqs-account",
+        "templateId": "f82de641-f6da-41e0-88d6-3c8f7c69521c",
+        "contentType": "text",
+        "templateName": "acc-template-homepage",
+        "titleName": "Online Account FAQs",
+        "routepath":"/store/faqs-account"
+      },
+      {
+        "name": "Product",
+        "filterBy": "faqs-product",
+        "templateId": "d68f90df-9ea6-4e72-91e9-4cd072e36e38",
+        "contentType": "text",
+        "templateName": "acc-template-homepage",
+        "titleName": "Product FAQs",
+        "routepath":"/store/faqs-product"
+  
+      },
+      {
+        "name": "Gift Card",
+        "filterBy": "gift-cards",      
+        "childby":"faqs",
+        "templateId": "1695b5bf-8077-4aa9-be4d-eb23c8aaca0d",
+        "contentType": "text",
+        "templateName": "acc-template-homepage",
+        "titleName": "Gift Card FAQs",
+        "routepath":"/store/gift-cards/faqs"
+      },
+      {
+        "name": "Company",
+        "filterBy": "faqs-company",
+        "templateId": "44bb672d-8e49-40ee-9dfc-623f6e731059",
+        "contentType": "text",
+        "templateName": "acc-template-homepage",
+        "titleName": "Company FAQs",
+        "routepath":"/store/faqs-company"
+      },
+      {
+        "name": "Careers",
+        "filterBy": "careers/faqs",
+        "templateId": "391f15d5-737f-4104-b075-14eca6932413",
+        "contentType": "text",
+        "templateName": "acc-template-homepage",
+        "titleName": "Careers FAQs",
+        "routepath":"/store/careers/faqs"
+      }
+    ]
+  },
+  {
+    "name": "Sitemap",
+    "filterBy": "sitemap"
+  }
+  ],
+  "checkoutCart":{
+    "footerLinks":[
+        {
+          "name": "Shipping Information",
+          "templateName": "acc-template-homepage",
+          "contentId": "ee1745a7-5e99-4c04-8882-3e121bc68cb1",
+          "contentType": ""
+        },
+        {
+          "name": "Returns Policy",
+          "templateName": "acc-template-homepage",
+          "contentId": "ee1745a7-5e99-4c04-8882-3e121bc68cb1",
+          "contentType": ""
+        },
+        {
+          "name": "Privacy & Cookie Policy",
+          "templateName": "acc-template-homepage",
+          "contentId": "f4e22cd7-8cb7-4d19-b063-5b2a7dde5b8d",
+          "contentType": ""
+        },
+        {
+          "name": "Terms & Conditions",
+          "templateName": "acc-template-homepage",
+          "contentId": "b3b8c0d7-6131-4594-9ae9-50564435d349",
+          "contentType": ""
+        }
+      ]
+  },
+  "pickagainpromotionalText":{
+    "content": {
+      "name": "Promotional Terms & Conditions",
+      "filterBy": "promo-terms-conditions",
+      "templateId": "bc1b0cf9-e785-4fa0-a1bb-7c9ec0329f27",
+      "contentType": "homepage",
+      "templateName": "acc-template-homepage",
+      "titleName": "Promotional Terms & Conditions"
+    }
+   },
+   "store":{
+    "charity":{
+      "content":{
+       "templateId": "1858ec31-a2d8-41d9-b731-33bd90da0140",
+       "contentType": "homepage",
+       "templateName": "acc-template-homepage",
+       "titleName": "Charities"
+      }
+    },
+    "socialResponsibility":{
+      "content":{
+       "templateId": "343b564e-00bf-47c3-b208-b3781f36294e",
+       "contentType": "homepage",
+       "templateName": "acc-template-homepage",
+       "titleName": "Corporate Social Responsibility"
+      }
+    },
+    "employeeBenefits":{
+      "content":{
+        "templateId": "dcf70af6-1969-49a7-8807-b7940ae34a05",
+        "contentType": "homepage",
+        "templateName": "acc-template-homepage",
+        "titleName": "Employee Benefits"
+       }
+    }
+  }
+}
+  

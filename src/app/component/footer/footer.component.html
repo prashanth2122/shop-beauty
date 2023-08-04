@@ -1,0 +1,70 @@
+<footer>
+    <div class="sociallinks" >
+        <a href="https://www.facebook.com/moltonbrown" target="_blank" class="sharingIcons facebook">Share on facebook</a>
+        <a href="https://www.instagram.com/moltonbrown/"  target="_blank" class="sharingIcons instagram">Share on instagram</a>
+        <a href="https://twitter.com/moltonbrownuk"  target="_blank" class="sharingIcons twitter">Share on twitter</a>
+        <a href="https://in.pinterest.com/moltonbrownuk/"  target="_blank" class="sharingIcons pinterest">Share on Pinterest</a>
+        <a href="https://www.youtube.com/user/MoltonBrownUK"  target="_blank" class="sharingIcons sharingIcon youtube">Share on youtube</a>
+    </div>
+    <h3>
+        <a class="footerTag" routerLink="/store/newsletter-sign-up" routerLinkActive="active" > {{'footer.joinGuestList' | translate}}<span class="ft-arrow-right"></span>
+        </a>
+    </h3>
+    <div class="copywrite-newsletter">
+        &copy; Molton Brown Limited 2020.&nbsp;{{'checkoutFlow.rights' | translate}}
+    </div>
+
+    <div class="footerTop nav-footer-tabs-hide">
+       <app-accordion *ngIf="footerLinks">
+          <app-accordion-item  [expandContent]="toggleFooter ? true: false"  >
+             <div class="accordion-item-content">
+              <div class="container">     
+                <div  class="row no-margin no-padding" >
+                   <div class="largeCTAImages largeCTABlock">
+                   <ul style="padding: 0px;margin: 0px;list-style: none">
+                                                    <li *ngFor="let data of footerLinks">
+                                                        <div class="promotionalContent">
+                                                            <a (click)="onShowPromotionalCntnt(data)" [routerLink]="data.route" routerLinkActive="active" >
+                                                                <img [src]="data.image" alt="Complimentary Gifts &amp; Products">
+                                                            </a>
+                                                        </div>
+                                                        <p>
+                                                            <a (click)="onShowPromotionalCntnt(data)"  [routerLink]="data.route" [innerHtml]="data.name"></a>
+                                                        </p>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                      </div>
+                    </app-accordion-item> 
+                  </app-accordion>
+       <ul class="nav footer-bottom justify-content-center" *ngIf="footerLinks">
+          <li class="nav-item" *ngFor="let data of mbPoliciesData;let k =index;" (click)="onfooterToggle(data,k)">
+              <a class="nav-link" [ngClass]="{'active-cls':data.active}" >{{data.name}}</a>
+           </li>
+       </ul>
+        <app-accordion *ngIf="mbfooterData">
+           <app-accordion-item  [expandContent]="toggleFooter? false : true"  >
+              <div class="accordion-item-content">        
+               <div class="sub-footer" >
+                <div class="container">
+                <div class="ft-close">
+                    <span class="sub-ft-close" (click)="onCancelToggleFooter()" style="float:right;"></span>
+                </div>
+                <div class="sub-footer-links"  >
+                   <ul class="nav  justify-content-center footer-bottom-nav">
+                      <li class="nav-item" *ngFor="let data of mbfooterData;let k =index;">
+                        <a class="nav-link" (click)="onFooterCntntClick(data)">{{data.name}}</a>
+                       </li>
+                  </ul>
+                </div>
+                </div>
+                <p class="copyrights text-center"> 	&copy; Molton Brown Limited 2020.&nbsp;{{'checkoutFlow.rights' | translate}}</p>
+            </div>
+       </div>
+    </app-accordion-item>
+    </app-accordion>  
+    </div>
+
+</footer>

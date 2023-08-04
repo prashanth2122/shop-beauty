@@ -1,0 +1,31 @@
+<div class="cc-stores-list-view" *ngIf="storeList">
+ <div *ngIf="storeList.length!=0;else noStore">
+  <div class="cc-store-list-item mbStores" *ngFor="let data of storeList;">
+        <img *ngIf = "storeicon" class="position-store-icon" [src]="data.storeIcon" alt="logo">
+        <p *ngIf = "viewmapus" class="us-distance" >{{data.formattedDistance}}</p>
+      <div class="cc-store-address"  *ngIf="data">
+          <h5 >{{data.name}}</h5>
+          <p class="cc-store-address-line">
+                <span *ngIf="data.address.line1">{{data.address.line1}}, </span>
+                <span *ngIf="data.address.line2"> {{data.address.line2}}, </span>
+                 <span *ngIf="data.address.town"> {{data.address.town}}, </span>
+                 <span *ngIf="data.address.postalCode"> {{data.address.postalCode}}, </span>
+                 <span *ngIf="data.address.country"> {{(data.storeType=='GFSSTORE')?data.address.country.isocode:data.address.country.name}}</span>
+          </p>
+          <p class="ccprice">
+              <strong *ngIf="data.deliveryDescription">{{data.deliveryDescription}}</strong>
+          </p>
+          <p *ngIf="data.collectionTime" class="cc-collectiontime">{{data.collectionTime}}</p>
+          <p><a class="btn-opening-hours" (click)="onShowMapHours(data)">{{'mapDetails.mapOpeningHour'|translate}}</a></p>
+      </div>
+      <div class="cc-store-distance">
+          <p *ngIf = "storeicon">{{data.formattedDistance}}</p>
+          <p *ngIf = "viewmapus" class="usviewmap" (click)="onShowMapHours(data)">View on Map</p>
+          <span class="btn btn-default btnChooseStore" (click)="onSelectStore($event,data)" alt="Select" title="Select">{{'clickAndcollect.select' | translate }}</span>
+      </div>
+  </div>
+</div>
+    <ng-template #noStore>
+    <div>No stores found.</div>
+    </ng-template>
+</div>

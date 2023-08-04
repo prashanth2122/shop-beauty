@@ -1,0 +1,39 @@
+
+<section class="orders-portal">
+<div class="str-prt-breadcrumb-bg ">
+  <div class="breadcrumb-container">
+    <div class="clearfix breadcrumb-indicator">
+      <ol>
+        <li class="indicator" (click)="onSubmitAction($event,'dispatch')" [ngClass]="{'active':switchOrderType == 'dispatch' }" >
+          Orders Dispatched to Store
+        </li>
+        <li class="indicator" (click)="onSubmitAction($event,'collected')" [ngClass]="{'active':switchOrderType == 'collected' }">
+         Orders Ready for Collection
+        </li>
+        <li class="indicator"  (click)="onSubmitAction($event,'orderStatus')" [ngClass]="{'active':switchOrderType == 'orderStatus' }">
+          Orders Collected / Orders Cancelled
+        </li>
+      </ol>
+    </div>
+  </div>
+</div>
+<section  [ngSwitch]="switchOrderType">
+    <section class="order-tbl" *ngSwitchCase="'dispatch'">
+        <app-order-table  [odTableTableType]="'dispatch'"  [orders]="orderEntryData" [storesList]="storesList" (onOrderDispactch)="doOrderDispactch($event,'DISPATCHEDTOSTORE')"></app-order-table>
+    </section>  
+    <section class="order-tbl" *ngSwitchCase="'collected'">
+        <app-order-table [odTableTableType]="'collected'" [orders]="orderEntryData" [storesList]="storesList" (onOrderDispactch)="doOrderDispactch($event,'COLLECTORCANCEL')"></app-order-table>
+    </section>  
+    <section class="order-tbl" *ngSwitchCase="'orderStatus'">
+      <div class="order-status-type-block">
+        <div class="orders-type-head">Cancelled Orders</div>
+        <app-order-table [odTableTableType]="'cancelled'" [storesList]="storesCancelList" [orders]="orderEntryData"></app-order-table>
+      </div>
+      <div class="order-status-type-block">
+        <div class="orders-type-head">Collected Orders</div>
+        <app-order-table [odTableTableType]="'collectedOrder'"  [storesList]="storesList" [orders]="orderEntryData"></app-order-table>
+      </div>
+    </section>  
+</section>
+<div class="overlay-backdrop"  [ngClass]="{'overlay-block':loadOverlay}" ></div>
+</section>

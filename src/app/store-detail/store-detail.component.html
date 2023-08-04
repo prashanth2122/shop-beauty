@@ -1,0 +1,147 @@
+<div class="container">
+  <div class="rowComponents mt-10 find-store">
+    <div class="col-sm-6 find-store-search" *ngIf="loadGMscript">
+      <h1>Find a store</h1>
+      <form
+      [formGroup]="storeForm"
+      (ngSubmit)="onSubmitForm($event)"
+      class="store_form"
+      custom-focus
+    >
+      <div class="form-inline">
+        <span>
+        <input 
+            googlePlaces
+            formControlName="storeName"
+            (onSelect)="setAddress($event)"
+            (keyup)="onSearchKeyUp($event)"    
+            placeholder="Enter a city, town or postcode"
+            [ngClass]="{
+              'has-error  not-valid':
+                !storeForm.controls['storeName'].valid &&
+                storeForm.get('storeName').touched
+            }"
+          />
+          <div
+          *ngIf="
+            !storeForm.controls['storeName'].valid &&
+            storeForm.get('storeName').touched
+          "
+          class="not-valid-error-msg"
+        >
+          <span
+            [hidden]="!storeForm.controls['storeName'].errors.required"
+            >please select a store</span
+          >
+        </div>
+      </span>
+        <button class="btn btn-default findStore " (click)="setAddress($event)">Search</button>
+      </div>
+      </form>
+    </div>
+  </div>
+  <div>
+    <div>
+      <a  routerLink="/store/company/results" class="back-res">Back to results</a>
+    </div>
+  <div class="rowComponents mt-10  mb-stores store-detail-view-container">
+     
+    <div class="col-sm-6 no-padding store-detail-tabs store-detail-secton">
+      <div>
+        <section *ngIf="storeData">
+          <header class="cc-stores-list-header clearfix">
+            <nav class="cc-stores-view-nav">
+              <a class="list-view " [ngClass]="{'selected':listView}" (click)="onShowStoreList(true)">Store Details</a>
+              <a class="google-map-view" [ngClass]="{'selected':!listView}"
+                (click)="onShowStoreList(false)">Directions</a>
+            </nav>
+          </header>
+          <div class="toggle-store-view store_view">
+            <div *ngIf="listView;else directions">
+              <div class="store_view-icon" *ngIf="storeImage">
+                <img [src]="storeImage.image" alt="some-image">
+              </div>
+              <div class="store_view-dt">
+                <div class="store_view-dt-info">
+                  <h4>{{storeData.name}}</h4>
+                  <p>
+                    <span *ngIf="storeData.address.line1"> {{storeData.address.line1}}<br></span>
+                    <span *ngIf="storeData.address.line2"> {{storeData.address.line2}}<br></span>
+                    <span *ngIf="storeData.address.town"> {{storeData.address.town}}<br></span>
+                    <span *ngIf="storeData.address.postalCode"> {{storeData.address.postalCode}}<br></span>
+                    <span *ngIf="storeData.address.country"> {{storeData.address.country.name}}</span>
+                  </p>
+                  <div class="open-time" >
+                    <p>Open today <span *ngIf="currentOpenHour">{{currentOpenHour.openingTime}}</span></p>
+                  </div>
+                  <div class="opening_hours" *ngIf="storeData.kaoOpeningHoursList">
+                    <h4>Opening Hours</h4>
+                    <ul class="opening_hours-list">
+                      <li *ngFor="let data of storeData.kaoOpeningHoursList">
+                        <span class="day">{{data.day}}</span> <span class="time">{{data.openingTime}}</span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="store_view-dt-contact">
+                  <div class="store_view-dt-contact-mobile" *ngIf="storeData.address.phone">
+                    <h4>Telephone</h4>
+                    <p>{{storeData.address.phone}}</p>
+                  </div>
+                  <div class="store_view-dt-contact-events">
+                    <h4>Event</h4>
+                    <p>{{(storeData.event)?storeData.event:'no planned events'}}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div>
+
+            </div>
+          </div>
+          <ng-template #directions>
+            <div *ngIf="storeData">
+              <app-store-route #storeRoute [storeData]="storeData" (setDirection)="setDirection($event)"></app-store-route>
+              <div id="directions_panel"></div>
+            </div>
+          </ng-template>
+        </section>
+      </div>
+      <div #myPanel id="myPanel"></div>
+    </div>
+    <div class="col-sm-6 no-padding store-detail-secton" >
+   <div class="store_finder" >
+    <div id="storeDateMapView"></div>
+    <!-- <agm-map
+        [latitude]="storeData.geoPoint.latitude" 
+        [longitude]="storeData.geoPoint.longitude"
+        [scrollwheel]="true"
+        [zoom]="zoom"
+        [fullscreenControl]='true'
+        [mapTypeControl]='true'>
+        <agm-marker     
+        [latitude]="storeData.geoPoint.latitude"
+        [longitude]="storeData.geoPoint.longitude" 
+        clickableIcons="true"
+        [iconUrl]="storeData['storeAssets']['url']"
+        style="width:24px;"  
+        >
+        <agm-direction  
+        *ngIf="dir"
+         id="agmDirection"
+        [origin]="dir.origin" 
+        [destination]="{ lat: storeData.geoPoint.latitude, lng: storeData.geoPoint.longitude }"
+        [visible]="show"
+        [travelMode]="dir.travelMode"
+        [transitOptions]="transitOptions"
+        [panel]="myPanel"
+    >
+    </agm-direction>
+        </agm-marker>
+    </agm-map> -->
+
+  </div>
+    </div>
+  </div>
+  </div>

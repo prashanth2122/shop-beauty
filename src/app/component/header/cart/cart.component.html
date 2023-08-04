@@ -1,0 +1,116 @@
+<div class="shop-menu pull-right">
+  <span 
+     class="store_cart" 
+     [ngClass]="{ animated: showCartBlock }" 
+     (click)="onViewBasket()">
+    <a 
+        title="YOUR BASKET"
+       (mouseenter)="onHoverCartIcon($event)">
+      <span class="store_viewCart"></span>
+      <span class="cart-items">
+        <span 
+          #storeCartCount 
+          id="storeCartCount">{{
+          getCartCount()
+        }}</span>
+      </span>
+    </a>
+  </span>
+  <div
+    class="mb-basketDropdown-content"
+    (mouseleave)="onleaveCart($event)"
+    [ngClass]="{
+      'show-cart-cntnt-block': showCartBlock,
+      'show-cart-cntnt': toggleCartBox
+    }"
+  >
+    <div class="basketDropdownCartHeader">
+      <h3 id="richCartHeader">{{'yourBasket' | translate }}</h3>
+    </div>
+    <div *ngIf="cart; else emptyCart">
+      <div *ngIf="getCartCount() !=0 ; else emptyCart">
+          <ul class="cart-list-container" #scrollContainer>
+                  <li 
+                      class="basket-items" 
+                      *ngFor="let entry of cart.entries;let k=index;"
+                      [hidden]="getHidden(entry)"
+                      id="{{'richCart'+entry.product.code}}"
+                       >
+                      <a class="basket-item-Image" routerLink="{{getRouterPath(entry)}}" routerLinkActive="active">
+                        <picture class="full-img"   *ngIf="!entry.isBundle;else bundleTypeImage"  >
+                                <source srcset="{{entry.product.amplienceImageName}}.webp?$smallImg$ 1x, {{entry.product.amplienceImageName}}.webp?$smallImgRetina$ 2x " type="image/webp">
+                                <source srcset="{{entry.product.amplienceImageName}}?$smallImg$ 1x, {{entry.product.amplienceImageName}}?$smallImgRetina$ 2x" type="image/jpeg">
+                                <img 
+                                   src="{{entry.product.amplienceImageName}}?" 
+                                   srcset="{{entry.product.amplienceImageName}}?$smallImg$ 1x,{{entry.product.amplienceImageName}}?$smallImgRetina$ 2x" 
+                                   alt="{{entry.product.productDisplayName}}" 
+                                   crossorigin="anonymous"
+                                />
+                         </picture>
+                          <ng-template #bundleTypeImage>
+                              <picture >
+                                <source [srcset]="getPixMixImage(entry['product'][0])" type="image/webp">
+                                <source [srcset]="getPixMixImageJpg(entry['product'][0])" type="image/jpeg">
+                                <img    [src]="getPixMixImageJpg(entry['product'][0])">
+                             </picture>
+                          </ng-template>
+                      </a>
+                      <div class="basket-item">
+                          <div class="prod-title">
+                              <h4 style="width: 100%;">
+                                  <a 
+                                       routerLink="{{getRouterPath(entry)}}" 
+                                       routerLinkActive="active"
+                                       (click)="onShowProduct($event,entry)" 
+                                       *ngIf="!entry.isBundle" 
+                                       [innerHtml]="entry.product.productDisplayName"
+                                       >
+                                   </a>
+                                      <span  *ngIf="entry.isBundle" [innerHtml]="getBundleContent(entry)">
+                                      </span>
+                                      <p *ngIf="isocode=='de'" class="de-base-price">
+                                        <span class="product-base-price" *ngIf="entry.product.basePriceForProduct" [innerHtml]="entry.product.basePriceForProduct ">
+                                        </span>
+                                      </p>
+                                      <p style="padding-top:5px;" class="prdct-size" *ngIf="entry.product.size"> 
+                                        {{'quickViewData.size' | translate}}&nbsp;<span [innerHtml]="entry.product.size"></span>
+                                      </p>
+                              </h4>
+                         </div>
+                      </div>
+                      <div class="prod-qty">{{'miniCart.qty' | translate}}&nbsp;{{entry.quantity}}</div>
+                      <ul class="pricesContainer">
+                          <span  *ngIf="entry.isBundle" [innerHtml]="getBundlePrice(entry)"></span>
+                          <span  *ngIf="!entry.isBundle" [innerHtml]="getTotalPrice(entry)"></span>                        
+                          <a (click)="onSpliceItem($event,entry,k)"
+                              class="remove-item header-basket-remove-itm"><span></span>
+                          </a>
+                      </ul>
+
+                  </li>
+           </ul>
+
+        <div *ngIf="cart.totalItems != 0" class="sub-totalItems">
+          <div class="sub-total-block">
+            <div class="sub-total-content">{{'miniCart.subTotal' | translate}}</div>
+            <div class="sub-total-value price-format" >
+              {{ cart.subTotal.formattedValue }}
+            </div>
+          </div>
+          <div class="view-basket-block ">
+            <span class="basket-btn" (click)="onViewBasket()">
+              {{'miniCart.viewBasket' | translate}}</span
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+    <ng-template #emptyCart>
+      <div class="basketDropdownCartHeader">
+        <li class="emptycart-list">
+          <span>{{basketEmptyContent}}</span>
+        </li>
+      </div>
+    </ng-template>
+  </div>
+</div>

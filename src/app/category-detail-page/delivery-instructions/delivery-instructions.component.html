@@ -1,0 +1,35 @@
+<div class="rowComponents verticalCollapsibleSections OneLinkHide">
+  <div class="fullWidthContent">
+    <div class="title" (click)="onDeliveryClick()">
+      <h3>{{'pdp.deliveryInstructionHeading'|translate}}</h3>
+      <span
+        [ngClass]="{
+          'cheveron-open': deliveryBoxStatus,
+          'cheveron-close': !deliveryBoxStatus
+        }"
+      ></span>
+    </div>
+    <div class="dl-rectriction-container"
+      [ngClass]="{
+        'dl-review-open': deliveryBoxStatus,
+        'dl-review-close': !deliveryBoxStatus
+      }"
+    >
+      <div>
+        <div class="dl-block">
+          <span [innerHtml]="deliveryResctrictions | safe: 'html'"></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 
+<section class="ac-container">
+  <div>
+    <label for="Review" class="pdp-content-tabs" [ngClass]="{'show':headActive}" (click)="onHeadClick()">Header</label>
+    <article class="dl-description">
+      <p>xas.dnkawnsfksanfknakfnsdkfdknfkamfnfn</p>
+    </article>
+  </div>
+  </section> -->

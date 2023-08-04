@@ -1,0 +1,18 @@
+<div 
+role="dialog"
+id="cookie"
+ 
+aria-live="polite" 
+aria-label="cookieconsent" 
+aria-describedby="cookieconsent:desc" 
+class="cc-window cc-banner cc-type-info cc-theme-block cc-bottom" >
+  <span id="cookieconsent:desc" class="cc-message">
+      {{'cookie.detailTxt' | translate}} 
+      <a aria-label="learn more about cookies" role="button" tabindex="0" class="cc-link" href="/store/privacy-policy" target="_blank">
+          {{'cookie.ManageCookie'| translate}} &gt;</a>
+      </span>
+  <div class="cc-compliance"><a aria-label="dismiss cookie message" role="button" (click)="acceptCookie()" tabindex="0" class="cc-btn cc-dismiss">
+     {{'cookie.acceptCookie'| translate}}
+  </a>
+  </div>
+</div>

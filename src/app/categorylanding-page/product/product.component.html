@@ -1,0 +1,293 @@
+<div *ngIf="activeProducts" class="row plp_hb_specific">
+    <div
+      id="frProduct"
+      class="mb-child  tab-responsive-plp-grid"
+      *ngFor="let product of pagedItems; let i = index"
+      lazy-load-images
+      [ngClass]="{
+        'col-md-4  col-xs-6 switch-two': gridtoggle,
+        'col-md-6  col-xs-12 switch-one': !gridtoggle,
+        'height-show': product.show,
+        'height-hide': !product.show,
+        'col-md-4': !mobileDevice,
+        'col-xs-6 col-sm-4':mobileDevice
+      }"
+      [attr.data-code]="product.code"
+    >
+    <div *ngIf="!product.isDummy; else amplienceAdvertiseBlock"> 
+      <input
+       *ngIf="localData"
+        #qvElement
+        name="qvContent"
+        type="radio"
+        (change)="onCollapseQuickView($event, product)"
+        class="{{ product.code }}"
+      />
+      <a    
+       class="FR-quick-view" *ngIf="localData">
+       {{ (localData.quickView)?localData.quickView:'Quick View'}}
+      </a>
+      <div class="FR-plp-product-container" >
+        <div class="FR-plp-product-flex">
+          <div class="FR-plp-prod-image" >
+            <a routerLink="{{getRouterPath(product)}}" 
+               routerLinkActive="active"    
+               (click)="onShowDetailPage($event, product)"
+               title="{{countrySite}} | {{product.productDisplayName}}"
+               >
+                <picture>  
+                      
+                 <source  srcset="{{product.amplienceImageName}}.webp?$mobLargeImg$ 1x, 
+                  {{product.amplienceImageName}}.webp?$mobLargeImgRetina$ 2x"  media="(max-width: 768px)"
+                   type="image/webp"
+                  />
+                <source  srcset="{{product.amplienceImageName}}.webp?$largeImg$ 1x, 
+                        {{product.amplienceImageName}}.webp?$largeImgRetina$ 2x"  media="(min-width: 769px)"
+                  type="image/webp"
+                />
+                <img
+                  src="{{product.amplienceImageName}}?"
+                  srcset="{{product.amplienceImageName}}?$largeImg$ 1x,
+				                  {{product.amplienceImageName}}?$mobLargeImg$ 2x"
+                  alt="{{countrySite}} {{product.seoTitle}}"
+                  crossorigin="anonymous"
+                />
+              </picture>
+            </a>
+          </div>
+          <div class="text-center product-info-content">
+              <div class="plp-prdct-edition-block text-center">
+                
+                  <h3
+                    class="plp-prdct-edition text-center"
+                    (click)="onShowDetailPage($event, product)"
+                    *ngIf="product.productEdition"
+                    [innerHtml]=" product.productEdition"
+                  >
+  
+                  </h3>
+                </div>
+                <div
+                  class="text-center"
+                  (click)="onShowDetailPage($event, product)"
+                >
+                  <div class="plp-prdct-name">
+                    <h2 id="{{'bottle'+product.code }}" [innerHtml]="product.productDisplayName" title="Molton Brown UK | {{product.productDisplayName}} "></h2>
+                  </div>
+                  <div 
+                     class="product-rating-block" 
+                     *ngIf="siteSpecific"
+                     (click)="onShowProductReview($event, product)"
+                     >
+                    <span class="avg-rating" >
+                      <span *ngIf="product.productAverageRating">
+                          <span 
+                              class="js-star-rating"   
+                              *ngIf="siteSpecific && product.productAverageRating" 
+                              [attr.data-rating]="product.productAverageRating"
+                              >
+                              <span class="fa fa-star-o"></span>
+                              <span class="fa fa-star-o"></span>
+                              <span class="fa fa-star-o"></span>
+                              <span class="fa fa-star-o"></span>
+                              <span class="fa fa-star-o"></span>
+                        </span>
+                        <span *ngIf="product.reviewCount"
+                              class="mb-product-review-content"
+                              title="Read Reviews"
+                            >
+                          {{ product.reviewCount }} reviews
+                        </span>
+                      </span>
+                    </span>
+                  </div>
+                  
+                </div>
+                <div class="price-format text-center" *ngIf="product.stock">
+                    <div
+                      *ngIf="
+                        product.stock.stockLevelStatus != 'outOfStock';
+                        else outOfStock
+                      "
+                    >
+                      <span *ngIf="!product.originalPrice">{{
+                        product.price ? product.price.formattedValue : "loading"
+                      }}</span>
+                      <span
+                        class="price-format-discount"
+                        *ngIf="product.originalPrice"
+                      >
+                        <del class="price-format-discount-retail-price">{{
+                          product.originalPrice
+                        }}</del>
+                        &nbsp;
+                        <span class="ds-price" >{{
+                          product.price ? product.price.formattedValue : "loading"
+                        }}</span>
+                      </span>
+                    </div>
+                    <ng-template #outOfStock>
+                      <div class="product_avial">
+                        <span>
+                          {{'quickViewData.outOfStk' | translate}}
+                        </span>
+                      </div>
+                    </ng-template>
+                  </div>
+                  <div *ngIf="!siteSpecific">
+                    <span class="product-base-price" *ngIf="product.basePriceForProduct" [innerHtml]="product.basePriceForProduct ">
+                    </span>
+                  </div>
+                
+          </div>
+        </div>
+      </div>
+      <div id="{{'qv'+product.code }}" class="content quick-view-content">
+        <div><span class="mb-QV-collapse-arrow"></span></div>
+        <div class="mb-QVHide">
+          <span class="mb-QVHide-btn" 
+          (click)="onCloseWindow(product, i)"
+            >{{'menu.close' | translate}}</span
+          >
+        </div>
+        <div class="row iframe quickviw-container">
+          <div class="col-md-6">
+            <a  routerLink="{{getRouterPath(product)}}" routerLinkActive="active"     title="{{countrySite}} | {{product.productDisplayName}}">
+         <picture>
+          
+                <source
+                  srcset="{{product.amplienceImageName}}?$quickViewImg$&amp;fmt=webp"
+                  media="(max-width: 768px)"
+                  type="image/webp"
+                />
+                <source
+                  srcset="{{product.amplienceImageName}}?$quickViewImg$&amp;fmt=jpg"
+                  media="(max-width: 768px)"
+                  type="image/jpeg"
+                />
+
+                <source
+                  srcset="{{product.amplienceImageName}}?$quickViewImg$&amp;fmt=webp"
+                  type="image/webp"
+                />
+                <source
+                  srcset="{{product.amplienceImageName}}?$quickViewImg$&amp;fmt=jpg"
+                  type="image/jpeg"
+                />
+                <img src="{{product.amplienceImageName}}?"
+                  srcset="{{product.amplienceImageName}}?$quickViewImg$ 1x,{{product.amplienceImageName}}?$quickViewImgRetina$ 2x"  
+                  alt="{{countrySite}} {{product.seoTitle}}"
+                />
+              </picture>
+            </a>
+          </div>
+          <div class="col-md-6">
+            <div class="mb-prodcut-block">
+              <a  routerLink="{{getRouterPath(product)}}" routerLinkActive="active">
+                <div class="FR-plp-prod-name">
+                  <h2 class="plp-product-QV-name" [innerHtml]="product.productDisplayName "></h2>
+                </div>
+              </a>
+              <div class="pricePoint">
+                  <span class="pricePoint-price" *ngIf="!product.originalPrice">{{
+                    product.price ? product.price.formattedValue : "loading"
+                  }}</span>
+                  <span class="pricePoint-discount" *ngIf="product.originalPrice">
+                    <del class="pricePoint-old-price">{{
+                      product.originalPrice
+                    }}</del>
+                    &nbsp;
+                    <span class="ds-price">{{
+                      product.price ? product.price.formattedValue : "loading"
+                    }}</span>
+                  </span>
+                </div>
+          
+                <div class="product-base-price" *ngIf="!siteSpecific">
+                  <span *ngIf="product.basePriceForProduct">
+                    {{ product.basePriceForProduct ? product.basePriceForProduct : "" }}</span
+                  >
+                  <span class="product-vat-text">
+                    inkl. MwSt., zzgl.&nbsp;
+                    <a   routerLink="/store/german-delivery" routerLinkActive="active">
+                      Versand</a
+                    >
+                  </span>
+                </div>
+              <div 
+                    class="FR-product-content" 
+                   *ngIf="siteSpecific"                    
+                   (click)="onShowProductReview($event, product)">
+                  <div class="product-rating-block" *ngIf="product.productAverageRating">
+                      <span class="avg-rating"  >
+                       <span 
+                        class="js-star-rating"   
+                        *ngIf="siteSpecific && product.productAverageRating" 
+                        [attr.data-rating]="product.productAverageRating"
+                        
+                        >
+                       <span class="fa fa-star-o"></span>
+                       <span class="fa fa-star-o"></span>
+                       <span class="fa fa-star-o"></span>
+                       <span class="fa fa-star-o"></span>
+                       <span class="fa fa-star-o"></span>
+                     </span>
+                        <span *ngIf="product.reviewCount"
+                          class="mb-product-review-content"
+      
+                          title="Read Reviews"
+                        >
+                          {{ product.reviewCount }} reviews
+                        </span>
+                      </span>
+                    </div>
+              </div>
+              <div *ngIf="product.stock.stockLevelStatus != 'outOfStock';else outOfStock">
+              <div *ngIf="product.price" class="FR-plp-basket-block">
+                <button
+                   (click)="addToBasket($event,product)"
+                >
+                  {{'addtoBasket' | translate}}<span></span>
+                </button>
+                <span
+                  >{{'quickViewData.quantity' | translate}}
+                  <input
+                    type="text"
+                    [(ngModel)]="prodQuantity"
+                    type="text"
+                    (keypress)="numberOnly($event)"
+                    maxlength="2"
+                    pattern="[0-9]+"
+                /></span>
+              </div>
+            </div>
+              <ng-template #outOfStock>
+                <div class="product_avial">
+                  <span>
+                    {{'quickViewData.outOfStk' | translate}}
+                  </span>
+                </div>
+              </ng-template>
+              <div class="FR-QV-product-info-block">
+                <h2 class="plp-product-CatDisplay-name"  *ngIf="product.seoTitle" [innerHtml]="product.seoTitle"></h2>
+                <p>
+                  {{'quickViewData.productCode' | translate}} <span>{{ product.code }}</span>
+                </p>
+                <p *ngIf="product.size">{{'quickViewData.size' | translate}}&nbsp;<span [innerHtml]="product.size"></span></p>
+                <p class="fullDetails">
+                  <a   (click)="onShowDetailPage($event,product)" routerLink="{{getRouterPath(product)}}" routerLinkActive="active">{{'quickViewData.fullDetails' | translate}}</a>
+                  <span></span>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <ng-template #amplienceAdvertiseBlock>
+        <div class="advertisement_block"  >
+          <span [innerHtml]="product.htmlData| safe: 'html'"></span>
+        </div>
+      </ng-template>
+   </div>
+  </div>

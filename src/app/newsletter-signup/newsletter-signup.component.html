@@ -1,0 +1,320 @@
+<div class="conatiner newsletter-body">
+  <app-mb-bread-crumb
+  *ngIf="breadcrumb"
+  [breadcrumb]="breadcrumb"
+></app-mb-bread-crumb>
+  <div class="checkout-content">
+    <div class="samples-container">
+      <div
+        class="innerSampleContainer"
+        *ngIf="!confirmation; else newsLCnfrmblock"
+      >
+        <form
+          class="newsletter-signup-form"
+          [formGroup]="newsLetterForm"
+          (keydown)="keyDownFunction($event)"
+          (ngSubmit)="onSubmitForm($event)"
+          custom-focus
+        >
+          <fieldset>
+            <h2>{{'newsLetter.newsLetterGuest' | translate}}</h2>
+            <h4 class="mobile-center" style="text-align: left">
+              {{'newsLetter.newsLetterHear' | translate}}
+            </h4>
+            <div class="form-group login-fields">
+              <input
+                formControlName="emailAddress"
+                autocorrect="off"
+                autocomplete="off"
+                placeholder="{{'addressBook.emailAdd' | translate}}"
+                type="text"
+                class="form-control  mandatory"
+                [ngClass]="{
+                  'has-error  not-valid':
+                    !newsLetterForm.controls['emailAddress'].valid &&
+                    newsLetterForm.get('emailAddress').touched
+                }"
+              />
+              <div
+                *ngIf="
+                  !newsLetterForm.controls['emailAddress'].valid &&
+                  newsLetterForm.get('emailAddress').touched
+                "
+                class="not-valid-error-msg"
+              >
+                <span
+                  [hidden]="
+                    !newsLetterForm.controls['emailAddress'].errors.required
+                  "
+                >
+                  {{ "newsLetter.emailAddress" | translate }}</span
+                >
+                <span
+                  [hidden]="
+                    !newsLetterForm.controls['emailAddress'].errors
+                      .patternInvalid
+                  "
+                  >{{ "register.invalidEmailAddress" | translate }}</span
+                >
+              </div>
+            </div>
+
+            <div class="form-group login-fields">
+              <input
+                formControlName="firstName"
+                autocorrect="off"
+                autocomplete="off"
+                placeholder="{{'addressBook.firstName' | translate}}"
+                type="text"
+                class="form-control"
+               
+              />
+            </div>
+            <div class="form-group login-fields">
+              <input
+                formControlName="lastName"
+                autocorrect="off"
+                autocomplete="off"
+                placeholder="{{'addressBook.lastName' | translate}}"
+                type="text"
+                class="form-control  mandatory"
+                [ngClass]="{
+                  'has-error  not-valid':
+                    !newsLetterForm.controls['lastName'].valid &&
+                    newsLetterForm.get('lastName').touched
+                }"
+              />
+              <div
+                *ngIf="
+                  !newsLetterForm.controls['lastName'].valid &&
+                  newsLetterForm.get('lastName').touched
+                "
+                class="not-valid-error-msg"
+              >
+                <span
+                  [hidden]="
+                    !newsLetterForm.controls['lastName'].errors.required
+                  "
+                >
+                  {{ "newsLetter.lastName" | translate }}</span
+                >
+              </div>
+            </div>
+
+            <h4 class="margin-space">
+              {{'newsLetter.dateOfBirth' | translate}}<span class="lighter"
+                >{{'newsLetter.specialTreat' | translate}}</span
+              >
+            </h4>
+            <div class="form-group displayFlex">
+            <div class=" split-input">
+              <select class="mandatory form-control selectDropdown" formControlName="day">
+                <option >{{'newsLetter.day' | translate}}</option>
+                <option *ngFor="let day of days">{{ day.day }}</option>
+              </select>
+            </div>
+            <div class="split-input">
+              <select class="mandatory form-control selectDropdown" formControlName="month">
+                <option class="dropdown-months">{{'newsLetter.month' | translate}}</option>
+                <option class="dropdown-months" *ngFor="let month of months">{{ month }}</option>
+              </select>
+            </div>
+            <div class="split-input">
+              <select class="mandatory form-control selectDropdown" formControlName="year">
+                <option >{{'newsLetter.year' | translate}}</option>
+                <option *ngFor="let year of years">{{ year.year }}</option>
+              </select>
+            </div>
+          </div>
+            <div class="form-group clearfix">
+              <h4 class="margin-space">{{'newsLetter.gender' | translate}}</h4>
+              <div class="radio gender-radio">
+                <input
+                  formControlName="gender"
+                  name="gender"
+                  type="radio"
+                  value="F"
+                  id="genderfemale"
+                />
+                <label for="genderfemale">{{'newsLetter.female' | translate}}</label>
+              </div>
+              <div class="radio">
+                <input
+                  formControlName="gender"
+                  name="gender"
+                  type="radio"
+                  value="M"
+                  id="newsLetterFormGenderCtrl"
+                />
+                <label for="newsLetterFormGenderCtrl">{{'newsLetter.male' | translate}}</label>
+              </div>
+              <div class="radio">
+                <input
+                  formControlName="gender"
+                  name="gender"
+                  checked="checked"
+                  type="radio"
+                  value="NM"
+                  id="genderneutral"
+                />
+                <label for="genderneutral">{{'newsLetter.nonBinary' | translate}}</label>
+              </div>
+            </div>
+            <div class="form-group form-checkbox newsLetter">
+              <div class="checkbox">
+                <input
+                  style="padding-top: 0px;"
+                  id="newsletterCCCheckbox"
+                  type="checkbox"
+                  class="checkbox"
+                  formControlName="newsletterOptIn"
+                  [ngClass]="{
+                    'has-error  not-valid':
+                      !newsLetterForm.controls['newsletterOptIn'].valid &&
+                      newsLetterForm.get('newsletterOptIn').touched
+                  }"
+                />
+                <label
+                  for="newsletterCCCheckbox"
+                  class="terms-lbl"
+                  [ngClass]="{
+                    'has-error  not-valid terms-not-valid':
+                      !newsLetterForm.controls['newsletterOptIn'].valid &&
+                      newsLetterForm.get('newsletterOptIn').touched
+                  }"
+                  >{{'newsLetter.recieveComm' | translate}}.</label
+                >
+                <div
+                  class="terms-error-msg-bottom error-block"
+                  *ngIf="
+                    getTypeOf(newsLetterForm.value['newsletterOptIn']) ||
+                    (!newsLetterForm.controls['newsletterOptIn'].valid &&
+                      newsLetterForm.get('newsletterOptIn').touched)
+                  "
+                >
+                  <span
+                    [hidden]="
+                      !newsLetterForm.controls['newsletterOptIn'].errors
+                        .required
+                    "
+                  >
+                    {{ "newsLetter.communication" | translate }}
+                  </span>
+                </div>
+              </div>
+            </div>
+            <div class="form-group form-checkbox newsLetter">
+              <div class="checkbox">
+                <input
+                  id="newsletterTrmschckbox"
+                  style="padding-top: 0px;"
+                  type="checkbox"
+                  class="checkbox"
+                  formControlName="newsletterOptInTerms"
+                  [ngClass]="{
+                    'has-error  not-valid':
+                      !newsLetterForm.controls['newsletterOptInTerms'].valid &&
+                      newsLetterForm.get('newsletterOptInTerms').touched
+                  }"
+                />
+                <label
+                for="newsletterTrmschckbox"
+                  class="terms-lbl"
+                  [ngClass]="{
+                    'has-error  not-valid terms-not-valid':
+                      !newsLetterForm.controls['newsletterOptInTerms'].valid &&
+                      newsLetterForm.get('newsletterOptInTerms').touched
+                  }"
+                  >I accept the 
+                  <a
+                    data-toggle="modal"
+                    class="terms-lbl-content"
+                    data-target="#modalCheckoutPopup"
+                    (click)="onClickTerms()"
+                  >
+                    Terms & Conditions</a>
+                  and
+                  <a
+                    data-toggle="modal"
+                    data-target="#modalCheckoutPopup"
+                    (click)="onClickPrivacy()"
+                  >
+                    Privacy & Cookie Policy.*
+                  </a>
+                </label>
+                <div
+                  class="terms-error-msg-bottom error-block"
+                  *ngIf="
+                    getTypeOf(newsLetterForm.value['newsletterOptInTerms']) ||
+                    (!newsLetterForm.controls['newsletterOptInTerms'].valid &&
+                      newsLetterForm.get('newsletterOptInTerms').touched)
+                  "
+                >
+                  <span
+                    [hidden]="
+                      !newsLetterForm.controls['newsletterOptInTerms'].errors
+                        .required
+                    "
+                  >
+                    {{ "newsLetter.terms" | translate }}
+                  </span>
+                </div>
+              </div>
+            </div>
+            <div class="form-group flexCenter">
+              <input type="submit" value="submit" class="btn btn-default newsletter-submit" />
+            </div>
+          </fieldset>
+        </form>
+        <p class="lighter">{{'newsLetter.requiredField' | translate}}</p>
+        <p class="flexCenter">
+          {{'newsLetter.personalDetails' | translate}}
+        </p>
+      </div>
+      <ng-template #newsLCnfrmblock>
+        <div class="confirmation-content thankyou" *ngIf="newsLetterForm">
+          <h1>{{'newsLetter.thankYou' | translate}}</h1>
+          <h4>
+            {{'newsLetter.thankYouOne' | translate}}<span *ngIf="recipientName && !germanuser ">{{ userNameData }}</span> {{'newsLetter.thankYouMsg' | translate}}
+          </h4>
+          <a routerLink="/store" class="cta" title="">{{'newsLetter.continueShopping' | translate}}</a>
+        </div>
+      </ng-template>
+      <div
+        class=""
+        [ngClass]="{
+          'inner-container-RightBlock': !confirmation,
+          'inner-container-ResultBlock': confirmation
+        }"
+      >
+        <img
+          src="//images.moltonbrown.co.uk/MBPromoImages/email-signup_desktop.jpg"
+          class="desk-block"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+
+<div
+  class="modal"
+  id="modalCheckoutPopup"
+  tabindex="-1"
+  role="dialog"
+  aria-hidden="true"
+>
+  <div
+    class="chck-modal-dialog modal-dialog modal-full container modal-dialog-scrollable newsletter-popup"
+    role="document"
+  >
+    <div class="modal-content">
+      <div class="chck-modal-header modal-header">
+        <button type="button" class="close" data-dismiss="modal">
+          &times;
+        </button>
+        <h4 class="modal-title text-center">{{ modalTitle }}</h4>
+      </div>
+      <div class="modal-body chck-modal-body" #newsLetterEl></div>
+    </div>
+  </div>
+</div>

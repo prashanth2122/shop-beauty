@@ -1,0 +1,20 @@
+<div class="checkout-container justify-content-center sample-container" >
+    
+    <div class="step-indicator clearfix">
+        <ol>
+                <li class="step active" [ngClass]="{'current':singletonServ.basketTab}">
+                    <span class="step-mbwithSample-indicator-one">{{ "basketBC"| translate }}</span>
+                    <span class="step-mbwithSample-indicator-one-non-current">1</span>
+                </li>
+                <li class="step active" [ngClass]="{'current':singletonServ.sampleTab}"> 
+                    <span class="step-mbwithSample-indicator-two">{{ "sampleAndGiftBox"| translate }}</span>
+                    <span class="step-mbwithSample-indicator-two-non-current">2</span>
+                </li>
+                <li class="step active" [ngClass]="{'current':singletonServ.checkOutTab}">
+                    <span class="step-mbwithSample-indicator-three">{{ "checkout"| translate }}</span>
+                    <span class="step-mbwithSample-indicator-three-non-current">3</span>
+                </li>
+        </ol>
+         </div>
+    <router-outlet></router-outlet>
+</div>

@@ -1,0 +1,32 @@
+@import"../../variable";
+
+.mb_page_wrapper {
+    width: 964px;
+    margin: 0 auto;
+    text-align: left;
+}
+#journal-homepage{
+    text-align: center;
+    width:878px;
+    height:auto;
+    .Title{
+        font-family: $dancingScript-bold;
+    }
+}
+@media screen and (max-width:$screen-sm){
+    #journal-homepage{
+    width:100%;
+    height:auto;
+    }
+}
+#featureNavUnderneath {
+    .amp-dc-text {
+        
+        p{
+            font-size:14px;
+            padding: 15px;
+        }
+        
+    }
+
+}

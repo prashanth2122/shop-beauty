@@ -1,0 +1,40 @@
+<h1 class="amp-page-title">Site map</h1>
+<div class="row mob-nomargin sitemap-page">
+    <div class="col-md-4 col-sm-6 col-6 sitemap-categories">
+        <h4>Home</h4>
+        <ul>
+            <li 
+                *ngFor="let item of homeCategoryList" 
+                [hidden]="item.order==100" >
+                <a 
+                  href="{{getRouterPath(item)}}"
+                  [innerHtml]="item.categoryDisplayName">
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div class="col-md-4 col-sm-6 col-6 sitemap-categories" 
+        *ngFor="let cat of nestedCategoryList">
+        <h4 *ngIf="cat.order !='100'" >{{cat.categoryDisplayName}}</h4>
+        <ul class="parent-root" *ngIf="cat.subcategories&&cat.subcategories.length !=0">
+            <li class="parent-root-childone">
+                <a href="{{getRouterPath(cat)}}" [innerHtml]="cat.categoryDisplayName"></a>
+            </li>
+            <li class="parent-root-childone" *ngFor="let nestedsubCat of cat.nestedCategory">
+                <a href="{{getRouterPath(nestedsubCat)}}" [innerHtml]="nestedsubCat.categoryDisplayName"></a>
+            </li>
+            <li class="parent-root-childone" *ngFor="let subCat of cat.subCategory">
+                <a href="{{getRouterPath(subCat)}}" [innerHtml]="subCat.categoryDisplayName"></a>
+            </li>
+        </ul>
+    </div>
+    <div class="col-md-4 col-sm-6 col-6 sitemap-categories" *ngFor="let cat of staticList">
+        <a  class="title-link" href="{{getUrl(cat.url)}}" *ngIf="cat.sub_cat.length == 0" [innerHtml]="cat.title"></a>
+        <h4 *ngIf="cat.sub_cat.length > 0">{{cat.title}}</h4>
+        <ul *ngIf="cat.sub_cat.length > 0">
+            <li *ngFor="let item of cat.sub_cat">
+                <a href="{{getUrl(item.url)}}" [innerHtml]="item.name"></a>
+            </li>
+        </ul>
+    </div>
+</div>

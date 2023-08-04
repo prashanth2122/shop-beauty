@@ -1,0 +1,42 @@
+@import ".././../variable";
+.checkout-container{
+    width:964px;
+    margin-right: auto;
+    margin-left: auto;
+    // padding-left: 15px;
+    // padding-right: 15px;
+    text-rendering: optimizeLegibility;
+    @media(max-width: $screen-sm){
+     width:100%;
+     padding:0;
+    }
+}
+
+.step{
+    span{
+      font-size: 18px;
+    }
+    .step-mbwithSample-indicator-one,.step-mbwithSample-indicator-two,.step-mbwithSample-indicator-three{
+      @media(max-width:$screen-sm){
+        display:none;
+      }
+    }
+    .step-mbwithSample-indicator-one-non-current,.step-mbwithSample-indicator-two-non-current,.step-mbwithSample-indicator-three-non-current{
+      display: none;
+      @media(max-width: $screen-sm){
+        display:block;
+        height: 100%;
+      }
+    }
+    &.current{
+      @media(max-width:$screen-sm){
+        .step-mbwithSample-indicator-one,.step-mbwithSample-indicator-two,.step-mbwithSample-indicator-three{
+          display:block;
+        }
+        .step-mbwithSample-indicator-one-non-current,.step-mbwithSample-indicator-two-non-current,.step-mbwithSample-indicator-three-non-current{
+          display: none;
+         }
+     }
+    }
+
+  }

@@ -1,0 +1,128 @@
+
+<div class="container text-center app-holder mob-container">
+  <form   class="form2" [ngClass]="getBGImg">
+<div  class="results-container" >
+  <div 
+  class="dl-overlay"  
+  [ngClass]="{
+    'dl-overlay-show':!primaryProfile,
+    'dl-overlay-hide':primaryProfile 
+   }">
+ <div class="b2c-title"> 
+         <span class="loading-txt"> loading... </span>
+ </div>
+</div>	
+<div  class="container secondary" style="width:100%;padding-bottom: 15px" >
+			
+  <div class="row primary-product" *ngIf="primaryProfile">
+    <div class="col-md-6 img-fragrance"> 
+      <img src="{{primaryProfile.amplienceImageName}}" />
+
+      <div class="product-checkbox">
+        <input
+        id="one-prod" 
+        type="checkbox" 
+        [(ngModel)]="primary.checked"
+        [ngModelOptions]="{standalone: true}"
+        (change)="primaryCheckbox($event)"
+        [hidden]="!primaryProductCB"
+       >
+        <label for="one-prod" class="checker"  [hidden]="!primaryProductCB"></label>
+        <span *ngIf="priProdCB"> {{'fragranceFinder.addSample' | translate}}</span>
+        <span *ngIf="priProdSelected" class="selected">sample selected</span>
+        <span *ngIf="priProdNotAvailable" class="not-available">Two samples reached. Please remove one to select.</span>
+      </div>
+
+      <p>{{'fragranceFinder.productTandC' |translate}}<br />the purchase of a full-sized perfume. <a href="" target="_blank">T&amp;Cs apply.</a></p>
+    </div>
+
+    <div class="col-md-6 copy-fragrance">
+      <h3>Your perfect match is</h3>
+      <h1 [innerHtml]="primaryProfile.name"></h1> 
+      <h6 [innerHtml]="primaryProfile.description"></h6>
+      <h6 [innerHtml]="identityCopy" class="identity-copy"> </h6>
+      <p>
+        {{'fragranceFinder.productTandC' |translate}}<br />the purchase of a full-sized perfume. <a href="" target="_blank">T&amp;Cs apply.</a></p>
+    </div>
+  </div>
+
+  <div class="row secondary-product" *ngIf="secondaryProfile">
+    <div class="col-md-12 youmight">
+      <h3>You might also like</h3>
+    </div>
+
+    <div class="col-md-6"  *ngFor="let secondary of secondaryProfile;let k=index"> 							
+      <img src="{{secondary.amplienceImageName}}">
+      <h4 [innerHtml]="secondary.name"></h4>
+      <h6 [innerHtml]="secondary.description"></h6>					
+      <div class="product-checkbox">
+        <input 
+         class="ff-prod" 
+         type="checkbox"  
+         name="secondary" 
+         *ngIf="secondary.secondaryProductCB"
+         [checked]="secondary.checked"
+         (change)="onSecondaryChange(secondary, k)"
+         id="secondary-prod{{k}}" 
+        >
+        <label *ngIf="secondary.secondaryProductCB"for="secondary-prod{{k}}" class="checker"></label>
+        <span *ngIf="secondary.secProdCB">{{'fragranceFinder.addSample' | translate}}</span>
+        <span *ngIf="secondary.secProdSelected" class="selected">sample selected</span>
+        <span  *ngIf="secondary.secProdNotAvailable" class="not-available">Two samples reached. Please remove one to select.</span>
+      </div>
+    </div>
+    <div class="col-md-12">
+      <button 
+         class="checkout btn" 
+         [disabled]="checkoutProducts" 
+         (click)="onAddToBasket($event)"
+         >
+        <span>Checkout</span>
+      </button>
+    </div> 
+    <div class="col-md-12 map drop-pin">
+      <img src="assets/resource/img/dropPin.png" />
+      <span>Prefer to try in-store? 
+        <a 
+           href="/store/company/stores"  target="_blank">
+          Find your nearest store.
+        </a>
+      </span>
+    </div>
+    <div class="contact-us">
+      <div class="input-group">
+        <span class="bold-upper-text">Email my results</span>				
+        <input #frEmail type="email" name="emailInput" novalidate class="form-control" placeholder="Email address*"  required>
+        <div class="email-checkboxes">
+          <div class="email-checkbox">
+            <input id="email-cb-1" type="checkbox" >
+            <label for="email-cb-1" class="checker"></label>
+            <span>I would like to receive communications from Molton Brown.</span>
+          </div>
+          <div class="email-checkbox">
+            <input #termsCheckbox id="email-cb-2" type="checkbox"  (change)="tcs($event)" required>
+            <label for="email-cb-2" class="checker"></label>
+            <span>I accept the <a href="/store/terms-conditions" target="_blank">Terms &amp; Conditions</a> and <a href="/store/privacy-policy" target="_blank">Privacy &amp;
+              Cookie Policy</a>*</span>
+          </div>
+        </div>
+
+        <button id="email-submit" class="btn" type="button" [disabled]="gdprCheck" (click)="submitEmail()">
+          <span>{{(sentEmail)?'Sent':'Send'}}</span>
+        </button>
+        <p>We always treat your personal details with the upmost care and never sell them the other companies. You can unsubscribe at any time.</p>
+      </div>
+
+    </div>
+    <div class="col-md-12 restart-xp">
+      <span 
+      class="restart-link"            
+      routerLink="{{getRouterPath()}}"
+      routerLinkActive="active" 
+       (click)="restartExp()">restart the experience</span>
+    </div>
+  </div>
+</div>
+</div>
+</form>
+</div>

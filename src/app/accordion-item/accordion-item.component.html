@@ -1,0 +1,23 @@
+<div class="accordion-item" >
+  <div class="accordion-item__header" >
+    <ng-content select=".accordion-item-header"></ng-content>
+  </div>
+  <div class="accordion-item__content" #accordionList> <!-- [ngClass]="_isOpen ? 'open' : 'closed'"> -->
+    <ng-content select=".accordion-item-content"></ng-content>
+  </div>
+</div>
+
+
+
+<!-- <div class="accordion-item" [ngClass]="{
+  'accordion-item--isOpen': state == 'isOpen',
+  'accordion-item--isClose': state == 'isClose'
+}">
+  <div class="accordion-item__header" (click)="onClickHeader()">
+    <ng-content select=".accordion-item-header"></ng-content>
+    {{ title }}
+  </div>
+  <div class="accordion-item__content" [@accordionItemContentAnimation]="state" >
+    <ng-content select=".accordion-item-content"></ng-content>
+  </div>
+</div> -->

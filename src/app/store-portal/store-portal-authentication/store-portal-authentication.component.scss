@@ -1,0 +1,94 @@
+@import"../../../variable";
+.store-portal-login{
+    .store-portal-form{
+        width: 980px;
+        padding: 15px 0;
+        min-height: 400px;
+        &-wrapper{
+            width: 610px;
+            padding: 0;
+            margin: 40px auto 0 auto!important;
+            float: none;
+            .login-head{
+                width: 92%;
+                padding: 0 0 7px 0;
+                text-align: center;
+                float: left;
+                border-bottom: 1px #999 solid;
+                font-size: 13px;
+                font-weight: normal;            
+            }
+            .store-wrapper-box{
+                width: 100%;
+                float: left;
+                letter-spacing: 1px;
+                color: #666;
+                margin-top: 15px;
+            fieldset{
+                width: 500px;
+                margin:0 auto;
+                div {
+                    padding: 5px 0 15px 0;
+                    float: left;
+                    width: 50%;
+                }
+                label{
+                        width: 130px;
+                        padding: 7px 25px 0 0;
+                        float: left;
+                        font-size: 14px;
+                        font-weight: normal;
+                        text-align: right;
+                }
+                select.store {
+                    width:100%;
+                    height:35px;
+                    border: 1px #cdcdcd solid;
+                    padding: 4px;
+                    font-size: 15px;
+                    float: left;
+                }
+                input[type="password"] {
+                    padding: 0;
+                    margin: 0;
+                    font-size: 13px;
+                    color: #666;
+                    width:100%;
+                    height:30px;
+                }
+                .button-login{
+                    text-decoration: none;
+                    background: $primary-color;
+                    padding: 5px 10px;
+                    font-size: 14px;
+                    color: $mb-white;
+                    float: left;
+                    display: inline-block;
+                    margin: 0 20px 0 0;
+                    border: 0;
+                  }
+               a.forgotpwd {
+                    color: $primary-color;
+                    text-decoration: underline;
+                    float: left;
+                    padding-top: 10px;
+                }
+            }
+
+        }
+        }
+      }
+      .note {
+        width: 100%;
+        font-size: 14px;
+        padding-top: 150px;
+        padding-bottom: 5px;
+        a {
+            text-decoration: none;
+            margin: 0;
+            padding: 0;
+            cursor: pointer;
+            outline: none!important;
+        }
+    }
+}

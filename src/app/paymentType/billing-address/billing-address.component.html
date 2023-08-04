@@ -1,0 +1,318 @@
+<section class="billing-form-container" id="changeBlForm">
+  <div class="section-heading">
+    <h2>{{'paymentCard.yourBillAdd' | translate}}</h2>
+  </div>
+  <form
+    class="billing_form"
+    [formGroup]="ccForm"
+    (keydown)="keyDownFunction($event)"
+    (ngSubmit)="onSubmitCCForm($event)"
+    custom-focus
+    id="changeAddressBlForm"
+  >
+    <div class="form-group card_field billingHelp sort-field" data-sortIndex="1" style="position: relative;">
+      <input
+        autocorrect="off"
+        formControlName="phone"
+        placeholder="{{'checkoutFlow.placeHolderPhone' | translate}}"
+        type="text"
+        class="telInput  mandatory form-control reg_field"
+        autocapitalize="on"
+        [ngClass]="{
+          'has-error not-valid':!ccForm.get('phone').valid && ccForm.get('phone').touched,
+          'valid':ccForm.get('phone').valid && ccForm.get('phone').touched
+        }"
+      />
+      <a
+        class="contextual-help"
+        show-delay="100" ngbTooltip="{{'register.phonenumberInfo'|translate}}" [placement]="mobileDevice?'top':'right'"  
+      ></a>
+
+      <div
+        *ngIf="
+          (!ccForm.controls['phone'].valid && ccForm.get('phone').touched) ||
+          (isValidFormSubmitted != null && !isValidFormSubmitted)
+        "
+        class="not-valid-error-msg"
+      >
+        <span *ngIf="ccForm.controls['phone'].errors.required"
+          >{{'checkoutFlow.phoneNoError' | translate}}</span
+        >
+        <span *ngIf="ccForm.controls['phone'].errors.patternInvalid">
+          {{'checkoutFlow.phoneNoLenError' | translate}}
+        </span>
+      </div>
+    </div>
+
+    <div class="form-group sort-field" data-sortIndex="7">
+        <div
+          class="form-inline marginB"
+          style="justify-content: flex-start;"
+        >
+          <div class="form-group">
+              <app-custom-select 
+              *ngIf="countries"
+              [countries]="countries"
+              (onSelectVal)="onChangeCountry($event)"
+              formInnerControlName="country"
+              [parentForm]="ccForm"
+              [dropdownDetails]="countryMsgDtls"
+              [ngClass]="{
+                'has-error  not-valid':!ccForm.controls['country'].value.isocode && ccForm.get('country').touched,
+                'valid': ccForm.get('country').valid
+              }"
+              >
+            </app-custom-select>         
+          </div>
+          <span *ngIf="ukSpecificForm">
+              <span
+                class="help-block inline postcodesearchreset"
+                *ngIf="!manualAdress"
+                style="display: inline;"
+              >
+                <a (click)="onSearchByPostal()">Search using postcode</a>
+              </span>
+            </span>
+     </div>
+  </div>
+    <div
+      class="form-inline manual_field"
+      *ngIf="manualAdress; else fullDetail"
+    >
+      <div class="form-group card_field main-short-field mob-flot-left">
+        <input
+          type="text"
+          formControlName="line1"
+          placeholder="House no."
+          class="form-control short-field"
+        />
+      </div>
+      <div class="form-group card_field main-short-field mob-flot-right" >
+        <input
+          type="text"
+          formControlName="postalCode"
+          autocapitalize="characters"
+          (keydown)="onPostCodeKeyDown($event)"                           
+          placeholder="{{'checkoutFlow.placeHolderpostCode' | translate}}"
+          class="form-control short-field postC uk-post-code"
+          #myInput
+          [ngClass]="{
+            'has-error not-valid':!ccForm.controls['postalCode'].valid && ccForm.controls['postalCode'].touched,
+            'not-valid-postcode': !postCodeStatus,
+            'valid': (ccForm.get('postalCode').valid && ccForm.controls['postalCode'].touched)&&postCodeStatus
+          }"
+        />
+
+        <div
+          *ngIf="
+            (!ccForm.controls['postalCode'].valid &&
+              ccForm.get('postalCode').touched) 
+          "
+          class="not-valid-error-msg"
+        >
+        <!-- <span *ngIf="!postCodeStatuss">Please select a post Code</span> -->
+        <span *ngIf="!postCodeStatus">Please enter a valid postcode or enter the address manually.</span>
+          <span *ngIf="ccForm.controls['postalCode'].errors?.required"
+            >Please select a postcode</span
+          >
+          <span
+          [hidden]="
+            !ccForm.controls['postalCode'].errors.patternInvalid
+          "
+        >{{'checkoutFlow.postCodeErr' | translate}}</span>
+        </div>
+        <div class="postcode-msg-block">
+          <span>Please enter a valid postcode or enter the address manually.</span>
+        </div>
+      </div>
+      <button
+        class="btn btn-default btn-find-address"
+        (click)="findAddress($event)"
+      >
+        FIND ADDRESS
+      </button>
+      <span *ngIf="ukSpecificForm" class="help-block"
+        >Or
+        <a (click)="addressManual()" style="cursor: pointer;"
+          >enter address manually</a
+        ></span
+      >
+    </div>
+    <div class="form-group postalcode-block sort-field" data-sortIndex="8" *ngIf="postalAddresses">
+      <div class="form-inline" style="justify-content: flex-start;">
+        <div class="form-group">
+          <select
+            class="mandatory form-control card_field selectDropdown slct-post-address"
+            formControlName="address"
+            (change)="onSelectPlace($event.target.value)"
+          >
+            <option value="" selected>Select address</option>
+            <option
+              *ngFor="let data of postalAddresses; let k = index"
+              [value]="data.Id"
+              >{{ data.StreetAddress }}, &nbsp;{{ data.Place }}</option
+            >
+          </select>
+        </div>
+       </div>
+    </div>
+    <ng-template #fullDetail>
+      <div class="form-group card_field sort-field" data-sortIndex="2">
+        <input
+          autocorrect="off"
+          formControlName="line1"
+          placeholder="{{'checkoutFlow.placeHolderAdd' | translate}}"
+          type="text"
+          class="form-control  mandatory"
+          autocapitalize="on"
+          [ngClass]="{
+            'has-error not-valid':!ccForm.get('line1').valid && ccForm.get('line1').touched,
+            'valid':ccForm.get('line1').valid
+             }"
+        />
+        <div
+          *ngIf="!ccForm.controls['line1'].valid && ccForm.get('line1').touched"
+          class="not-valid-error-msg"
+        >
+          <span *ngIf="ccForm.controls['line1'].errors.required">
+            {{'checkoutFlow.addError' | translate}}
+          </span>
+        </div>
+      </div>
+      <div class="form-group card_field sort-field" data-sortIndex="3">
+        <input
+          autocorrect="off"
+          formControlName="line2"
+          placeholder="{{'checkoutFlow.placeHolderAddr' | translate}}"
+          type="text"
+          class="form-control  mandatory"
+          autocapitalize="on"
+        />
+      </div>
+      <div class="form-group card_field sort-field" data-sortIndex="4">
+        <input
+          autocorrect="off"
+          formControlName="town"
+          placeholder="{{'checkoutFlow.placeHolderpostCity' | translate}}"
+          type="text"
+          class="form-control  mandatory"
+          autocapitalize="on"
+          [ngClass]="{
+            'has-error not-valid':!ccForm.get('town').valid && ccForm.get('town').touched,
+            'valid':ccForm.get('town').valid 
+          }"
+        />
+        <div
+          *ngIf="!ccForm.controls['town'].valid && ccForm.get('town').touched"
+          class="not-valid-error-msg"
+        >
+          <span *ngIf="ccForm.controls['town'].errors.required">
+            {{'checkoutFlow.cityError' | translate}}
+          </span>
+        </div>
+      </div>
+      <div class="form-group sort-field" data-sortIndex="6">
+        <input
+          *ngIf="!usSpecificForm; else usStates"
+          autocorrect="off"
+          formControlName="district"
+          placeholder="County (optional)"
+          type="text"
+          class="form-control  mandatory card_field"          
+          autocapitalize="on"
+
+        />
+        <ng-template #usStates>
+          <select
+            *ngIf="stateList"
+            class="mandatory form-control card_field selectDropdown usStateDropdown"
+           
+            formControlName="district" 
+            [ngClass]="{
+              'has-error  not-valid':!ccForm.controls['district'].valid && ccForm.get('district').touched
+            }"
+          >
+            <option value="" selected>State *</option>
+            <option
+              *ngFor="let data of stateList; let k = index"
+              [ngValue]="data"
+              >{{ data.name }}</option
+            >
+          </select>
+           <input
+            *ngIf="!stateList"
+            autocorrect="off"
+            formControlName="district"
+            placeholder="{{ 'form.label.state' | translate }} *"
+            type="text"
+            class="form-control  mandatory card_field"
+            autocapitalize="on"
+            [ngClass]="{
+              'has-error not-valid': !ccForm.get('district').valid && ccForm.get('district').touched,
+              'valid':ccForm.get('district').valid
+            }"
+          />
+          <div
+          *ngIf="!ccForm.controls['district'].valid && ccForm.get('district').touched"
+          class="not-valid-error-msg"
+        >
+          <span [hidden]="!ccForm.controls['district'].errors.required">
+              {{  (stateList)?  'Please select a state' :'Please enter a County/State/Region '}}
+            </span>
+        </div>
+        </ng-template>
+      </div>
+
+      <div class="form-group card_field postalcode-block sort-field" data-sortIndex="5">
+          <a class="contextual-help"   *ngIf="!ukLoopBtnStatus && !usSpecific" ngbTooltip="{{'register.exceptUkallCountryPostCode'|translate}}"  [placement]="mobileDevice?'top':'right'"  
+          show-delay="100"></a>
+        <input
+          autocorrect="off"
+          formControlName="postalCode"                           
+          placeholder="{{'checkoutFlow.placeHolderpostCode' | translate}}"
+          type="text"
+          class="form-control  mandatory pcode"
+          autocapitalize="on"
+          [ngClass]="{
+            'has-error not-valid':!ccForm.get('postalCode').valid && ccForm.get('postalCode').touched,
+            'valid':ccForm.get('postalCode').valid 
+          }"
+        />
+
+        <div  *ngIf="!ccForm.controls['postalCode'].valid &&ccForm.get('postalCode').touched "
+          class="not-valid-error-msg"
+        >
+          <span *ngIf="ccForm.controls['postalCode'].errors?.required">
+            {{'checkoutFlow.postCodeError' | translate}}
+          </span>
+          <span
+          [hidden]="
+            !ccForm.controls['postalCode'].errors.patternInvalid
+          "
+        >{{'checkoutFlow.postCodeErr' | translate}}</span>
+        </div>
+      </div>
+    </ng-template>
+    <div class="form-group shippingButtons  clearfix sort-field" data-sortIndex="9">
+      <div class="shippingButtons_btn-block" *ngIf="!clickCollect">
+        <a
+          class="btn btn-default pull-left disabled-active reset-btn shippingbutton-cancel"
+          (click)="onResetForm()"
+          >
+          {{'checkoutFlow.cancelBtnCheckOut'| translate}}
+          <!-- {{'addressBook.cancelButton' | translate}} -->
+          </a
+        >
+      </div>
+      <div
+        class="shippingButtons_btn-block"
+        *ngIf="!manualAdress"
+        [ngClass]="{ 'shippingButtons_btn-full-width': clickCollect }"
+      >
+        <button class="btn btn-default pull-right " type="submit">
+          {{'checkoutFlow.confirmCheckoutAddress'| translate}}
+        </button>
+      </div>
+    </div>
+  </form>
+</section>

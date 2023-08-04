@@ -1,0 +1,159 @@
+<section class="mb-content" >
+  <div class="container">
+
+
+    <div class="rowComponents" *ngIf="findMoreContent">
+      <div class="store_img_block">
+        <a (click)="onShowStoreEvents($event)">
+          <img
+            src="assets/imgs/storeEventsBanner.jpg"
+            alt="store event_banner"
+          />
+        </a>
+      </div>
+    </div>
+
+    <div class="rowComponents mt-10 find-store">
+      <div class="col-sm-6 find-store-search">
+        <h1>{{'storeFinder.storeFinder' | translate}}</h1>
+        <p *ngIf="descriptionBlock">
+          {{'storeFinder.findNearStore' | translate}}
+        </p>
+        
+        <form [formGroup]="storeForm " custom-focus>
+  <div *ngIf="loadGMscript">
+    <span>
+          <input
+          class="find-store-input-form"
+            googlePlaces
+            placeholder="{{'storeFinder.placeHoldercity' | translate}}"
+            #findStore
+            formControlName="storeName"
+            (onSelect)="setAddress($event)"
+            (keyup)="onSearchKeyUp($event)"
+           
+          />
+          <!-- <div
+          *ngIf="
+            !storeForm.controls['storeName'].valid &&
+            storeForm.get('storeName').touched
+          "
+          class="not-valid-error-msg"
+        >
+          <span
+            [hidden]="!storeForm.controls['storeName'].errors.required"
+            >please select a store</span
+          >
+        </div> -->
+      </span>
+          <button
+            class="btn btn-default findStore"
+            (click)="onSearchStore($event)"
+          >
+          {{'storeFinder.search' | translate}}
+          </button>
+        </div>
+ 
+        <div class="find-store-err-msg-block" *ngIf="storeSuggestionBlock" >
+            <div class="find-store-err-msg-cntnt"  *ngIf="emptyErrMsgBlocks">
+                Please enter a city, town or postcode into the search box.
+              </div>
+          <div *ngIf="sorryErrMsgBlock">
+            <span class="find-store-err-msg-cntnt">
+              {{'storeFinder.noStore' | translate}}</span>
+            &quot;<span class="find-store-pc"> {{postCode}}</span>&quot;
+            <br />
+        
+         
+            </div>
+            <div class="find-store-suggestion-bl" >
+            <div class="find-store-suggestion">
+              {{'storeFinder.tryAgain' | translate}}<br />
+              <span class="find-store-suggestion-head">{{'storeFinder.suggestion' | translate}}</span>
+              <br />
+              <br />
+              <ul class="find-store-suggestion-list">
+                <li>{{'storeFinder.spellCorrrectly' | translate}}</li>
+                <li>{{'storeFinder.includeTown' | translate}}</li>
+                <li>{{'storeFinder.enterPostCode' | translate}}</li>
+                <li>{{'storeFinder.widdenSearch' | translate}}</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        </form>
+      
+      </div>
+      <div class="col-sm-6 find-store-search-banner">
+        <img
+          src="assets/imgs/store-img-banner.png"
+          alt="store event_banner"
+        />
+      </div>
+    </div>
+
+    <div class="mt-10 all_stores">
+      <h3 class="view-allstores">{{'menu.allStores' | translate}}</h3>
+      <ul *ngIf="stores">
+        <li
+          class="store"
+          *ngFor="let data of stores; let k = index"
+          (click)="onCountryTyeClick($event,data, k)"
+          id="viewtotop"
+        >
+          <h4
+            id="{{'kaoStoreLabel'+k}}"
+            [ngClass]="{
+              'store_head-open': data.show,
+              'store_head-hide': !data.show
+            }"
+          >
+            <a class="store_head">{{ data.country }}</a>
+          </h4>
+          <div class="store_type_block">
+            <div class="store-inner">
+              <ul *ngIf="data.stores">
+                <li
+                  id="{{'kaoStoreLabel'+k+l}}"
+                  *ngFor="let type of data.stores; let l = index"
+                  (click)="onStoretyeClick($event, k, l)"
+                >
+                  <h5
+          
+                    [ngClass]="{
+                      'store-inner-open': type.show,
+                      'store-inner-hide': !type.show
+                    }"
+                  >
+                    <a>
+                      {{ type.storeType }}
+                    </a>
+                  </h5>
+                  <div class="store-inner-type-block" *ngIf="type.stores">
+                    <div class="store-inner-list rowComponents">
+                      <div
+                        class="store-inner-list-item col-sm-3"
+                        *ngFor="let store of type.stores"
+                      >
+                        <ul>
+                          <li (click)="onCheckStore(store)">
+                            <a>{{ store }}</a>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <div class="justify-content-center freshrelavance ">
+      <h2 class="customer">{{'frData.shopOurFavourites' | translate}}</h2>
+      <div #storeFinderFeed></div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,825 @@
+<section>
+  <div class="container reg_form">
+    <app-mb-bread-crumb [breadcrumb]="breadcrumb"></app-mb-bread-crumb>
+
+    <div class="rowComponents">
+      <h2 class="col-sm-12 register-in">{{'newCustRegisForm.newCustomerRegistrationForm' | translate}} </h2>
+      <form
+        [formGroup]="registrationForm"
+        (keydown)="keyDownFunction($event)"
+        (ngSubmit)="onSubmit($event, true)"
+        custom-focus
+        class="registration_form "
+        style="position: relative;"
+      >
+        <h2>{{'newCustRegisForm.loginDetails' | translate}} </h2>
+        <div class="dl-overlay"  
+        [ngClass]="{
+              'dl-overlay-show':overlayLoad,
+              'dl-overlay-hide':!overlayLoad
+        }">
+      <div class="b2c-title"> 
+        <span class="loading-txt"> loading... </span>  
+      </div>
+      </div>
+
+        <div class="col-xs-12 required_text">
+          &nbsp;<span class="redcolor">*</span>{{'newCustRegisForm.requiredField' | translate}}
+        </div>
+        <div class="col-xs-12 row">
+          <div class="col-sm-12 col-md-4 ">
+            <label class="register_label " for="reg_email"
+              >{{'newCustRegisForm.email' | translate}}<span class="redstar">*</span></label
+            >
+          </div>
+          <div class="col-sm-12 col-md-8 text-left ">
+            <span class="login_fields">
+              <input
+                type="email"
+                idd="reg_uid"
+                formControlName="uid"
+                class="mandatory form-control reg_field"
+                [ngClass]="{
+                  'has-error  not-valid':
+                    !registrationForm.controls['uid'].valid &&
+                    registrationForm.get('uid').touched,
+                    'cred-error':showCrentialError
+                }"
+              />
+              <div *ngIf="showCrentialError" class="credential-err-msg">
+                <span>
+               This email address is already registered.Either sign in or reset 
+               your password by clicking "Forgot your password ?" link
+               <!-- <a routerLink="/store/myaccount/profile/passwordReset" routerLinkActive="active" (click)="onRouteChange($event,'/store/myaccount/profile/passwordReset')">link</a>. -->
+              </span> 
+              </div>
+              <div
+                *ngIf="
+                  !registrationForm.controls['uid'].valid &&
+                  registrationForm.get('uid').touched
+                "
+                class="not-valid-error-msg"
+              >
+                <span
+                  [hidden]="!registrationForm.controls['uid'].errors.required"
+                  >{{ "register.uid" | translate }}</span
+                >
+                <span
+                  [hidden]="
+                    !registrationForm.controls['uid'].errors.patternInvalid
+                  "
+                  >{{ "register.invalidEmailAddress" | translate }}</span
+                >
+              </div>
+            </span>
+          </div>
+        </div>
+        <div class="col-xs-12 row">
+          <div class="col-sm-12 col-md-4 ">
+            <label class="register_label " for="reg_email"
+              >{{'newCustRegisForm.verifyEmail' | translate}}<span class="redstar">*</span></label
+            >
+          </div>
+          <div class="col-sm-12 col-md-8 text-left ">
+            <span class="login_fields">
+              <input
+                type="email"
+                formControlName="confirmemail"
+                class="mandatory form-control reg_field"
+                [ngClass]="{
+                  'has-error  not-valid':
+                    !registrationForm.controls['confirmemail'].valid &&
+                    registrationForm.get('confirmemail').touched
+                }"
+              />
+              <div
+                *ngIf="
+                  !registrationForm.controls['confirmemail'].valid &&
+                  registrationForm.get('confirmemail').touched
+                "
+                class="not-valid-error-msg"
+              >
+                <span
+                  [hidden]="
+                    !registrationForm.controls['confirmemail'].errors.required
+                  "
+                  >{{ "register.confirmEmail" | translate }}</span
+                >
+                <span
+                  [hidden]="
+                    !registrationForm.controls['confirmemail'].errors
+                      .appCustomValidator
+                  "
+                  >{{ "register.matchEmail" | translate }}</span
+                >
+              </div>
+            </span>
+          </div>
+        </div>
+
+        <div class="col-xs-12 row">
+          <div class="col-sm-12 col-md-4 ">
+            <label class="register_label " for="reg_password"
+              >{{'newCustRegisForm.password' | translate}}<span class="redstar">*</span></label
+            >
+          </div>
+          <div class="col-sm-12 col-md-8 text-left ">
+            <div class="login_fields password_field">
+              <a
+                class="contextual-help "
+                show-delay="100" ngbTooltip="{{'register.passwordInfo'|translate}}" [placement]="mobileDevice?'top':'right'"  
+              ></a>
+              <input
+                type="password"
+                maxlength="20"
+                formControlName="password"
+                class="mandatory form-control reg_field"
+                [ngClass]="{
+                  'has-error  not-valid':
+                    !registrationForm.controls['password'].valid &&
+                    registrationForm.get('password').touched
+                }"
+              />
+              <div
+                *ngIf="
+                  !registrationForm.controls['password'].valid &&
+                  registrationForm.get('password').touched
+                "
+                class="not-valid-error-msg"
+              >
+                <span
+                  [hidden]="
+                    !registrationForm.controls['password'].errors.required
+                  "
+                  >{{ "register.passwordEnter" | translate }}</span
+                >
+                <span
+                  [hidden]="
+                    !registrationForm.controls['password'].errors.patternInvalid
+                  "
+                  >{{ "register.invalidPassword" | translate }}</span
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-xs-12 row">
+          <div class="col-sm-12 col-md-4 ">
+            <label class="register_label ">
+              {{'newCustRegisForm.verifyPassword' | translate}}<span class="redstar">*</span>
+            </label>
+          </div>
+          <div class="col-sm-12 col-md-8 text-left ">
+            <span class="login_fields">
+              <input
+                type="password"
+                formControlName="confirmPassword"
+                maxlength="20"
+                class="mandatory form-control reg_field"
+                [ngClass]="{
+                  'has-error  not-valid':
+                    !registrationForm.controls['confirmPassword'].valid &&
+                    registrationForm.get('confirmPassword').touched
+                }"
+              />
+              <div
+                *ngIf="
+                  !registrationForm.controls['confirmPassword'].valid &&
+                  registrationForm.get('confirmPassword').touched
+                "
+                class="not-valid-error-msg"
+              >
+                <span
+                  [hidden]="
+                    !registrationForm.controls['confirmPassword'].errors
+                      .required
+                  "
+                  >{{ "register.confirmPassword" | translate }}</span
+                >
+                <span
+                  [hidden]="
+                    !registrationForm.controls['confirmPassword'].errors
+                      .appCustomValidator
+                  "
+                  >{{ "register.matchPassword" | translate }}</span
+                >
+              </div>
+            </span>
+          </div>
+        </div>
+        <h2 class="personalDetails">{{'newCustRegisForm.personalDetails' | translate}}</h2>
+        <div class="col-xs-12 row">
+          <div class="col-sm-12 col-md-4 ">
+            <label class="register_label " for="reg_title"
+              >{{'newCustRegisForm.title' | translate}}<span class="redstar">*</span></label
+            >
+          </div>
+          <div class="col-sm-12 col-md-8 text-left ">
+            <span class="login_fields">
+              <select
+              *ngIf="isocode!='DE'"
+                class="mandatory form-control"
+                formControlName="titleCode"
+                [ngClass]="{
+                  'has-error  not-valid':
+                    !registrationForm.controls['titleCode'].valid &&
+                    registrationForm.get('titleCode').touched
+                }"
+              >
+                <option value="null" selected>{{'newCustRegisForm.pleaseSelect' | translate}}</option>
+                <option value="miss">Miss</option>
+                <option value="mrs">Mrs</option>
+                <option value="ms">Ms</option>
+                <option value="mr">Mr</option>
+                <option value="dr">Dr</option>
+              </select>
+
+              <select
+              *ngIf="isocode=='DE'"
+                class="mandatory form-control"
+                formControlName="titleCode"
+                [ngClass]="{
+                  'has-error  not-valid':
+                    !registrationForm.controls['titleCode'].valid &&
+                    registrationForm.get('titleCode').touched
+                }"
+              >
+                <option value="null" selected>{{'newCustRegisForm.pleaseSelect' | translate}}</option>
+                <option value="mrs">Frau</option>
+                <option value="mr">Herr</option>
+              </select>
+              <div
+                *ngIf="
+                  !registrationForm.controls['titleCode'].valid &&
+                  registrationForm.get('titleCode').touched
+                "
+                class="not-valid-error-msg"
+              >
+                <span
+                  [hidden]="
+                    !registrationForm.controls['titleCode'].errors.required
+                  "
+                  >{{ "register.titleCode" | translate }}</span
+                >
+              </div>
+            </span>
+          </div>
+        </div>
+        <div class="col-xs-12 row">
+          <div class="col-sm-12 col-md-4 ">
+            <label class="register_label " for="reg_firstname"
+              >{{'newCustRegisForm.firstName' | translate}}<span class="redstar">*</span></label
+            >
+          </div>
+          <div class="col-sm-12 col-md-8 text-left ">
+            <span class="login_fields">
+              <input
+                type="text"
+                formControlName="firstName"
+                class="mandatory form-control reg_field "
+                [ngClass]="{
+                  'has-error  not-valid':
+                    !registrationForm.controls['firstName'].valid &&
+                    registrationForm.get('firstName').touched
+                }"
+              />
+              <div
+                *ngIf="
+                  !registrationForm.controls['firstName'].valid &&
+                  registrationForm.get('firstName').touched
+                "
+                class="not-valid-error-msg"
+              >
+                <span
+                  [hidden]="
+                    !registrationForm.controls['firstName'].errors.required
+                  "
+                >
+                  {{ "register.firstName" | translate }}
+                </span>
+                <span
+                  *ngIf="
+                    registrationForm.controls['firstName'].errors.patternInvalid
+                  "
+                >
+                  {{ "register.firstName" | translate }}
+                </span>
+              </div>
+            </span>
+          </div>
+        </div>
+        <div class="col-xs-12 row">
+          <div class="col-sm-12 col-md-4 ">
+            <label class="register_label " for="reg_lastname"
+              >{{'newCustRegisForm.lastName' | translate}}<span class="redstar">*</span></label
+            >
+          </div>
+          <div class="col-sm-12 col-md-8 text-left ">
+            <span class="login_fields">
+              <input
+                type="text"
+                formControlName="lastName"
+                class="mandatory form-control reg_field "
+                [ngClass]="{
+                  'has-error  not-valid':
+                    !registrationForm.controls['lastName'].valid &&
+                    registrationForm.get('lastName').touched
+                }"
+              />
+              <div
+                *ngIf="
+                  !registrationForm.controls['lastName'].valid &&
+                  registrationForm.get('lastName').touched
+                "
+                class="not-valid-error-msg"
+              >
+                <span
+                  [hidden]="
+                    !registrationForm.controls['lastName'].errors.required
+                  "
+                >
+                  {{ "register.lastName" | translate }}
+                </span>
+                <span
+                  *ngIf="
+                    registrationForm.controls['lastName'].errors.patternInvalid
+                  "
+                >
+                  {{ "register.lastName" | translate }}
+                </span>
+              </div>
+            </span>
+          </div>
+        </div>
+        <div class="col-xs-12 row">
+          <div class="col-sm-12 col-md-4 ">
+            <label class="register_label " for="reg_country"
+              >{{'newCustRegisForm.country' | translate}}<span class="redstar">*</span></label
+            >
+          </div>
+          <div class="col-sm-12 col-md-8 text-left ">
+            <span class="login_fields">
+              <select
+                class="mandatory form-control"
+                (change)="onChangeCountry($event)"
+                formControlName="country"
+                [ngClass]="{
+                  'has-error  not-valid':
+                    !registrationForm.controls['country'].valid &&
+                    registrationForm.get('country').touched
+                }"
+              >
+                <option value="" selected="selected">{{'newCustRegisForm.chooseCountry' | translate}}</option>
+                <option
+                  *ngFor="let data of countries; let k = index"
+                  [ngValue]="data"
+                  >{{ data.name }}</option
+                >
+              </select>
+              <div
+                *ngIf="
+                  !registrationForm.controls['country'].valid &&
+                  registrationForm.get('country').touched
+                "
+                class="not-valid-error-msg"
+              >
+                <span
+                  [hidden]="
+                    !registrationForm.controls['country'].errors.required
+                  "
+                >
+                  {{ "register.country" | translate }}</span
+                >
+              </div>
+            </span>
+          </div>
+        </div>
+        <div class="col-xs-12 row" >
+          <div class="col-sm-12 col-md-4 ">
+            <label class="register_label " for="reg_postcode"
+              >{{'newCustRegisForm.postcodeZipcode' | translate}}<span class="redstar">*</span></label
+            >
+          </div>
+          <div class="col-sm-12 col-md-8 text-left ">
+            <span class="login_fields">
+                <a class="contextual-help"   *ngIf="!ukLoopBtnStatus && !usSpecific" ngbTooltip="{{'register.exceptUkallCountryPostCode'|translate}}"  [placement]="mobileDevice?'top':'right'"  
+                show-delay="100"></a>
+              <input
+                #myInput
+                type="text"
+                (keydown)="onSearchKeyUp($event)"
+                class="mandatory form-control "
+                formControlName="postalCode"
+                maxlength="10"
+                [ngClass]="{
+                  'has-error  not-valid':
+                    (!registrationForm.controls['postalCode'].valid &&
+                      registrationForm.get('postalCode').touched),
+                  'not-valid-postcode': !postCodeStatus
+                }"
+              />
+              <span class="postcode-status" *ngIf="!postCodeStatus">Please enter a valid postCode or enter the address manually.</span>
+              <div
+                *ngIf="
+                  (!registrationForm.controls['postalCode'].valid &&
+                  registrationForm.get('postalCode').touched)
+                "
+                class="not-valid-error-msg"
+              >
+             
+                <span
+                  [hidden]="
+                    !registrationForm.controls['postalCode'].errors.required
+                  "
+                >
+                  {{ "register.postCode" | translate }}</span
+                >
+                      <span
+                  [hidden]="
+                    !registrationForm.controls['postalCode'].errors.patternInvalid
+                  "
+                >{{'checkoutFlow.postCodeErr' | translate}}</span
+                >
+              </div>
+              <div class="postcode-msg-block">
+                <span>Please enter a valid postCode or enter the address manually.</span>
+              </div>
+            </span>
+            <span class="ml-8 find-address" *ngIf="ukLoopBtnStatus">
+              <button
+                class="buttonStyle mt-1"
+                (click)="onLookupAddress($event)"
+              >
+                Lookup Address
+              </button>
+            </span>
+          </div>
+        </div>
+
+        <!-- {{registrationForm.controls['postalCode'].errors |json}} -->
+
+        <div class="col-xs-12 row " *ngIf="postalAddresses">
+          <div class="col-sm-12 col-md-4  ">
+            <label class="register_label "
+              >Select Address<span class="redstar">*</span></label
+            >
+          </div>
+
+          <div class="col-sm-12 col-md-8 text-left ">
+            <span class="login_fields">
+              <select
+                class="mandatory form-control"
+                formControlName="address"
+                (change)="onSelectPlace($event.target.value)"
+              >
+                <option value=""  selected>Select address</option>
+                <option
+                  *ngFor="let data of postalAddresses; let k = index"
+                  [value]="data.Id"
+                  >{{ data.StreetAddress }}, &nbsp;{{ data.Place }}</option
+                >
+              </select>
+            </span>
+          </div>
+        </div>
+
+        <div class="col-xs-12 row">
+          <div class="col-sm-12 col-md-4 ">
+            <label class="register_label "
+              >{{'newCustRegisForm.address' | translate}}<span class="redstar">*</span></label
+            >
+          </div>
+          <div class="col-sm-12 col-md-8 text-left ">
+            <span class="login_fields">
+              <input
+                type="text"
+                formControlName="line1"
+                class="mandatory form-control reg_field "
+                [ngClass]="{
+                  'has-error  not-valid':
+                    !registrationForm.controls['line1'].valid &&
+                    registrationForm.get('line1').touched
+                }"
+              />
+              <div
+                *ngIf="
+                  !registrationForm.controls['line1'].valid &&
+                  registrationForm.get('line1').touched
+                "
+                class="not-valid-error-msg"
+              >
+                <span
+                  [hidden]="!registrationForm.controls['line1'].errors.required"
+                >
+                  {{ "register.line1" | translate }}</span
+                >
+              </div>
+              <input
+                type="text"
+                class="mandatory form-control"
+                formControlName="line2"
+                style="margin-top:15px;"
+              />
+            </span>
+          </div>
+        </div>
+        <div class="col-xs-12 row">
+          <div class="col-sm-12 col-md-4 ">
+            <label class="register_label " for="reg_town"
+              >{{'newCustRegisForm.townCity' | translate}}<span class="redstar">*</span></label
+            >
+          </div>
+          <div class="col-sm-12 col-md-8 text-left ">
+            <span class="login_fields">
+              <input
+                type="text"
+                formControlName="town"
+                class="mandatory form-control reg_field "
+                [ngClass]="{
+                  'has-error  not-valid':
+                    !registrationForm.controls['town'].valid &&
+                    registrationForm.get('town').touched
+                }"
+              />
+              <div
+                *ngIf="
+                  !registrationForm.controls['town'].valid &&
+                  registrationForm.get('town').touched
+                "
+                class="not-valid-error-msg"
+              >
+                <span
+                  [hidden]="!registrationForm.controls['town'].errors.required"
+                >
+                  {{ "register.town" | translate }}</span
+                >
+              </div>
+            </span>
+          </div>
+        </div>
+
+        <div class="col-xs-12 row" *ngIf="!usSpecificForm; else usStates">
+          <div class="col-sm-12 col-md-4 ">
+            <label class="register_label " for="reg_town"
+              >{{ "form.label.state" | translate }}</label
+            >
+          </div>
+          <div class="col-sm-12 col-md-8 text-left ">
+            <span class="login_fields">
+              <input
+                type="text"
+                formControlName="district"
+                class="mandatory form-control reg_field "
+              >
+            </span>
+          </div>
+        </div>
+        <ng-template #usStates>
+          <div class="col-xs-12 row">
+            <div class="col-sm-12 col-md-4 ">
+              <label class="register_label " for="reg_town">{{ "form.label.state" | translate }}
+                <span class="redstar" >*</span>
+              </label>
+            </div>
+            <div class="col-sm-12 col-md-8 text-left ">
+              <span class="login_fields">
+                <select
+                  *ngIf="stateList"
+                  class="mandatory form-control"
+                  formControlName="district"
+                >
+                  <option
+                    *ngFor="let data of stateList; let k = index"
+                    [ngValue]="data"
+                    >{{ data.name }}</option
+                  >
+                </select>
+                <input
+                  *ngIf="!stateList"
+                  autocorrect="off"
+                  formControlName="district"
+                  placeholder="State"
+                  type="text"
+                  class="form-control  mandatory form-control"
+                  autocapitalize="on"
+                  [ngClass]="{
+                    'has-error not-valid':
+                      !registrationForm.get('district').valid &&
+                      registrationForm.get('district').touched
+                  }"
+                /> 
+              <div
+              *ngIf="
+                !registrationForm.controls['district'].valid &&
+                registrationForm.get('district').touched
+              "
+              class="not-valid-error-msg"
+            >
+              <span [hidden]="!registrationForm.controls['district'].errors.required">
+                {{ "register.district" | translate }}</span
+              >
+            </div>
+              </span>
+            </div>
+          </div>
+        </ng-template>
+
+        <div class="col-xs-12 row">
+          <div class="col-sm-12 col-md-4 ">
+            <label class="register_label " for="reg_town"
+              >{{'newCustRegisForm.phoneNumber' | translate}}<span class="redstar">*</span></label
+            >
+          </div>
+          <div class="col-sm-12 col-md-8 text-left ">
+            <span class="login_fields regPhone">
+              <a
+                class="contextual-help "
+                show-delay="500" ngbTooltip="{{'register.phonenumberInfo'|translate}}" [placement]="mobileDevice?'top':'right'"  
+              ></a>
+              <input
+                type="text"
+                maxlength= "15"
+                formControlName="phone"
+                class="mandatory form-control reg_field "
+                [ngClass]="{
+                  'has-error  not-valid':
+                    !registrationForm.controls['phone'].valid &&
+                    registrationForm.get('phone').touched
+                }"
+              />
+              <div
+                *ngIf="
+                  !registrationForm.controls['phone'].valid &&
+                  registrationForm.get('phone').touched
+                "
+                class="not-valid-error-msg"
+              >
+                <span
+                  [hidden]="!registrationForm.controls['phone'].errors.required"
+                >
+                  {{ "register.phone" | translate }}
+                </span>
+                <span
+                  [hidden]="
+                    !registrationForm.controls['phone'].errors.patternInvalid
+                  "
+                  >{{ "register.phoneLength" | translate }}</span
+                >
+              </div>
+            </span>
+          </div>
+        </div>
+        <div class="col-xs-12 row">
+          <div class="col-sm-12 col-md-4 ">
+            <label class="register_label " for="reg_title">{{'newCustRegisForm.ageGroup' | translate}}</label>
+          </div>
+          <div class="col-sm-12 col-md-8 text-left ">
+            <span class="login_fields">
+              <select class="mandatory form-control" formControlName="agegroup">
+                <option value=""  selected>{{'newCustRegisForm.pleaseSelect' | translate}}</option>
+                <option value="16-18">16-18</option>
+                <option value="19-25">19-25</option>
+                <option value="26-45">26-45</option>
+                <option value="46-60">46-60</option>
+                <option value="Over 60">{{'newCustRegisForm.overAge' | translate}}</option>
+              </select>
+            </span>
+          </div>
+        </div>
+        <div class="col-xs-12 row">
+          <p class="col-sm-12 col-md-4 text-right">
+            <label class="register_label "> {{'newCustRegisForm.gender' | translate}}</label>
+          </p>
+          <p class="col-sm-12 col-md-8 text-left genderAlign">
+            <input
+              formControlName="gender"
+              type="radio"
+              value="female"
+              class="pull-left"
+            />
+            <span class="pull-left gender">{{'newCustRegisForm.female' | translate}}</span>
+            <input
+              formControlName="gender"
+              type="radio"
+              value="male"
+              class="pull-left"
+            />
+            <span class="pull-left gender">{{'newCustRegisForm.male' | translate}}</span>
+          </p>
+        </div>
+        <div class="col-xs-12">
+          <h2>{{'newCustRegisForm.joinOurGuestList' | translate}}</h2>
+        </div>
+        <div class="guest-list ">
+          <div class="col-xs-12 col-sm-12 row">
+            <div class=" col-xs-10 col-sm-12 col-md-10 offset-2  mob-space">
+              <p> {{'newCustRegisForm.beTheFirstToHearAboutOurLatestProd' | translate}}</p>
+            </div>
+          </div>
+          <div class="col-xs-12  row">
+            <p class=" col-xs-10 col-sm-12 col-md-10  offset-2 mob-space">
+              {{'newCustRegisForm.weAlwaysTreatYourPersonalDetails' | translate}}
+            </p>
+          </div>
+
+          <div class="col-xs-12 offset-md-1 row terms-policy ">
+            <p class=" col-sm-2 col-md-2 text-right checkboxAlignBox">
+              <input
+                type="checkbox"
+                formControlName="marketingOptIn"
+                value="true"
+                class="pull-right"
+              />
+            </p>
+
+            <p class="  col-sm-10 col-md-10 text-left checkboxAlign">
+              {{'newCustRegisForm.iWouldLikeTo' | translate}}
+            </p>
+          </div>
+        </div>
+        <div class="col-xs-12 ">
+          <h2>{{'newCustRegisForm.termsConditions' | translate}}</h2>
+        </div>
+        <div class="col-xs-12  offset-md-1 row terms-policy padding-top-0">
+          <p class="col-xs-1 col-sm-12 col-md-2 text-right checkboxAlignBox">
+            <input
+              type="checkbox"
+              class="pull-right"
+              formControlName="terms"
+              (change)="onChangeTerms($event)"
+              [ngClass]="{
+                'has-error  not-valid':
+                  !registrationForm.controls['terms'].valid &&
+                  registrationForm.get('terms').touched
+              }"
+            />
+          </p>
+
+          <p class=" col-xs-10 col-sm-12 col-md-10 text-left checkboxAlign" style="max-width: 76.333333%;">
+            {{'newCustRegisForm.accept' |translate}}<a
+              data-toggle="modal"
+              class="terms-lbl-content"
+              data-target="#modalTermsPopup"
+              (click)="onClickTerms($event)"
+              >{{'newCustRegisForm.termsCond' |translate}}
+              </a
+            >
+            {{'newCustRegisForm.and' |translate}}
+            <a
+              data-toggle="modal"
+              data-target="#modalTermsPopup"
+              (click)="onClickPrivacy($event)"
+              >{{'newCustRegisForm.cookiePolicy' |translate}}</a
+            ><span class="redstar">*</span>
+          </p>
+          <div
+            class="terms-error-msg-bottom error-block offset-md-4 offset-xs-2 col-md-8 col-xs-10"
+            *ngIf="
+              getTypeOf(registrationForm.value['terms']) ||
+              (!registrationForm.controls['terms'].valid &&
+                registrationForm.get('terms').touched)
+            "
+          >
+            <span
+              [hidden]="!registrationForm.controls['terms'].errors.required"
+            >
+              {{ "register.termsCheckbox" | translate }}
+            </span>
+          </div>
+        </div>
+        <div class="col-xs-12 row">
+          <div class="col-xs-1 col-sm-12 col-md-2"></div>
+        </div>
+
+        <div class="col-sm-12 text-right" style="padding: 15px;">
+          <button class="buttonStyle" type="submit">
+            {{'newCustRegisForm.submit' | translate}} 
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<div
+  class="modal"
+  id="modalTermsPopup"
+  tabindex="-1"
+  role="dialog"
+  aria-hidden="true"
+>
+  <div
+    class="chck-modal-dialog modal-dialog modal-full container modal-dialog-scrollable"
+    role="document"
+  >
+    <div class="modal-content">
+      <div class="chck-modal-header modal-header">
+        <button type="button" class="close" data-dismiss="modal">
+          &times;
+        </button>
+        <h4 class="modal-title text-center">{{ modalTitle }}</h4>
+      </div>
+      <div class="modal-body chck-modal-body" #termEl></div>
+    </div>
+  </div>
+</div>

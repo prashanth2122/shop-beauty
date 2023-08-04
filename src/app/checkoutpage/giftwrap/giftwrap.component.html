@@ -1,0 +1,151 @@
+<form class="gift-message-form" [formGroup]="giftMessageForm" custom-focus>
+  <div class="section-giftmessage">
+    <!-- <img
+      src="https://www.moltonbrown.co.uk//MBPromoImages/CheckoutGraphics/gift-boxes-v2.jpg"
+    /> -->
+    <legend id="{{deSpecificDate}}">{{ "wouldLikeFreeGiftBox" | translate }}</legend>
+  
+    <div class="form-inline giftwrap-selection">
+      <div class="radio">
+          <input 
+              id="disableGiftwrapCheckbox" 
+              type="radio" 
+              formControlName="preferGift"
+              class="password-radio "
+              value="nogiftwrap" 
+              checked
+              [disabled]="disableGiftBox"
+              (change)="onChangePreference($event)">
+          <label  for="disableGiftwrapCheckbox"
+              class="radio-inline radio-existingGuest checkLoginPswd">{{ "giftMsg.no" | translate }}</label>
+      </div>
+      <div class="radio">
+        <input 
+            id="enableGiftwrapCheckbox" 
+            type="radio" 
+            formControlName="preferGift"
+            class="password-radio "
+            value="yesgiftwrap" 
+            [disabled]="disableGiftBox"
+            (change)="onChangePreference($event)">
+        <label  for="enableGiftwrapCheckbox"
+            class="radio-inline radio-existingGuest checkLoginPswd">{{ "giftMsg.yes" | translate }}</label>
+    </div>
+  </div>
+  <div class="accordionGiftMsg" *ngIf="giftMessageForm.controls['preferGift'].value=='yesgiftwrap'">
+    <div class="trigger">
+      <input 
+         name="giftMessage"
+         #isGifBoxElement
+         id="giftMessage"
+         style="padding-top: 0px; cursor: pointer;"
+         type="checkbox"
+         class="checkbox"
+         [disabled]="disableGiftBox"
+         (change)="showTextarea($event)"
+         formControlName="giftMsg"
+         />
+      <label for="giftMessage">
+        {{
+          "YIWouldPGiftMsg" | translate
+        }}
+      </label>
+      <div class="content">
+        <textarea
+        #giftMsgEl
+        maxlength="250"
+        placeholder="{{'orderConfirm.giftBoxPH' | translate}}"
+        class="form-control gift-msg"
+        (input)="onChangeText($event)"
+        rows="5"
+        formControlName="giftMessage"
+        class="mandatory form-control reg_field "
+        [ngClass]="{
+          'has-error  not-valid':
+            !giftMessageForm.controls['giftMessage'].valid &&
+            giftMessageForm.get('giftMessage').touched
+        }"
+      ></textarea>
+      <div
+      *ngIf="
+        !giftMessageForm.controls['giftMessage'].valid &&
+        giftMessageForm.get('giftMessage').touched
+      "
+      class="not-valid-error-msg"
+    >
+      <span
+        [hidden]="
+          !giftMessageForm.controls['giftMessage'].errors.required
+        "
+      >
+        {{ "giftMsg.giftMessage" | translate }}
+      </span>
+    </div>
+      <div class="giftMessageChar">({{ textlength }})</div>
+      </div>
+    </div>
+    </div>
+   <!-- <app-accordion *ngIf="showGiftBox">
+      <app-accordion-item  [expandContent]="tooltipMsg">
+        <div class="accordion-item-header">
+            <div class="form-group form-checkbox gift-form-checklist">
+                <div class="checkbox">
+                  <input
+                    #isGifBoxElement
+                    id="giftMessage"
+                    style="padding-top: 0px; cursor: pointer;"
+                    type="checkbox"
+                    class="checkbox"
+                    [disabled]="disableGiftBox"
+                    (change)="showTextarea($event)"
+                    formControlName="giftMsg"
+                  />
+                  <label for="giftMessage" >{{
+                    "YIWouldPGiftMsg" | translate
+                  }} </label>
+                </div>
+              </div>
+        </div>
+        <div class="accordion-item-content">
+            <div
+            class="from-group accordion-item__content gift-message-wrapper "
+            [ngClass]="{'gift-box-message-contianer':tooltipMsg}"
+          >
+            <textarea
+              #giftMsgEl
+              maxlength="250"
+              placeholder="{{'orderConfirm.giftBoxPH' | translate}}"
+              class="form-control gift-msg"
+              (input)="onChangeText($event)"
+              rows="5"
+              formControlName="giftMessage"
+              class="mandatory form-control reg_field "
+              [ngClass]="{
+                'has-error  not-valid':
+                  !giftMessageForm.controls['giftMessage'].valid &&
+                  giftMessageForm.get('giftMessage').touched
+              }"
+            ></textarea>
+            <div
+              *ngIf="
+                !giftMessageForm.controls['giftMessage'].valid &&
+                giftMessageForm.get('giftMessage').touched
+              "
+              class="not-valid-error-msg"
+            >
+              <span
+                [hidden]="
+                  !giftMessageForm.controls['giftMessage'].errors.required
+                "
+              >
+                {{ "giftMsg.giftMessage" | translate }}
+              </span>
+            </div>
+            <div class="giftMessageChar">({{ textlength }})</div>
+          </div>
+        </div>
+      </app-accordion-item> 
+    </app-accordion> -->
+   
+  </div>
+  </form>

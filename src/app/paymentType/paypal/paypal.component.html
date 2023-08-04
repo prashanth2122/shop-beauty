@@ -1,0 +1,35 @@
+<div class="paypal">
+  <section class="paypal-option">
+    <p class="paypal-tc">
+      {{'paymentPayPal.clickPayPal' | translate}}
+    </p>
+    <form
+      [formGroup]="paypalForm"
+      (ngSubmit)="onpaypalTap($event)"
+      custom-focus
+    >
+      <app-mb-terms
+        [paypal]="true"
+        [formType]="paypalForm"
+        (setTerms)="onSetTerms($event)"
+        (setPolicyTerms)="onSetPolicyTerms($event)"
+      >
+      </app-mb-terms>
+    </form>
+  </section>
+  <div 
+  class="dl-overlay payer-loading"
+  [ngClass]="{
+     'dl-overlay-show':loading,
+     'dl-overlay-hide':!loading
+   }">
+   <div class="b2c-title text-center pay-load"> 
+       <div class="load-txt" >
+          <span class="pay-load-text">
+              Loading
+          </span>  
+          </div>
+   </div>
+</div>
+</div>
+<!-- <div id="paypal-checkout-btn"></div> -->

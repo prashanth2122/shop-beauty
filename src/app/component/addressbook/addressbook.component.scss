@@ -1,0 +1,220 @@
+
+@import"./../../../variable";
+.my-account {
+    width: 764px;
+    padding: 5px 0;
+    min-height: 230px;
+    @media screen and(max-width:$screen-sm) {
+          width:100%;  
+          min-height: 190px;
+          //margin: 15px auto;
+    }
+    h2 {
+        font-size: 28px;
+        margin-bottom: 0;
+        padding: 0 0 14px 0;
+        color: $primary-color;
+    }
+    h6{
+        font-weight: 700;
+    font-size: 14.4px;
+    color: $primary-color!important;
+    padding-left: 0!important;
+    padding-bottom: 10px;
+    }
+    p {
+        color: #260e03!important;
+        line-height: 23px;
+        font-size: 13px!important;
+    }
+    .edit-profile {
+        border: 1px solid #aaa;
+        padding: 20px 10px;
+        padding: 20px 10px;
+        margin: 15px 0;
+        float: left;
+        @media screen and(max-width:768px) {
+            padding: 0;
+        }
+        h3{
+            font-weight: 700;
+            font-size: 14px;
+            color: $primary-color!important;
+            padding-left: 0!important;
+            // @media screen and(max-width:768px) {
+            //     padding-left: 15px!important;
+            //     padding-right: 15px;
+            // }
+        }
+        .addressSize{
+           .address-book, p a{
+            font-size:12px;
+        } 
+        
+        } 
+    }
+    .relativeness {
+        position: relative;
+    }
+    .profile_adrss{
+        width:25%;
+        @media screen and (max-width:$screen-sm){
+            width:100%;
+        }
+     .contextual-help{
+        width:25px;
+        height: 25px;
+        left: 170px;
+        top: 50%;
+        right:15px;
+        transform: translateY(-50%);
+        background-size: 7px;
+        @media screen and (max-width:$screen-sm){
+            right:-10px;
+        }
+     }
+    }
+    .makeDefault {
+        padding-bottom: 14px;
+        padding: 20px 0 15px 0;
+        @media screen and(max-width:768px) {
+            // padding-left: 15px;
+            // padding-right: 15px;
+            padding-top: 10px;
+        }
+        b{
+            font-size:12px !important;
+        }
+    
+    }
+}
+
+
+
+h6{
+    font-weight: 700;
+font-size: 1.2em;
+color: $primary-color!important;
+padding-left: 0!important;
+}
+.addressSize {
+    a{
+    text-decoration: underline !important; 
+    cursor: pointer;
+  }
+}
+.address-book{
+    .title-code{
+        text-transform: capitalize;
+        font-size: 14px;
+    }
+}
+@media screen and(max-width:$screen-sm) {
+    .my-account #addressBookTitle {
+        padding: 15px;
+        margin: 0;
+        font-size: 15px;
+        font-weight: 700;
+        color: #000;
+        padding-top: 0;
+    }
+    .my-account p {
+        // padding-left: 15px;
+        // padding-right: 15px;
+        padding-top: 15px;
+    }
+    .my-account .edit-profile {
+        border: none;
+    }
+    .my-account .mob-padding-0 p {
+        padding-left: 0;
+    }
+}
+@media screen and (max-width:$screen-sm){
+    .addressSize p {
+        padding-top: 0;
+    }
+    .my-account-wrapper {
+        width: 100%;
+        float: left;
+        padding: 0px 15px;
+    }
+    .mob-padding-0 {
+        padding-left: 0;
+        padding-left: 0;
+    }
+    .address-book {
+        margin-bottom: 10px;
+    }
+    .addressSize .myaccount-edit,.addressSize .myaccount-remove,.addressSize .myaccount-default {
+        text-decoration: none!important;
+        padding: 2px 11px;
+        background: url(/assets/imgs/arrow_sub_nav.png) no-repeat 0px 4px;
+    }
+    .my-account .blue-header {
+        display: block;
+        overflow: hidden;
+        padding: 15px;
+        margin: 0;
+        font-size: 15px;
+        font-weight: 700;
+        color: #000;
+        
+    }
+    .edit-profile-wr {
+        display: block;
+        padding: 0px 15px;
+    }
+}
+
+.dl-overlay{
+    min-height: 250px;
+    background-color: $mb-white;
+    position: absolute;
+    width: 100%;
+    z-index: 9999;
+    height: 100%;
+    display: none;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    &-hide{
+      opacity: 0;
+      display: none;
+    }
+    &-show{
+      opacity: 1;
+      display: block;
+    }
+    transition: all ease-in 500ms;
+    .b2c-title {
+      position: absolute;
+      top: 5%;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 14px !important;
+      margin: 0 auto;
+      text-align: center;
+      &::before {
+        content: "";
+        background: url("../../../assets/imgs/loading-compass.svg") no-repeat center center;
+        background-size: 20px 20px;
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        transform: translateZ(0) scale(1, 1);
+        -webkit-transform: translateZ(0) scale(1, 1);
+        -ms-transform: translateZ(0) scale(1, 1);
+        transform: translateZ(0) scale(1, 1);
+        -webkit-animation: spin 2.5s linear infinite;
+        animation: spin 2.5s linear infinite;
+        outline: 1px solid transparent;
+    }
+    .loading-txt{
+      float: right !important;
+      padding-left: 5px !important;
+      font-size: 14px !important;
+     padding-top: 2px !important;
+    }
+   }
+  }

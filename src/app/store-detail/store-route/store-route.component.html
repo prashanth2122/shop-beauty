@@ -1,0 +1,76 @@
+<div>
+  <ul class="tab">
+    <li
+      class="tab-switch"
+      [ngClass]="{ 'tab-switch-active': current == 'WALKING' }"
+      (click)="onRouteType('WALKING')"
+    >
+      <a class="walk">
+        <span class="hidden-xs">Walk</span>
+      </a>
+    </li>
+    <li
+      class="tab-switch"
+      [ngClass]="{ 'tab-switch-active': current == 'DRIVING' }"
+      (click)="onRouteType('DRIVING')"
+    >
+      <a class="drive">
+        <span class="hidden-xs">Drive</span>
+      </a>
+    </li>
+    <li
+      class="tab-switch"
+      [ngClass]="{ 'tab-switch-active': current == 'TRANSIT' }"
+      (click)="onRouteType('TRANSIT')"
+    >
+      <a class="b0 transit">
+        <span class="hidden-xs">Public Transport</span>
+      </a>
+    </li>
+  </ul>
+  <div class="store-dstn">
+    <div class="row mb-15">
+      <div class="store-dstn-left-cntnt">
+        <img src="//images.moltonbrown.co.uk/images/en_GB/mark-a.png" alt="" />
+      </div>
+      <span class="store-dstn-right-cntnt">
+        <input
+          #search 
+          type="text"
+          googlePlaces
+          (onSelect)="setAddress($event)"
+          placeholder="Enter Starting location"
+          autocomplete="off"
+        />
+      </span>
+    </div>
+    <div class="row mb-15">
+      <div class=" store-dstn-left-cntnt marker-dest">
+        <img src="//images.moltonbrown.co.uk/images/en_GB/mark-b.png" alt="" />
+      </div>
+      <span class="store-dstn-right-cntnt">
+        <p id="end_walk">
+          <span *ngIf="storeData.address.line1">
+            {{ storeData.address.line1 }}</span
+          >,
+          <span *ngIf="storeData.address.line2">
+            {{ storeData.address.line1 }}</span
+          >,
+          <span *ngIf="storeData.address.town">
+            {{ storeData.address.town }}</span
+          >,
+          <span *ngIf="storeData.address.postalCode">
+            {{ storeData.address.postalCode }}</span
+          >,
+          <span *ngIf="storeData.address.country">
+            {{ storeData.address.country.name }}</span
+          >
+        </p>
+      </span>
+    </div>
+    <div class="get-direction">
+      <button (click)="onGetDirection()">get Directions</button>
+    </div>
+  </div>
+</div>
+

@@ -1,0 +1,9 @@
+
+.wrapper-block{
+    border: 1px solid #d6d6d6;
+    padding: 10px;
+}
+canvas{
+    /*prevent interaction with the canvas*/
+    pointer-events:none;
+  }

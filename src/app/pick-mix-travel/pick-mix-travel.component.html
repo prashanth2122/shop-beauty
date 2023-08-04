@@ -1,0 +1,69 @@
+<div class="pickmix pickmix-conatiner" >
+  <section class="text-center justify-content-center pickmix-section fistPagePickandMix"
+   *ngIf="!pickMix;else pickMixTraveler">
+ 
+    <h1>{{'pickMix.pickMix' | translate}}</h1>
+    <h2 class="starp-line">{{'pickMix.createToiletries' | translate}}</h2>
+
+    <ng-container [ngSwitch]="switchMode">
+    <div  class="form-inline justify-content-center margin-top-20 " *ngSwitchCase="'emptyStore'">      
+        <button class="cta" (click)="onStart()"  >Start</button>
+    </div>
+    <!-- <ng-template #choosePick> -->
+    <div class="form-inline justify-content-center margin-top-20 continue-container" *ngSwitchCase="'localStore'">
+        <button class="cta active_bg" (click)="onContinue()" >{{'pickMix.Continue' | translate}} </button>
+        <span class="pic-mix-mob-space">&nbsp;{{'pickMix.or' | translate}}&nbsp;</span>
+        <button class="cta"  data-toggle="modal" data-target="#pickMixStore" > Start</button>     
+    </div>
+  </ng-container>
+  <!-- </ng-template> -->
+
+
+    <div id="pickmix-amp-content"></div>
+
+  </section>
+  <ng-template #pickMixTraveler>
+    <section class="pickmix-sticky-wrapper" [ngClass]="{'pm-initial-wrapper':viewMode=='pick&Buy'}">
+      <div class="step-indicator clearfix checkout-cart">
+        <ol>
+          <li class="step active  step-size-50" style="cursor: pointer;" [ngClass]="{'current':!pack}"  rel="pick" (click)="onViewModeChange('pick')">{{'pickMix.pick' | translate}} </li>
+          <li class="step active step-size-50" [ngClass]="{'current':pack}" rel="pick&Buy">{{'pickMix.packBuy' | translate}}</li>
+        </ol>
+      </div>
+
+    </section>
+   <section [ngSwitch]="viewMode">
+    <app-pick   
+       #pickMixEl   
+       *ngSwitchCase="'pick'" 
+       (setCollection)="setCollection($event)" 
+       [bundlePriceDtls]="bundlePriceDtls"
+       [pickMixData]="pickMixData"
+        >
+      </app-pick>
+    <app-pick-buy   *ngSwitchCase="'pick&Buy'" [collection]="collection" (onChangeCollection)="onChangeCollection($event)" ></app-pick-buy>
+   </section>
+  
+  </ng-template>
+</div>
+
+
+
+<div class="modal" id="pickMixStore" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-sm modal-full" role="document">
+        <div class="modal-content">
+            <div class="modal-header text-center">
+		            <h4 class="modal-title" id="modalContinueLabel">Are you sure?</h4>
+              </div>
+              
+              <div class="modal-body" style="max-height: 276px; overflow-y: hidden;">
+                  <p>It looks like you've already started a Pick &amp; Mix. If you start a new one, your current selection will be lost.</p>
+             
+                  <div class="pm-modal-cta-conatiner margin-top-20">
+                      <button class="cta disable-btn"  data-dismiss="modal" >No, Go Back</button>
+                      <button class="cta pixmix-button"  (click)="onStartPickMix()" data-dismiss="modal">Yes, Start a new one</button>
+                  </div>
+              </div>
+        </div>
+    </div>
+</div>

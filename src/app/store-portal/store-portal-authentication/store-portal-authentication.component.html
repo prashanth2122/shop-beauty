@@ -1,0 +1,48 @@
+<div class="store-portal-login">
+  <div class="store-portal-form">
+    <div class="store-portal-form-wrapper">
+       <div class="login-head"> <b>Sign in to Store Associates Admin Portal</b></div>
+       <div class="store-wrapper-box">
+        <form [formGroup]="authForm" (ngSubmit)="onSubmitForm($event)" custom-focus>
+           <fieldset>
+               <label> Select Store *</label>
+               <div>
+                <select formControlName="storeName"  class="store">
+                  <option value="">Please Select Store</option>
+                  <option *ngFor="let data of storesList;let k=index;">{{data}}</option>
+                 </select>
+                </div>
+             </fieldset>
+             <fieldset>
+                 <label> Password *</label>
+                 <div>
+                   <input type="password" formControlName="password">
+                  </div>
+               </fieldset>
+               <fieldset>
+                   <label>&nbsp; </label>
+                   <div>
+                     <input class="checkname" checked="true" name="" type="checkbox">
+                     Remember me </div>
+                 </fieldset>
+                 <fieldset>
+                     <label>&nbsp;</label>
+                     <div>
+                       <button type="submit"  class="button-login">Login</button>
+                       <a href="#" id="forgotPwd" class="forgotpwd">Forgot Password</a>
+                     
+                     </div>
+                   </fieldset>
+        </form>
+    </div>
+   </div>
+ </div>
+ <div class="note">
+   <b>Note: </b>If you need assistance please contact Customer Service.<br><br>
+   UK and Ireland<br>
+   <a href="mailto:customerservice@moltonbrown.com">customerservice@moltonbrown.com</a> or +44 (0) 808 178 1188
+   <br><br>
+   USA<br>
+   <a href="mailto:uscustomerservice@moltonbrown.com">uscustomerservice@moltonbrown.com</a> or 1-866-933-2344
+ </div>
+</div>

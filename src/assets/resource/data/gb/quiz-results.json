@@ -1,0 +1,728 @@
+{
+    "results":
+    {
+        "persona":[
+            {
+            "id":"T103",
+            "bgImg":"tobaccoAbsolute",
+            "imgUrl":"assets/resource/img/gb/products/tobaccoAbsolute-edt.jpg",
+                "profile": [{
+                    "type":"profound intellectual",
+                    "secondary_type":"Particular and resolute",
+                    "copy_one":"As a considered connoisseur who values timeless quality over novelty, when you lavish attention on yourself it’s to nourish your mind as well as your energetic spirit. You’ll warmly invite debate, but you own your decisions with vigour and a sincere sense of knowing.",
+                    "copy_two":"You like fragrances that are woody, earthy and utterly smouldering, which also express a sense of intellectual complexity about yourself. For you, a fragrance is about inviting others to notice your profound sense of knowing."
+                }],
+                "fragrance": [{
+                    "name":"Tobacco Absolute<br />Eau de Toilette",
+                    "copy":"With its mature blend of assured tones and energetic notes, this fragrance combines Paraguayan tobacco with a grapefruit lift."
+                }],
+                "identity": [
+                    { "id":"T103A", "copy":"<b>Did you know?</b><br />An 'absolute' is the purest, most concentrated form of fragrance, extracted using a solvent. It contains more of the aromatic detail of the original ingredient giving it incomparable depth." },
+                    { "id":"T103E", "copy":"Inspired by the pioneering British botanical discovery of a new tobacco plant in eighteenth century South America, New Generation Perfumer Elsa Chabert set out to explore the nuanced riches of the cured, dry tobacco leaf."},
+                    { "id":"T103S", "copy":"Sourced from San Pedro, Peru, the tobacco leaf in this creation sheds its heady gentlemen’s club image and is brought right up to date with modern citrus highlights – a hit with men and women in equal measure."}
+                ],
+                "secondary":[
+                    { "name":"Tobacco Absolute<br />Eau de Parfum", "copy":"Its considered pairing of traditional tones and alluring notes", "imgUrl":"assets/resource/img/gb/products/tobaccoAbsolute-edp.jpg" },
+                    { "name":"Mesmerising Oudh Accord &amp; Gold Accord<br />Eau de Toilette", "copy":"With its refined pairing of strong tones and heady notes.", "imgUrl":"assets/resource/img/gb/products/oudh-edt.jpg"}
+                ]
+            },
+            {
+            "id":"P103",
+            "bgImg":"tobaccoAbsolute",
+            "imgUrl":"assets/resource/img/gb/products/tobaccoAbsolute-edp.jpg",
+                "profile": [{
+                    "type":"loquacious traditionalist",
+                    "secondary_type":"Erudite and cultivated",
+                    "copy_one":" An assured collector of classic essentials, you’re good at knowing what you like and even better at knowing you deserve to have it. You can sometimes be a little mischievous, but never at the expense of traditional refinement.",
+                    "copy_two":"As someone who values elegance, you like classic fragrances that are elegant with a spirited hint of mischief. For you, a fragrance is about being able to seduce others, using a balance of exquisite tradition and sensual surprise in equal parts."
+                }],
+                "fragrance": [{
+                    "name":"Tobacco Absolute<br />Eau de Parfum",
+                    "copy":"With its considered pairing of traditional tones and alluring notes, this fragrance is deepened with a nutmeg signature note."
+                }],
+                "identity": [
+                    { "id":"P103A", "copy":"<b>Did you know?</b><br />An ‘absolute’ is the purest, most concentrated form of fragrance, extracted using a solvent. It contains more of the aromatic detail of the original ingredient giving it incomparable depth." },
+                    { "id":"P103E", "copy":"New Generation Perfumer Elsa Chabert chose nutmeg as her signature ingredient in this fragrance – sharing the same warm accords as the eau de toilette but elevating it to decisively spicier, more piquant heights."},
+                    { "id":"P103S", "copy":"Although considered a gentleman’s club aroma, our tobacco bucks this trend; sourced from San Pedro, Peru, we’ve given the tobacco leaf a spiced revolution with nutmeg – a hit with men and women in equal measure."}
+                ],
+                "secondary":[
+                    { "name":"Tobacco Absolute<br />Eau de Toilette", "copy":"With its mature blend of assured tones and energetic notes.", "imgUrl":"assets/resource/img/gb/products/tobaccoAbsolute-edt.jpg" },
+                    { "name":"Mesmerising Oudh Accord &amp; Gold<br />Eau de Parfum", "copy":"With its seductive pairing of robust tones and hedonistic notes.", "imgUrl":"assets/resource/img/gb/products/oudh-edp.jpg"}
+                ]
+            },
+            {
+            "id":"T106",
+            "bgImg":"rosaAbsolute",
+            "imgUrl":"assets/resource/img/gb/products/rosaAbsolute-edt.jpg",
+                "profile": [{
+                    "type":"passionate seductor",
+                    "secondary_type":"Flamboyant and big-hearted",
+                    "copy_one":"As someone who loves life you’re never intimidated by any challenge you come up against. You enjoy sharing your opinions with friends and you’re not afraid to use your theatricality to express how you feel or what you think.",
+                    "copy_two":"You like luxurious and seductive fragrances that make an impact, a reflection of your romantic character. In fact, you believe that life’s greatest romance is the one between you and yourself."
+                }],
+                "fragrance": [{
+                    "name":"Rosa Absolute<br />Eau de Toilette",
+                    "copy":"Intoxicating, romantic and voluptuous, this fragrance features a dramatic pairing of luxuriant tones and passionate notes."
+                }],
+                "identity": [
+                    { "id":"T106A", "copy":"<b>Did you know?</b><br /> An ‘absolute’ is the purest, most concentrated form of fragrance, extracted using a solvent. It contains more of the aromatic detail of the original ingredient giving it incomparable depth." },
+                    { "id":"T106E", "copy":"Senior Perfumer Nathalie Koobus’s fragrance draws from the ancient Italian tradition of sub rosa. Roses were painted on the ceilings of palazzo banquet rooms to denote that words spoken under these artistic blooms should remain secret."},
+                    { "id":"T106S", "copy":"Rose is a famed floral fragrance, yet Senior Perfumer Nathalie Koobus’ creation stands out from the crowd; with roses picked from Lombardia, Italy, this is a dark take on the petals with a pop of red berries."}
+                ],
+                "secondary":[
+                    { "name":"Rosa Absolute<br />Eau de Parfum", "copy":"With its romantic pairing of sensual tones and eccentric notes", "imgUrl":"assets/resource/img/gb/products/rosaAbsolute-edp.jpg" },
+                    { "name":"Mesmerising Oudh Accord &amp; Gold<br />Eau de Toilette", "copy":"With its refined pairing of strong tones and heady notes.", "imgUrl":"assets/resource/img/gb/products/oudh-edt.jpg"}
+                ]
+            },
+            {
+            "id":"P106",
+            "bgImg":"rosaAbsolute",
+            "imgUrl":"assets/resource/img/gb/products/rosaAbsolute-edp.jpg",
+                "profile": [{
+                    "type":"romantic extrovert",
+                    "secondary_type":"Elegant and dramatic",
+                    "copy_one":"There is no denying you are somebody who can be impulsive or led by your emotions, but that’s because you love to live in the moment. For you, life is all about making a big entrance and being treated like royalty.",
+                    "copy_two":"As someone who loves beauty with the finest tastes, you like fragrances that allow you to feel like you’re treating yourself whenever you wear them. For you, a fragrance should balance the sensual with a dramatic hint of old-fashioned romance."
+                }],
+                "fragrance": [{
+                    "name":"Rosa Absolute<br />Eau de Parfum",
+                    "copy":"A romantic pairing of sensual tones and eccentric notes makes this dramatic fragrance your scent soulmate."
+                }],
+                "identity": [
+                    { "id":"P106A", "copy":"<b>Did you know?</b><br />An ‘absolute’ is the purest, most concentrated form of fragrance, extracted using a solvent. It contains more of the aromatic detail of the original ingredient giving it incomparable depth." },
+                    { "id":"P106E", "copy":"Senior Perfumer Nathalie Koobus controversially chose coffee as her signature perfume ingredient; it’s the complete contrast of rose and evokes addiction and invigorating hedonism."},
+                    { "id":"P106S", "copy":"Senior Perfumer Nathalie Koobus unusually combines rose, picked from Lombardia, with addictive coffee notes – perfect for a rich shot of Italian seduction."}
+                ],
+                "secondary":[
+                    { "name":"Rosa Absolute<br />Eau de Toilette", "copy":"With its dramatic pairing of luxuriant tones and passionate notes.", "imgUrl":"assets/resource/img/gb/products/rosaAbsolute-edt.jpg" },
+                    { "name":"Mesmerising Oudh Accord &amp; Gold<br />Eau de Parfum", "copy":"With its seductive pairing of robust tones and hedonistic notes.", "imgUrl":"assets/resource/img/gb/products/oudh-edp.jpg"}
+                ]
+            },
+            {
+            "id":"T111",
+            "bgImg":"oudh",
+            "imgUrl":"assets/resource/img/gb/products/oudh-edt.jpg",
+                "profile": [{
+                    "type":"indulgent head-turner",
+                    "secondary_type":"Extroverted and sensual",
+                    "copy_one":"You’re someone with a generous spirit who is driven by a desire to be noticed, to impress and captivate the attention of others. In a crowd, the eyes are often on you. You treasure friends and family, but you’re also unapologetic about your commitment to indulging yourself.",
+                    "copy_two":"You like fragrances that are powerful, warm and intoxicating. For you, life is for living, money is for spending and fragrance is for making your stand-out statement."
+                }],
+                "fragrance": [{
+                    "name":"Mesmerising Oudh Accord &amp; Gold<br />Eau de Toilette",
+                    "copy":"Refined and dark, this fragrance opens with cinnamon leaf and a heart of black tea; a hypnotic exploration of a spiced forest."
+                }],
+                "identity": [
+                    { "id":"T111A", "copy":"<b>Did you know?</b><br />Oudh is the heartwood resin of the agar tree, originating in Assam, India; rare and difficult to harvest, it is around 1.5 times the value of gold, giving it the moniker ‘liquid gold’." },
+                    { "id":"T111E", "copy":"Inspired by oudh’s native birthplace in the dark, spiced forests of Assam, North India, Master Perfumer Philippe Bousseton introduced cinnamon leaf oil for a modern hook, refined with mysterious saffron"},
+                    { "id":"T111S", "copy":"Oudh has been ubiquitous in Middle Eastern fragrance traditions for centuries; pure oil is dabbed behind the ears and on pulse points. Today’s olfactive trends have applied oudh’s layerability to renew it with more surprising notes, such as our vegan golden honey."}
+                ],
+                "secondary":[
+                    { "name":"Mesmerising Oudh Accord &amp; Gold<br />Eau de Parfum", "copy":"With its seductive pairing of robust tones and hedonistic notes", "imgUrl":"assets/resource/img/gb/products/oudh-edp.jpg" },
+                    { "name":"Tobacco Absolute<br />Eau de Toilette", "copy":"With its mature blend of assured tones and energetic notes.", "imgUrl":"assets/resource/img/gb/products/tobaccoAbsolute-edt.jpg"}
+                ]
+            },
+            {
+            "id":"P111",
+            "bgImg":"oudh",
+            "imgUrl":"assets/resource/img/gb/products/oudh-edp.jpg",
+                "profile": [{
+                    "type":"hedonistic traditionalist",
+                    "secondary_type":"Loyal and extroverted",
+                    "copy_one":"You’re someone who truly values and likes to uphold the elegance of tradition. As a very sociable extrovert, you enjoy how people naturally gravitate towards you, especially if it means you can demonstrate your caring, generous side.",
+                    "copy_two":"You like to draw people in with fragrances that are arousing and elegant. For you, a fragrance is about grabbing the attention of others."
+                }],
+                "fragrance": [{
+                    "name":"Mesmerising Oudh Accord &amp; Gold<br />Eau de Parfum",
+                    "copy":"Robust tones and hedonistic notes are seductively paired in this woody fragrance, a hypnotic exploration of a spiced forest."
+                }],
+                "identity": [
+                    { "id":"P111A", "copy":"<b>Did you know?</b><br />Oudh is the heartwood resin of the agar tree from Assam, India; the tree is registered as a potentially threatened species, which is why we use an accord rather than the raw ingredient." },
+                    { "id":"P111E", "copy":"Senior Perfumer Sylvie Fischer was sparked by the Middle Eastern palaces from <em>One Thousand and One Nights</em> where gold reigns; like a complex, precious balm, rose absolute, cardamom and davana encircle oudh."},
+                    { "id":"P111S", "copy":"Senior Perfumer Sylvie Fischer elected olibanum as the signature note in her creation; a soulful, healing scent used in Ayurvedic medicine. Its sacred soulmate is oudh, burned as a spiritual incense for centuries, bestowing deep wellbeing and self-connection."}
+                ],
+                "secondary":[
+                    { "name":"Mesmerising Oudh Accord &amp; Gold<br />Eau de Toilette", "copy":"With its refined pairing of strong tones and heady notes.", "imgUrl":"assets/resource/img/gb/products/oudh-edt.jpg" },
+                    { "name":"Tobacco Absolute<br />Eau de Parfum", "copy":"With its considered pairing of traditional tones and alluring notes.", "imgUrl":"assets/resource/img/gb/products/tobaccoAbsolute-edt.jpg"}
+                ]
+            },
+            {
+            "id":"T109",
+            "bgImg":"jasmineSunRose",
+            "imgUrl":"assets/resource/img/gb/products/jasmineSunRose-edt.jpg",
+                "profile": [{
+                    "type":"idealistic people person",
+                    "secondary_type":"Sociable and adventurous",
+                    "copy_one":"You could best be described as a modern dreamer, someone who is self-aware and informed, while maintaining an endearing idealism during troubled times. You’re also a charming individual who’s playfully provocative.",
+                    "copy_two":"You like fragrances that are romantic and outgoing with a youthful feel to them. For you, a fragrance should evoke feelings of romance and adventure."
+                }],
+                "fragrance": [{
+                    "name":"Jasmine &amp; Sun Rose <br />Eau de Toilette",
+                    "copy":"This fragrance layers youthful raspberry, jasmine, osmathus and sun rose; a curated fusion of harmonious tones."
+                }],
+                "identity": [
+                    { "id":"T109A", "copy":"<b>Did you know?</b><br />This jasmine was picked from the banks of the Nile Delta at dusk in order to capture its peak intoxicating essence." },
+                    { "id":"T109E", "copy":"Jasmine is a symbol of elegance and beauty; legend has it that Cleopatra daubed the sails of her boat with handpicked jasmine to entice Mark Anthony before he laid eyes on her. We’ve sourced our jasmine from the Nile Delta in Egypt, the birthplace of perfume."},
+                    { "id":"T109S", "copy":"Exquisitely delicate yet exceptionally powerful, our jasmine has been responsibly sourced from the banks of the Nile Delta at dusk; this is when it releases its most potent essence, living up to its moniker, Queen of the Night."}
+                ],
+                "secondary":[
+                    { "name":"Orange &amp; Bergamot<br />Eau de Toilette", "copy":"With its contemporary blend of fresh tones and radiant notes for a positive mood.", "imgUrl":"assets/resource/img/gb/products/orangeBergamot-edt.jpg" },
+                    { "name":"Flora Luminare<br />Eau de Toilette", "copy":"With its particular blend of warm tones and hedonistic notes for an outgoing mood.", "imgUrl":"assets/resource/img/gb/products/floraLuminaire-edt.jpg"}
+                ]
+            },
+            {
+            "id":"T102",
+            "bgImg":"blackPepper",
+            "imgUrl":"assets/resource/img/gb/products/blackPepper-edt.jpg",
+                "profile": [{
+                    "type":"relaxed provocateur",
+                    "secondary_type":"Confident and risqué",
+                    "copy_one":"You’re very comfortable in your own skin and although you might not be a perfectionist, you do value structure and discipline in your life. However, you also relish in being recognised as a bit of a troublemaker who’s fun-loving, which is part of your loveable rogue appeal.",
+                    "copy_two":"You like fragrances that make the right impression on others. For you a fragrance is a way to convey your confidence and strength as an individual, while prioritising physical wellbeing."
+                }],
+                "fragrance": [{
+                    "name":"Recharge Black Pepper<br />Eau de Toilette",
+                    "copy":"Iconic and boldly strident, this fragrance is a medley of warm black pepper, earthy notes and coriander."
+                }],
+                "identity": [
+                    { "id":"T102A", "copy":"<b>Did you know?</b><br />Black pepper is the world’s most traded spice; the collected green fruit is briefly immersed in boiling water causing it to turn dark brown, then is spread out in the sun for four days to dry and deepen the scent." },
+                    { "id":"T102E", "copy":"Master Perfumer Jacques Chabert crafted our iconic fragrance in 2002. Initially formulated as his own personal scent, it has grabbed headlines with numerous industry awards and endures as one of our most famed, best-selling collections."},
+                    { "id":"T102S", "copy":"To celebrate our most iconic scent by Master Perfumer Jacques Chabert, his perfumer-daughter Carla created a spiced partner, Fiery Pink Pepper 10 years later, making Re-charge Black Pepper our standout generational scent with a legacy."}
+                ],
+                "secondary":[
+                    { "name":"Recharge Black Pepper<br />Eau de Parfum", "copy":"With its hedonistic blend of dynamic notes and deeply spiced tones.", "imgUrl":"assets/resource/img/gb/products/blackPepper-edp.jpg" },
+                    { "name":"Flora Luminare<br />Eau de Toilette", "copy":"With its particular blend of warm tones and hedonistic notes for an outgoing mood.", "imgUrl":"assets/resource/img/gb/products/floraLuminaire-edt.jpg"}
+                ]
+            },
+            {
+            "id":"P102",
+            "bgImg":"blackPepper",
+            "imgUrl":"assets/resource/img/gb/products/blackPepper-edp.jpg",
+                "profile": [{
+                    "type":"charismatic charmer",
+                    "secondary_type":"Fun-loving and hedonistic",
+                    "copy_one":"You emanate a magnetic force, which attracts people to your sensuality and confidence. You’re an experience junkie who lets the good times roll and loves when others join you.",
+                    "copy_two":"You like fragrances that charm and amuse, but also have a dark edge to them. For you, a fragrance is about taking risks and bringing your fun-loving attitude to life."
+                }],
+                "fragrance": [{
+                    "name":"Recharge Black Pepper<br />Eau de Parfum",
+                    "copy":"An unrestrained powerhouse of dynamic spice, this fragrance contrasts black pepper and myrtle pepper with bright bergamot."
+                }],
+                "identity": [
+                    { "id":"P102A", "copy":"This perfume’s signature ingredient myrtle pepper amplifies the original spiciness of black pepper by adding complex facets of cinnamon and nutmeg." },
+                    { "id":"P102E", "copy":"Master Perfumer Jacques Chabert chose myrtle pepper as his signature ingredient. Matched with the original black pepper, it spikes an explosion of seasoned soulfulness – robust, re-charged and a true standout."},
+                    { "id":"P102S", "copy":"Hailed as the king of spices, we’ve cultivated our black pepper from Madagascar; the island's fertile red soil has secured its reputation as one of the world's pre-eminent spice centres."}
+                ],
+                "secondary":[
+                    { "name":"Recharge Black Pepper<br />Eau de Toilette", "copy":"With its curated blend of harmonious tones.", "imgUrl":"assets/resource/img/gb/products/blackPepper-edt.jpg" },
+                    { "name":"Flora Luminare<br />Eau de Parfum", "copy":"With its vivacious blend of lively tones and hedonistic notes.", "imgUrl":"assets/resource/img/gb/products/floraLuminaire-edp.jpg"}
+                ]
+            },
+            {
+            "id":"T112",
+            "bgImg":"floraLuminaire",
+            "imgUrl":"assets/resource/img/gb/products/floraLuminaire-edt.jpg",
+                "profile": [{
+                    "type":"social whirlwind",
+                    "secondary_type":"Warm and lively",
+                    "copy_one":"You’re somebody who enjoys making bold statements and causing a stir from time to time. As a warm, conscious and chatty person, you like to keep the conversations flowing and you’re never afraid to share your opinions, however loud.",
+                    "copy_two":"You like fragrances that are full of volume and warmth. For you, a fragrance should appeal to others while being a little polarising if it grabs their attention."
+                }],
+                "fragrance": [{
+                    "name":"Flora Luminare<br />Eau de Toilette",
+                    "copy":"Expressing an outgoing aura of warm, hedonistic tones, this scent is a melody of Tahitian tiare flower, mandarin and pear."
+                }],
+                "identity": [
+                    { "id":"T112A", "copy":"<b>Did you know?</b><br />The Polynesian tiare flower leading this scent is an absolute;  the purest, most concentrated form of fragrance, it contains more of the aromatic detail of the original ingredient for incomparable depth." },
+                    { "id":"T112E", "copy":"Senior Perfumer Maïa Lernout’s vision was sparked by a sojourn to the idyllic Punaauia beach, Tahiti. She pays tribute to the native tiare flower; Tahitian women have, for centuries, macerated the blossom in coconut oil and used it as love philtre on their hair."},
+                    { "id":"T112S", "copy":"Known locally as “Tiare Tahiti”, the native tiare blossom is an icon of affection on the South Pacific isle. A flower worn behind the left ear signals that person is happily in love; behind the right means they are unattached."}
+                ],
+                "secondary":[
+                    { "name":"Flora Luminare<br />Eau de Parfum", "copy":"With its vivacious blend of lively tones and hedonistic notes.", "imgUrl":"assets/resource/img/gb/products/floraLuminaire-edp.jpg" },
+                    { "name":"Recharge Black Pepper<br />Eau de Toilette", "copy":"With its curated blend of harmonious tones.", "imgUrl":"assets/resource/img/gb/products/blackPepper-edt.jpg"}
+                ]
+            },
+            {
+            "id":"P112",
+            "bgImg":"floraLuminaire",
+            "imgUrl":"assets/resource/img/gb/products/floraLuminaire-edp.jpg",
+                "profile": [{
+                    "type":"animated socialiser",
+                    "secondary_type":"Outgoing and vivacious",
+                    "copy_one":"As the life and soul of the party, you love to attract people and hold their attention. You’re somebody who lives life at full volume and shares your gregarious attitude with the world around you.",
+                    "copy_two":"You like fragrances that are as voluminous as your approach to life. For you, a fragrance is about owning the spotlight while popping an olfactive cork."
+                }],
+                "fragrance": [{
+                    "name":"Flora Luminare<br />Eau de Parfum",
+                    "copy":"Lively, vivid and hedonistic, like you, this fragrance blooms into golden ylang ylang, Tahitian tiare and smoky tea."
+                }],
+                "identity": [
+                    { "id":"P112A", "copy":"<b>Did you know?</b><br />The signature ingredient, ylang-ylang has been distilled three times to capture every single facet; an extraction process not widely used in perfumery, it makes this note particularly precious." },
+                    { "id":"P112E", "copy":"Senior Perfumer Maïa Lernout picked golden ylang-ylang as her signature ingredient. Evangelical about using only the purest, sustainably sourced raw ingredients, she cites luminous florals as her personal touch to her creations."},
+                    { "id":"P112S", "copy":"Senior Perfumer Maïa Lernout uses only the purest raw ingredients; her signature ylang-ylang has been distilled three times to capture every rich facet. This extraction process is rarely used in perfumery; it is more sustainable, using a smaller volume of wood and natural materials."}
+                ],
+                "secondary":[
+                    { "name":"Flora Luminare<br />Eau de Toilette", "copy":"With its particular blend of warm tones and hedonistic notes for an outgoing mood.", "imgUrl":"assets/resource/img/gb/products/floraLuminaire-edt.jpg" },
+                    { "name":"Recharge Black Pepper<br />Eau de Parfum", "copy":"With its hedonistic blend of dynamic notes and deeply spiced tones.", "imgUrl":"assets/resource/img/gb/products/blackPepper-edp.jpg"}
+                ]
+            },
+            {
+            "id":"T213",
+            "bgImg":"russianLeather",
+            "imgUrl":"assets/resource/img/gb/products/russianLeather-edt.jpg",
+                "profile": [{
+                    "type":"enigmatic provocateur",
+                    "secondary_type":"Rebellious and admired",
+                    "copy_one":"You enjoy being seen as a rule-breaker, and have a hedonistic approach to personal indulgences at times. You’re someone who is very self-assured, but you also care what others think and would never want anyone to dismiss your sensitive soul.",
+                    "copy_two":"You like fragrances that are bold and intense. For you, a fragrance should deliver an irresistible impact while also conveying your perceptive side."
+                }],
+                "fragrance": [{
+                    "name":"Russian Leather<br />Eau de Toilette",
+                    "copy":"Siberian pine oil meets black tea and leather accord in this enigmatic blend of warm tones and smoky notes."
+                }],
+                "identity": [
+                    { "id":"T213A", "copy":"<b>Did you know?</b><br />This fragrance contains pine from Siberia, where permafrost takes over most of the land, meaning its lakes and coniferous forests never thaw." },
+                    { "id":"T213E", "copy":"Perfumery’s rising star Loïc Bisceglie was naturally inspired by childhood memories, surrounded by the rich, animalistic scent of his grandfather’s leather-making workshop in the south of France."},
+                    { "id":"T213S", "copy":"Russian-made leather became legendary in its unique use of birch oil for tanning and dying. This ancient craft has been given new life with Siberian leather accord soaked in birch oil, and strides the olfactive line between masculinity and femininity."}
+                ],
+                "secondary":[
+                    { "name":"Russian Leather<br />Eau de Parfum", "copy":"With its mysterious blend of traditional tones and intriguing smoky notes.", "imgUrl":"assets/resource/img/gb/products/russianLeather-edp.jpg" },
+                    { "name":"Fiery Pink Pepper<br />Eau de Toilette", "copy":"With its original blend of smouldering tones and unexpected fresh notes.", "imgUrl":"assets/resource/img/gb/products/pinkPepper-edt.jpg"}
+                ]
+            },
+            {
+            "id":"P213",
+            "bgImg":"russianLeather",
+            "imgUrl":"assets/resource/img/gb/products/russianLeather-edp.jpg",
+                "profile": [{
+                    "type":"enigmatic traditionalist",
+                    "secondary_type":"Astute and incisive",
+                    "copy_one":"As a forthright individual, you like to speak your mind, which invites respect from others. You also value tradition and have a secret sensitive side that yearns to be pampered – so you’re no stranger to treating yourself.",
+                    "copy_two":"You like fragrances that hark back to formal traditions, values and etiquette and use them to treat yourself."
+                }],
+                "fragrance": [{
+                    "name":"Russian Leather<br />Eau de Parfum",
+                    "copy":"With its mysterious blend of traditional tones and intriguing smoky notes."
+                }],
+                "identity": [
+                    { "id":"P213A", "copy":"A shot of citrus top notes and lemon-infused elemi; a rich heart of leathery birch wood and Siberian pine; deep, smoky undertones of leather, cade and black amber cut by fresh vetiver and lavender." },
+                    { "id":"P213E", "copy":"Senior Perfumer Sylvie Fischer surprisingly picked clean, crisp lavender as her signature ingredient to cut through the fragrance’s smoky darkness. She explains that this floral works like a tanner by softening the leather."},
+                    { "id":"P213S", "copy":"Meadow lavender meets brooding Russian leather; shock your senses with Senior Perfumer Sylvie Fischer’s perfume as she controversially transforms a soft floral into an edgy, olfactive leather tanner, striding the line between the feminine and masculine."}
+                ],
+                "secondary":[
+                    { "name":"Russian Leather<br />Eau de Toilette", "copy":"With its enigmatic blend of warm tones and smoky notes.", "imgUrl":"assets/resource/img/gb/products/russianLeather-edt.jpg" },
+                    { "name":"Fiery Pink Pepper<br />Eau de Parfum", "copy":"With its androgynous blend of earthy tones and intriguing notes for an unconventional mood.", "imgUrl":"assets/resource/img/gb/products/pinkPepper-edp.jpg"}
+                ]
+            },
+            {
+            "id":"T201",
+            "bgImg":"orangeBergamot",
+            "imgUrl":"assets/resource/img/gb/products/orangeBergamot-edt.jpg",
+                "profile": [{
+                    "type":"worldly optimist",
+                    "secondary_type":"Caring and outgoing",
+                    "copy_one":"You’re a very attuned and thoughtful person who pays attention to the world around you. You’re somebody who cares about the choices you make in life and the impact these make on your world, your wellbeing and others around you.",
+                    "copy_two":"You like fragrances that are sunny and lively, which project a sense of optimism that’s as warm as sun-kissed skin. You like to communicate a bright, healthy and light-hearted attitude to people with the fragrances you wear."
+                }],
+                "fragrance": [{
+                    "name":"Orange &amp; Bergamot<br />Eau de Toilette",
+                    "copy":"A contemporary blend of fresh tones and radiant Sevillian orange and blossoming neroli notes for a positive mood."
+                }],
+                "identity": [
+                    { "id":"T201A", "copy":"<b>Did you know?</b><br />Sweet-floral neroli is produced by hand-gathering blossoms from the bitter orange tree in springtime and then steam distilled. It takes one ton of these blossoms to produce just one litre of neroli oil." },
+                    { "id":"T201E", "copy":"Master Perfumer Beverly Bayne joyfully used all elements of the Seville orange tree in her creation; orange oil from the fruit and chic neroli oil from the hand-gathered blossoms."},
+                    { "id":"T201S", "copy":"A vibrant metropolis where old-meets-new, Seville is the inspiration behind our cult icon; this Andalusian suntrap is home to the most bitter orange trees in the world - 14,000 of these perfume its streets or ‘calles’."}
+                ],
+                "secondary":[
+                    { "name":"Orange &amp; Bergamot<br />Eau de Parfum", "copy":"With its articulate blend of chic tones.", "imgUrl":"assets/resource/img/gb/products/orangeBergamot-edp.jpg" },
+                    { "name":"Suede Orris<br />Eau de Toilette", "copy":"With its intimate blend of ethereal and caressing notes.", "imgUrl":"assets/resource/img/gb/products/suedeOrris-edt.jpg"}
+                ]
+            },
+            {
+            "id":"P201",
+            "bgImg":"orangeBergamot",
+            "imgUrl":"assets/resource/img/gb/products/orangeBergamot-edp.jpg",
+                "profile": [{
+                    "type":"fastidious idealist",
+                    "secondary_type":"Self-assured and thoughtful",
+                    "copy_one":"You’re a very trustworthy individual with a mature outlook on life. It’s important to you to convey a refined and steady attitude, while treating your body like a sophisticated modern temple.",
+                    "copy_two":"You like fragrances that are balanced and mature, while maintaining a fresh edge. For you, a fragrance should be a daily indulgent beauty ritual."
+                }],
+                "fragrance": [{
+                    "name":"Orange &amp; Bergamot<br />Eau de Parfum",
+                    "copy":"An articulate blend of chic tones, this fragrance, like you, maintains a fresh edge with lively Sevillian orange and neroli."
+                }],
+                "identity": [
+                    { "id":"P201A", "copy":"<b>Did you know?</b><br />Petitgrain was chosen as this fragrance’s signature ingredient; steam-distilled and extracted from the Seville bitter orange tree, it takes around 600kg of leaves to yield just 1kg of petitgrain." },
+                    { "id":"P201E", "copy":"Intrigued by the diverse aromas emanating from a single tree, Master Perfumer Beverly Bayne chose petitgrain as her signature ingredient; steam-distilled and extracted from the Seville bitter orange tree."},
+                    { "id":"P201S", "copy":"A vibrant metropolis where old-meets-new, Seville is the inspiration behind our cult icon; this Andalusian suntrap is home to the most bitter orange trees in the world - 14,000 of these perfume its streets or ‘calles’."}
+                ],
+                "secondary":[
+                    { "name":"Orange &amp; Bergamot<br />Eau de Toilette", "copy":"With its contemporary blend of fresh tones and radiant notes for a positive mood.", "imgUrl":"assets/resource/img/gb/products/orangeBergamot-edp.jpg" },
+                    { "name":"Bushukan<br />Eau de Parfum", "copy":"With a cultivated balance of reserved tones, this fragrance unites classic citrus, a chypre structure and hints of hazelnut.", "imgUrl":"assets/resource/img/gb/products/bushukan-edp.jpg"}
+                ]
+            },
+            {
+            "id":"T214",
+            "bgImg":"suedeOrris",
+            "imgUrl":"assets/resource/img/gb/products/suedeOrris-edt.jpg",
+                "profile": [{
+                    "type":"confident pragmatist",
+                    "secondary_type":"Disciplined and self-aware",
+                    "copy_one":"You’re a quietly confident person who likes to take care of yourself, but you’re also very considerate to those around you. You’re a good listener, but you are no wallflower; you communicate your respectful values to the world.",
+                    "copy_two":"You like fragrances that are respectable and romantic, which reflects your sensitive attitude. You’re loyal to fragrances that are reassuringly intimate and comforting."
+                }],
+                "fragrance": [{
+                    "name":"Suede Orris<br />Eau de Toilette",
+                    "copy":"An intimate blend of ethereal Tuscan orris, rose and jasmine absolute, and caressing cedarwood notes - quietly confident."
+                }],
+                "identity": [
+                    { "id":"T214A", "copy":"<b>Did you know?</b><br />Orris is the root of the sweet iris flower. The root is harvested and left to dry, giving an earthy, powdery effect to a fragrance." },
+                    { "id":"T214E", "copy":"Using Florentine-sourced orris, New Generation Perfumer Jérôme Di Marino was inspired by Catherine di Medici’s fashionable orris-scented gloves, transforming her accessory into this up-to-the-minute, quietly confident scent."},
+                    { "id":"T214S", "copy":"A young perfumer shaking up the scent scene, Jérôme Di Marino reinterprets fragrances from the past to get people excited today; Suede Orris is from his private collection and a contemporary take on the noble Florentine gesture of orris-scented gloves."}
+                ],
+                "secondary":[
+                    { "name":"Geranium Nefertum<br />Eau de Parfum", "copy":"With its complex balance of warm tones and earthy note.", "imgUrl":"assets/resource/img/gb/products/geranium-edp.jpg" },
+                    { "name":"Orange &amp; Bergamot<br />Eau de Toilette", "copy":"With its comforting blend of tasteful notes – classic with a twist.", "imgUrl":"assets/resource/img/gb/products/orangeBergamot-edt.jpg"}
+                ]
+            },
+            {
+            "id":"P214",
+            "bgImg":"suedeOrris",
+            "imgUrl":"assets/resource/img/gb/products/product2.jpg",
+                "profile": [{
+                    "type":"graceful rationalist",
+                    "secondary_type":"Ordered and self-aware",
+                    "copy_one":"As someone who is not fazed by trends or fickle pop culture fads, you like to weigh things up before making decisions. You’re somebody who appreciates order and attention to detail, which is why you are a keen listener to the world around you.",
+                    "copy_two":"You like fragrances that project outwards as well as inwards. For you, a fragrance should be tasteful, but most importantly, it needs to be intimate and familar."
+                }],
+                "fragrance": [{
+                    "name":"Suede Orris<br />Eau de Parfum",
+                    "copy":"A comforting blend of tasteful notes matches your penchant for intimate familiarity - classic with a twist."
+                }],
+                "identity": [
+                    { "id":"P214A", "copy":"<b>Did you know?</b><br />This fragrance’s signature ingredient is vanilla CO2; a particularly rare form of vanilla in which the process of distillation is akin to the complexity of crafting diamonds." },
+                    { "id":"P214E", "copy":"New Generation Perfumer Jérôme Di Marino elected vanilla CO2 as his signature ingredient in this perfume for two very different purposes: its smoky undertones amplify the warmth of suede yet at the same time, its amber, woody facets enrich the soft, powdery notes of Tuscan orris."},
+                    { "id":"P214S", "copy":"A youthful perfumer setting the perfume scene alight, Jérôme Di Marino reinterprets fragrances from the past to give them new life; Suede Orris is from his private collection and a fresh take on the noble Florentine gesture of orris-scented gloves."}
+                ],
+                "secondary":[
+                    { "name":"Suede Orris<br />Eau de Toilette", "copy":"With its intimate blend of ethereal and caressing notes.", "imgUrl":"assets/resource/img/gb/products/suedeOrris-edt.jpg" },
+                    { "name":"Orange &amp; Bergamot<br />Eau de Parfum", "copy":"With its contemporary blend of fresh tones and radiant notes for a positive mood.", "imgUrl":"assets/resource/img/gb/products/orangeBergamot-edp.jpg"}
+                ]
+            },
+            {
+            "id":"T215",
+            "bgImg":"geranium",
+            "imgUrl":"assets/resource/img/gb/products/geranium-edt.jpg",
+                "profile": [{
+                    "type":"pragmatic minimalist",
+                    "secondary_type":"Insightful and organised",
+                    "copy_one":"You’re an inventive clear thinker and friends will usually look to you as a person that can broaden their outlook on life. You’re a minimalist and not one for clutter, but there’s much more to you than meets the eye and you like to communicate this in subtle ways.",
+                    "copy_two":"You like fragrances that are balanced and crisp. For you a fragrance should possess a fresh quality that you can keep reaching for all day."
+                }],
+                "fragrance": [{
+                    "name":"Geranium Nefertum<br />Eau de Toilette",
+                    "copy":"This is made for you with its sparkling duet of refined and contemporary notes, fusing cool fig, sandalwood and geranium."
+                }],
+                "identity": [
+                    { "id":"T215A", "copy":"We’ve sourced a more unfamiliar type of geranium from the Nile Delta; instead of the common rose-like geranium, this is an extract with minty, green facets for a genderless note." },
+                    { "id":"T215E", "copy":"This curious spin on a green chypre fragrance is created with unexpectedly minty-rose geranium sourced from the Nile Delta; its poetic name is a nod to Nefertum, the androgynous Egyptian god of perfume."},
+                    { "id":"T215S", "copy":"Discover a fascinating ode to daring androgyny. Senior Perfumer Carla Chabert’s abstract lead ingredient is geranium sourced from the Nile Delta – an unpredictable minty rose that blurs the lines between femininity and masculinity."}
+                ],
+                "secondary":[
+                    { "name":"Geranium Nefertum<br />Eau de Parfum", "copy":"With its complex balance of warm tones and earthy note.", "imgUrl":"assets/resource/img/gb/products/geranium-edp.jpg" },
+                    { "name":"Orange &amp; Bergamot<br />Eau de Toilette", "copy":"With its contemporary blend of fresh tones and radiant notes for a positive mood.", "imgUrl":"assets/resource/img/gb/products/orangeBergamot-edt.jpg"}
+                ]
+            },
+            {
+            "id":"P215",
+            "bgImg":"geranium",
+            "imgUrl":"assets/resource/img/gb/products/geranium-edp.jpg",
+                "profile": [{
+                    "type":"grounded connoisseur",
+                    "secondary_type":"Profound and complex",
+                    "copy_one":"You’re a sophisticated and self-sufficient person, which is why you like to behave thoughtfully with an independent spirit. With such a strong inner world, you like to reflect your ethically-aware values and open minded views whenever possible.",
+                    "copy_two":"You like fragrances that are animalic and complex, reflecting your profound character. For you a fragrance should possess an unconventional elegance that’s captivating enough to draw you in again and again."
+                }],
+                "fragrance": [{
+                    "name":"Geranium Nefertum<br />Eau de Parfum",
+                    "copy":"Complex, like you, this fragrance intrigues with a balance of warm tones and earthy notes."
+                }],
+                "identity": [
+                    { "id":"P215A", "copy":"This geranium is an unusual variety from the Nile Delta; instead of the common rose-like geranium, we use an extract with minty, green facets for a genderless tone." },
+                    { "id":"P215E", "copy":"Free-thinking Senior Perfumer Carla Chabert elected woody oakmoss as her signature ingredient, so you can discover hidden depth to her androgynous, minty-rose geranium."},
+                    { "id":"P215S", "copy":"Senior Perfumer Carla Chabert shaped this fragrance as a fascinating ode to bold androgyny. Her abstract lead ingredient is geranium sourced from the Nile Delta – an unexpectedly minty rose destined to blur the lines between the feminine and masculine."}
+                ],
+                "secondary":[
+                    { "name":"Geranium Nefertum<br />Eau de Toilette", "copy":"With its sparkling combination of sophisticated tones and contemporary notes.", "imgUrl":"assets/resource/img/gb/products/geranium-edt.jpg" },
+                    { "name":"Bushukan<br />Eau de Parfum", "copy":"With its cultivated blend of reserved tones.", "imgUrl":"assets/resource/img/gb/products/bushukan-edp.jpg"}
+                ]
+            },
+            {
+            "id":"P207",
+            "bgImg":"bushukan",
+            "imgUrl":"assets/resource/img/gb/products/bushukan-edp.jpg",
+                "profile": [{
+                    "type":"sensitive sophisticate",
+                    "secondary_type":"Cultivated and reserved",
+                    "copy_one":"You’re an uncomplicated person with a cautious attitude and considered taste. People who know you well praise your practical attitude and resourceful approach to modern life. You balance your decisions in your mind and convey your values through your actions.",
+                    "copy_two":"You like fragrances that are modest and sophisticated. For you, a fragrance should convey a sense of understated chic – unobtrusive yet effective."
+                }],
+                "fragrance": [{
+                    "name":"Bushukan<br />Eau de Parfum",
+                    "copy":"With a cultivated balance of reserved tones, this fragrance unites classic citrus, a chypre structure and hints of hazelnut."
+                }],
+                "identity": [
+                    { "id":"P207A", "copy":"<b>Did you know?</b><br />Bushukan is a citrus fruit grown only in East Asia. Also known as “Buddha’s Hand”, it’s segmented into finger-like sections that resemble the hands of Buddha statues." },
+                    { "id":"P207E", "copy":"Senior Perfumer Nathalie Koobus adventurously chose hazelnut to balance the Fujian citrus fruit, bushukan; it adds a thoroughly unexpected sweet, nutty crunch to a classical tonic luminosity."},
+                    { "id":"P207S", "copy":"Also called “Buddha’s Hand”, bushukan is a Fujian citrus fruit whose finger-like sections mimic the hands of Buddha statues. Wellness seekers, rejoice: bushukan symbolises happiness and long life."}
+                ],
+                "secondary":[
+                    { "name":"Bushukan<br />Eau de Toilette", "copy":"With its inspiring blend of charismatic tones.", "imgUrl":"assets/resource/img/gb/products/bushukan-edt.jpg" },
+                    { "name":"Orange &amp; Bergamot<br />Eau de Parfum", "copy":"With its articulate blend of chic tones.", "imgUrl":"assets/resource/img/gb/products/orangeBergamot-edp.jpg"}
+                ]
+            },
+            {
+            "id":"P207",
+            "bgImg":"bushukan",
+            "imgUrl":"assets/resource/img/gb/products/bushukan-edp.jpg",
+                "profile": [{
+                    "type":"sensitive sophisticate",
+                    "secondary_type":"Cultivated and reserved",
+                    "copy_one":"You’re an uncomplicated person with a cautious attitude and considered taste. People who know you well praise your practical attitude and resourceful approach to modern life. You balance your decisions in your mind and convey your values through your actions.",
+                    "copy_two":"You like fragrances that are modest and sophisticated. For you, a fragrance should convey a sense of understated chic – unobtrusive yet effective."
+                }],
+                "fragrance": [{
+                    "name":"Bushukan<br />Eau de Parfum",
+                    "copy":"With its cultivated blend of reserved tones."
+                }],
+                "identity": [
+                    { "id":"P207A", "copy":"<b>Did you know?</b><br />Bushukan is a citrus fruit grown only in East Asia. Also known as “Buddha’s Hand”, it’s segmented into finger-like sections that resemble the hands of Buddha statues." },
+                    { "id":"P207E", "copy":"Senior Perfumer Nathalie Koobus adventurously chose hazelnut to balance the Fujian citrus fruit, bushukan; it adds a thoroughly unexpected sweet, nutty crunch to a classical tonic luminosity."},
+                    { "id":"P207S", "copy":"Also called “Buddha’s Hand”, bushukan is a Fujian citrus fruit whose finger-like sections mimic the hands of Buddha statues. Wellness seekers, rejoice: bushukan symbolises happiness and long life."}
+                ],
+                "secondary":[
+                    { "name":"Bushukan<br />Eau de Toilette", "copy":"With its inspiring blend of charismatic tones.", "imgUrl":"assets/resource/img/gb/products/bushukan-edt.jpg" },
+                    { "name":"Orange &amp; Bergamot<br />Eau de Parfum", "copy":"With its articulate blend of chic tones.", "imgUrl":"assets/resource/img/gb/products/orangeBergamot-edp.jpg"}
+                ]
+            },
+            {
+            "id":"T205",
+            "bgImg":"pinkPepper",
+            "imgUrl":"assets/resource/img/gb/products/pinkPepper-edt.jpg",
+                "profile": [{
+                    "type":"flamboyant non-conformist",
+                    "secondary_type":"Energetic and eccentric",
+                    "copy_one":"You possess an electric verve that drives both an unconventional idealism and an adventurous attitude. You appreciate others who also display a sense of individualism, quirkiness and androgyny.",
+                    "copy_two":"You like fragrances that complement your own complexity and curious nature. For you, a fragrance should never run out of energy – just like you."
+                }],
+                "fragrance": [{
+                    "name":"Fiery Pink Pepper<br />Eau de Toilette",
+                    "copy":"Original, like your outlook, this scent is smouldering yet unexpectedly fresh with ginger, pink pepper and patchouli."
+                }],
+                "identity": [
+                    { "id":"T205A", "copy":"<b>Did you know?</b><br />The pink peppercorn is a faux peppercorn; it is in fact a spicy, small dried berry from the evergreen schinus molle tree." },
+                    { "id":"T205E", "copy":"Senior Perfumer Carla Chabert introduced the award-winning Fiery Pink Pepper over ten years after her father, Master Perfumer, Jacques Chabert, created its iconic piquant partner, Re-charge Black Pepper."},
+                    { "id":"T205S", "copy":"We’ve sourced our pink peppercorns from Reunion Island, Indian Ocean; volcano, beach and forestscapes dominate this adventurer’s paradise, energetically given life in the stirring kick of our award-winning scent."}
+                ],
+                "secondary":[
+                    { "name":"Fiery Pink Pepper<br />Eau de Parfum", "copy":"With its androgynous blend of earthy tones and intriguing notes for an unconventional mood.", "imgUrl":"assets/resource/img/gb/products/pinkPepper-edp.jpg" },
+                    { "name":"Heavenly Gingerlily<br />Eau de Toilette", "copy":"With its alluring pairing of aromatic tones and exotic sunny notes.", "imgUrl":"assets/resource/img/gb/products/gingerlily-edt.jpg"}
+                ]
+            },
+            {
+            "id":"P205",
+            "bgImg":"pinkPepper",
+            "imgUrl":"assets/resource/img/gb/products/pinkPepper-edp.jpg",
+                "profile": [{
+                    "type":"exuberant individualist",
+                    "secondary_type":"Unconventional and erudite",
+                    "copy_one":"As someone who possesses the qualities of a collector, you’re careful and conscious about what you bring into your personal sphere. You pride yourself on being well read, almost to the point of being totally absorbed by your own curiosity.",
+                    "copy_two":"You like fragrances that are as complex and unusual. For you, a fragrance should strike a remarkable impression on others, but also on yourself."
+                }],
+                "fragrance": [{
+                    "name":"Fiery Pink Pepper<br />Eau de Parfum",
+                    "copy":"With its androgynous blend of earthy tones and intriguing notes for an unconventional mood."
+                }],
+                "identity": [
+                    { "id":"P205A", "copy":"<b>Did you know?</b><br />The pink peppercorn is a faux peppercorn; it is in fact a spicy, small dried berry from the evergreen schinus molle tree." },
+                    { "id":"P205E", "copy":"To dial up the drama, Senior Perfumer Carla Chabert boldly featured osmanthus in her creation; a sweet floral with an unpredictable leathery kick, bolstering the piquancy of pink peppercorns."},
+                    { "id":"P205S", "copy":"Sourced from Reunion Island, pink peppercorns are also known as ‘Grains of Paradise’;  these tiny little seeds are prized for their similarity in taste to black pepper yet they also boast complex floral facets."}
+                ],
+                "secondary":[
+                    { "name":"Fiery Pink Pepper<br />Eau de Toilette", "copy":"With its original blend of smouldering tones and unexpected fresh notes.", "imgUrl":"assets/resource/img/gb/products/pinkPepper-edt.jpg" },
+                    { "name":"Heavenly Gingerlily<br />Eau de Parfum", "copy":"With its romantic pairing of sensual tones and warm notes.", "imgUrl":"assets/resource/img/gb/products/gingerlily-edp.jpg"}
+                ]
+            },
+            {
+            "id":"T208",
+            "bgImg":"gingerlily",
+            "imgUrl":"assets/resource/img/gb/products/gingerlily-edt.jpg",
+                "profile": [{
+                    "type":"vivacious dreamer",
+                    "secondary_type":"Positive and thoughtful",
+                    "copy_one":"As a sociable person you’re most happy when in a group, but you still like to have a presence. You show a lot of empathy so you believe in being as kind to yourself as you are to others, which means you’re equally generous when it comes to indulging your own desires.",
+                    "copy_two":"You prefer timeless fragrances that allow your presence to radiate. For you, fragrances are all about communicating your uplifting mood."
+                }],
+                "fragrance": [{
+                    "name":"Heavenly Gingerlily<br />Eau de Toilette",
+                    "copy":"With its alluring pairing of aromatic tones and exotic sunny notes, this fragrance is graciously veiled with lily and ginger."
+                }],
+                "identity": [
+                    { "id":"T208A", "copy":"Opulently floral, this fragrance features notes of ginger, tuberose and delicately spiced cardamom with a base of cedarwood to make it long-lasting." },
+                    { "id":"T208E", "copy":"Sourced from Tahiti, this ginger lily is known as ‘Tahitian flame’. It inspired the collection colour, whilst the turquoise lagoon lapping this heavenly isle lives in the fragrance’s fresh water notes."},
+                    { "id":"T208S", "copy":"Designed to bottle the allure of wanderlust, we’ve sourced our ginger lily from luxe destination hotspot Tahiti in the South Pacific, desired for its distinctive black sands and crystal-blue lagoons."}
+                ],
+                "secondary":[
+                    { "name":"Heavenly Gingerlily<br />Eau de Parfum", "copy":"With its romantic pairing of sensual tones and warm notes.", "imgUrl":"assets/resource/img/gb/products/gingerlily-edp.jpg" },
+                    { "name":"Fiery Pink Pepper<br />Eau de Toilette", "copy":"With its original blend of smouldering tones and unexpected fresh notes.", "imgUrl":"assets/resource/img/gb/products/pinkPepper-edt.jpg"}
+                ]
+            },
+            {
+            "id":"P208",
+            "bgImg":"gingerlily",
+            "imgUrl":"assets/resource/img/gb/products/gingerlily-edp.jpg",
+                "profile": [{
+                    "type":"romantic ritualist",
+                    "secondary_type":"Sensual and sophisticated",
+                    "copy_one":"You’re somebody that loves to relax and treat yourself to a little of what you fancy. You make it part of your routine to regularly indulge in rituals that make you feel pampered.",
+                    "copy_two":"You like fragrances that are sensual and warm, which makes you feel cocooned and adored. For you it’s most important that a fragrance is reassuring and captivating, to the point of being irresistibly desirable."
+                }],
+                "fragrance": [{
+                    "name":"Heavenly Gingerlily<br />Eau de Parfum",
+                    "copy":"A romantic pairing of sensual tones and warm notes; an olfactive signature of hyacinth enriches the original floral heart."
+                }],
+                "identity": [
+                    { "id":"P208A", "copy":"The signature ingredient of hyacinth enriches the original floral heart of tuberose, yet adds a fresh, aquatic quality to its delicately spiced character." },
+                    { "id":"P208E", "copy":"In his quest to magnify ‘the bloom’ of this scent, Master Perfumer Jacques Chabert chose hyacinth as his signature note; both simultaneously fresh and opulent, it gives the original fragrance extra allure and sensuality."},
+                    { "id":"P208S", "copy":"Drop anchor in the island paradise of Tahiti, where we’ve sourced ginger lily. Matched with Master Perfumer Jacques Chabert’s signature ingredient hyacinth, it’s an alluring floral take-over."}
+                ],
+                "secondary":[
+                    { "name":"Heavenly Gingerlily<br />Eau de Toilette", "copy":"With its alluring pairing of aromatic tones and exotic sunny notes.", "imgUrl":"assets/resource/img/gb/products/gingerlily-edt.jpg" },
+                    { "name":"Fiery Pink Pepper<br />Eau de Parfum", "copy":"With its androgynous blend of earthy tones and intriguing notes for an unconventional mood.", "imgUrl":"assets/resource/img/gb/products/pinkPepper-edp.jpg"}
+                ]
+            },
+            {
+            "id":"T307",
+            "bgImg":"bushukan",
+            "imgUrl":"assets/resource/img/gb/products/bushukan-edt.jpg",
+                "profile": [{
+                    "type":"sophisticated optimist",
+                    "secondary_type":"Practical and creative",
+                    "copy_one":"You’re an uncomplicated person with a cautious attitude and considered taste. As someone who values being connected to the natural world, you take the time to find moments of reflection when possible.",
+                    "copy_two":"You like fragrances that are sharp and aromatic. You’re driven by a desire to feel immaculately invigorated, returning time and time again to the revitalising and the polished."
+                }],
+                "fragrance": [{
+                    "name":"Bushukan<br />Eau de Toilette",
+                    "copy":"With inspiring charisma to match your character, this scent mingles sparkling top notes, elemi, herby clary sage and woods."
+                }],
+                "identity": [
+                    { "id":"T307A", "copy":"<b>Did you know?</b><br />Found only in East Asia, bushukan is a citrus fruit segmented into finger-like sections; unlike other citrus fruits, it contains little or no pulp." },
+                    { "id":"T307E", "copy":"Senior Perfumer Nathalie Koobus’s optimistic creation celebrates the Fujian citrus fruit, bushukan. Also known as “Buddha’s Hand”, its finger-like sections mimic the hands of Buddha statues, expressing happiness and long life."},
+                    { "id":"T307S", "copy":"Bushukan is a Fujian citrus fruit also known as “Buddha’s Hand”; its finger-like sections resemble the hands of Buddha statues. Spiritual seekers, rejoice: bushukan symbolises happiness and long life."}
+                ],
+                "secondary":[
+                    { "name":"Bushukan<br />Eau de Parfum", "copy":"With it cultivated blend of reserved tones.", "imgUrl":"assets/resource/img/gb/products/bushukan-edp.jpg" },
+                    { "name":"Vetiver &amp; Grapefruit<br />Eau de Toilette", "copy":"With its connoisseur’s combination of classic tones and contradictory notes.", "imgUrl":"assets/resource/img/gb/products/vetiverGrapefruit-edt.jpg"}
+                ]
+            },
+            {
+            "id":"T304",
+            "bgImg":"coastalCypress",
+            "imgUrl":"assets/resource/img/gb/products/coastalCypress-edt.jpg",
+                "profile": [{
+                    "type":"modern adventurer",
+                    "secondary_type":"Active and self-effacing",
+                    "copy_one":"You’re a quietly sure and conscious person and like to behave in a way that is mindful of others, but you don’t take yourself too seriously. As someone who likes to keep moving, you feel most at home outside among the elements.",
+                    "copy_two":"You like intriguing and invigorating fragrances that are elemental with hints of tonic and an outdoorsy pureness. For you, a fragrance is all about being invigorated and refreshed."
+                }],
+                "fragrance": [{
+                    "name":"Coastal Cypress &amp; Sea Fennel<br />Eau de Toilette",
+                    "copy":"With its energetic wave of stimulating, sea-meets-land tones, this fragrance blends Australian sea fennel and salted cypress."
+                }],
+                "identity": [
+                    { "id":"T304A", "copy":"<b>Did you know?</b><br />Bracing cypress is the only naturally blue essential oil in the world obtained from a tree; steam-distilled from the cypress conifer, native to the north Australian coast of Cape York." },
+                    { "id":"T304E", "copy":"With a self-confessed dislike of classic aquatic notes, we challenged Senior Perfumer Carla Chabert to create a new kind of marine fragrance; her view changed entirely when she introduced cardamom for an original spiced, fresh edge."},
+                    { "id":"T304S", "copy":"We’ve sourced our blue cypress oil from the Cape York peninsula; it is north Australia’s largest unspoilt wilderness where the tropical savannahs are preserved for their global environmental significance."}
+                ],
+                "secondary":[
+                    { "name":"Coastal Cypress &amp; Sea Fennel<br />Eau de Parfum", "copy":"With its contemporary blend of bracing tones and energetic notes.", "imgUrl":"assets/resource/img/gb/products/coastalCypress-edp.jpg" },
+                    { "name":"Vetiver &amp; Grapefruit<br />Eau de Toilette", "copy":"With its connoisseur’s combination of classic tones and contradictory notes.", "imgUrl":"assets/resource/img/gb/products/vetiverGrapefruit-edt.jpg"}
+                ]
+            },
+            {
+            "id":"P304",
+            "bgImg":"coastalCypress",
+            "imgUrl":"assets/resource/img/gb/products/coastalCypress-edp.jpg",
+                "profile": [{
+                    "type":"grounded adventurer",
+                    "secondary_type":"Self-effacing and intrepid",
+                    "copy_one":"You’re someone who appreciates things that work efficiently and that won’t slow you down. An experience or encounter that is fuss-free really speaks to your straight-talking persona, especially if it allows you to express your personal points of view.",
+                    "copy_two":"You have no time for anything superfluous, which is why you like fragrances that are crisp and pure. For you, a fragrance is all about conveying and enabling an active lifestyle."
+                }],
+                "fragrance": [{
+                    "name":"Coastal Cypress &amp; Sea Fennel<br />Eau de Parfum",
+                    "copy":"With its contemporary blend of bracing tones and energetic notes."
+                }],
+                "identity": [
+                    { "id":"P304A", "copy":"<b>Did you know?</b><br />Cypress is the only naturally blue essential oil in the world that can be extracted from wood; steam-distilled from the cypress conifer, its indigenous to Cape York, northern Australia." },
+                    { "id":"P304E", "copy":"Senior Perfumer Carla Chabert was inspired by the colour blue for this marine fragrance, coupling the azure blue cypress oil found on the Australian coast of Cape York with the tonic, cold spice of cardamom to add a noble, creative edge."},
+                    { "id":"P304S", "copy":"We’ve sourced our blue cypress oil from the Cape York peninsula; as north Australia’s largest unspoilt wilderness, its tropical savannahs are preserved for their global environmental significance."}
+                ],
+                "secondary":[
+                    { "name":"Coastal Cypress &amp; Sea Fennel<br />Eau de Toilette", "copy":"With its energetic blend of invigorating tones and sea-soaked notes.", "imgUrl":"assets/resource/img/gb/products/coastalCypress-edt.jpg" },
+                    { "name":"Bushukan<br />Eau de Toilette", "copy":"With inspiring charisma to match your character, this scent mingles sparkling top notes, elemi, herby clary sage and woods.", "imgUrl":"assets/resource/img/gb/products/bushukan-edp.jpg" }
+                ]
+            },
+            {
+            "id":"T310",
+            "bgImg":"vetiverGrapefruit",
+            "imgUrl":"assets/resource/img/gb/products/vetiverGrapefruit-edt.jpg",
+                "profile": [{
+                    "type":"disciplined aficionado",
+                    "secondary_type":"Discerning and smart",
+                    "copy_one":"Self-restraint and a perceptive attitude are what set you apart from the rest. You’re a conscious individual who finds peace by maintaining an active routine that benefits your body and your mind.",
+                    "copy_two":"You like fragrances that are balanced and fresh, while still maintaining a timeless quality that reflects your decisive tastes."
+                }],
+                "fragrance": [{
+                    "name":"Vetiver &amp; Grapefruit<br />Eau de Toilette",
+                    "copy":"With its connoisseur’s blend of classic and contradictory tones, this fragrance conflicts warm vetiver with tonic grapefruit."
+                }],
+                "identity": [
+                    { "id":"T310A", "copy":"<b>Did you know?</b><br />Haitian vetiver’s citrus-woody fragrance is found not in its grass but in its long, fibrous roots; described as a miracle plant, it produces roots annually without irrigation or fertiliser." },
+                    { "id":"T310E", "copy":"Although also grown in Indonesia, Brazil and India, the Haitian vetiver  in this fragrance is finer, more balanced and multi-faceted; it is typified by sparkling, bitter grapefruit tones which build an intriguing tension with its warmer, earthier aspects."},
+                    { "id":"T310S", "copy":"Our Haitian vetiver is renowned as the world’s most precious incarnation of this oil; the tropical grass is in fact harvested for its deep roots, typified by its sparkling grapefruit notes, and used by farmers to thatch roofs and prevent land erosion."}
+                ],
+                "secondary":[
+                    { "name":"Bushukan<br />Eau de Toilette", "copy":"With inspiring charisma to match your character, this scent mingles sparkling top notes, elemi, herby clary sage and woods.", "imgUrl":"assets/resource/img/gb/products/bushukan-edp.jpg" },
+                    { "name":"Coastal Cypress &amp; Sea Fennel<br />Eau de Toilette", "copy":"With its energetic blend of invigorating tones and sea-soaked notes.", "imgUrl":"assets/resource/img/gb/products/coastalCypress-edt.jpg"}
+                ]
+            },
+            {
+            "id":"P310",
+            "bgImg":"vetiverGrapefruit",
+            "imgUrl":"assets/resource/img/gb/products/product2.jpg",
+                "profile": [{
+                    "type":"decisive connoisseur",
+                    "secondary_type":"Ambitious and organised",
+                    "copy_one":"You’re a discerning individual who likes to create moments to enjoy personal routines. You’re proud of being disciplined and structured, and enjoy people appreciating that.",
+                    "copy_two":"You like fragrances that convey your love of the finest quality. For you, a fragrance is all about feeling polished; fresh, yet powerful."
+                }],
+                "fragrance": [{
+                    "name":"Vetiver &amp; Grapefruit<br />Eau de Parfum",
+                    "copy":"With its charismatic blend of impactful notes and compelling tones for a debonair mood."
+                }],
+                "identity": [
+                    { "id":"P310A", "copy":"TBC" },
+                    { "id":"P310E", "copy":"TBC"},
+                    { "id":"P310S", "copy":"TBC"}
+                ],
+                "secondary":[
+                    { "name":"Vetiver &amp; Grapefruit<br />Eau de Toilette", "copy":"With its connoisseur’s combination of classic tones and contradictory notes.", "imgUrl":"assets/resource/img/gb/products/product1.jpg" },
+                    { "name":"Coastal Cypress &amp; Sea Fennel<br />Eau de Parfum", "copy":"With its contemporary blend of bracing tones and energetic notes.", "imgUrl":"assets/resource/img/gb/products/coastalCypress-edp.jpg"}
+                ]
+            }
+
+        ]
+    }
+}

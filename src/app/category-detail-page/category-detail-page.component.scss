@@ -1,0 +1,438 @@
+@import "./../../variable";
+.pdp-container {
+  width: 964px;
+  margin-right: auto;
+  margin-left: auto;
+  text-rendering: optimizeLegibility;
+  @media (max-width: $screen-sm) {
+    width: 100%;
+  }
+}
+.mb-breadcrumb {
+  background: $mb-white;
+  color: #9d9799;
+  display: block;
+  overflow: hidden;
+  padding: 20px 0 16px 0!important;
+  position: relative;
+  z-index: 444;
+  &-indicator{
+      font-size:11.4px;
+      span{
+      font-size: inherit;
+      }
+
+  }
+  a {
+      color: #666;
+      text-align: left;
+      text-transform: uppercase;
+      line-height: 11px;
+      padding-right: 0;
+      padding-left: 5px;
+      cursor: pointer;
+      &::after {
+          content: '>';
+          padding-left: 5px;
+      }
+      &:last-child {
+              color: $primary-color;
+              &::after {
+                  content: '';
+              }
+              &:hover{
+                  span{
+                      cursor: default;
+                      text-decoration:none !important; 
+              }
+          }
+      }
+      &:hover{
+          span{
+         text-decoration:underline; 
+      }
+  }
+  }
+}
+.bread-crumb {
+  display: none;
+}
+@media(max-width:$screen-sm){
+  .mb-breadcrumb{
+      display: none;
+  }
+  .bread-crumb {
+      display: block;
+      font-size: 11px;
+      background: #eeeeef;
+      color: #9d9799;
+      display: block;
+      overflow: hidden;
+      padding: 7px 10px 5px;
+      ul {
+      float: left;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      li {
+          float: left;
+          list-style: none;
+          .homelink {
+          background: url(../../assets/imgs/icon_home.png) no-repeat left;
+          float: left;
+          padding: 0 10px 0 18px;
+          display: block;
+      }
+      a {
+          padding-right: 10px;
+          color: #9d9799!important;
+          text-decoration: none;
+      }
+      }
+      &:nth-child(2) {
+      padding-right: 3px;
+  }
+  &:last-child{
+      .nav-icon{
+      display:none;
+      }
+  }
+  } 
+  }
+}
+a.active-class{
+  &:hover{
+      span{
+          cursor: default;
+      text-decoration: none !important;
+  }
+}
+}
+.thumbnails-block {
+  @media (max-width: $screen-sm) {
+    display: none;
+  }
+}
+
+.smartContent {
+  clear: both;
+  overflow: hidden;
+  padding-bottom: 34px;
+  width: 100%;
+  height: auto;
+  .item {
+    &:first-child {
+      margin-left: 0;
+    }
+    display: inline-block;
+    position: relative;
+    width: 48.75%;
+    height: 100%;
+    border: solid 1px #cecece;
+    margin-left: 1.5%;
+    vertical-align: top;
+    overflow: hidden;
+    @media screen and (max-width: $screen-sm) {
+      width: 100%;
+      margin: 0;
+    }
+    h4 {
+      position: relative;
+      padding: 10px;
+      text-align: left;
+      border-bottom: solid 1px $mb-white;
+      font-size: 13px;
+      font-weight: 700;
+      // text-transform: capitalize;
+    }
+    .thumbnails {
+      position: relative;
+      background: $mb-white;
+      width: 100%;
+      height: 275px;
+      margin: 0 auto;
+      .product-info {
+        overflow: hidden;
+        .product-title {
+          min-height: 45px;
+          font-size: 12px;
+          text-transform: capitalize;
+          width: 75%;
+          margin: 0 auto;
+          @media (max-width: $screen-sm) {
+            width: 90%;
+          }
+        }
+      }
+      li {
+        margin: 0 12px 0 12px;
+        line-height: 15px;
+        display: inline-block;
+        position: relative;
+        float: left;
+        text-align: center;
+        width: 128px;
+        height: 200px;
+        img {
+          width: 156px;
+          height: 156px;
+          padding-top: 5px;
+          overflow: hidden;
+        }
+        @media (max-width: $screen-sm) {
+          width: 115px;
+          img {
+            width: 100px;
+            height: 100px;
+          }
+        }
+        @media (max-width: 321px) {
+          width: 80px;
+        }
+        .product-info {
+          overflow: hidden;
+          .product-title {
+            min-height: 45px;
+            font-size: 12px;
+            text-transform: capitalize;
+          }
+        }
+      }
+    }
+  }
+  @media(max-width:$screen-sm){
+    display:none;
+  }
+}
+
+.row:before,
+.row:after {
+  content: " ";
+  display: table;
+}
+.product-info {
+  overflow: hidden;
+  .product-title {
+    min-height: 45px;
+    font-size: 12px;
+    text-transform: capitalize;
+  }
+  .product-price {
+    font-size: 12px;
+  }
+}
+.pdp-treat-section {
+  float: left;
+  width: 48%;
+}
+.pdp-container .smartContent .item .tmspslot {
+  width: 100%;
+  min-height: 250px;
+  height:100%;
+  border: solid 1px #cecece;
+  @media screen and (max-width: $screen-sm) {
+    margin: auto;
+    border: none;
+    width: 100%;
+  }
+}
+.product_name{
+  a{
+    columns: $edition-color;
+  }
+  a:hover{
+  text-decoration: none;
+  color: $mb-product-grey;
+  }
+  span{
+    color: $primary-color;
+  }
+ 
+}
+.item {
+  .loading-backdrop{
+    background-color:$overlay-bg;
+  }
+}
+#uk-hybris-prod-feed-product-page-you-may-also-like-fr_carousel .product .product_price{
+  cursor: text;
+}
+
+#PDPBVRRContainer{
+  .OneLinkHide {
+    display: block !important;
+}
+.fullWidthContent {
+    position: relative;
+    clear: both;
+    padding: 0px 0px 30px;
+    .title {
+        text-transform: uppercase;
+        text-align: center;
+        position: relative;
+        cursor: pointer;
+        &:before {
+            position: absolute;
+            content: "";
+            top: 10px;
+            left: 0px;
+            right: 0px;
+            height: 1px;
+            background-color: rgb(206, 206, 206);
+        }
+        h3 {
+            position: relative;
+            display: inline-block;
+            z-index: 0;
+            font-size: 15px;
+            font-weight: 700;
+            background: rgb(255, 255, 255);
+            padding: 0px 10px;
+        }
+        span{
+            position: absolute;
+            right: 25px;
+            top: 0px;
+            z-index: 0;
+            width: 22px;
+            height: 22px;
+            background: url('https://www.moltonbrown.co.uk/images/cherons.png') 0px 0px no-repeat transparent;
+            background-position: 0px 0px;
+        }
+    }
+}
+.bv-cv2-cleanslate {
+    color: $primary-color!important;
+    direction: ltr!important;
+    font-family: 'Times New Roman',Times,serif!important;
+    font-size: medium!important;
+    font-style: normal!important;
+    font-weight: 400!important;
+    line-height: 1!important;
+    list-style-type: disc!important;
+    text-align: left!important;
+    text-decoration: none!important;
+}
+.review-open{
+    overflow: hidden;
+    display: block;
+    transition: display 5ms;
+}
+.delivery-review-open{
+  overflow: hidden;
+  display: block;
+  transition: display 5ms;
+}
+.delivery-review-close{
+  display: none;
+}
+.review-close{
+    display: none;
+}
+.cheveron-close{
+    transform: rotate(0deg);
+}
+.cheveron-open{
+    transform: rotate(90deg);
+}
+}
+
+/* Label */
+.ac-container {
+    max-width: 400px;
+    @media(max-width:768px){
+      max-width: 100%;
+      padding: 0px;
+    }
+    border-top: none;
+    width: 100%;
+    margin: 10px auto;
+    label {
+    height: 48px;
+    text-transform: uppercase;
+    line-height: 1.8;
+    font-size: 20px;
+    padding: 5px 20px;
+    display: block;
+    cursor: pointer;
+    color: #666;
+    border-top: 1px solid #ccc;
+    line-height: 49px;
+    padding: 0 10px;
+    font-weight: 700;
+    text-transform: capitalize;
+    font-size: 15px;
+  
+    position: relative;
+    cursor: pointer;
+    margin: 0;
+    box-sizing: border-box;
+    @media(max-width:768px){
+      height: auto;
+      line-height: 15px;
+      padding: 8px 20px;
+      font-size: 12px;
+    }
+  }
+  
+}
+
+.ac-container input {
+  display: none;
+}
+
+/* Contents */
+.ac-container article {
+  overflow: hidden;
+  height: 0;
+  transition: 0.6s;
+}
+.ac-container article p {
+  padding:5px 15px;
+  font-size: 12px;
+  color: #666;
+  line-height: 1.5;
+  @media(max-width:768px){
+    padding:5px 20px;
+  }
+}
+.ac-container label.checked ~ article {
+    max-height: 224px;
+    line-height: 13px;
+    margin-bottom: 20px;
+    overflow-y: auto;
+    height: 224px;
+}
+.curalate-section{
+  .view-gallery {
+      position: relative;
+      font-family: georgia!important;
+      font-style: italic;
+      font-size: 14px;
+        a {
+            color: #000;
+        }
+}
+#fanreel-gallery {
+    text-align: center;
+    padding: 8px 0 20px 0;
+    display: none;
+}
+.curalate-fanreel {
+    text-align: center;
+    font-size: 16px;
+    padding: 5px 0 0 0;
+    display: none;
+    .fa-instagram {
+        font-size: 29px;
+        vertical-align: middle;
+        margin-right: 4px;
+    }
+}
+}
+.curalate-lg-section{
+  display: block;
+  @media (max-width:$screen-sm) {
+    display: none;
+  }
+}

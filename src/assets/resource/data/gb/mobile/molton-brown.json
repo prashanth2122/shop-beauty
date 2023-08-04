@@ -1,0 +1,482 @@
+[
+    {
+        "preference":
+            [{
+                "questions": [{
+                    "title":"I am feeling like...",
+                    "type":"preference",
+                    "question_one": [
+                        { "id": "1001", "type":"attraction", "key":"1", "image_url": "assets/resource/img/gb/preference/question_1/attraction.jpg" },
+                        { "id": "1002", "type":"articulation", "key":"2", "image_url": "assets/resource/img/gb/preference/question_1/articulation.jpg" },
+                        { "id": "1003", "type": "func", "key":"3", "image_url": "assets/resource/img/gb/preference/question_1/function.jpg" }
+                    ],
+                    "question_two": [
+                        { "id": "1001", "type":"attraction", "key":"1", "image_url": "assets/resource/img/gb/preference/question_2/attraction.jpg"  },
+                        { "id": "1002", "type":"articulation", "key":"2", "image_url": "assets/resource/img/gb/preference/question_2/articulation.jpg"  },
+                        { "id": "1003", "type": "func", "key":"3", "image_url": "assets/resource/img/gb/preference/question_2/function.jpg"  }
+                    ],
+                    "question_three": [
+                        { "id": "1001", "type":"attraction", "key":"1", "image_url": "assets/resource/img/gb/preference/question_3/attraction.jpg"  },
+                        { "id": "1002", "type":"articulation", "key":"2", "image_url": "assets/resource/img/gb/preference/question_3/articulation.jpg"  },
+                        { "id": "1003", "type": "func", "key":"3", "image_url": "assets/resource/img/gb/preference/question_3/function.jpg"  }
+                    ],
+                    "question_four": [
+                        { "id": "1001", "type":"attraction", "key":"1", "image_url": "assets/resource/img/gb/preference/question_4/attraction.jpg" },
+                        { "id": "1002", "type":"articulation", "key":"2", "image_url": "assets/resource/img/gb/preference/question_4/articulation.jpg" },
+                        { "id": "1003", "type": "func", "key":"3", "image_url": "assets/resource/img/gb/preference/question_4/function.jpg" }
+                    ]
+                }],
+                    "character": 
+                        [{
+                            "attraction": [{
+                                "questions": [{
+                                    "title":"I like the look of...",
+                                    "type":"attraction",
+                                    "question_one": [
+                                        { "parent": "attraction", "type":"indulgent", "key":"1", "image_url": "assets/resource/img/gb/character/questions/question_1/indulgent.jpg" },
+                                        { "parent": "attraction", "type": "balanced", "key":"2", "image_url": "assets/resource/img/gb/character/questions/question_1/balanced.jpg" },
+                                        { "parent": "attraction", "type": "giving", "key":"3", "image_url": "assets/resource/img/gb/character/questions/question_1/giving.jpg" }
+                                       
+                                    ],
+                                    "question_two": [
+                                        { "id": "1001", "type":"indulgent", "key":"1", "image_url": "assets/resource/img/gb/character/questions/question_2/indulgent.jpg" },
+                                        { "id": "1002", "type":"balanced", "key":"2", "image_url": "assets/resource/img/gb/character/questions/question_2/balanced.jpg" },
+                                        { "id": "1003", "type": "giving", "key":"3", "image_url": "assets/resource/img/gb/character/questions/question_2/giving.jpg" }
+                                    ],
+                                    "question_three": [
+                                        { "id": "1001", "type":"indulgent", "key":"1", "image_url": "assets/resource/img/gb/character/questions/question_3/indulgent.jpg" },
+                                        { "id": "1002", "type":"balanced", "key":"2", "image_url": "assets/resource/img/gb/character/questions/question_3/balanced.jpg" },
+                                        { "id": "1003", "type": "giving", "key":"3", "image_url": "assets/resource/img/gb/character/questions/question_3/giving.jpg" }
+                                    ],
+                                    "question_four": [
+                                        { "id": "1001", "type":"indulgent", "key":"1", "image_url": "assets/resource/img/gb/character/questions/question_4/indulgent.jpg" },
+                                        { "id": "1002", "type":"balanced", "key":"2", "image_url": "assets/resource/img/gb/character/questions/question_4/balanced.jpg" },
+                                        { "id": "1003", "type": "giving", "key":"3", "image_url": "assets/resource/img/gb/character/questions/question_4/giving.jpg" }
+                                    ]
+                                }],
+                                "selection": {
+                                    "indulgent": [{
+                                        "questions": [{
+                                            "title":"I like the look of...",
+                                            "type":"indulgent",
+                                            "parent": "attractIndulgent",
+                                                "fragrance_select":[
+                                                    { "id": "1001", "type":"edt", "key":"T", "image_url": "assets/resource/img/gb/tvp/attraction/edt.jpg" },
+                                                    { "id": "1001", "type":"edp", "key":"P", "image_url": "assets/resource/img/gb/tvp/attraction/edp.jpg" }
+                                                ],
+                                                "fragrance_final":[{
+                                                    "edt":[
+                                                        { "id": "1001", "key":"T103", "image_url": "assets/resource/img/gb/character/attraction/indulgent/tobacco_absolute_03.jpg" },
+                                                        { "id": "1002", "key":"T106", "image_url": "assets/resource/img/gb/character/attraction/indulgent/rosa_absolute_06.jpg" },
+                                                        { "id": "1003", "key":"T111", "image_url": "assets/resource/img/gb/character/attraction/indulgent/oudg_11.jpg" }
+                                                    ],
+                                                    "edp":[
+                                                        { "id": "1001", "key":"P103", "image_url": "assets/resource/img/gb/character/attraction/indulgent/tobacco_absolute_03.jpg" },
+                                                        { "id": "1002", "key":"P106", "image_url": "assets/resource/img/gb/character/attraction/indulgent/rosa_absolute_06.jpg" },
+                                                        { "id": "1003", "key":"P111", "image_url": "assets/resource/img/gb/character/attraction/indulgent/oudg_11.jpg" }
+                                                    ]
+                                                }],
+                                                "mindset": [{
+                                                    "questions": [{
+                                                        "title":"I am instantly drawn to...",
+                                                        "type":"mindset",
+                                                            "question_one": [
+                                                                { "type":"analytical", "key":"1", "image_url": "assets/resource/img/gb/mindset/question_1/analytical.jpg" },
+                                                                { "type":"expressive", "key":"2", "image_url": "assets/resource/img/gb/mindset/question_1/expressive.jpg" },
+                                                                { "type":"social", "key":"3", "image_url": "assets/resource/img/gb/mindset/question_1/social.jpg" }
+                                                            ],
+                                                            "question_two": [
+                                                                { "type":"analytical", "key":"1", "image_url": "assets/resource/img/gb/mindset/question_2/analytical.jpg" },
+                                                                { "type":"expressive", "key":"2", "image_url": "assets/resource/img/gb/mindset/question_2/expressive.jpg" },
+                                                                { "type":"social", "key":"3", "image_url": "assets/resource/img/gb/mindset/question_2/social.jpg" }
+                                                            ],
+                                                            "question_three": [
+                                                                { "type":"analytical", "key":"1", "image_url": "assets/resource/img/gb/mindset/question_3/analytical.jpg" },
+                                                                { "type":"expressive", "key":"2", "image_url": "assets/resource/img/gb/mindset/question_3/expressive.jpg" },
+                                                                { "type":"social", "key":"3", "image_url": "assets/resource/img/gb/mindset/question_3/social.jpg" }
+                                                            ],
+                                                            "question_four": [
+                                                                { "type":"analytical", "key":"1", "image_url": "assets/resource/img/gb/mindset/question_4/analytical.jpg" },
+                                                                { "type":"expressive", "key":"2", "image_url": "assets/resource/img/gb/mindset/question_4/expressive.jpg" },
+                                                                { "type":"social", "key":"3", "image_url": "assets/resource/img/gb/mindset/question_4/social.jpg" }
+                                                            ]
+                                                    }]
+                                                }]
+                                        }]
+                                    }],
+                                    "balanced": [{
+                                        "questions": [{
+                                            "title":"I like the look of...",
+                                            "type":"balanced",
+                                            "parent": "attractBalanced",
+                                                "fragrance_select":[
+                                                    { "id": "1001", "type":"edt", "key":"T", "image_url": "assets/resource/img/gb/tvp/attraction/edt.jpg" },
+                                                    { "id": "1001", "type":"edp", "key":"P", "image_url": "assets/resource/img/gb/tvp/attraction/edp.jpg" }
+                                                ],
+                                                "fragrance_final":[{
+                                                    "edt":[
+                                                        { "id": "1001", "key":"T109", "image_url": "assets/resource/img/gb/character/attraction/balanced/jasmine_sun_rose_09.jpg" }
+                                                    ]
+                                                }],
+                                                "mindset": [{
+                                                    "questions": [{
+                                                        "title":"I am instantly drawn to...",
+                                                        "type":"mindset",
+                                                            "question_one": [
+                                                                { "type":"analytical", "key":"1", "image_url": "assets/resource/img/gb/mindset/question_1/analytical.jpg" },
+                                                                { "type":"expressive", "key":"2", "image_url": "assets/resource/img/gb/mindset/question_1/expressive.jpg" },
+                                                                { "type":"social", "key":"3", "image_url": "assets/resource/img/gb/mindset/question_1/social.jpg" }
+                                                            ],
+                                                            "question_two": [
+                                                                { "type":"analytical", "key":"1", "image_url": "assets/resource/img/gb/mindset/question_2/analytical.jpg" },
+                                                                { "type":"expressive", "key":"2", "image_url": "assets/resource/img/gb/mindset/question_2/expressive.jpg" },
+                                                                { "type":"social", "key":"3", "image_url": "assets/resource/img/gb/mindset/question_2/social.jpg" }
+                                                            ],
+                                                            "question_three": [
+                                                                { "type":"analytical", "key":"1", "image_url": "assets/resource/img/gb/mindset/question_3/analytical.jpg" },
+                                                                { "type":"expressive", "key":"2", "image_url": "assets/resource/img/gb/mindset/question_3/expressive.jpg" },
+                                                                { "type":"social", "key":"3", "image_url": "assets/resource/img/gb/mindset/question_3/social.jpg" }
+                                                            ],
+                                                            "question_four": [
+                                                                { "type":"analytical", "key":"1", "image_url": "assets/resource/img/gb/mindset/question_4/analytical.jpg" },
+                                                                { "type":"expressive", "key":"2", "image_url": "assets/resource/img/gb/mindset/question_4/expressive.jpg" },
+                                                                { "type":"social", "key":"3", "image_url": "assets/resource/img/gb/mindset/question_4/social.jpg" }
+                                                            ]
+                                                    }]
+                                                }]
+                                        }]
+                                    }],
+                                    "giving": [{
+                                        "questions": [{
+                                            "title":"I like the look of...",
+                                            "type":"giving",
+                                            "parent": "attractGiving",
+                                                "fragrance_select":[
+                                                    { "id": "1001", "type":"edt", "key":"T", "image_url": "assets/resource/img/gb/tvp/attraction/edt.jpg" },
+                                                    { "id": "1001", "type":"edp", "key":"P", "image_url": "assets/resource/img/gb/tvp/attraction/edp.jpg" }
+                                                ],
+                                                "fragrance_final":[{
+                                                    "edt":[
+                                                        { "id": "1001", "key":"T102", "image_url": "assets/resource/img/gb/character/attraction/giving/black_pepper_02.jpg" },
+                                                        { "id": "1002", "key":"T112", "image_url": "assets/resource/img/gb/character/attraction/giving/flora_luminare_12.jpg" }
+                                                    ],
+                                                    "edp":[
+                                                        { "id": "1001", "key":"P102", "image_url": "assets/resource/img/gb/character/attraction/giving/black_pepper_02.jpg" },
+                                                        { "id": "1002", "key":"P112", "image_url": "assets/resource/img/gb/character/attraction/giving/flora_luminare_12.jpg" }
+                                                    ]
+                                                }],
+                                                "mindset": [{
+                                                    "questions": [{
+                                                        "title":"I am instantly drawn to...",
+                                                        "type":"mindset",
+                                                            "question_one": [
+                                                                { "type":"analytical", "key":"1", "image_url": "assets/resource/img/gb/mindset/question_1/analytical.jpg" },
+                                                                { "type":"expressive", "key":"2", "image_url": "assets/resource/img/gb/mindset/question_1/expressive.jpg" },
+                                                                { "type":"social", "key":"3", "image_url": "assets/resource/img/gb/mindset/question_1/social.jpg" }
+                                                            ],
+                                                            "question_two": [
+                                                                { "type":"analytical", "key":"1", "image_url": "assets/resource/img/gb/mindset/question_2/analytical.jpg" },
+                                                                { "type":"expressive", "key":"2", "image_url": "assets/resource/img/gb/mindset/question_2/expressive.jpg" },
+                                                                { "type":"social", "key":"3", "image_url": "assets/resource/img/gb/mindset/question_2/social.jpg" }
+                                                            ],
+                                                            "question_three": [
+                                                                { "type":"analytical", "key":"1", "image_url": "assets/resource/img/gb/mindset/question_3/analytical.jpg" },
+                                                                { "type":"expressive", "key":"2", "image_url": "assets/resource/img/gb/mindset/question_3/expressive.jpg" },
+                                                                { "type":"social", "key":"3", "image_url": "assets/resource/img/gb/mindset/question_3/social.jpg" }
+                                                            ],
+                                                            "question_four": [
+                                                                { "type":"analytical", "key":"1", "image_url": "assets/resource/img/gb/mindset/question_4/analytical.jpg" },
+                                                                { "type":"expressive", "key":"2", "image_url": "assets/resource/img/gb/mindset/question_4/expressive.jpg" },
+                                                                { "type":"social", "key":"3", "image_url": "assets/resource/img/gb/mindset/question_4/social.jpg" }
+                                                            ]
+                                                    }]
+                                                }]
+                                        }]
+                                    }]
+                                }
+                            }],
+                            "articulation": [{
+                                "questions": [{
+                                    "title":"I like the look of...",
+                                    "type":"articulation",
+                                    "question_one": [
+                                        { "parent": "articulation", "type":"indulgent", "key":"1", "image_url": "assets/resource/img/gb/character/questions/question_1/indulgent.jpg" },
+                                        { "parent": "1002", "type":"balanced", "key":"2", "image_url": "assets/resource/img/gb/character/questions/question_1/balanced.jpg" },
+                                        { "parent": "1003", "type": "giving", "key":"3", "image_url": "assets/resource/img/gb/character/questions/question_1/giving.jpg" }
+                                    ],
+                                    "question_two": [
+                                        { "id": "1001", "type":"indulgent", "key":"1", "image_url": "assets/resource/img/gb/character/questions/question_2/indulgent.jpg" },
+                                        { "id": "1002", "type":"balanced", "key":"2", "image_url": "assets/resource/img/gb/character/questions/question_2/balanced.jpg" },
+                                        { "id": "1003", "type": "giving", "key":"3", "image_url": "assets/resource/img/gb/character/questions/question_2/giving.jpg" }
+                                    ],
+                                    "question_three": [
+                                        { "id": "1001", "type":"indulgent", "key":"1", "image_url": "assets/resource/img/gb/character/questions/question_3/indulgent.jpg" },
+                                        { "id": "1002", "type":"balanced", "key":"2", "image_url": "assets/resource/img/gb/character/questions/question_3/balanced.jpg" },
+                                        { "id": "1003", "type": "giving", "key":"3", "image_url": "assets/resource/img/gb/character/questions/question_3/giving.jpg" }
+                                    ],
+                                    "question_four": [
+                                        { "id": "1001", "type":"indulgent", "key":"1", "image_url": "assets/resource/img/gb/character/questions/question_4/indulgent.jpg" },
+                                        { "id": "1002", "type":"balanced", "key":"2", "image_url": "assets/resource/img/gb/character/questions/question_4/balanced.jpg" },
+                                        { "id": "1003", "type": "giving", "key":"3", "image_url": "assets/resource/img/gb/character/questions/question_4/giving.jpg" }
+                                    ]
+                                }],
+                                "selection": {
+                                    "indulgent": [{
+                                        "questions": [{
+                                            "title":"I like the look of...",
+                                            "type":"indulgent",
+                                            "parent": "artIndulgent",
+                                                "fragrance_select":[
+                                                    { "id": "1001", "type":"edt", "key":"T", "image_url": "assets/resource/img/gb/tvp/articulation/edt.jpg" },
+                                                    { "id": "1001", "type":"edp", "key":"P", "image_url": "assets/resource/img/gb/tvp/articulation/edp.jpg" }
+                                                ],
+                                                "fragrance_final":[{
+                                                    "edt":[
+                                                        { "id": "1001", "key":"T213", "image_url": "assets/resource/img/gb/character/articulation/indulgent/russian_leather_13.jpg" }
+                                                    ],
+                                                    "edp":[
+                                                        { "id": "1001", "key":"P213", "image_url": "assets/resource/img/gb/character/articulation/indulgent/russian_leather_13.jpg" }
+                                                    ]
+                                                }],
+                                                "mindset": [{
+                                                    "questions": [{
+                                                        "title":"I am instantly drawn to...",
+                                                        "type":"mindset",
+                                                            "question_one": [
+                                                                { "type":"analytical", "key":"1", "image_url": "assets/resource/img/gb/mindset/question_1/analytical.jpg" },
+                                                                { "type":"expressive", "key":"2", "image_url": "assets/resource/img/gb/mindset/question_1/expressive.jpg" },
+                                                                { "type":"social", "key":"3", "image_url": "assets/resource/img/gb/mindset/question_1/social.jpg" }
+                                                            ],
+                                                            "question_two": [
+                                                                { "type":"analytical", "key":"1", "image_url": "assets/resource/img/gb/mindset/question_2/analytical.jpg" },
+                                                                { "type":"expressive", "key":"2", "image_url": "assets/resource/img/gb/mindset/question_2/expressive.jpg" },
+                                                                { "type":"social", "key":"3", "image_url": "assets/resource/img/gb/mindset/question_2/social.jpg" }
+                                                            ],
+                                                            "question_three": [
+                                                                { "type":"analytical", "key":"1", "image_url": "assets/resource/img/gb/mindset/question_3/analytical.jpg" },
+                                                                { "type":"expressive", "key":"2", "image_url": "assets/resource/img/gb/mindset/question_3/expressive.jpg" },
+                                                                { "type":"social", "key":"3", "image_url": "assets/resource/img/gb/mindset/question_3/social.jpg" }
+                                                            ],
+                                                            "question_four": [
+                                                                { "type":"analytical", "key":"1", "image_url": "assets/resource/img/gb/mindset/question_4/analytical.jpg" },
+                                                                { "type":"expressive", "key":"2", "image_url": "assets/resource/img/gb/mindset/question_4/expressive.jpg" },
+                                                                { "type":"social", "key":"3", "image_url": "assets/resource/img/gb/mindset/question_4/social.jpg" }
+                                                            ]
+                                                    }]
+                                                }]
+                                        }]
+                                    }],
+                                    "balanced": [{
+                                        "questions": [{
+                                            "title":"I like the look of...",
+                                            "type":"balanced",
+                                            "parent": "artBalanced",
+                                                "fragrance_select":[
+                                                    { "id": "1001", "type":"edt", "key":"T", "image_url": "assets/resource/img/gb/tvp/articulation/edt.jpg" },
+                                                    { "id": "1001", "type":"edp", "key":"P", "image_url": "assets/resource/img/gb/tvp/articulation/edp.jpg" }
+                                                ],
+                                                "fragrance_final":[{
+                                                    "edt":[
+                                                        { "id": "1001", "key":"T201", "image_url": "assets/resource/img/gb/character/articulation/balanced/orange_bergamot_01.jpg" },
+                                                        { "id": "1001", "key":"T214", "image_url": "assets/resource/img/gb/character/articulation/balanced/suede_orris_14.jpg" },
+                                                        { "id": "1001", "key":"T215", "image_url": "assets/resource/img/gb/character/articulation/balanced/geranimu_nefertum_15.jpg" }
+                                                    ],
+                                                    "edp":[
+                                                        { "id": "1001", "key":"P201", "image_url": "assets/resource/img/gb/character/articulation/balanced/orange_bergamot_01.jpg" },
+                                                        { "id": "1001", "key":"P215", "image_url": "assets/resource/img/gb/character/articulation/balanced/geranimu_nefertum_15.jpg" },
+                                                        { "id": "1001", "key":"P207", "image_url": "assets/resource/img/gb/character/articulation/balanced/bushukan_07.jpg" }
+                                                    ]
+                                                }],
+                                                "mindset": [{
+                                                    "questions": [{
+                                                        "title":"I am instantly drawn to...",
+                                                        "type":"mindset",
+                                                            "question_one": [
+                                                                { "type":"analytical", "key":"1", "image_url": "assets/resource/img/gb/mindset/question_1/analytical.jpg" },
+                                                                { "type":"expressive", "key":"2", "image_url": "assets/resource/img/gb/mindset/question_1/expressive.jpg" },
+                                                                { "type":"social", "key":"3", "image_url": "assets/resource/img/gb/mindset/question_1/social.jpg" }
+                                                            ],
+                                                            "question_two": [
+                                                                { "type":"analytical", "key":"1", "image_url": "assets/resource/img/gb/mindset/question_2/analytical.jpg" },
+                                                                { "type":"expressive", "key":"2", "image_url": "assets/resource/img/gb/mindset/question_2/expressive.jpg" },
+                                                                { "type":"social", "key":"3", "image_url": "assets/resource/img/gb/mindset/question_2/social.jpg" }
+                                                            ],
+                                                            "question_three": [
+                                                                { "type":"analytical", "key":"1", "image_url": "assets/resource/img/gb/mindset/question_3/analytical.jpg" },
+                                                                { "type":"expressive", "key":"2", "image_url": "assets/resource/img/gb/mindset/question_3/expressive.jpg" },
+                                                                { "type":"social", "key":"3", "image_url": "assets/resource/img/gb/mindset/question_3/social.jpg" }
+                                                            ],
+                                                            "question_four": [
+                                                                { "type":"analytical", "key":"1", "image_url": "assets/resource/img/gb/mindset/question_4/analytical.jpg" },
+                                                                { "type":"expressive", "key":"2", "image_url": "assets/resource/img/gb/mindset/question_4/expressive.jpg" },
+                                                                { "type":"social", "key":"3", "image_url": "assets/resource/img/gb/mindset/question_4/social.jpg" }
+                                                            ]
+                                                    }]
+                                                }]
+                                        }]
+                                    }],
+                                    "giving": [{
+                                        "questions": [{
+                                            "title":"I like the look of...",
+                                            "type":"giving",
+                                            "parent": "artGiving",
+                                                "fragrance_select":[
+                                                    { "id": "1001", "type":"edt", "key":"T", "image_url": "assets/resource/img/gb/tvp/articulation/edt.jpg" },
+                                                    { "id": "1001", "type":"edp", "key":"P", "image_url": "assets/resource/img/gb/tvp/articulation/edp.jpg" }
+                                                ],
+                                                "fragrance_final":[{
+                                                    "edt":[
+                                                        { "id": "1001", "key":"T205", "image_url": "assets/resource/img/gb/character/articulation/giving/pink_pepper_05.jpg" },
+                                                        { "id": "1002", "key":"T208", "image_url": "assets/resource/img/gb/character/articulation/giving/gingerlily_08.jpg" }
+                                                    ],
+                                                    "edp":[
+                                                        { "id": "1001", "key":"P205", "image_url": "assets/resource/img/gb/character/articulation/giving/pink_pepper_05.jpg" },
+                                                        { "id": "1002", "key":"P208", "image_url": "assets/resource/img/gb/character/articulation/giving/gingerlily_08.jpg" }
+                                                    ]
+                                                }],
+                                                "mindset": [{
+                                                    "questions": [{
+                                                        "title":"I am instantly drawn to...",
+                                                        "type":"mindset",
+                                                            "question_one": [
+                                                                { "type":"analytical", "key":"1", "image_url": "assets/resource/img/gb/mindset/question_1/analytical.jpg" },
+                                                                { "type":"expressive", "key":"2", "image_url": "assets/resource/img/gb/mindset/question_1/expressive.jpg" },
+                                                                { "type":"social", "key":"3", "image_url": "assets/resource/img/gb/mindset/question_1/social.jpg" }
+                                                            ],
+                                                            "question_two": [
+                                                                { "type":"analytical", "key":"1", "image_url": "assets/resource/img/gb/mindset/question_2/analytical.jpg" },
+                                                                { "type":"expressive", "key":"2", "image_url": "assets/resource/img/gb/mindset/question_2/expressive.jpg" },
+                                                                { "type":"social", "key":"3", "image_url": "assets/resource/img/gb/mindset/question_2/social.jpg" }
+                                                            ],
+                                                            "question_three": [
+                                                                { "type":"analytical", "key":"1", "image_url": "assets/resource/img/gb/mindset/question_3/analytical.jpg" },
+                                                                { "type":"expressive", "key":"2", "image_url": "assets/resource/img/gb/mindset/question_3/expressive.jpg" },
+                                                                { "type":"social", "key":"3", "image_url": "assets/resource/img/gb/mindset/question_3/social.jpg" }
+                                                            ],
+                                                            "question_four": [
+                                                                { "type":"analytical", "key":"1", "image_url": "assets/resource/img/gb/mindset/question_4/analytical.jpg" },
+                                                                { "type":"expressive", "key":"2", "image_url": "assets/resource/img/gb/mindset/question_4/expressive.jpg" },
+                                                                { "type":"social", "key":"3", "image_url": "assets/resource/img/gb/mindset/question_4/social.jpg" }
+                                                            ]
+                                                    }]
+                                                }]
+                                        }]
+                                    }]
+                                }
+                            }],
+                            "func": [{
+                                "questions": [{
+                                    "title":"I like the look of...",
+                                    "type":"func",
+                                    "question_one": [
+                                        { "parent": "1002", "type":"balanced", "key":"2", "image_url": "assets/resource/img/gb/character/questions/question_1/balanced.jpg" },
+                                        { "parent": "1003", "type": "giving", "key":"3", "image_url": "assets/resource/img/gb/character/questions/question_1/giving.jpg" }
+                                    ],
+                                    "question_two": [
+                                        { "id": "1002", "type":"balanced", "key":"2", "image_url": "assets/resource/img/gb/character/questions/question_2/balanced.jpg" },
+                                        { "id": "1003", "type": "giving", "key":"3", "image_url": "assets/resource/img/gb/character/questions/question_2/giving.jpg" }
+                                    ],
+                                    "question_three": [
+                                        { "id": "1002", "type":"balanced", "key":"2", "image_url": "assets/resource/img/gb/character/questions/question_3/balanced.jpg" },
+                                        { "id": "1003", "type": "giving", "key":"3", "image_url": "assets/resource/img/gb/character/questions/question_3/giving.jpg" }
+                                    ],
+                                    "question_four": [
+                                        { "id": "1002", "type":"balanced", "key":"2", "image_url": "assets/resource/img/gb/character/questions/question_4/balanced.jpg" },
+                                        { "id": "1003", "type": "giving", "key":"3", "image_url": "assets/resource/img/gb/character/questions/question_4/giving.jpg" }
+                                    ]
+                                }],
+                                "selection": {
+                                    "balanced": [{
+                                        "questions": [{
+                                            "title":"I like the look of...",
+                                            "type":"balanced",
+                                            "parent": "funcBalanced",
+                                                "fragrance_select":[
+                                                    { "id": "1001", "type":"edt", "key":"T", "image_url": "assets/resource/img/gb/tvp/function/edt.jpg" },
+                                                    { "id": "1001", "type":"edp", "key":"P", "image_url": "assets/resource/img/gb/tvp/function/edp.jpg" }
+                                                ],
+                                                "fragrance_final":[{
+                                                    "edt":[
+                                                        { "id": "1001", "key":"T307", "image_url": "assets/resource/img/gb/character/articulation/balanced/bushukan_07.jpg" }
+                                                    ]
+                                                }],
+                                                "mindset": [{
+                                                    "questions": [{
+                                                        "title":"I am instantly drawn to...",
+                                                        "type":"mindset",
+                                                            "question_one": [
+                                                                { "type":"analytical", "key":"1", "image_url": "assets/resource/img/gb/mindset/question_1/analytical.jpg" },
+                                                                { "type":"expressive", "key":"2", "image_url": "assets/resource/img/gb/mindset/question_1/expressive.jpg" },
+                                                                { "type":"social", "key":"3", "image_url": "assets/resource/img/gb/mindset/question_1/social.jpg" }
+                                                            ],
+                                                            "question_two": [
+                                                                { "type":"analytical", "key":"1", "image_url": "assets/resource/img/gb/mindset/question_2/analytical.jpg" },
+                                                                { "type":"expressive", "key":"2", "image_url": "assets/resource/img/gb/mindset/question_2/expressive.jpg" },
+                                                                { "type":"social", "key":"3", "image_url": "assets/resource/img/gb/mindset/question_2/social.jpg" }
+                                                            ],
+                                                            "question_three": [
+                                                                { "type":"analytical", "key":"1", "image_url": "assets/resource/img/gb/mindset/question_3/analytical.jpg" },
+                                                                { "type":"expressive", "key":"2", "image_url": "assets/resource/img/gb/mindset/question_3/expressive.jpg" },
+                                                                { "type":"social", "key":"3", "image_url": "assets/resource/img/gb/mindset/question_3/social.jpg" }
+                                                            ],
+                                                            "question_four": [
+                                                                { "type":"analytical", "key":"1", "image_url": "assets/resource/img/gb/mindset/question_4/analytical.jpg" },
+                                                                { "type":"expressive", "key":"2", "image_url": "assets/resource/img/gb/mindset/question_4/expressive.jpg" },
+                                                                { "type":"social", "key":"3", "image_url": "assets/resource/img/gb/mindset/question_4/social.jpg" }
+                                                            ]
+                                                    }]
+                                                }]
+                                        }]
+                                    }],
+                                    "giving": [{
+                                        "questions": [{
+                                            "title":"I like the look of...",
+                                            "type":"giving",
+                                            "parent": "funcGiving",
+                                                "fragrance_select":[
+                                                    { "id": "1001", "type":"edt", "key":"T", "image_url": "assets/resource/img/gb/tvp/function/edt.jpg" },
+                                                    { "id": "1001", "type":"edp", "key":"P", "image_url": "assets/resource/img/gb/tvp/function/edp.jpg" }
+                                                ],
+                                                "fragrance_final":[{
+                                                    "edt":[
+                                                        { "id": "1001", "key":"T304", "image_url": "assets/resource/img/gb/character/function/giving/coatsal_cypress_04.jpg" },
+                                                        { "id": "1002", "key":"T310", "image_url": "assets/resource/img/gb/character/function/giving/vetiver_grapefruit_10.jpg" }
+                                                    ],
+                                                    "edp":[
+                                                        { "id": "1001", "key":"P304", "image_url": "assets/resource/img/gb/character/function/giving/coatsal_cypress_04.jpg" }
+                                                    ]
+                                                }],
+                                                "mindset": [{
+                                                    "questions": [{
+                                                        "title":"I am instantly drawn to...",
+                                                        "type":"mindset",
+                                                            "question_one": [
+                                                                { "type":"analytical", "key":"1", "image_url": "assets/resource/img/gb/mindset/question_1/analytical.jpg" },
+                                                                { "type":"expressive", "key":"2", "image_url": "assets/resource/img/gb/mindset/question_1/expressive.jpg" },
+                                                                { "type":"social", "key":"3", "image_url": "assets/resource/img/gb/mindset/question_1/social.jpg" }
+                                                            ],
+                                                            "question_two": [
+                                                                { "type":"analytical", "key":"1", "image_url": "assets/resource/img/gb/mindset/question_2/analytical.jpg" },
+                                                                { "type":"expressive", "key":"2", "image_url": "assets/resource/img/gb/mindset/question_2/expressive.jpg" },
+                                                                { "type":"social", "key":"3", "image_url": "assets/resource/img/gb/mindset/question_2/social.jpg" }
+                                                            ],
+                                                            "question_three": [
+                                                                { "type":"analytical", "key":"1", "image_url": "assets/resource/img/gb/mindset/question_3/analytical.jpg" },
+                                                                { "type":"expressive", "key":"2", "image_url": "assets/resource/img/gb/mindset/question_3/expressive.jpg" },
+                                                                { "type":"social", "key":"3", "image_url": "assets/resource/img/gb/mindset/question_3/social.jpg" }
+                                                            ],
+                                                            "question_four": [
+                                                                { "type":"analytical", "key":"1", "image_url": "assets/resource/img/gb/mindset/question_4/analytical.jpg" },
+                                                                { "type":"expressive", "key":"2", "image_url": "assets/resource/img/gb/mindset/question_4/expressive.jpg" },
+                                                                { "type":"social", "key":"3", "image_url": "assets/resource/img/gb/mindset/question_4/social.jpg" }
+                                                            ]
+                                                    }]
+                                                }]
+                                        }]
+                                    }]
+                                }
+                            }]
+                    }]
+            }]
+    }
+]

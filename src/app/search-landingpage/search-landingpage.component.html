@@ -1,0 +1,223 @@
+<main class="search-view-container container">
+  <app-mb-bread-crumb [breadcrumb]="breadcrumb" ></app-mb-bread-crumb>
+  <div  class="out-of-stock-cntnt" *ngIf="outofstock">
+    <p [innerHtml]="outofstockMessage">
+      <!-- We're sorry you have selected more of the following product(s) than are in stock. Please change the quantity to a number that's available. Thanks
+    <li
+    *ngIf="productInfo"
+    >
+  <span   [innerHtml]="productInfo.productDisplayName | safe: 'html'"></span>.0 available
+  <div>
+    If you continue to experience problems whilst placing order please call +44 (0) 808 178 1188
+    +44 (0) 808 178 1188 or email <a href="mailto:{{csServicecommunication}}">{{csServicecommunication}}</a>
+    for assistance.
+  </div>
+  </li>  -->
+    </p>
+  
+   </div>
+  <div *ngIf="pageLoad; else backdrop">
+    <div class="search-mobile-pagination">
+      
+    <app-sort-type
+      [searchDisplay]="searchDisplay"
+      [searchPrdId]="searchPrdId"
+      [facets]="facets"
+      [refineFacets]="refineFacets"
+      [checkList]="checkList"
+      (onGridToggle)="onGridClick($event)"
+      (clearAll)="onClearAll()"
+      (onSortByChange)="sortByChange()"
+      (filterby)="onMbFilterByClick()"
+      (updateFilterData)="updateFilterData($event)"
+    >
+    </app-sort-type>
+    <div class="search-top-bar"   
+    *ngIf="activeProducts">
+    <div class="searchBy-filter">
+        <h2>FILTER BY</h2>
+    </div>
+    <div class="search-cat-for">
+        <div *ngIf="totalProducts !=0">
+            <div
+              class="search-viewAllTop "
+              *ngIf="catalogSpecific; else bestSellerBlock"
+            >
+              <div class="freeTextShow">
+                <span class="freeText-content" *ngIf="spellingSuggestion">
+                  {{'products.search' | translate}}&nbsp;
+                  <span>
+                    <span>&quot;{{ freeSearchText }}&quot;</span>
+                  </span>
+                  {{'products.adjustTo' | translate}}&nbsp;
+                  <span class="autoCorrect">
+                    &quot;{{
+                      spellingSuggestion ? spellingSuggestion.suggestion : ""
+                    }}&quot;
+                  </span>
+                </span>
+              </div>
+              <h1 class="text-left"  *ngIf="searchDisplay">
+                {{'products.productFor' | translate}}
+                <span class="searchTerm">
+                  <span class="searchTerm">
+                    &quot;{{
+                      spellingSuggestion
+                        ? spellingSuggestion.suggestion
+                        : freeSearchText
+                    }}&quot;
+                  </span>
+                  <span>&nbsp;=&nbsp;{{ totalProducts }}</span>
+                </span>
+              </h1>
+            </div>
+            <ng-template #bestSellerBlock>
+              <h2 class="content-inline-block">Bestsellers</h2>
+              <h2
+                class="content-inline-block viewAllProducts"
+                *ngIf="categorybanner"
+              >
+                <a (click)="onViewAllProducts()">
+                  View All&nbsp;{{ categorybanner.name }}&nbsp;Products
+                </a>
+              </h2>
+            </ng-template>
+         </div>
+    </div>
+    <div class="search-pager" *ngIf="pagination">
+        <app-pager
+          [pagination]="pagination"
+          [catalogSpecific]="catalogSpecific"
+          [pager]="pager"
+          [viewAllProducts]="viewAllProducts"
+          (viewAll)="onviewAllClick($event)"
+          (onShowFirstPage)="onShowFirstPage($event)"
+          (productperPage)="fetchProductperPage($event)"
+          (fetchperPage)="fetchProductNextperPage($event)"
+        >
+        </app-pager>
+      </div>
+</div>
+    </div>
+    <section>
+      <div class="row search-container-grid">
+        <!-- facet starts -->
+        <div
+          class="search-facets col-md-3 left-menu "
+          [ngClass]="{
+            'container-display-block': catalogSpecific,
+            'container-display-none': !catalogSpecific
+          }"
+        >
+          <app-filter
+            *ngIf="activeProducts"
+            [facetResponse]="facetResponse"
+            [searchPrdId]="searchPrdId"
+            [catId]="catId"
+            [searchDisplay]="true"
+            (refetchProducts)="onRefetchProducts($event)"
+            (clearParams)="onClearAll()"
+          >
+          </app-filter>
+        </div>
+        <!-- facet ends -->
+
+        <div
+          class="search-products-container   col-sm-12 "
+          [ngClass]="{
+            'col-md-9': catalogSpecific,
+            'col-md-12 no-padding': !catalogSpecific
+          }"
+        >
+          <div *ngIf="totalProducts !=0">
+            <app-product
+              [categoryResponse]="categoryResponse"
+              [activeProducts]="activeProducts"
+              [pagedItems]="pagedItems"
+              [displayGrid]="displayGrid"
+            >
+            </app-product>
+            <div class="search-page-btm">
+            <app-pager
+              [pagination]="pagination"
+              [catalogSpecific]="catalogSpecific"
+              [pager]="pager"
+              [viewAllProducts]="viewAllProducts"
+              (viewAll)="onviewAllClick($event)"
+              (onShowFirstPage)="onShowFirstPage($event)"
+              (productperPage)="fetchProductperPage($event)"
+              (fetchperPage)="fetchProductNextperPage($event)"
+            ></app-pager>
+            </div>
+          </div>
+
+          <div class="justify-content-center mt-15" *ngIf="searchDisplay">
+            <div class="searchResults" *ngIf="!activeProducts">
+              <h1>
+                Your search for&nbsp;<span class="searchTerm"
+                  >&quot;{{ freeSearchText }}&quot;</span
+                >&nbsp;returned &nbsp;0&nbsp;results
+              </h1>
+              <br />
+              Please change your criteria or try one of the following
+              options:<br /><br />
+            </div>
+            <div class="showFav">
+              <h2 class="customer">
+                <div class="searchHeader">{{'frData.shopOurFavourites' | translate}}</div>
+              </h2>
+              <div #customerFav></div>
+            </div>
+            <div class="search-header needMoreHelp" *ngIf="totalProducts ==0">
+                <a routerLink="/store/company/stores">
+                  <img width="748px" src="https://images.moltonbrown.co.uk/images/storefront/Store_Finder_Image.gif?version=4" alt="Molton Brown UK  storefinder">
+                </a>
+              <h3>Need more help?</h3>
+              <div class="search-header">
+                You may be able to find the answer in our
+                <a routerLink="/store/faqs"><u>FAQs and help</u></a>
+                pages or contact our customer services team on freephone: +44
+                (0)808 178 1188 or email us on
+                <a href="mailto:customerservice@moltonbrown.com">
+                  <u>customerservice@moltonbrown.com</u>.
+                </a>
+                Our lines are open: 8am-8pm (UK Time) Monday to Friday, 10am-4pm
+                (UK Time) Saturday. We aim to respond to all messages and call
+                backs within 2 working days of receipt.<br /><br />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+  <ng-template #backdrop>
+    <div class="loading-backdrop search-landing-page-loader">
+      <div class="b2c-title">
+           <span class="loading-txt"> loading... </span>  
+      </div>
+    </div>
+  </ng-template>
+</main>
+
+<!-- modal -->
+<div 
+class="modal" 
+id="modalFacetPopup" 
+tabindex="-1" 
+role="dialog" 
+aria-hidden="true"
+>
+  <div class="modal-dialog modal-full" role="document">
+    <app-filter
+      [facetResponse]="facetResponse"
+      [searchPrdId]="searchPrdId"
+      [searchDisplay]="searchDisplay"
+      [catId]="catId"
+      [modal]="true"
+      (clearParams)="onClearAll()"
+      (refetchProducts)="onRefetchProducts($event)"
+    >
+    </app-filter>
+  </div>
+</div>

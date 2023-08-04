@@ -1,0 +1,543 @@
+<div class="clearfix"  >  
+  <section>
+    <section class="basket-section" *ngIf="cart; else noentryBlock">
+    <div class="basket-heading" *ngIf="getCartCount(cart) !=0; else noItemBlock">
+      <div class="rowComponents"  *ngIf="localData" >
+        <h1 class="col-md-5" >{{ localData.yourShoppingBasket}}</h1>
+        <div class="col-sm-12 col-lg-3 centerContinueAlign" >
+          <a class="continue-shopping" (click)="onContinueShoppingEvent()"  >
+            <span> </span> &nbsp;{{ localData.continueShopping}}</a>
+        </div>
+        <div class="mobile-position">
+          <div
+            class=" express-check-out  pull-right"
+            [hidden]="!showExpress"
+          >
+            <button class="btn-shop-action express-btn-action"  (click)="onSecureCheckout(true)">
+              <span></span>EXPRESS CHECKOUT
+            </button>
+          </div>
+
+          <div class="express-check-out">
+            <span>
+              <button
+                type="button"
+                class="btn-shop-action"
+                (click)="onSecureCheckout(false)"
+                style="opacity: 1;"
+              >
+                <span></span>{{ "secureCheckout" | translate }}
+              </button>
+            </span>
+          </div>
+        </div>
+      </div>
+      <div class="hazardous-entry-block" *ngIf="hazardousEntries">
+        <p [innerHtml]="hazardousData.description"></p>
+        <li *ngFor="let osBottle of  hazardousData.list">
+          <span class="redstar" >{{osBottle}}</span>       
+        </li>
+      </div>
+      <div class="oss-entry-block" *ngIf="outofstockentryMsg">
+        <li >
+           <span class="redstar" >{{outofstockentryMsg}}</span>
+        </li>
+      </div>
+      <div class="oss-entry-block" *ngIf="outStockEntries">
+        <li *ngFor="let osBottle of  outStockEntries">
+          <span class="redstar" *ngIf="!osBottle.isBundle">{{osBottle.product.productDisplayName}} {{'outOfStockMsgs.isOutofStock' | translate}}</span>
+          <span class="redstar" *ngIf="osBottle.isBundle">{{getBundleContent(osBottle)}} {{'outOfStockMsgs.isOutofStock' | translate}}</span>
+        </li>
+      </div>
+      <div *ngIf="cart.appliedOrderPromotions">
+        <div class="upsell-message" *ngFor="let pm of cart.appliedOrderPromotions" [hidden]="!pm.description">
+          <p>{{ pm["description"] }}</p>
+        </div>
+      </div>
+      <div *ngIf="cart.appliedProductPromotions">
+        <div class="upsell-message" *ngFor="let apm of cart.appliedProductPromotions" [hidden]="!apm.description">
+          <p>{{ apm["description"] }}</p>
+        </div>
+      </div>
+      <div *ngIf="cart.potentialOrderPromotions">
+        <div class="upsell-message" *ngFor="let potentialOrder of cart.potentialOrderPromotions" [hidden]="!potentialOrder.description">
+          <p>{{ potentialOrder["description"] }}</p>
+        </div>
+      </div>
+      <!-- <div *ngIf="cart.appliedVouchers">
+        <div class="upsell-message" *ngFor="let av of cart.appliedVouchers">
+          <p style="line-height: 1;">{{ av["description"] }}</p>
+        </div>
+      </div> -->
+      <div *ngIf="cart"  class="order-subtotal" >
+        <span> {{'basketpage.basketPagetotal' | translate}} </span>
+        <span id="order_subtotal" *ngIf="cart.subTotal"  >
+          {{(cart.subTotal.value != 0) ?cart.subTotal.formattedValue :'' }}</span>
+      </div>
+      <p *ngIf = "couponRedeemed" class="redstar">{{'basketpage.couponAlreadyRedeemed' | translate}}</p>
+      <div id="basketEntryBox" class="orders-container clearfix" *ngIf="cart.entries">
+        <app-loading *ngIf="refreshBasket"></app-loading>
+        <div class="order-header" *ngIf="localData">
+          <div>{{ localData.product }}</div>
+          <div>{{ localData.qty }}</div>
+          <div>{{ localData.price }}</div>
+          <div>{{ localData.total}}</div>
+        </div>
+
+        <div class="order-product-entry" *ngFor="let entry of cart.entries; let i = index"
+          [hidden]="getHidden(entry)">
+          <div class="order-product-img">
+            <a  
+               routerLink="{{getRouterPath(entry)}}" 
+               routerLinkActive="active" 
+               (click)="onShowProductDtls($event,entry.product)" 
+               title="{{countrySite}} | {{entry.product.productDisplayName}}"
+               *ngIf="!entry.isBundle; else bundleTypeImage">
+              <picture>
+
+                      
+                <source  srcset="{{entry.product.amplienceImageName}}.webp?$thImg$ 1x, 
+                {{entry.product.amplienceImageName}}.webp?$thImgRetina$ 2x"  media="(min-width: 769px)"
+                 type="image/webp"
+                />
+              <source  srcset="{{entry.product.amplienceImageName}}.webp?$mobMediumImg$ 1x, 
+                      {{entry.product.amplienceImageName}}.webp?$mobMediumImgRetina$ 2x"  media="(max-width: 768px)"
+                type="image/webp"
+              />
+              <img
+                src="{{entry.product.amplienceImageName}}?"
+                srcset="{{entry.product.amplienceImageName}}?$thImg$ 1x,
+                        {{entry.product.amplienceImageName}}?$mobMediumImg$ 2x"
+                alt="{{entry.product.productDisplayName}}"
+                crossorigin="anonymous"
+              />
+
+           </picture>
+            </a>
+            <ng-template #bundleTypeImage>
+              <picture>
+                <source [srcset]="getPixMixImage(entry['product'][0])" type="image/webp">
+                <source [srcset]="getPixMixImageJpg(entry['product'][0])" type="image/jpeg">
+                <img    [src]="getPixMixImageJpg(entry['product'][0])">
+              </picture>
+            </ng-template>
+          </div>
+          <div class="order-product">
+            <div class="order-product-info">
+              <div class="order-product-info-img">
+                <a  
+                routerLink="{{getRouterPath(entry)}}" 
+                routerLinkActive="active" 
+                (click)="onShowProductDtls($event,entry.product)" 
+                title="{{countrySite}} | {{entry.product.productDisplayName}}"
+                *ngIf="!entry.isBundle; else bundleTypeImage">
+                <picture >
+                  <source  srcset="{{entry.product.amplienceImageName}}.webp?$thImg$ 1x, 
+                  {{entry.product.amplienceImageName}}.webp?$thImgRetina$ 2x"  media="(min-width: 768px)"
+                   type="image/webp"
+                  />
+                <source  srcset="{{entry.product.amplienceImageName}}.webp?$mobMediumImg$ 1x, 
+                        {{entry.product.amplienceImageName}}.webp?$mobMediumImgRetina$ 2x"  media="(max-width: 769px)"
+                  type="image/webp"
+                />
+                <img
+                  src="{{entry.product.amplienceImageName}}?"
+                  srcset="{{entry.product.amplienceImageName}}?$thImg$ 1x,
+                          {{entry.product.amplienceImageName}}?$mobMediumImg$ 2x"
+                  alt="{{entry.product.productDisplayName}}"
+                  crossorigin="anonymous"
+                />
+              </picture>
+              </a>
+                <ng-template #bundleTypeImage>
+                  <picture >
+                    <source [srcset]="getPixMixImage(entry['product'][0])" type="image/webp">
+                    <source [srcset]="getPixMixImageJpg(entry['product'][0])" type="image/jpeg">
+                    <img [src]="getPixMixImageJpg(entry['product'][0])">
+                  </picture>
+                </ng-template>
+              </div>
+
+
+              <span class="order-product-name">
+                <a  
+                   routerLink="{{getRouterPath(entry)}}" 
+                   [innerHtml]="entry.product.productDisplayName" 
+                   routerLinkActive="active" 
+                   (click)="onShowProductDtls($event,entry.product)" 
+                   *ngIf="!entry.isBundle; else bundleType">
+                </a>
+                <ng-template #bundleType>
+                    <span class="order-product-name" *ngIf="entry.bundleTemplateId" > 
+                      <!-- Pick &amp; Mix Travel x 3 -->
+                      {{getBundleContent(entry)}}
+                      <ul class="bundle-list" style="list-style: outside disc" >
+                        <div  *ngFor="let bottle of entry['product']; let j = index">
+                        <li
+                             *ngIf="!bottle.product.isSample"
+                             class="padding" 
+                             style="margin-left: 0.5cm;" 
+                             
+                              >
+                            <span 
+                            >{{
+                              getBundleProductQuntity(entry,bottle)
+                            }}&nbsp;x&nbsp;</span
+                          >
+                          <span [innerHtml]="bottle.product.productDisplayName"></span>
+                        </li>
+                      </div>
+                         </ul>
+
+                         <ul
+                         class="bundle-list"
+                         *ngIf="entry['product'][0]['isTravelPouchSelected']"
+                       >
+                         <li class="padding travel-pouch"  >
+                           <span>1&nbsp;x&nbsp;</span>
+                           {{'pickMix.travelPouch' | translate}}
+                         </li>
+                       </ul>
+                       </span>
+                </ng-template>
+              </span>
+              <div *ngIf="!entry.isBundle;else stockLevel">
+                <span *ngIf="entry.product.stock">
+                   <span class="order-instock" *ngIf="entry.product.stock.stockLevelStatus =='inStock' "> {{'basketpage.inStock' | translate}}
+                  </span>
+                  <span class="out-of-instock" *ngIf="entry.product.stock.stockLevelStatus !='inStock' "> {{'basketpage.outOfStock' | translate}}
+                  </span>
+                </span>
+              </div>
+              <ng-template #stockLevel>
+                <div *ngIf="entry.stock">
+                  <span class="order-instock" *ngIf="entry.stock.stockLevelStatus =='inStock' "> {{'basketpage.inStock' | translate}}</span>
+                  <span class="out-of-instock" *ngIf="entry.stock.stockLevelStatus !='inStock' "> {{'basketpage.outOfStock' | translate}}</span>
+                </div>
+              </ng-template>
+            </div>
+
+            <div class="quantity-update">
+              <div class="input-group">
+                <span class="minus" *ngIf="!entry.disableCounterAction">
+                  <input 
+                    type="button" 
+                    class="minus_update" 
+                    value="-"
+                    (click)="onDecreaseCount(entry, i)" />
+                  </span>
+                <span class="quantity">
+                  {{entry.quantity}}
+                </span>
+                <span class="plus"  *ngIf="!entry.disableCounterAction">
+                  <input type="button" class="plus_update" value="+"
+                    (click)="onAddItem(entry, i)" />
+                  </span>
+              </div>
+              <div class="input-group2">
+                <span>QTY &nbsp;</span>
+                <select class="select-quantity"  *ngIf="!entry.disableCounterAction" (change)="onChangeQuant($event,entry)" [value]="entry.quantity">
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                  <option value="6">6</option>
+                  <option value="7">7</option>
+                  <option value="8">8</option>
+                  <option value="9">9</option>
+                  <option value="10">10</option>
+                </select>
+                <span *ngIf="entry.giveAway">1</span>
+              </div>
+              <div class="table-splice-item"  *ngIf="!entry.pickAgain">
+                <a class="remove-item" *ngIf="localData" (click)="onDeleteEntry(entry)">{{
+                  localData.remove
+                }}</a>
+              </div>
+              <div class="table-splice-item picker-cta"  *ngIf="entry.pickAgain">
+                <a class="remove-item" *ngIf="localData" (click)="onPickEntry(entry)">{{'basketpage.pickAgain' | translate}}</a>
+              </div>
+            </div>
+            <div class="product-price clearfix">
+              <div class="entry-value">
+              <span *ngIf="entry.isBundle" [innerHtml]="getBundlePrice(entry)"></span>
+              <span class="clearfix " *ngIf="!entry.isBundle" [innerHtml]="getProdPrice(entry)"></span>
+              </div>
+              <p *ngIf="isocode=='de'&&!entry.isBundle" class="basket-de-base-price">
+                <span class="product-base-price" *ngIf="entry.product.basePriceForProduct" [innerHtml]="entry.product.basePriceForProduct ">
+                </span>
+              </p>
+              <!-- <div *ngIf="entry.promoMessage">
+                {{entry.promoMessage}}
+              </div> -->
+            </div>
+            <div class="product-total price-format" name="totalPrice">
+              <span *ngIf="entry.isBundle" [innerHtml]="getBundleTotalPrice(entry)"></span>
+              <span *ngIf="!entry.isBundle" [innerHtml]="getTotalPrice(entry)"></span>
+            </div>
+            &nbsp;
+          </div>
+          <div style="clear: both;"></div>
+        </div>
+      </div>
+      <form 
+         [formGroup]="basketForm" 
+         (keydown)="onApplyPromoCode($event)"
+         (ngSubmit)="applyPromoCode($event)" 
+         *ngIf="getCartCount(cart) !=0"   
+         class="registration_form" 
+         custom-focus>
+        <div 
+           class="clearfix" 
+           *ngIf="cart.orderDiscounts">
+          <div 
+             class="discount_fields  clearfix" 
+             *ngIf="cart.orderDiscounts.value !=0">
+            <div class="order-discount-block">
+              <span>Discount</span>
+              <span id="order_discount" class="price-format">
+                {{ cart.orderDiscounts.formattedValue }}</span>
+            </div>
+          </div>
+        </div>
+        <div class="login_fields basketContainerApplyTotal clearfix">
+          <div class=" mobilePromoCode">
+            <div 
+               class="apply-promo-box" 
+               *ngIf="!promocodeSuccess;else removePromocode">
+              <input 
+                 placeholder="{{ 'enterPromoCode' | translate }}" 
+                 type="text" 
+                 formControlName="promoCode"
+                 class="mandatory form-control reg_field promo-code-inpt" 
+                 (focus)="onFocusPromoCode()" 
+                 [ngClass]="{
+                    'has-error  not-valid':
+                      !basketForm.controls['promoCode'].valid &&
+                      basketForm.get('promoCode').touched,
+                    'invalid-promocode': isPromoCodeError
+                  }" 
+                />
+               <span class="promo-succes-msg" *ngIf="promocodeSuccess">
+                {{promoSuccesMsg}}
+              </span>
+              <span class="promo-code-error-msg" *ngIf="isPromoCodeError">
+                That code doesn't look familiar. Please check and try again.
+              </span>
+              <div *ngIf="!basketForm.controls['promoCode'].valid &&
+                basketForm.get('promoCode').touched" class="not-valid-error-msg">
+                <span *ngIf="localData" [hidden]="!basketForm.controls['promoCode'].errors.required">
+                  {{ localData.enterPromoCode}}
+                </span>
+              </div>
+              <div>
+                <input type="submit" class="btn btn-default apply-promo" value="{{ 'apply' | translate }}" />
+              </div>
+            </div>
+            <ng-template #removePromocode>
+              <span class="promo-succes-msg" *ngIf="promocodeSuccess" [innerHtml]="promoSuccesMsg">
+              </span>
+              <div class="prm-wrap">
+                <!-- <input type="submit" class="btn btn-default apply-promo " value="remove" /> -->
+                <a class="btn btn-default apply-promo remove-promo-btn " (click)="onRemovePromo($event)" >{{'basketpage.remove' | translate}}</a>
+              </div>
+            </ng-template>
+          </div>
+          <div class="order-subtotal-block" *ngIf="localData">
+            <span>{{localData.subTotal}}</span>
+            <span   id="order_subtotal" class="price-format" *ngIf="cart.subTotal" >
+              {{ cart.subTotal.formattedValue }}
+            </span>
+          </div>
+          <!-- <div class="order-subtotal-block" *ngIf="localData && dePriceBlock">
+            <span class="desubtotal-basket" style="font-size: 16px;">Zwischensumme</span>
+            <span  id="order_subtotal" class="desubtotal-basket" style="font-size: 16px;" *ngIf="cart.subTotal" >
+              {{ cart.subTotal.formattedValue }}
+            </span>
+          </div> -->
+        </div>
+      </form>
+      <!-- mention me -->
+      <div
+       *ngIf="showMentionme"
+      class="mention-me-basketpage" 
+      id= "mmWrapper">
+    </div
+    >
+      <form   [formGroup]="giftMessageForm" >
+        <app-giftwrap 
+        #giftWrapEl
+        [cart]="cart"
+        [giftMessageForm]="giftMessageForm.get('giftCard')"
+        ></app-giftwrap>
+      </form>
+
+    </div>
+    
+    <ng-template #noItemBlock>
+      <section>
+        <div class="empty_basket">
+          <div class="basket-heading" *ngIf="localData">
+            <h1>{{ localData.yourBasketEmpty}}</h1>
+            <p class="start-shopping-link">
+              <a (click)="onContinueShoppingEvent()">{{localData.startShopping}} <span></span></a>
+            </p>
+          </div>
+        </div>
+      </section>
+    </ng-template>
+  </section>
+</section>
+
+
+
+
+  <ng-template #noentryBlock>
+    <section>
+      <div class="empty_basket">
+        <div class="basket-heading" *ngIf="localData">
+          <h1>{{ localData.yourBasketEmpty}}</h1>
+          <p class="start-shopping-link">
+            <a (click)="onContinueShoppingEvent()">{{localData.startShopping}} <span></span></a>
+          </p>
+        </div>
+      </div>
+    </section>
+  </ng-template>
+
+
+  
+
+  <div class="rowComponents treat-align justify-content-between">
+    <section class="edit-hole-section">
+      <section id="Checkout-Banners">
+        <img
+          src="https://www.moltonbrown.co.uk/MBPromoImages/CheckoutGraphics/310119-Basket-Promo-Banner_UK_Desktop_Higher.jpg"
+          alt="Complimentary Luxury Travel Set. SHOP NOW" />
+      </section>
+    </section>
+
+    <section class="treat-section ">
+      <div class="pdp-realtedprduct-container" style="margin:0;" #lastMinutTreats>
+      </div>
+    </section>
+  </div>
+  <div class="express-check-out mob-checkout" *ngIf="cart">
+    <div class="mob-btn" *ngIf="cart.subTotal.value != 0">
+      <button type="button" *ngIf="localData" class="btn-shop-action" (click)="onSecureCheckout()"
+        style="opacity: 1;"><span></span>{{ localData.secureCheckout}}</button>
+    </div>
+  </div>
+
+  <div class="rowComponents treat-align  justify-content-between ">
+    <section class="treat-section hideBlock basketpageTreat">
+      <div class="pdp-realtedprduct-container" style="margin:0;" #customeAlsoBought>
+      </div>
+    </section>
+    <section class="delivery-option-block">
+      <app-delivery-options></app-delivery-options>
+    </section>
+  </div>
+
+  <div class="basket-footer-container" *ngIf="localData">
+    <div class="text-uppercase security-label" style="opacity: 1;">
+      {{ localData.securityGauranteed}}
+    </div>
+    <div class="rowComponents">
+      <div class="payment-gateway-icons" style="opacity: 1;">
+        <span class="norton-secure "></span>
+        <span class="visa-secure "></span>
+        <span class="master-card"></span>
+        <span class="american-express "></span>
+        <span class="vpay-secure"></span>
+        <span class="paypal-secure"></span>
+        <span class="mb-secure"></span>
+      </div>
+      <div class="express-check-out mob-no-display" *ngIf="cart">
+        <div
+            class=" express-check-out"
+            [hidden]="!showExpress"
+          >
+            <button type="button" *ngIf="localData" class="btn-shop-action express-btn-action" (click)="onSecureCheckout(true)"
+            style="opacity: 1;"><span></span>EXPRESS CHECKOUT</button>
+          </div>
+        <div class="pull-right" *ngIf="cart.subTotal.value != 0">
+          <button type="button" *ngIf="localData" class="btn-shop-action" (click)="onSecureCheckout(false)"
+            style="opacity: 1;"><span></span>{{ localData.secureCheckout}}</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+
+<div class="modal pickerModal offer-modal-mob" id="productModal"  #productModal 
+[ngStyle]="{'display':display}"
+>
+  <div class="basket-modal picker-basket-modal" role="document">
+    <div class="modal-content picker-modal-content"  *ngIf="gwpModal;else promotionalModal">
+        <div class="modal-header">
+            <button 
+              aria-label="Close" 
+              data-dismiss="modal" 
+              class="close"
+              id="promocode_close"
+              (click)="onRemoveGFWSample($event)"
+              type="button">
+              <span aria-hidden="true">{{'pickerpopup.remove' | translate}}</span>
+            </button>
+              <h4 class="modal-title text-center">{{'pickerpopup.headingChooseGift' | translate}}</h4>
+      </div>
+          <div class="orders-container model-body model-body-cls" >
+              <legend id="pick-header">{{'pickerpopup.optionsBelow' | translate}}</legend>
+              <div class="gift-sample-carousel pick-again-carousel" *ngIf="quantityRestriction">
+                   <app-sample-carousel
+                     [quantityRestriction]="quantityRestriction"
+                     [slides]="slides"
+                     (onAddSample)="onAddSample($event)"
+                     (onSelectSample)="onSelectSample($event)"
+                     (onRemoveSample)="onRemoveSample($event)"
+                     (onAddMultiproducts)="onAddMultiproducts($event)"
+                   >
+                   </app-sample-carousel>
+              </div>
+              <div
+                    class="dl-overlay"
+                    [ngClass]="{
+                       'dl-overlay-show':pageModalLoad,
+                       'dl-overlay-hide':!pageModalLoad
+                      }">
+                  <div class="b2c-title"> 
+                          <span class="loading-txt"> loading... </span>  
+                  </div>
+              </div>
+              <legend class="text-center promotion-text" *ngIf="localGiftData" >
+                <a  (click)="onPromotionalTerms($event)" *ngIf="localGiftData.pickagainpromotionalText" [innerHtml]="localGiftData.pickagainpromotionalText.content.name">
+                </a>
+              </legend>
+            </div>
+    </div>
+    <ng-template #promotionalModal>
+        <div class="modal-content picker-modal-content" *ngIf="localGiftData" >
+            <div class="modal-header">
+                <button 
+                  aria-label="Close" 
+                  data-dismiss="modal" 
+                  class="close"
+                  id="promocode_close"
+                  (click)="onDismissPromotionalModal($event)"
+                  type="button">
+                  <span aria-hidden="true">X</span>
+                </button>
+                  <h4 class="modal-title text-center" *ngIf="localGiftData.pickagainpromotionalText">{{localGiftData.pickagainpromotionalText.content.name}}</h4>
+          </div>
+          <div class="orders-container model-body model-body-cls Terms-condtions-picker" style="min-height: 316px;height:100%;" *ngIf="localGiftData.pickagainpromotionalText"> 
+             <div #promotionalElement ></div>
+          </div>
+        </div>
+    </ng-template>
+  </div>
+</div>

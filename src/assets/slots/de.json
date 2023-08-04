@@ -1,0 +1,27 @@
+{
+    "parentProductLandingPage":{
+        "slotId":"<div class='tmspslot' style='width: 100%;' data-k='qa5buoy' data-slid='de-hybris-prod-feed-parent-category' data-p='1' ><div class='overlay-body'><div class='FR-loading-backdrop overlay-bg-show' style='min-height:250px;height:100%;'  ><div class='b2c-title'><span class='loading-txt'> loading... </span></div</div></div></div>"
+    },
+    "basketPage":{
+        "customerAlsoBought":{
+            "slotId":"<div class='tmspslot' data-k='qa5buoy'  data-slid='de-hybris-prod-feed-basket-page-customers-also-bought'  data-p='1' ><div class='overlay-body'><div class='FR-loading-backdrop overlay-bg-show' style='height: auto;' ><div class='b2c-title'><span class='loading-txt'> <span class='loading-txt'> loading... </span></span></div</div></div></div>"
+        },
+        "lastMinuteTreats":{
+            "slotId":"<div class='tmspslot' data-k='qa5buoy' data-slid='de-hybris-prod-feed-basket-page-last-minute-treats'  data-p='1' ><div class='overlay-body'><div class='FR-loading-backdrop overlay-bg-show' style='height: auto;' ><div class='b2c-title'><span class='loading-txt'><span class='loading-txt'> loading... </span> </span></div</div></div></div>"
+        }
+    },
+    "productDetails":{
+        "youmayalsoLike":{
+           "slotId":"<div class='tmspslot' data-k='qa5buoy' data-slid='de-hybris-prod-feed-product-page-you-may-also-like' data-p='1' ><div class='overlay-body'><div class='FR-loading-backdrop overlay-bg-show' style='height: auto;' ><div class='b2c-title'><span class='loading-txt'> <span class='loading-txt'> loading... </span></span></div</div></div></div>"
+         },
+         "worksWellWith":{
+            "slotId":"<div class='tmspslot' data-k='qa5buoy' data-slid='de-hybris-prod-feed-product-page-works-well-with' data-p='1' ><div class='overlay-body'><div class='FR-loading-backdrop overlay-bg-show' style='height: auto;' ><div class='b2c-title'><span class='loading-txt'> <span class='loading-txt'> loading... </span> </span></div</div></div></div>"
+        }
+    },
+    "searchCategory":{
+        "slotId":"<div class='tmspslot' style='width: 100%; min-height: 250px;margin-bottom:8px;'  data-k='qa5buoy' data-slid='de-hybris-prod-feed-search-results' data-p='1' ><div class='overlay-body'><div class='FR-loading-backdrop overlay-bg-show' style='height: auto;' ><div class='b2c-title'><span class='loading-txt'> loading... </span></div</div></div></div>"
+    },
+    "storeFinder":{
+        "slotId":"<div class='tmspslot'  style='width: 100%; min-height: 250px;margin-bottom:8px;' data-k='qa5buoy' data-slid='de-hybris-prod-feed-store-finder'  data-p='1' ><div class='overlay-body'><div class='FR-loading-backdrop overlay-bg-show' style='height: auto;' ><div class='b2c-title'><span class='loading-txt'> loading... </span></div</div></div></div>"
+    }
+}

@@ -1,0 +1,129 @@
+
+
+<div class="header-bottom tab-responsive-none" >
+    <div class="container">
+        <div class="rowComponents">
+            <div class="col-md-12 col-md-12 mb-logo">
+                <div class="logo" id="molton_brown_logo">
+                    <a routerLink="/store" routerLinkActive="active"  (click)="goToHome($event)">
+                        <img src="assets/imgs/logo_pages_new.png">
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-2 royal-license">
+            <a routerLink="/store" routerLinkActive="active" (click)="goToHome($event)">
+                <img src="assets/imgs/Warrant.png" alt="Royal Warrant" (mouseleave)="mouseLeave()"></a>
+        </div>
+        <div 
+            class="header-bottom-search-box" 
+            [ngClass]="{
+                'search-box-height':searchBlock
+            }">
+            <form                    
+                [formGroup]="searchForm" 
+                (keydown)="keyDownFunction($event)"
+                (ngSubmit)="onSubmitForm($event)"
+            >
+               <input
+                     #searchInput
+                     class="text header-bottom-search-input "
+                     type="text" 
+                     id="product_channel"
+                     autocomplete="off"
+                     placeholder="{{'menu.mobileSearch' | translate}}"
+                     formControlName="search"
+                     (input)="onSearcKeyUp($event)"  
+                     [ngClass]="{
+                          'searchbox-open':searchCtgry,
+                          'enable-searchIcon':enableSearchicon
+                    }" 
+                  >
+              <button type="submit" class="header-bottom-icon-search unclickable"  (click)="onsearchClicked()"  >
+                    <img src="assets/imgs/search-icon.png"  >
+              </button>
+
+            <div class="auto-completeBlock" *ngIf="searchResults.length>0" (mouseleave)="onLeaveSearchBox()" (mouseenter)="showSearchBox()"  [ngClass]="{'searchBlock-block':searchBlock,'searchBlock-none':!searchBlock}" >
+                <ul>
+                    <li *ngFor="let searchItem of searchResults;"  (click)="onSearchProduct($event,searchItem)">
+                        <a style="clear: both;">
+                          <picture>
+                                    <source
+                                     srcset="{{searchItem.amplienceImageName}}.webp?$thImg$ 1x, {{searchItem.amplienceImageName}}.webp?$thImgRetina$ 2x"
+                                     type="image/webp"  media="(min-width: 769px)"
+                                    />
+                                    <source srcset="{{searchItem.amplienceImageName}}.webp?$thImg$ 1x,{{searchItem.amplienceImageName}}.webp?$thImgRetina$ 2x" type="image/webp" media="(max-width: 768px)">
+                                        <source srcset="{{searchItem.amplienceImageName}}?$thImg$ 1x,{{searchItem.amplienceImageName}}?$thImgRetina$ 2x" type="image/jpeg" media="(max-width: 768px)">
+                                        <img
+                                    src="{{searchItem.amplienceImageName}}?"
+                                    srcset="{{searchItem.amplienceImageName}}?$thImg$ 1x, {{searchItem.amplienceImageName}}?$thImgRetina$ 2x "  >
+                                 </picture>
+                             <span *ngIf="searchItem.categoryDisplayName" [innerHtml]="searchItem.categoryDisplayName"></span>
+                             <span *ngIf="searchItem.productDisplayName" [innerHtml]="searchItem.productDisplayName"></span> 
+                        </a>
+                    </li>
+                </ul>
+                <a class="search_more" (click)="onSearchResults()">
+                    more results
+                </a>
+            </div>
+            </form>
+        </div>
+
+    </div>
+</div>
+<!-- end of header block -->
+
+<!--start of tab header-block  -->
+<div class="tab-block" style="position: relative;" [ngClass]="{'mb-menu--left':sidemenuStatus,'mb-menu-ML-none':!sidemenuStatus}">
+    <div 
+class="catalog-backdrop" 
+(swipe)="swipMenu($event)" 
+(click)="toggleMenu($event)"
+style="position: absolute;"
+[ngClass]="{
+     'responsive-overlay':sidemenuStatus
+    }">
+</div>
+<div class="rowComponents header mb-nav-block ">
+        <div class="col-2" style="display: flex;justify-content: flex-start;align-items: center;">
+            <span class="mobileBar" (click)="onSidemenutap()"></span>
+        </div>
+        <div class="col-8 text-center ">
+            <a [routerLink]="['/store']" class="frame">
+                <span class="helper"></span>
+                <a title="Molton Brown" class="headerlogo"></a>
+            </a>
+        </div>
+
+
+        <div class="col-2 text-center richMiniCart">
+          <span class="storeMenu_cart" >
+            <a  id="miniRichCart"  (click)="onViewBasket($event)" >
+              <span class="store_viewCart"></span>
+              <span class="cart-items">
+                <span id="storeCartCount">{{
+                  getCartCount()
+                }}</span>
+              </span>
+            </a>
+          </span>
+        </div>
+    </div>
+</div>
+<!--end of tab header-block  -->
+
+<!-- start of menu-block -->
+<div class="menu-bar">
+     <app-menu [sidemenuStatus]="sidemenuStatus" ></app-menu>
+</div>
+
+
+<!-- <div 
+class="catalog-backdrop" 
+(swipe)="swipMenu($event)" 
+(click)="toggleMenu($event)"
+[ngClass]="{
+     'responsive-overlay':sidemenuStatus
+    }">
+</div> -->

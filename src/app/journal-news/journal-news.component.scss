@@ -1,0 +1,13 @@
+@import"../../variable";
+#journal-news-landingpage{
+    margin:auto;
+    text-align: center;
+width:878px;
+height:auto;
+}
+@media screen and (max-width:$screen-sm){
+    #journal-news-landingpage{
+    width:100%;
+    height:auto;
+    }
+}

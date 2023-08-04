@@ -1,0 +1,125 @@
+
+.mb-gallery{
+    .content-container {
+        width: 938px;
+        margin: 0 auto;
+        text-align: center;
+         .main-title {
+            margin: 30px 0 3px;
+            padding: 0;
+            .header-text{
+              font-size:25px;
+            }
+        }
+        .width-para {
+            width: 60%;
+            margin: 10px auto 17px;
+        }
+    }
+    .fa-instagram {
+        font-size: 40px;
+        vertical-align: middle;
+        margin-right: 4px;
+        &:before {
+            content: "\f16d";
+        }
+    }
+    .sharingIcons {
+        display: inline-block;
+        height: 24px;
+        width: 24px;
+        background: url('https://www.moltonbrown.co.uk/images/social-icons.png') 0 -3px no-repeat;
+        text-indent: -9990px;
+        vertical-align: middle;
+        margin: 10px 10px 0 10px;
+        border: none;
+        @media screen and(max-width:768px) {
+            background: url('../../assets/imgs/social-icons-mobile.png') 0 -3px no-repeat;
+         
+        }
+        &.pinterest {
+            background-position: 39% -3px;
+        }
+    }
+    .social-section {
+        padding-top: 30px;
+    }
+  .share-heading {
+        font-size: 17px;
+        margin: 0;
+    }
+  .social-container {
+        padding-top: 16px;
+    }
+}
+.flex-align {
+    height: inherit;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    justify-content: center;
+
+}
+
+
+.fb-color {
+    background: #3B5998;
+}
+.tw-color {
+    background: #1da1f2;
+}
+ .em-color {
+    background: #f28d4f;
+}
+.social-btn {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -ms-flex-line-pack: center;
+    align-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    justify-content: center;
+    min-width: 110px;
+    text-decoration: none;
+    color: #fff;
+    height: 37px;
+    position: relative;
+    border-radius: 25px;
+    -webkit-border-radius: 25px;
+    -moz-border-radius: 25px;
+    margin: 0 12px;
+}
+
+
+  .social-icons {
+    display: inline-block;
+    background: url('../../assets/imgs/socialIcon.png') no-repeat;
+    overflow: hidden;
+    text-indent: -9999px;
+    text-align: left;
+    height: 25px;
+    &.icon-fb {
+        background-size: 44px;
+        width: 15px;
+        background-position: -8px -51px;
+    }
+    &.icon-tw {
+        background-size: 46px;
+        width: 28px;
+        background-position: -9px -23px;
+    }
+    &.icon-em {
+        background-size: 46px;
+        width: 33px;
+        background-position: -7px 5px;
+    }
+}

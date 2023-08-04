@@ -1,0 +1,254 @@
+<div class="left-menu-facets" *ngIf="!modal; else modalContent" style="border-top: 1px solid #c2c2c2;">
+  <!-- <span class="facet_header_container">
+    <h2 class="facet_header">FILTER BY</h2>
+  </span> -->
+  <div class="facetoptions">
+    <div
+      id="filterAccordion"
+      #facetTag
+      class="filter_group-options"
+      *ngFor="let filterData of facets; let sortId = index"
+    >
+    <app-accordion>
+    <app-accordion-item [expandContent]="filterData.open ? true : false">
+      <div class="accordion-item-header">
+           <div
+        class="collapsed facet-title"
+        (click)="onFacetClicked(filterData, sortId)"
+        [ngClass]="{ 'open-facets': filterData.open }"
+      >
+        <a class="mb-product-filter-cntnt">
+          <h3 class="filter_group-content">
+            {{ filterData.name }}
+            <span></span>
+          </h3>
+        </a>
+      </div>
+      </div>
+      <div class="accordion-item-content">
+      <div  [ngClass]="{ 'open-facets-container': filterData.open }" >
+        <div class="Price mb-product-filter-div">
+          <li
+            class="facet-list"
+            *ngFor="let valueData of filterData.values; let id = index"
+          >
+            <input
+              type="checkbox"
+              name="filterBy"
+              (change)="onSortByFacets($event, sortId, id)"
+              [checked]="valueData.selected"
+              [disabled]="valueData.disable"
+            />
+            <label
+              class="facet-lbl"
+              [ngClass]="{ 'disable-cntnt': valueData.disable }"
+            >
+              <!-- <span class="facet-rating" *ngIf="valueData.name.length < 2">
+                <span 
+                *ngIf="siteSpecific"
+                class="filter-star-rating"   
+                [attr.data-rating]="valueData.name"
+                >
+               <span class="fa fa-star-o"></span>
+               <span class="fa fa-star-o"></span>
+               <span class="fa fa-star-o"></span>
+               <span class="fa fa-star-o"></span>
+               <span class="fa fa-star-o"></span>
+             </span>
+              </span> -->
+              <span  *ngIf="valueData.name.length < 2">
+                <img class="bv_image5_0"  src="../../../assets/imgs/rating-{{valueData.name}}.0.gif"></span>
+              <span class="filter-label">  
+                <span *ngIf="valueData.name.length > 2 " [innerHtml]="valueData.name"></span>
+                 {{ "(" + valueData.count + ")" }}
+            </span>
+   
+            </label>
+          </li>
+        </div>
+      </div>
+      </div>
+    </app-accordion-item> 
+  </app-accordion>
+
+
+    </div>
+    <div class="facet_clearall">
+      <span (click)="onClearAll()">{{'categoryLandingPage.clearAll'|translate}}</span>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<ng-template #modalContent>
+  <div class="modal-content facet-modal-content" #facetTag>
+    <div class="modal-header">
+      <h3 class="modal-title refine-title">
+        Refine{{ refinePath ? " : " : "" }}{{ refinePath }}
+      </h3>
+      <div
+        *ngIf="IsmodelShow; else elseRefineCancelBlock"
+        class="close modal-header-close"
+        data-dismiss="modal"
+        aria-label="Close"
+      >
+        <span aria-hidden="true" class="refine-close">{{'addressBook.cancel' | translate}}</span>
+      </div>
+      <ng-template #elseRefineCancelBlock>
+        <div class="close modal-header-close" (click)="onResetFilters($event)">
+          <span aria-hidden="true" class="refine-close">{{'addressBook.cancel' | translate}}</span>
+        </div>
+      </ng-template>
+    </div>
+    <div class="modal-body p-4">
+      <div
+        class="modal-facet"
+        *ngFor="let data of facets; let sortId = index"
+        (click)="onRefineitem(data, sortId)"
+        [hidden]="!mbFacet"
+      >
+        <a class="modal-facet-title">
+          {{ data.name }}
+        </a>
+        <div class="modal-facet-selected-block">
+            <div 
+                *ngFor="let filterItem of returnSelectedValues(data.values); let listId = index;let first = first;let last = last;" 
+                class="facet-value"
+                [hidden]="!filterItem.selected"
+                [ngClass]="{
+                  'ds-check-val':filterItem.selected
+                }">
+               <span  class="selected-values" *ngIf="filterItem.selected" >{{ filterItem.name }}<span class="seperator">,&nbsp;</span></span>
+            </div>
+        </div>
+      </div>
+      <div
+        [ngClass]="{
+          'mb-facet-sort-show': !mbFacet,
+          'mb-facet-sort-hide': mbFacet
+        }"
+      >
+        <div *ngFor="let filterItem of refineFacets; let listChildId = index">
+          <li
+            class="facet-list modal-facet-list"
+            (click)="updateFilterData($event, listChildId)"
+          >
+            <input
+              [attr.id]="'collapseOne'+filterItem.name "
+              type="checkbox"
+              name="filterBy"
+              [checked]="filterItem.selected"
+              [disabled]="filterItem.disable"
+            />
+            <label
+              for="{{'#collapseOne'+filterItem.name}}"
+              class="facet-lbl"
+              [ngClass]="{
+                 'disable-cntnt': filterItem.disable 
+                }"
+            >
+              <span class="facet-rating" *ngIf="filterItem.name.length < 2">
+                <span 
+                *ngIf="siteSpecific"
+                class="filter-star-rating"   
+                [attr.data-rating]="filterItem.name"
+                [ngClass]="{
+                  'star-rating-color':!filterItem.disable,
+                  'disable-star-rating-color':filterItem.disable
+                }"
+               
+                >
+               <span class="fa fa-star-o"></span>
+               <span class="fa fa-star-o"></span>
+               <span class="fa fa-star-o"></span>
+               <span class="fa fa-star-o"></span>
+               <span class="fa fa-star-o"></span>
+             </span>
+              </span>
+              <span class="filter-label">
+              {{ filterItem.name.length > 2 ? filterItem.name : "" }}
+              {{ "(" + filterItem.count + ")" }}
+              </span>
+            </label>
+          </li>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal-footer">
+      <div class="footer-action ">
+        <div
+          class="btn-fullSize"
+          [ngClass]="{
+            'hide-filterbtn': !checkedfilter,
+            'form-inline': checkedfilter
+          }"
+        >
+          <div
+            class="text-center action-text btn-size"
+            (click)="ontapClear($event)"
+          >
+            Clear
+          </div>
+          <div
+            class="text-center action-text btn-size"
+            (click)="onCheckListDone()"
+          >
+            Done
+          </div>
+        </div>
+
+        <div *ngIf="!checkedfilter" style="width:100%;">
+        <div
+          class="btn-fullSize"
+          [ngClass]="{ 
+            'hide-filterbtn': !checkList, 
+            'form-inline': checkList
+           }"
+        >
+          <div
+            class="text-center action-text btn-size"
+            data-dismiss="modal"
+            aria-label="Close"
+            (click)="onClearAll()"
+          >
+            Clear All
+          </div>
+          <div
+            class="text-center action-text btn-size"
+            data-dismiss="modal"
+            aria-label="Close"
+            (click)="ontapApplyFacets()"
+          >
+            Apply
+          </div>
+        </div>
+        <div
+          class="text-center action-text close-filter  btn-full-size"
+          [ngClass]="{
+            'hide-close-action': checkList
+          }"
+          (click)="onCloseModal()"
+          data-dismiss="modal"
+        >
+          Close
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-template>

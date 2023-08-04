@@ -1,0 +1,233 @@
+<div class="giftcard_block">
+    <p class="redstar" *ngIf="securitycode">{{'giftMsg.invalidGiftCardno' | translate}}</p>
+     <p class="redstar" *ngIf="errorMessage =='422' && errorCodesDisplay">{{'giftMsg.invalidGiftCardno' | translate}} </p>
+     <p class="redstar" *ngIf="errorMessage =='112' && errorCodesDisplay">{{'giftMsg.addCard' | translate}}
+       <a (click)="giftCheckBalance()">click here</a>{{'giftMsg.afterClickHere'| translate}}
+     </p>
+     <p class="redstar" *ngIf="errorMessage =='111' && errorCodesDisplay">{{'giftMsg.rightAmount' | translate}}</p>
+     <p class="redstar" *ngIf="errorMessage =='121' && errorCodesDisplay">{{'giftMsg.invalidGiftCardno' | translate}}</p>
+     <p class="redstar" *ngIf="errorMessage =='122' && errorCodesDisplay">{{'giftMsg.invalidGiftCardno' | translate}}</p>
+     <p class="redstar" *ngIf="errorMessage =='105' && errorCodesDisplay">{{'giftMsg.invalidGiftCardno' | translate}}</p>
+     <p class="redstar" *ngIf="errorMessage =='110' && errorCodesDisplay">{{'giftMsg.invalidGiftCardno' | translate}} </p>
+    <div class="error-info-block">
+      <div class="err_msg" *ngIf="outofStock">
+        <p class="err_form_msg">
+          We're sorry you have selected more of the following product(s) than are in stock.
+          Please change the quantity to a number that's available.Thanks.
+        </p>
+        <div class="stock-list" >
+          <li class="err_form_msg" *ngFor="let data of outofStockList">
+            {{ data.name }}
+          </li>
+        </div>
+      </div>
+      <div class="err_msg"  *ngIf="errorvalidationMsg">
+        {{'invalidcard.errormsgblock' | translate}}
+          <br>
+          <br>
+          <div>
+            {{'invalidcard.emailandphone' | translate}} <br>
+            <a href="mailto:{{'invalidcard.emailId' | translate}}">{{'invalidcard.emailId' | translate}}</a>
+          </div> 
+          <br>
+      </div>
+  </div>
+  
+      <section>
+    <fieldset>
+        
+      <legend>
+        {{'paymentGiftCard.wantToSplit' | translate}}
+      </legend>
+      <div class="form-group form-checkbox">
+        <div class="radio">
+          <input
+            id="giftcard"
+            name="giftcard"
+            type="radio"
+            class="password-radio"
+            (change)="onChangePaymentType(true)"
+          />
+          <label for="giftcard"> {{'paymentGiftCard.noSplit' | translate}}</label>
+        </div>
+      </div>
+      <div class="form-group form-checkbox">
+        <div class="radio">
+          <input
+            id="splitCard"
+            name="giftcard"
+            type="radio"
+            class="password-radio"
+            (change)="onChangePaymentType(false)"
+          />
+          <label for="splitCard"> {{'paymentGiftCard.yesSplit' | translate}}</label>
+        </div>
+      </div>
+      <form
+        [formGroup]="cardDetailForm"
+        *ngIf="paymentGiftSouce == 'gift'"
+        custom-focus
+        (keydown)="onEnterFunction($event)"
+        (ngSubmit)="onGiftDetailSubmit($event)"
+      >
+
+        <app-gift-pay-form [giftForm]="cardDetailForm.get('giftcard')">
+        </app-gift-pay-form>
+        <div class="split-form"  *ngIf="showCard">
+          <section *ngIf="billingAddress; else changeBillingAddress">
+            <div *ngIf="!expressCard">
+              <div class="section-heading">
+                <h2>{{'paymentGiftCard.splitMsg' | translate}}</h2>
+                <h2>{{'paymentCard.yourBillAdd' | translate}}</h2>
+              </div>
+              <div style="display:block">
+                <div class="payer-saved-address clearfix">
+                  <div>
+                    <div class="saved-address clearfix">
+                      <p>
+
+                        <span *ngIf="shippingAddress.customerAddress.line1">
+                          {{ shippingAddress.customerAddress.line1 }}<br/>
+                        </span>
+
+                        <span *ngIf="shippingAddress.customerAddress.line2">
+                          {{ shippingAddress.customerAddress.line2 }} <br/>
+                        </span>
+
+                        <span *ngIf="shippingAddress.customerAddress.town">
+                          {{ shippingAddress.customerAddress.town }}<br/>
+                        </span>
+
+                        <span *ngIf="shippingAddress.customerAddress.postalCode">
+                          {{ shippingAddress.customerAddress.postalCode }}<br/>
+                        </span>
+
+                        <span *ngIf="shippingAddress.customerAddress.country">
+                          {{ shippingAddress.customerAddress.country.name}}<br/>
+                        </span>
+
+                        <span *ngIf="shippingAddress.customerAddress.phone">
+                          {{ shippingAddress.customerAddress.phone}}
+                        </span>
+
+                      </p>
+                      <a
+                        class="change-address-btn"
+                        title="Change billing address"
+                        (click)="onChangeBillingAddress()"
+                        >{{'paymentCard.changeBillAdd' | translate}}</a
+                      >
+                    </div>
+                    <div class="form-group form-checkbox ">
+                      <div class="checkbox bl_checkbox">
+                        <input
+                          id="giftChangeBlAddress"
+                          style="padding-top: 0px;"
+                          type="checkbox"
+                          class="checkbox"
+                          formControlName="billingForm"
+                          (change)="onChangeBLAddress($event)" 
+                          [ngClass]="{
+                            'has-error  not-valid':(getTypeOf(cardDetailForm.value['billingForm'])) ||(!cardDetailForm.controls['billingForm'].valid &&  cardDetailForm.get('billingForm').touched)
+                           }"
+                        />
+                        <label for="giftChangeBlAddress" 
+                        [ngClass]="{ 
+                          'terms-not-valid':(getTypeOf(cardDetailForm.value['billingForm'])) ||(!cardDetailForm.controls['billingForm'].valid &&  cardDetailForm.get('billingForm').touched)
+                         }"
+                          >{{'paymentCard.correctBillAdd' | translate}}</label
+                        >
+                        <div class="bl-err-block error-block"
+                        *ngIf="(getTypeOf(cardDetailForm.value['billingForm'])) ||(!cardDetailForm.controls['billingForm'].valid &&  cardDetailForm.get('billingForm').touched) ">
+                        <span class="check-error-msg-bottom" >
+                          {{'paymentCard.correctBillAddErr' | translate}}
+                        </span>
+                      </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <section class="mb-personal-details">
+              <fieldset
+                *ngIf="!expressCard; else expressCardTemplate"
+              >
+                <div class="section-heading">
+                  <legend>{{'paymentCard.yourCardDetail' | translate}}</legend>
+                </div>
+                <app-cd-card
+                  #paymentCardEl 
+                  [isValidFormSubmitted]="isValidFormSubmitted"
+                  (changeCard)="onChangeCardType($event)"
+                  [group]="cardDetailForm.get('paymentCard')"
+                >
+                </app-cd-card>
+                <section class="save_card-block" *ngIf="currentUser">
+                    <fieldset>
+                      <legend> Save your details for next time? (optional)</legend>
+                      <div class="form-group">
+                        <div class="checkbox">
+                          <input 
+                            type="checkbox" 
+                            id="saveCardDetails" 
+                            class="savePayment" 
+                            formControlName="saveCard"
+                             >
+                          <label for="saveCardDetails">Save your payment details for next time.</label>
+                        </div>
+                      </div>
+                    </fieldset>
+                  </section>
+              </fieldset>
+              <ng-template #expressCardTemplate>
+                <!-- <legend>{{'paymentCard.chooseACard' | translate}}</legend> -->
+                <legend *ngIf="splitPaymentText" class="split-card-text">{{'paymentGiftCard.splitMsg' | translate}}</legend>
+                <app-encrypted-card
+                  *ngIf="shippingAddress"
+                  [cards]="cardList"
+                  [expressForm]="shippingAddress"
+                  [group]="cardDetailForm.get('paymentCard')"
+                  (changeCardType)="onChangeEncryptCard($event)"
+                  (editCardDetail)="onEditCard()" 
+                  (addNewCard)="onAddNewCard()"
+                  (cancelEMit)="cancelEMit($event)"
+                >
+                </app-encrypted-card>
+              </ng-template>
+            </section>
+          </section>
+          <ng-template #changeBillingAddress>
+            <h2 class="splittext-changebilling">{{'paymentGiftCard.splitMsg' | translate}}</h2>
+            <app-billing-address
+              [shippingUserAddress]="shippingAddress"
+              (onResetAddress)="onResetAddress()"
+              (onSetBillingAddress)="onSetBillingAddress($event)"
+              [payType]="payType"
+            ></app-billing-address>
+          </ng-template>
+        </div>
+        <app-mb-terms
+          *ngIf="!newCard"
+          [formType]="cardDetailForm.get('terms')"
+          (setTerms)="onSetTerms($event)"
+          (setPolicyTerms)="onSetPolicyTerms($event)"
+        ></app-mb-terms>
+      </form>
+    </fieldset>
+  </section>
+  <div 
+  class="dl-overlay payer-loading"
+  [ngClass]="{
+     'dl-overlay-show':loading,
+     'dl-overlay-hide':!loading
+   }">
+   <div class="b2c-title text-center pay-load"> 
+      <div class="load-txt" >
+      <span class="pay-load-text">
+        {{'giftMsg.submitMsg' | translate}}
+      </span>  
+      </div>  
+   </div>
+</div>
+</div>

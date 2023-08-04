@@ -1,0 +1,222 @@
+<div class="ASM" [ngClass]="{'ASM-active':asmCustomer,'ASM-disabled':!asmCustomer}">
+<div class="ASM_header" [ngClass]="{'ASM-head-active':toggleAsmHead,'ASM-head-disabled':!toggleAsmHead}">
+  <div class="first-top-row">
+    <div class="ASM_logo">
+      <img src="assets/imgs/detail-tabstore.png">
+      <span class="title">ASM</span>
+    </div>
+   <div class="text-right" >
+    <!-- <a class="ASM-btn ASM-btn-customer-list  element-separator-height" >
+      <span class="ASM_icon ASM_icon-customer-list"></span>
+<span class="hidden-sm ASM-btn ASM-btn-customers">Customers</span>
+    </a> -->
+  <!-- <div class="ASM-btn ASM-btn-customer-list  element-separator-height" >
+      <span class="ASM_icon ASM_icon-customer-list"></span>
+      <span id="timer">
+        <span id="hours">00:</span>
+        <span id="mins">00:</span>
+        <span id="seconds">00</span>  
+      </span>
+      <span>
+        RESET
+      </span>
+    </div>  -->
+     <div class="ASM-btn ASM-btn-customer-list  element-separator-height">
+       <span class="ASM_loggedin_agent_store_name" *ngIf="startSession">
+        <p>
+          <span class="ASM_loggedin_text_name text-left">Assisted Service Agent</span>
+      </p>
+      <p class="text-left ASM-csagent">
+         <span class="ASM_loggedin_text_name validUser" *ngIf="csAgentName">{{csAgentName}}</span>
+         <span class="ASM_loggedin_text_name" *ngIf="!csAgentName">Not Assigned</span>
+      </p>
+       </span>
+       <span *ngIf="csAgentLogged">
+       <button class="btn ASM-btn ASM-signout" (click)="onAgentSignOut()">Sign out</button>
+       </span>
+     </div>
+    <button class="ASM_close ASM_close_all closeBtn" type="button" (click)="onCloseBar()">×</button>
+  </div>
+  </div>  
+  <div *ngIf="csAgent;else customerService">  
+      
+    <form 
+      [formGroup]="authForm" 
+      (ngSubmit)="onSubmitCSForm()"
+      (keydown)="keyDownFunction($event)"
+      custom-focus
+      
+      >
+      <div class="row"  *ngIf="csErrMsg" style="height:15px;">
+        <div class="col-6 cs-err-msg" >
+          {{ (csErrMsg.status)?csErrMsg.description:''}}
+        </div>
+      </div>
+
+    <div>
+    <div class="ASM-agent-blc">
+        <div class="input_group" style="position:relative;">
+            <input 
+              formControlName="username" 
+              #csAgentRef 
+              autofocus 
+              autocorrect="off" 
+              autocomplete="off" 
+              placeholder="Agent ID *"
+              type="text" 
+              class="form-control  mandatory"
+              [ngClass]="{
+                'has-error  not-valid':
+                !authForm.controls['username'].valid &&
+                authForm.get('username').touched
+              }" 
+              >
+              
+              <div
+              *ngIf="
+                !authForm.controls['username'].valid &&
+                authForm.get('username').touched
+              "
+              class="not-valid-error-msg"
+            >
+              <span
+                [hidden]="
+                  !authForm.controls['username'].errors.required
+                "
+                >{{asm.username }}</span
+              >
+              <span
+              *ngIf="checkwithEmailValidation"
+            >
+              {{asm.patternInvalid}}
+            </span>
+            </div>
+        </div>
+        <div class="input_group" style="position:relative;" >
+            <input 
+               formControlName="password"  
+               autocorrect="off" 
+               autocomplete="off" 
+               placeholder="Password*"
+               type="password" 
+               class="form-control  mandatory" 
+               [ngClass]="{
+                'has-error  not-valid':
+                !authForm.controls['password'].valid &&
+                authForm.get('password').touched
+              }" 
+              >
+              <div
+              *ngIf="
+                !authForm.controls['password'].valid &&
+                authForm.get('password').touched
+              "
+              class="not-valid-error-msg"
+            >
+              <span
+                [hidden]="
+                  !authForm.controls['password'].errors.required
+                "
+                >{{asm.password}}</span
+              >
+            </div>
+        </div>
+        <button class="ASM-sign-button"  >SIGN IN</button>
+    </div>
+  </div>
+  </form>
+</div>
+<ng-template #customerService>
+  
+    <form 
+      class="cs-form" 
+      [formGroup]="ASMCustomerform"
+      custom-focus>
+      <div class="row"  *ngIf="errMsgObj" style="height:15px;">
+        <div class="col-6 err-msg" >
+          {{ (errMsgObj.status)?errMsgObj.description:''}}
+        </div>
+      </div>
+
+        <div class="row cs-form-block">
+          <div class="row col-7" style="margin-left:5px;">
+            <div class="col-6 cs-form-customer-blc" style="position: relative;">
+              <input type="hidden"  formControlName="customerID">
+                <input 
+                    formControlName="customer"
+                    autocorrect="off"
+                    autocomplete="off"
+                    autofocus
+                    #customerRef
+                    placeholder="Customer Name/Customer ID (Email address) *"
+                    type="text"
+                    class="form-control  mandatory cs-customer-inpt-fld"
+                    (input)="onSearchUser($event)" 
+                    (blur)="onBlurSearchUser($event)" 
+                  
+                  >
+                  <div class="cs-auto-search">
+                  <div class="cs-auto-completeBlock" *ngIf="searchResults"   [ngClass]="{'searchBlock-block':searchBlock,'searchBlock-none':!searchBlock}" >
+                      <ul>
+                          <li *ngFor="let searchItem of searchResults;"  (click)="onSelectUser($event,searchItem)">
+                              <a >
+                                 {{searchItem.firstName}}&nbsp;{{searchItem.lastName}}&nbsp;-&nbsp;{{searchItem.displayUid}}
+                              </a>
+                          </li>
+                      </ul>
+                  </div>
+                </div>
+
+            </div>
+                <div class="col-6">
+                  <input 
+                     formControlName="customerOrderId"
+                     autocorrect="off"
+                     autocomplete="off"
+                     placeholder="Order Id Number*"
+                     type="text"
+                     class="form-control  mandatory"
+                     (keydown)="onSearchOrderKeyDown($event)"
+                     (blur)="onBlurOrderSearch($event)" 
+                   >  
+                   <!-- <div *ngIf="searchOrderBlock">
+                      <div class="cs-auto-completeBlock" [ngClass]="{'searchBlock-block':searchOrderBlock,'searchBlock-none':!searchOrderBlock}" >
+                          <ul>
+                              <li *ngFor="let searchItem of searchOrderResults;"  (click)="onSelectCart($event,searchItem)">
+                                  <a >
+                                     {{searchItem.code}}
+                                  </a>
+                              </li>
+                          </ul>
+                      </div>
+                    </div>               -->
+              </div>
+            </div>
+  
+            <div class="row col-5 asm-align-center"  >
+              <button
+                  *ngIf="!startSession"
+                  (click)="onSubmitCSCustomerForm($event)" 
+                   class="col-sm-6 session_btn ASM-btn" 
+                  >
+                  START SESSION
+                </button>
+                 <div class="col-12 row asm-align-center" *ngIf="startSession"  >
+                <button class="col-5  ASM-btn asm-end-session"  (click)="onEndCustomerSession($event)">
+                  END SESSION
+              </button>
+            </div>
+            </div>
+
+     
+      </div>
+      </form>
+</ng-template>
+</div>
+
+<div class="ASMBtn-wrapper">
+  <button class="ASM-btn" (click)="onCloseBar()">
+    <i class="fa fa-angle-double-up" [ngClass]="{'fa-rotate-180':!toggleAsmHead}"  aria-hidden="true"></i>
+  </button>
+</div>
+</div>

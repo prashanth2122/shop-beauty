@@ -1,0 +1,493 @@
+@import"../../variable";
+.newsletter-body{
+    border-top: 1px #acacac solid;
+    width:964px;
+    margin-right: auto;
+    margin-left: auto;
+    text-rendering: optimizeLegibility;
+    @media screen and(max-width:768px) {
+        //background-color: #f6f6f6;
+    padding: 7px 12px 12px 12px;
+    }
+    .checkout-content {
+        width: 100%;
+        position: relative;
+        display: inline-block;
+        padding: 12px;
+        @media screen and(max-width:768px){
+            padding:0px;
+        }
+    }
+    .samples-container {
+        height: auto;
+        border: 0;
+        overflow: visible;
+        margin-top: 5px;
+        padding: 15px;
+        width: 100%;
+        overflow: hidden;
+        min-height: 300px;
+        background: $mb-white;
+        float: left;
+        justify-content: space-between;
+
+        .innerSampleContainer{
+            width:50%;
+            float: left;
+            margin: 0 0 35px 24px;
+            @media screen and(max-width:768px) {
+                width:60%;
+                margin:0 1%;
+            }
+            @media screen and(max-width:599px) {
+                width: 100% !important;
+                padding: 0;
+                margin: auto;
+                float: none;
+            }       
+        }
+        .inner-container-RightBlock{
+            width:auto;
+            float: right;
+            background-size: auto;
+            background-position: -59px 0;
+            @media screen and(max-width:768px){
+                width:35%;
+                margin:0 1%;
+            }
+            @media screen and(max-width:599px) {
+                width:96% !important;
+                margin:25px 2% 0 2%;
+                float: none;
+            }
+        }
+        .inner-container-ResultBlock{
+            width:69%;
+            float: right;
+            background-size: auto;
+            background-position: -59px 0; 
+            @media screen and(max-width:425px) {
+                width:100% !important;
+                margin-top: 25px;
+            }
+            @media screen and(max-width:769px) {
+                width: 100%;
+            }
+            img{
+                width: 65%;
+                float: right;
+            }
+        }
+
+        .confirmation-content{
+            background-color: $mb-white;
+            width: 30% !important;
+            float: left;
+            color: $primary-color;
+            @media screen and(max-width:768px) {
+                width:100% !important;
+                padding: 12px;
+                text-align: center;
+            }
+            h1{
+                font-style: italic;
+                font-size:36px;
+                padding-bottom: 20px;
+                font-weight: normal;
+                color: $primary-color;
+                @media screen and(max-width:768px) {
+                    padding: 20px;
+                    font-family: Georgia,'Times New Roman',Times,serif;
+                    font-style: italic;
+                    text-align: center;
+                }
+            }
+            h4 {
+                // width: 270px;
+                font-size:18px;
+                color: $primary-color;
+                @media screen and(max-width:768px) {
+                   font-weight: 700;
+                    text-align: center;
+                }
+            }
+            .cta {
+                width: 180px;
+                font-weight: normal;
+                background-color: $edition-color;
+                color: $mb-white !important;
+                display: inline-block;
+                font-size: 14px;
+                height: 48px;
+                line-height: 50px;
+                padding: 0;
+                margin: 20px 0 10px 0px;
+                text-decoration: none;
+                text-align: center;
+                text-transform: uppercase;
+            }
+        }
+        .newsletter-signup-form {
+            //margin: 0 0 35px 24px;
+
+            box-shadow: none;
+            h2 {
+                margin-bottom: 10px;
+                font-family: Georgia,'Times New Roman',Times,serif;
+                font-style: italic;font-size:30px;
+                @media screen and(max-width:768px){
+                    font-size:15px;
+                    text-align: center;
+                }
+            }
+            h4 {
+                margin-bottom: 20px;
+                font-size: 1em;
+                line-height: 1.1;
+                font-weight: normal;               
+                &.margin-space {
+                    margin: 20px 0 10px;
+                    text-align: left;
+                    @media screen and(max-width:768px){
+                        
+                    margin: 20px 0 0px;
+                    }
+                    span{
+                        font-size: 14px;
+                    }
+                }
+                text-align: center;
+            }
+            fieldset {
+                padding: 0;
+                margin: 0;
+                border: 0;
+                min-width: 0;
+                margin-bottom: 2px;
+            }
+        }
+        position: relative;
+        img.desk-block {
+            
+            @media screen and(max-width:768px) {
+                width:100%;
+            }
+        }
+    }
+    .form-group .radio {
+        input,label{
+        cursor: pointer;
+        }
+        display: inline-block;
+        width: auto;
+        margin-top: 10px!important;
+        margin-right:35px;
+        @media screen and(max-width:768px) {
+           margin-right:15px; 
+           margin-bottom: 0;
+        }
+    }
+
+    .newsletter-signup-form .form-checkbox .checkbox label{
+        color:$primary-color;
+        line-height: 1.42;
+        a{
+            color: inherit !important;
+            text-decoration: underline;
+            cursor: pointer;
+        }
+            }
+    .btn-default{
+        background-color: $edition-color;
+    color: $mb-white;
+
+    }
+    .lighter{
+        color:#666666;
+        @media screen and(max-width:874px){
+            //text-align: center;
+            padding-bottom: 10px;
+        }
+    }
+    .mobile-margin{
+        display: inline-block;
+    }
+    .checkbox label{
+        line-height: 12px;
+    }
+    .mb-breadcrumb-indicator{
+            color: $primary-color !important;
+        
+    }
+}
+ 
+.split-input {
+        float: left;
+        margin-right: 10px;
+        width: 115px;
+        select.form-control{
+            width:100% !important;
+        }
+        @media screen and (max-width:768px) {
+            width:32%;
+        }
+        
+        @media screen and (max-width:480px) {
+            margin-right: 5px;
+        }
+}
+
+
+@media screen and(max-width:$screen-sm) {
+    .innerSampleContainer{
+ width:70%;
+} 
+.innerSampleContainer1{
+width:30%;
+} 
+.newsletter-body{
+    width: 100%; 
+
+    .samples-container .newsletter-signup-form{
+        margin:0;
+        padding: 0;
+
+    }
+.newsletter-signup-form h2{  
+    display: block;
+    overflow: hidden;
+    padding: 15px;
+    margin: 0;
+    font-size: 15px;
+    font-weight: 700;
+    color: #000;
+}
+.samples-container{
+    padding: 12px 7px;
+    @media screen and(max-width:599px){
+        padding:0px 0;
+        margin-top: 0;
+    }
+    
+}
+}
+
+}
+.newsletter-body .samples-container .inner-container-ResultBlock img{
+    width:100% !important;
+    height: 590px;
+    @media screen and(max-width:768px){
+        height: auto;
+    }
+}
+
+.login-fields{
+    width: 300px !important;
+    position: relative;
+   
+    @media screen and(max-width:599px){
+        width:100% !important;
+    }
+}
+.newsletter-signup-form {
+    .form-control:focus{
+        border-color: $mb-skyblue !important;
+        outline: 0;
+        box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6) !important;
+    }
+    input[type="text"].form-control.not-valid, input[type="tel"].form-control.not-valid {
+        background-position: 95% 9px !important;
+        background-size: 6px !important;
+    }
+.form-group{
+    input[type="text"].form-control  {
+        display: block;
+        width: 335px;
+        height: 48px;
+        border: 1px solid $light-grey;
+        border-radius: 0;
+        padding: 6px 12px;
+        font-size: 14px;
+        line-height: 1.42857;
+        color: #555;
+        background-color: $mb-white;
+       // background-image: none;
+        box-shadow: inset 0 1px 1px rgba(0,0,0,0.075);
+        -webkit-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+        transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+        @media screen and(max-width:599px) {
+            width:100%;
+        }
+    }
+} 
+}
+.confirmation-content{
+    h4{
+        span{
+            font-size:inherit;
+        }
+    }
+}
+.terms-lbl{
+    a{
+        text-decoration: underline;
+        position: relative;
+        z-index: 777;
+    }
+}
+.login_fields{
+    width: 250px;
+    position: relative;
+    padding: 0!important;
+    display: inline-block;
+    input,select{
+        width:inherit;
+        width: 250px!important;
+        height: 25px!important;
+        padding: 0 5px!important;
+        &.not-valid{
+                background-image: url('https://www.moltonbrown.co.uk/images/exclamation-symbol.png');
+               
+                border: 1px solid $mb-error-bg !important;
+                background-repeat: no-repeat;
+          
+            background-position: 95% 2px;
+                     
+        }
+    }
+}
+.form-checkbox.newsLetter{
+    margin-bottom: 0px !important;
+    @media screen and(max-width:768px){
+        margin-bottom: 1rem !important;
+    }
+    .checkbox input[type=checkbox]{
+        width:32px;
+        height: 32px;
+    }
+    .error-block{
+        margin:10px 0;
+        span{
+        display: inline-block;
+        margin-left: 0!important;
+        color: $mb-error-bg;
+        margin: 10px 0;
+        float: none;
+        font-size: 14px;
+    }
+    } 
+}
+.form-group .checkbox {
+    position: relative;
+    display: inline-block;
+    margin-top: 10px;
+    margin-bottom: 15px;
+    width: 100%;
+    @media screen and(max-width:768px){
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+}
+.checkbox{
+.terms-lbl{
+    cursor: pointer;
+    &.terms-not-valid{
+        &:before{
+        border: 1px solid $mb-error-bg;
+        background-color: #f2dcdb;
+        }
+    }
+}
+}
+select.selectDropdown {
+    background-image: linear-gradient(45deg, transparent 50%, #666666 50%), linear-gradient(135deg, #666666 50%, transparent 50%), linear-gradient(to right, $light-grey 1%, #ebebeb 2%);
+    background-position: calc(100% - 20px) calc(14px + 8px), calc(100% - 10px) calc(15px + 7px), 100% 0;
+    background-size: 11px 11px, 11px 12px, 43px 48px;
+    background-repeat: no-repeat;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+     -ms-appearance: none;
+      -o-appearance: none;
+         appearance: none;
+        &::-ms-expand {
+        display: none;
+        }
+  }
+  select.form-control{
+    display: block;
+    height: 48px;
+    border: 1px solid $light-grey;
+    border-radius: 0;
+    margin: 5px 0;
+}
+
+  select {
+
+    margin: 0;      
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+  }
+  
+.btn{
+    width:180px;
+    margin-top:10px;
+    @media screen and(max-width:599px){
+        width:80%;
+    }
+}
+  
+  .displayFlex{
+      display: flex;
+  }
+  .flexCenter{
+      display: flex;
+      @media screen and(max-width:599px) {
+           justify-content: center;
+           text-align: center;
+      }
+     
+  }
+  .newsletter-popup{
+      max-width: 100%;
+  }
+  
+.newsletter-submit{
+    &:focus {
+        outline: 5px auto -webkit-focus-ring-color !important;
+        outline-offset: -2px !important;
+        border-color:1px solid #80c0dd;
+        box-shadow: none !important;
+    }
+    }
+ 
+        .form-checkbox.newsLetter {
+        .checkbox{
+            @media screen and(max-width:768px) {
+                padding-right: 10px;
+            }
+             label:before{
+            top:-6px;
+            @media screen and(max-width:768px) {
+            top:4px;
+            }
+        }
+        }
+        .checkbox label:after{
+            top:-2px;
+            @media screen and(max-width:768px) {
+            top:8px;
+            }
+        }
+    }
+    @media screen and(max-width:768px){
+        .newsletter-body .samples-container .newsletter-signup-form h4.mobile-center {
+            text-align: center!important;
+        }
+        
+    }

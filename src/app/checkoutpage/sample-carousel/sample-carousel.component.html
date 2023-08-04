@@ -1,0 +1,108 @@
+<div #pickerModalEl class="gift-sample-carousel picker-sample-carousel"  id="pickCarouselModal">
+  <p class="pickagain-error-msgs" id="pickerERRMSG" *ngIf="pickAgainErrMsg" >{{pickAgainErrContent}}</p>
+  
+  <ngx-slick-carousel
+    class="carousel"
+    #slickModal="slick-carousel"
+    [config]="slideConfig"
+  >
+    <div
+      ngxSlickItem
+      *ngFor="let slide of slides; let k = index; trackBy"
+      class="slide"
+    
+    >
+      <div
+        class="treat-items slick-slide slick-current sample "
+        [ngClass]="{
+          'sample-disabled': slide.status == 'pending',
+          'sample-active': slide.added == 'added'
+        }"
+      >
+      
+      <picture *ngIf="slide.code">
+        <source
+        srcset="https://media.moltonbrown.co.uk/i/moltonbrown/{{
+          slide.code
+        }}.webp?$mediumImg$ 1x, https://media.moltonbrown.co.uk/i/moltonbrown/{{
+          slide.code
+        }}.webp?mediumImgRetina$ 2x"    media="(min-width: 769px)"
+        type="image/webp"
+      />
+      <source
+      srcset="https://media.moltonbrown.co.uk/i/moltonbrown/{{
+        slide.code
+      }}.webp?$mobMediumImg$ 1x, https://media.moltonbrown.co.uk/i/moltonbrown/{{
+        slide.code
+      }}.webp?mobMediumImgRetina$ 2x"    media="(max-width: 768px)"
+      type="image/webp"
+    />
+
+      <img
+              src="https://media.moltonbrown.co.uk/i/moltonbrown/{{
+                slide.code
+              }}?"
+              srcset="https://media.moltonbrown.co.uk/i/moltonbrown/{{
+                slide.code
+              }}?$mediumImg$ 1x,https://media.moltonbrown.co.uk/i/moltonbrown/{{
+                slide.code
+              }}?$mobMediumImg$ 2x"
+              alt="{{slide.productDisplayName}}"
+              crossorigin="anonymous"
+            />
+      
+    </picture>
+        <p class="text-center treat-product-name pick-again-item">
+          {{
+            slide.productDisplayName
+              ? slide.productDisplayName
+              : slide.name
+          }}
+        </p>
+
+        <div
+          class="sample-product-info picker-product-info"
+          [ngClass]="{
+            'sample--block': slide.action,
+            'sample--hide': !slide.action
+          }"
+        >
+          <div>{{ slide.description }}</div>
+        </div>
+        <p class="text-center sample-quantity">
+          <a
+            class="showsInlineBlock"
+            [ngClass]="{
+              'sample-info-tooltip': !slide.action,
+              'close-sample-info': slide.action
+            }"
+            (click)="showTooltip($event, k)"
+          ></a>
+        </p>
+        <!-- <p class="text-center sample-quantity">30ml sample</p> -->
+        <p class="text-center sample-quantity" *ngIf="quantityRestriction.allowedQuantity==1;else multipleSample">
+          <button
+            (click)="onAddItem($event,slide)"
+            class="btn-default carousel-add-now "
+            [disabled]="slide.status == 'Added'"
+          >
+            {{(slide.status == 'Added')?'Added':'Add'}}
+          </button>
+        </p>
+        <ng-template #multipleSample>
+          <p class="text-center sample-quantity pick-again-qty" >
+            <select #pickerSelect (change)="onChangeQuant($event,k)"  class="selectDropdown">
+                <option value="0">0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+            </select>
+          </p>
+        </ng-template>
+      </div>
+    </div>
+  </ngx-slick-carousel>
+  <div class="text-center multi-select-sample" *ngIf="quantityRestriction.allowedQuantity!=1">
+      <button class="btn btn-default  carousel-add-now-picker" (click)="onAddMultiSample($event)">{{'pickerpopup.add' | translate}}</button>
+  </div>
+</div>

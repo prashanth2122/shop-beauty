@@ -1,0 +1,12 @@
+@font-face {
+    font-family: 'URW Gothic L';
+    src: url('URWGothicL-Book.eot');
+    src: url('URWGothicL-Book.eot?#iefix') format('embedded-opentype'),
+        url('URWGothicL-Book.woff2') format('woff2'),
+        url('URWGothicL-Book.woff') format('woff'),
+        url('URWGothicL-Book.ttf') format('truetype'),
+        url('URWGothicL-Book.svg#URWGothicL-Book') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+

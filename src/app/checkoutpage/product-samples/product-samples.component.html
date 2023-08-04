@@ -1,0 +1,259 @@
+<div class="clearfix">
+  <section class="basket-section sample-product-section">
+    <div class="basket-heading">
+      <div class="rowComponents justify-contents">
+        <h1 class="col-md-5">{{ "sampleAndGiftBox" | translate }}</h1>
+        <div class=" col-sm-6 col-md-3 continue-shopping-div">
+          <a class="continue-shopping " (click)="onContinueShoppingEvent()"
+            ><span></span>{{ "continueShopping" | translate }}</a
+          >
+        </div>
+        <div class="mobile-position">
+          <div
+            class=" express-check-out  pull-right"
+            [hidden]="!showExpress"
+          >
+            <button class="btn-shop-action express-btn-action" *ngIf="totalPriceValue" (click)="onSecureCheckout(true)">
+              <span></span>EXPRESS CHECKOUT
+            </button>
+          </div>
+
+          <div class="express-check-out">
+            <span *ngIf="totalPriceValue">
+              <button
+                type="button"
+                class="btn-shop-action"
+                (click)="onSecureCheckout(false)"
+                style="opacity: 1;"
+              >
+                <span></span>{{ "secureCheckout" | translate }}
+              </button>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="hazardous-entry-block" *ngIf="hazardousEntries">
+      <p [innerHtml]="hazardousData.description"></p>
+      <li *ngFor="let osBottle of  hazardousData.list">
+        <span class="redstar" >{{osBottle}}</span>       
+      </li>
+    </div>
+    <div class="orders-container">
+      <legend>{{ "sampleGiftMsg" | translate }}</legend>
+      <div class="gift-sample-carousel " *ngIf="isSlickCarouselExits">
+        <ngx-slick-carousel
+          class="carousel"
+          #slickModal="slick-carousel"
+          [config]="slideConfig"
+        >
+          <div
+            ngxSlickItem
+            *ngFor="let slide of slides; let k = index; trackBy"
+            class="slide"
+          
+          >
+            <div
+              class="treat-items slick-slide slick-current sample "
+              [ngClass]="{
+                'sample-disabled': slide.status == 'pending',
+                'sample-active': slide.added == 'added'
+              }"
+            >
+            <a 
+            title="{{countrySite}} | {{slide.productDisplayName}}">
+            <picture *ngIf="slide.code">
+              <source
+              srcset="https://media.moltonbrown.co.uk/i/moltonbrown/{{
+                slide.code
+              }}.webp?$mobMediumImg$ 1x, https://media.moltonbrown.co.uk/i/moltonbrown/{{
+                slide.code
+              }}.webp?$mobMediumImgRetina$ 2x"  media="(max-width: 768px)"
+              type="image/webp"
+            />
+            <source
+              srcset="https://media.moltonbrown.co.uk/i/moltonbrown/{{
+                slide.code
+              }}.webp?$smallImg$ 1x, https://media.moltonbrown.co.uk/i/moltonbrown/{{
+                slide.code
+              }}.webp?$smallImgRetina$ 2x"  media="(min-width: 769px)"
+              type="image/webp"
+            />
+            <img
+              src="https://media.moltonbrown.co.uk/i/moltonbrown/{{
+                slide.code
+              }}?"
+              srcset="https://media.moltonbrown.co.uk/i/moltonbrown/{{
+                slide.code
+              }}?$smallImg$ 1x,https://media.moltonbrown.co.uk/i/moltonbrown/{{
+                slide.code
+              }}?$mobMediumImg$ 2x"
+              alt="{{countrySite}} {{slide.productDisplayName}}"
+                  crossorigin="anonymous"
+              crossorigin="anonymous"
+            />
+          </picture>
+        </a>
+              <p class="text-center treat-product-name" >
+                <span [innerHtml]="slide.productDisplayName"></span>&nbsp;
+                <span [innerHtml]="slide.size" *ngIf="isocode=='DE'"></span>
+              </p>
+              <div
+                class="sample-product-info"
+                [ngClass]="{
+                  'sample--block': slide.action,
+                  'sample--hide': !slide.action
+                }"
+              >
+                <div>{{ slide.description }}</div>
+              </div>
+              <p class="text-center sample-quantity">
+                <a
+                  class="showsInlineBlock"
+                  [ngClass]="{
+                    'sample-info-tooltip': !slide.action,
+                    'close-sample-info': slide.action
+                  }"
+                  (click)="showTooltip($event, k)"
+                ></a>
+              </p>
+              <p class="text-center sample-quantity" *ngIf="slide.size"><span [innerHtml]="slide.size"></span>&nbsp;Sample</p>
+              <p class="text-center sample-quantity">
+                <button
+                  (click)="onAddItem($event,slide, k)"
+                  class="btn-default carousel-add-now "
+                  [ngClass]="{
+                    'sample--block': !slide.disabled,
+                    'sample--hide': slide.disabled
+                  }"
+                  [disabled]="slide.status == 'pending'"
+                >
+                {{ "add" | translate }}
+                </button>
+                <button
+                  (click)="onRemoveItem(slide, k)"
+                  class="btn-default carousel-remove-now "
+                  [ngClass]="{
+                    'sample--block': slide.disabled,
+                    'sample--hide': !slide.disabled
+                  }"
+                >
+                {{'basketpage.remove' | translate}}
+                </button>
+              </p>
+            </div>
+          </div>
+        </ngx-slick-carousel>
+        <div class="text-center ps-dl-restriction" *ngIf="dlRestriction">
+            <a
+            (click)="onOpenCartModal()"
+            data-toggle="modal"
+            data-target="#modalCheckoutPopup"
+            >International delivery restrictions</a
+          >
+        </div>
+      </div>
+      <div class="dl-overlay"  [ngClass]="{'dl-overlay-show':pageLoad,'dl-overlay-hide':!pageLoad}">
+          <div class="b2c-title"> 
+                  <span class="loading-txt"> loading... </span>  
+          </div>
+      </div>
+    </div>
+    <!-- <form [formGroup]="giftMessageForm" custom-focus>
+      <app-giftwrap
+        #giftWrapEl
+        [giftMessageForm]="giftMessageForm.get('giftCard')"
+      ></app-giftwrap>
+    </form> -->
+  </section>
+
+  <div class="basket-footer-container">
+    <div class="secure-block secure-mob-nodisplay">
+      <div class="text-uppercase security-label" style="opacity: 1;">
+        {{ "securityGauranteed" | translate }}
+      </div>
+      <div class="payment-gateway-icons rowComponents" style="opacity: 1;">
+        <span class="norton-secure"></span>
+        <span class="visa-secure"></span>
+        <span class="master-card"></span>
+        <span class="american-express"></span>
+        <span class="vpay-secure"></span>
+        <span class="paypal-secure"></span>
+        <span class="mb-secure"></span>
+      </div>
+    </div>
+    <div class="order-subtotal-block" *ngIf="totalPriceValue"> 
+      <div class="order-subtotal" style="opacity: 1;" *ngIf="cartEntryObj">
+        <span> {{ "subTotal" | translate }}</span>
+        <span class="">
+          {{ cartEntryObj.totalPriceWithTax.formattedValue }}</span
+        >
+      </div>
+      <div>
+        <div
+          class=" express-check-out"
+          [hidden]="!showExpress"
+        >
+        <button class="btn-shop-action express-btn-action" *ngIf="totalPriceValue" (click)="onSecureCheckout(true)">
+            <span></span>EXPRESS CHECKOUT
+          </button>
+        </div>
+        <div class="express-check-out">
+          <span *ngIf="totalPriceValue">
+            <button
+              type="button"
+              class="btn-shop-action"
+              (click)="onSecureCheckout(false)"
+              style="opacity: 1;"
+            >
+              <span></span>{{ "secureCheckout" | translate }}
+            </button>
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <div class="secure-block mobile-secure-disply">
+      <div class="text-uppercase security-label" style="opacity: 1;">
+        {{ "securityGauranteed" | translate }}
+      </div>
+      <div class="payment-gateway-icons rowComponents" style="opacity: 1;">
+        <span class="norton-secure"></span>
+        <span class="visa-secure"></span>
+        <span class="master-card"></span>
+        <span class="american-express"></span>
+        <span class="vpay-secure"></span>
+        <span class="paypal-secure"></span>
+        <span class="mb-secure"></span>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+<div
+class="modal"
+id="modalCheckoutPopup"
+tabindex="-1"
+role="dialog"
+aria-hidden="true"
+>
+<div
+class="chck-modal-dialog modal-dialog modal-full container modal-dialog-scrollable modal-lg checkout-modal"
+role="document"
+>
+<div class="modal-content">
+  <div class="chck-modal-header modal-header">
+    <button type="button" class="close" data-dismiss="modal">
+      &times;
+    </button>
+    <h4 class="modal-title text-center">DELIVERY INFORMATION</h4>
+  </div>
+  <div class="modal-body chck-modal-body" >
+    <span  #policyEl></span>
+  </div>
+</div>
+</div>
+</div>

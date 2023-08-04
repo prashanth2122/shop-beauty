@@ -1,0 +1,382 @@
+<div class="nav-bar no-margin tab-hide">
+        <div class="mainmenu">
+            <ul class="nav justify-content-center mainmenu-container ">
+                <li class="sub-dropdown  dropbtn mb-productCategory" (mouseleave)="onmouseLeave()"
+                    [ngClass]="{
+                        'dropbtn-bg':item.bg,
+                        'dropbtn-bg-none':!item.bg,
+                        'hide-menu-cntnt':!item.name
+                    }"
+                    *ngFor="let item of catalogmenu; let i = index" 
+                    (mouseenter)="onHoverCategory(item,i)"
+                     [hidden]="item.order ==100">
+                    <a 
+                       [ngClass]="{'highlightEditorial':item.name=='editorial'}"
+                        [style.color]="(item.fontColour)?item.fontColour:'#000'"
+                        style="text-decoration:none;"    
+                        routerLink="{{getRouterPath(item)}}" 
+                        routerLinkActive="active"  
+                        (click)="onShowMbCategoryProduct($event,item)"
+                        [innerHtml]="item.categoryDisplayName | safe: 'html'"
+                        >
+                        
+                    </a>
+                    <div class="sub-menu edi-block"
+                     [ngClass]="{'submenu-ds-block':item.bg,'submenu-ds-none':!item.bg}" 
+                      (mouseleave)="onmouseLeave()">
+                    <div  *ngIf="item.categoryDisplayName !='Editorial';else editorialblock">
+                        <div *ngIf="item.subcategories" >
+                          <div 
+                            *ngFor="let section of item.subcategories;let sectionId=index" 
+                            [ngClass]="{'sm-section-block-two':sectionId !=0 ,'sm-section-block':section.length,'sm-dynamic-block':!section.length}">
+                            <div *ngIf="section.length;else dynamicBlock">
+                              <div *ngFor="let cntnt of section;let ji=index;" 
+                                 [ngClass]="{
+                                     'menu-lvl-three':cntnt.isL3 ,
+                                     'menu-lvl-two':!cntnt.isL3,
+                                     'menu-lvl-two-active':!cntnt.parent&&cntnt.isL3
+                                    }">                         
+                                <h3 *ngIf="!cntnt.isL3&&cntnt.categoryDisplayName" class="primary-category"   [innerHtml]="cntnt.categoryDisplayName | safe: 'html'"></h3>    
+                                 <a 
+                                    *ngIf="cntnt.isL3&&cntnt.categoryDisplayName" 
+                                    routerLink="{{getRouterPath(cntnt)}}" 
+                                    routerLinkActive="active" 
+                                    (click)="onClickSubCategory($event,cntnt)" 
+                                    >
+                                    <span [innerHtml]="cntnt.categoryDisplayName | safe: 'html'">
+                                    </span>
+                                </a>
+                              
+                                </div>
+                            </div>
+                            <ng-template #dynamicBlock>
+                                    <div *ngFor="let content of section.content" class="highlight" style="padding: 15px 0 0 15px;">
+                                            <span [innerHtml]="content.templatename| safe: 'html'"></span>
+                                        </div>
+                            </ng-template>
+                          </div>                       
+                        </div>
+                        </div>
+                        <ng-template #editorialblock>
+                            <div class="editorial_block">
+                                <div class="editorial-links">
+                                    <ul>
+                                        <li>
+                                         <a href="/store/journal/lifestyle">{{'editorial.Lifestyle' | translate}}</a></li>
+                                        <li><a href="/store/fragrance/perfume-collective">{{'editorial.Fragrance' | translate}}</a></li>
+                                        <li><a href="/store/journal/meet-the-perfumers">{{'editorial.Perfumers' | translate}}</a></li>
+                                        <li><a href="/store/journal/Travel">{{'editorial.Travel' | translate}}</a></li>
+                                        <li><a href="/store/journal/News">{{'editorial.News' | translate}}</a></li>
+                                    </ul>
+                                </div>
+                                <div class="rowComponents justify-content-center" *ngIf="item.ampContent">
+                                    <div class="highlight" *ngFor="let ampContent of item.ampContent">
+                                        <p [innerHtml]="ampContent.templatename| safe: 'html'"></p>
+                                        <!-- <a> <img height="208" alt="2019-valentines-orange-bergamot-mm"
+                                                src="https://www.moltonbrown.co.uk/MBPromoImages/MegaMenu/Generic/2019-mothersday-suede-btf-editorial-mm.jpg"></a>
+                                        <div class="bottom-text text-center">
+                                            <h3 class="">Orange &amp; Bergamot</h3>
+                                            <p class="">Awaken the Senses...<span class="dynamic-cta"><a
+                                                        href="/store/collections/orange-bergamot/catUKFNaranJi/"
+                                                        class="black-color">{{'Editorial.readMore' | translate}}</a></span>
+                                            </p>
+                                        </div> -->
+                                    </div>
+                                    <!-- <div class="highlight">
+                                        <a> <img height="208" alt="2019-valentines-orange-bergamot-mm"
+                                                src="https://www.moltonbrown.co.uk/MBPromoImages/MegaMenu/Generic/2019-valentines-bathing-editorial-mm.jpg"></a>
+                                        <div class="bottom-text text-center">
+                                            <h3 class=" ">Orange &amp; Bergamot</h3>
+                                            <p class="">Awaken the Senses ...
+                                                <span class="dynamic-cta"><a
+                                                        href="/store/collections/orange-bergamot/catUKFNaranJi/"
+                                                        class="black-color">{{'Editorial.readMore' | translate}}</a></span></p>
+                                        </div>
+                                    </div> -->
+                                </div>
+                            </div>
+                        </ng-template>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <!-- sidenav starts -->
+    
+    
+    
+    
+    
+    
+    <div #mySidenav id="mySidenav" class="sidenav"
+        [ngClass]="{
+             'mb-menu-block':sidemenuStatus,
+             'mb-menu-none':!sidemenuStatus
+            }">
+            <input type="hidden" id="sidenavInput">
+        <div class=" searchbox searchBar ">
+            <form 
+            [formGroup]="searchForm" 
+            (keydown)="keyMobDownFunction($event)"
+            (ngSubmit)="onSubmitMobForm($event)"  
+            >
+                <div class="ui-input-text ui-shadow-inset ui-corner-all ui-btn-shadow ui-body-c ui-mini">
+                    <input (click)="onTapSearchIcon($event)"  class="search-submit-button pull-right" type="button" >
+                    <input 
+                        #searchInput
+                        formControlName="search"
+                        class="searchText"
+                        type="text"
+                        title="Search" 
+                        autocomplete="off"
+                        placeholder="{{'menu.mobileSearch' | translate}}"
+
+                        (input)="onEnterSearcKeyUp($event)"  
+                        >
+                </div>
+                <button 
+                class="mob-search-close-icon"  
+                (click)="onResetSearchIcon($event)"   
+                type="reset" 
+                [ngClass]="{
+                    'searchBlock-block':searchBlockClose,
+                    'searchBlock-none':!searchBlockClose
+                }">
+            </button>
+             
+            </form>
+                <div class="mob-auto-completeBlock"   [ngClass]="{'searchBlock-block':searchBlock,'searchBlock-none':!searchBlock}"     >
+                <ul>
+                        <li *ngFor="let searchItem of searchResults;"  (click)="onMenuSearchProduct($event,searchItem)">
+                            <a >
+                                <picture>
+                                    <source
+                                     srcset="{{searchItem.amplienceImageName}}.webp?$thImg$ 1x, {{searchItem.amplienceImageName}}.webp?$thImgRetina$ 2x"
+                                     type="image/webp"  media="(min-width: 769px)"
+                                    />
+                                    <source srcset="{{searchItem.amplienceImageName}}.webp?$thImg$ 1x,{{searchItem.amplienceImageName}}.webp?$thImgRetina$ 2x" type="image/webp" media="(max-width: 768px)">
+                                    <img
+                                    src="{{searchItem.amplienceImageName}}?"
+                                    srcset="{{searchItem.amplienceImageName}}?$thImg$ 1x, {{searchItem.amplienceImageName}}?$thImgRetina$ 2x "  >
+                                 </picture>
+                                <div *ngIf="searchItem.categoryDisplayName" [innerHtml]="searchItem.categoryDisplayName"></div>
+                                <div *ngIf="searchItem.productDisplayName" [innerHtml]="searchItem.productDisplayName"></div>
+                          </a>
+                        </li>
+                    </ul>
+                    <button class="search_more1" (click)="onSearchMoreResults()">
+                        more results
+                    </button>
+                </div>
+     
+        </div>
+        <a class="store_tab side-menu-tab" (click)="onFindStoreClick()">
+            {{'menu.findAStore' | translate}}<span class="findstore">&nbsp;</span>
+        </a>
+        <div id="accordion1" class="country" >
+            <div class="sidemenu-header collapsed  sidemenu-cntnt-box " href="#collapseCatalog" 
+             data-toggle="collapse"> 
+                <a class="sidemenu-title no-margin side-menu-tab"> {{'menu.changeCountry' | translate}}  </a>
+            </div>
+            <div id="collapseCatalog" class="collapse country-menu " data-parent="#accordion1">
+                 
+                            <div class="policiesSub-title" *ngFor="let data of baseSiteCountries"    [hidden]="data.current">
+                                <div class="collapsed" >
+                <a class=" country-list" [ngClass]="{
+                    store_eu: data.isoCode == 'EU',
+                    store_uk: data.isoCode == 'GB',
+                    store_de: data.isoCode == 'DE',
+                    store_us: data.isoCode == 'US',
+                    store_jp: data.isoCode == 'JP'
+                  }"
+                  (click)="onSiteChange (data)"
+                   >
+                    &nbsp;{{data.countryName}}
+                </a>
+                </div>
+                </div>
+    
+            </div>
+        </div>
+    
+        <div class=" sidemenu-cntnt-box">
+            <div class="sidemenu-title no-margin side-menu-tab side-home" (click)="gotoHome()">
+                {{'menu.home' | translate}}
+            </div>
+            </div>
+        <div 
+             id="accordion" 
+             *ngFor="let sidemenu of catalogTree; let menuId= index" 
+             [hidden]="sidemenu.order ==100">
+            <div 
+                 class="sidemenu-header collapsed  sidemenu-cntnt-box"
+                 data-toggle="collapse"
+                 [attr.href]="'#collapseOne'+sidemenu.id"
+                 [ngClass]="{'subCat-none':!sidemenu.subcategories}"
+                *ngIf="sidemenu.categoryDisplayName !='Editorial';else editorialBlock ">
+              
+                <a 
+                  class="sidemenu-title no-margin side-menu-tab" 
+                  [style.color]="(sidemenu.fontColour)?sidemenu.fontColour:'#000'" 
+                  [innerHtml]="sidemenu.categoryDisplayName | safe: 'html'">
+                </a>
+            </div>
+            <ng-template #editorialBlock>
+              <div    class=" sidemenu-cntnt-box">
+                <div 
+                    class="sidemenu-title no-margin side-menu-tab editorialFont" 
+                    (click)="onShowEditorialPage($event,sidemenu)" [innerHtml]="sidemenu.categoryDisplayName | safe: 'html'">
+                </div>
+                </div>
+            </ng-template>
+            <div [attr.id]="'collapseOne'+sidemenu.id " class="collapse submenuSide" data-parent="#accordion">
+                <div [attr.id]="'accordion'+sidemenu.id ">
+                    <div *ngFor="let subMenus of sidemenu.subcategories; let subId= index" 
+                          [ngClass]="{
+                              'discard-toggle':(subMenus.subcategories)?(subMenus.subcategories.length ==0)?true:false:true
+                            }">
+                        <div class="side-menu-tab sidemenu-header collapsed sidemenu-dropdown-layer-two list-group-sub-item dropdown"
+                            data-toggle="collapse" [attr.href]="'#collapseSub'+subMenus.id"
+                            (click)="onShowcategory($event,subMenus)" [ngClass]="{'subCat-none':subMenus.titleName}">
+                            <span class="sidemenu-title no-margin" [innerHtml]="subMenus.categoryDisplayName | safe: 'html'">
+                            </span>
+                        </div>
+                        <div [attr.id]="'collapseSub'+subMenus.id" class=" collapse "
+                            [attr.data-parent]="'#accordion'+menuId">
+                            <div *ngFor="let trackMenu of subMenus.subcategories; let trackId index">
+                                <div class="trackmenuList ede" (click)="onShowMbSubCategoryProduct($event,trackMenu)">
+                                    <span [innerHtml]="trackMenu.categoryDisplayName | safe: 'html'"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>    
+            </div>    
+        </div>
+    
+      <div *ngIf="!checkuser();else loggedBlock">
+        <div class=" sidemenu-cntnt-box">
+            <a class="sidemenu-title no-margin side-menu-tab" (click)="onTapLogin()">{{'menu.signIn' | translate}} </a>
+        </div>
+        <div class=" sidemenu-cntnt-box">
+            <a class="sidemenu-title no-margin side-menu-tab" (click)="onTapRegister()">{{'menu.register' | translate}}</a>
+        </div>
+    </div>
+    <ng-template #loggedBlock>
+        <div class=" sidemenu-cntnt-box">
+            <a class="sidemenu-title no-margin side-menu-tab" (click)="onTapAccount()"> {{'menu.myAccount' | translate}} </a>
+        </div>
+        <div class=" sidemenu-cntnt-box">
+            <a class="sidemenu-title no-margin side-menu-tab" (click)="onTapLogut()">{{'menu.logOut' | translate}}</a>
+        </div>
+    </ng-template>
+        <div class=" sidemenu-cntnt-box">
+            <a class="sidemenu-title no-margin side-menu-tab" (click)="onTapNewsLetter()"> {{'menu.newsLetter' | translate}}</a>
+        </div>
+    
+    
+    
+        <div id="accordion" *ngFor="let policies of footerData; let polcyID= index">
+            <div class="sidemenu-header collapsed  sidemenu-cntnt-box " data-toggle="collapse"
+                [attr.href]="'#collapseOne'+polcyID" (click)="onPolicesCntntClick($event,policies)">
+                <a class="sidemenu-title no-margin side-menu-tab policies-title"
+                    [ngClass]="{'sub-block-none':!policies.data}" >
+                    {{policies.name}}
+                </a>
+            </div>
+            <div [attr.id]="'collapseOne'+polcyID" class=" collapse" data-parent="#accordion">
+                <div [attr.id]="'accordion'+polcyID">
+                    <div class="policiesSub-title" *ngFor="let policiesSub of policies.data; let subId= index">
+                        <div class="collapsed" data-toggle="collapse" [attr.href]="'#collapseSub'+subId">
+                            <a class="sidemenu-title no-margin" (click)="onFooterCntntClick($event,policiesSub)">
+                                {{policiesSub.name}}
+                            </a>
+                        </div>
+    
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+    </div>
+    <!-- sidenav ends -->
+    <div 
+        class="catalog-backdrop" 
+        (swipe)="swipMenu($event)" 
+        (mouseenter)="onhidesubmenu()" 
+        (click)="toggleMenu($event)"
+        [ngClass]="{
+             'catalog-backdrop-block':mouseEnter
+            }">
+      </div>
+    
+        
+    <div
+    class="modal"
+    id="popupmobilecountryChange"
+    tabindex="-1"
+    role="dialog"
+    aria-hidden="true"
+    >
+    <div class="modal-dialog modal-full" role="document">
+      <div class="modal-content">
+        <div class="modal-body modal-country-height">
+          <button
+            type="button"
+            class="close"
+            data-dismiss="modal"
+            aria-label="Close"
+          >
+            <img
+              src="https://www.moltonbrown.co.uk/images/close_black.png?version=16"
+            /></button
+          ><br />
+    
+          <div class="text-center cg-country mb-cg-country">{{'changeCountrypopup.Heading' | translate}}</div>
+        
+          <p class="cg-country-sub text-center">
+            {{'changeCountrypopup.middleText' | translate}}
+          </p>
+  
+          <p class="text-center">
+            {{'changeCountrypopup.textSet1' | translate}}
+          </p>
+  
+          <p class="text-center">
+            {{'changeCountrypopup.textSet2' | translate}}
+          </p>
+          
+          <p class="text-center">
+            {{'changeCountrypopup.textSet3' | translate}}<br />
+            Molton Brown
+          </p>
+          <div class="form-inline text-center">
+            <button
+              class=" countryPop countryPopCancel"
+              (click)="onCancelModal(false)"
+              data-dismiss="modal"
+            >
+            {{'menu.cancel' | translate}}
+            </button>
+            <button
+              class=" countryPop countryPopConfirm"
+              (click)="onCancelModal(true)"
+              data-dismiss="modal"
+            >
+            {{'menu.confirm' | translate}}
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+    

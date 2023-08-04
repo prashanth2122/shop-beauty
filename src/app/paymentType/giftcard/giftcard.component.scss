@@ -1,0 +1,363 @@
+@import"../../../variable";
+.giftcard fieldset legend{
+    font-size: 14px !important;
+}
+.monthYearAlign{
+    .custom-dropdown.big{
+        select{            
+         margin-right:10px;
+        }
+    }
+}
+.giftcard_block{
+    .monthYearAlign {
+        display:flex;
+    }
+    .not-valid-error-msg{
+        width:305px;
+        @media screen and(max-width:768px){
+            width:90%;
+        }
+    } 
+        @media screen and (max-width:$screen-sm){
+            input[type="text"].form-control, input[type="tel"].form-control{
+                width:100%
+            }
+            
+            input[type="text"].form-control.contextHlp, input[type="tel"].form-control.contextHlp{
+                width: calc(100% - 24px) !important;
+
+            }
+        }
+    .contextual-help{
+        right:31%;
+        top:3px;
+        @media screen and (max-width:$screen-sm){
+            right:0%;
+        }
+    }
+    legend{
+        @media screen and (max-width:$screen-sm){
+            font-size:15px !important;
+        }
+        font-size:18px !important;
+    }
+    .split-card-text{
+        color: #000;
+        font-weight: 700;
+    }
+    
+    .radio{
+        input,label{
+        cursor: pointer;
+        }
+    }
+ .redstar{
+     padding-bottom: 10px;
+     font-size: 14px;
+     a{
+         text-decoration: underline;
+         cursor: pointer;
+     }
+ }   
+}
+.payer-saved-address {
+    position: relative;
+    color: $primary-color;
+    .form-group{
+         margin-top:10px;
+    }
+    p{
+        span{
+            font-size:14px;
+        }
+    }
+}
+
+.jointxttwo , .jointxtone{
+    margin-bottom: 15px;
+    span{
+        font-size: 14px;
+     color: $primary-color
+    } 
+}
+.jointitle, .tctitle {
+    font-size: 1.2em;
+    margin: 0 0 12px!important;
+}
+.ml-5{
+    margin-left:5px;
+}
+.split-form{
+    border-top:1px solid $light-grey;
+    padding-top:20px;
+  .splittext-changebilling{
+    font-weight: 700;
+    font-size: 18px;
+    margin: 0 0 12px 0;
+    line-height: 1.1;
+    color: #000000;
+}
+
+
+    
+}
+.section-heading{
+    h2{
+        font-size: 18px;
+        margin: 0 0 12px 0;
+    }
+    legend{
+    font-size:16px !important;
+    color: $primary-color;
+    border: 0;
+    margin: 0 0 12px 0;
+    display: block;
+    width: 100%;
+    padding: 0;
+    line-height: 1.42857;
+    }
+}
+.saved-address {
+    position: relative;
+    color: $primary-color;
+    // font-weight: 900;
+    width:99%;
+    p{
+        width:49%;
+    }
+}
+.change-address-btn{
+    position: absolute;
+    text-align: right;
+    right: 0;
+    bottom: -10px;
+    font-size: 16px;
+    color:$edition-color !important;
+    font-weight:normal;
+    text-decoration: underline !important;
+    cursor: pointer;
+}
+.save_details{
+    border-bottom:1px solid $light-grey;
+    margin:8px 0;
+}
+
+input.form-control.short-field{
+    width: 110px !important;  
+}
+.btn-find-address{
+    width:180px;
+    @media(max-width:$screen-sm){
+        width:100% ;
+    }  
+}
+.btn-default {
+    background-color: $edition-color;
+    color: $mb-white;
+}
+.form-inline  .form-group, .form-inline .radio-inline {
+    margin-right: 10px;
+}
+
+.securityCode{
+    position: relative;
+    width: 160px !important;
+    input{
+        width: 160px !important;
+    }
+    @media(max-width:$screen-xs-min){
+        // width: 100% !important;
+        input{
+            width: 100% !important;
+        }
+    }
+
+.contextual-help{
+    left:140px;
+}
+}
+select.form-control {
+    display: block;
+    height: 48px;
+    border: 1px solid $light-grey;
+    border-radius: 0;
+    margin: 5px 0;
+}
+.postcodesearchreset a{
+  text-decoration: underline !important;
+}
+.card-entry-form{
+    input{
+        &.form-control{
+            width:335px;
+            @media screen and(max-width:768px){
+                width:100%;
+            }
+        }
+          }
+}
+
+input.form-control.short-field{
+    width: 110px !important;  
+}
+.bl_checkbox{
+    height:auto;
+    margin-top:15px;
+    input[type="checkbox"]{
+    &:checked{
+        ~{
+            .check-error-msg-bottom{
+                display:none;
+            }
+        }
+    }
+    ~{
+        .check-error-msg-bottom{
+            display:block;
+        }
+    }
+    }
+    .bl-err-block{
+        padding-top:5px;
+    }
+}
+.error-info-block{
+    .err_msg {
+      color: $err-color;
+      text-transform: none;
+      padding-right: 5px;
+      font-weight: 400;
+      font-size: 14px;
+      margin: 5px 0px;
+      color: $err-color;
+      a{
+        font-weight: 400;
+        text-transform: none;
+        text-decoration: underline;
+        font-size: 14px;
+        margin: 5px 0px;
+        color: $err-color !important; 
+      }
+    }
+}
+
+.b2c-title{
+    &::first-letter{
+        text-transform: uppercase;
+    }
+    &.pay-load{
+        width: 100%;
+        text-align: center;
+        font-size: 14px;
+        display: flex;
+        place-content: center;
+        .load-txt{
+            margin-top: 2px;
+        }
+       span.pay-load-text{
+        width: 100%;
+        margin: 8px;
+        font-size: 14px;
+       }    
+    }
+}
+
+.terms-lbl{
+    a{
+        text-decoration: underline;
+        position: relative;
+        z-index: 777;
+    }
+    &.terms-not-valid{
+        &:before{
+        border: 1px solid $mb-error-bg;
+        background-color: #f2dcdb;
+        }
+    }
+}
+.terms-error-msg-bottom{
+ span{
+     color:$mb-error-bg;
+     font-size: 14px;
+ }   
+}
+.bl_checkbox{
+    .checkbox{ 
+        label{
+            height:35px;
+        }
+    }
+ }
+ .save_card-block{
+    border-top: 0;
+    border-top: 1px solid $light-grey;
+    padding-top: 0;
+    margin-bottom: 10px;
+    margin-top: 20px;
+    legend{
+        padding-top: 10px;
+        font-weight: 700;
+    }
+    .form-group{
+        .checkbox{
+            margin-bottom: 0px;
+        }
+    }
+}
+.save_card-block{
+    .checkbox{
+        label{
+            &::before{
+                top: -4px;
+            }
+        }
+    }
+}
+.bl_checkbox{
+        label{
+            &::before{
+                top: -4px;
+            }
+        }
+}
+.b2c-title.pay-load {
+    top:15px !important;
+}
+
+@media screen and(max-width:768px){
+    .form-group.giftPinHelp ngb-tooltip-window {
+            -webkit-transform: none !important;
+            -ms-transform: none !important;
+            transform: none !important;
+            background-color: #dc282800 !important;
+            left: auto !important;
+            right: 0;
+            top: -85px !important;
+            &.bs-tooltip-right .arrow::before {
+              right: 0;
+              border-width: 0.4rem .4rem .4rem 6px;
+              border-right-color: #0000;
+              border-top-color: black;
+              top: 44px;
+          }
+        }
+        .form-group.giftPayHelp ngb-tooltip-window {
+                -webkit-transform: none !important;
+                -ms-transform: none !important;
+                transform: none !important;
+                background-color: #dc282800 !important;
+                left: auto !important;
+                right: 0;
+                top: -48px !important;
+                &.bs-tooltip-right .arrow::before {
+                  right: 0;
+                  border-width: 0.4rem .4rem .4rem 6px;
+                  border-right-color: #0000;
+                  border-top-color: black;
+                  top: 27px;
+              }
+            }
+
+
+    }

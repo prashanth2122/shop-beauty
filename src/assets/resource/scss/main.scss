@@ -1,0 +1,12 @@
+@font-face {
+	font-family: 'Century Gothic Regular';
+	font-style: normal;
+	font-weight: normal;
+	src: local('Century Gothic Regular'), url('fonts/GOTHIC.woff') format('woff');
+}
+
+body {
+	font-family:'Century Gothic Regular','Century Gothic','URW Gothic L', Verdana, sans-serif;
+	color: #000;
+	-webkit-font-smoothing: antialiased;
+}

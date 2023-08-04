@@ -1,0 +1,244 @@
+@import"../../variable";
+.pickmix{
+    padding: 0 ;
+    position: relative;
+    overflow: visible;
+    &.pickmix-conatiner {
+        width: 964px;
+        margin: 15px auto 0;
+        text-align: center;
+        flex: 1 0 auto;
+        -webkit-box-flex: 1 0 auto;
+        -ms-flex: 1 0 auto;
+        // padding: 0 15px;
+        @media screen and(max-width:768px) {
+        width:100%;
+        margin-top: 0;
+        }
+   }
+    h1{
+        font-size: 28px;        
+        line-height: 20px;        
+        margin-top:55px;
+        @media screen and(max-width:768px) {
+            font-size:24px;
+            text-align: left;
+            margin-top:30px;
+        }
+    }
+    h2{
+        font-size:18px;
+        line-height: 20px;
+        margin:10px 0 30px;
+        
+        @media screen and(max-width:768px) {
+        text-align: left;
+        }
+    }
+    .pickmix-sticky-wrapper{
+        position: sticky;
+        top:0px;
+        z-index: 33;
+        @supports (position: sticky) {
+              position: sticky;
+              top: 0; // Threshold is required
+            
+          }
+        li{
+            text-transform:uppercase;
+        }
+    }
+
+.pm-initial-wrapper{
+    position: initial !important;
+}
+.active_bg{
+    background-color:#47a1c5 ;
+    
+}
+.continue-container{
+    span{
+        display: inline-block;
+        text-align: center;
+        margin: 0 20px;
+    }
+}
+}
+.modal-content{
+    button{
+        text-transform: uppercase;
+    }
+}
+
+
+.cta{
+    min-width: 160px;
+    color: $mb-white;
+    background-color: $primary-color;
+    border: 0;
+    font-size: 15px;
+    text-transform: uppercase;
+    border-radius: 0;
+    -webkit-transition: background-color .5s ease;
+    transition: background-color .5s ease;
+    padding: 6px 12px;line-height: 1.33;
+    @media screen and(max-width:768px){
+        min-width:55% !important;
+        font-size: 12px;
+    }
+}
+.disable-btn{
+    color: $mb-white;
+    background-color: #5a5a5a;
+    border: 0;
+    opacity: 1;
+}
+.pm-modal-cta-conatiner{
+    display: flex;
+    justify-content: space-evenly;
+
+    button{
+        min-width: auto !important;
+        font-size:14px;
+        padding: 10px 5px;
+        @media screen and(max-width:768px){
+            font-size: 12px;
+            padding: 10px 11px;
+        }
+    }
+    .disable-btn{
+        margin-left: -15px;
+        &:hover{
+    background-color: $mb-pickmix-grey;
+    border-color: $mb-pickmix-lightgrey;
+        }
+    }
+    .pixmix-button{
+        margin-right: -15px;
+        &:hover{
+    background-color: $mb-pickmix-darkgrey;
+    border-color: $mb-pickmix-blue;
+
+        }
+    }
+}
+
+ #pickMixStore{
+    background: rgba(0, 0, 0, 0.8) !important;
+    .modal-dialog {
+        width: 358px;
+        height: 100% !important;
+        @media screen and (max-width:768px){
+            height: 304px!important;
+        }
+    }
+    .modal-content{
+        background-color: rgba(255,255,255,0.95) !important;
+        top: 0;
+    }
+    .modal-header{
+        padding: 20px 15px 15px !important;
+        margin: -1px 0 0px -1px;
+
+    .modal-title{
+    font-size: 1.4166666667em !important;
+    color: $mb-white;
+    @media screen and (max-width:768px){
+        color: #000;
+        font-weight: 700;
+    }
+    }
+    
+    }
+    @media (max-width: 768px){
+       
+   .modal-dialog {
+       max-width:300px;
+   }
+}
+    .modal-header{
+        background: $edition-color;
+        min-height: 16px;
+        justify-content: center;
+        color: $mb-white;
+        padding: 5px;
+        @media screen and (max-width:768px){
+            background: none;
+            border-bottom: 0;
+        }
+    }
+}
+#pickmix-amp-content{
+    margin-top:30px;
+    padding: 0 12px;
+    @media screen and (max-width:768px){
+        margin-top:20px;
+    }
+    .amp-dc-banner .amp-dc-banner-info-wrap.amp-dc-info-bottom{
+        position: absolute;
+        vertical-align: middle;
+    }
+    .pick-mix .amp-dc-banner-info{
+        padding: 28px 28px 0 0;
+        @media screen and (max-width:768px) {
+            
+        padding: 28px 0px 0 0;
+        }
+        .amp-dc-banner-header, .amp-dc-banner-subheader, .amp-dc-banner-description{
+            font-size: 19px;
+            line-height: 11px;
+            color: $mb-white;
+            text-align: right;
+            font-family: georgia;
+            font-style: italic;    margin-bottom: 19px;
+            @media screen and (max-width:768px) {
+                color:$primary-color;
+                font-size: 17px;
+            }
+            p{
+                color: $primary-color;
+            }
+        }
+    }
+}
+#pickmix-amp-content .pick-mix .amp-dc-banner-info .amp-dc-banner-subheader,#pickmix-amp-content .pick-mix .amp-dc-banner-info .amp-dc-banner-header{
+    color:$primary-color !important;
+}
+.pickmix-conatiner{
+  .pickmix-section{
+      .margin-top-20{
+          .cta{
+            padding: 10px 16px;
+       
+            @media screen and (max-width:768px) {
+                width:100%!important;
+            
+            }
+          }
+      }
+
+  }  
+}
+.fistPagePickandMix{
+padding: 0 15px;
+}
+
+@media screen and (max-width:768px) {
+.pick-mix{
+    position: relative;
+    .amp-dc-banner-info-wrap{
+        position: absolute !important;
+        
+    }
+}
+.pic-mix-mob-space {
+    padding: 6px 0;
+}
+}
+button{
+    &.cta{
+        &:disabled{
+            cursor: not-allowed;
+        }
+    }
+}

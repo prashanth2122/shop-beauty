@@ -1,0 +1,226 @@
+<div *ngIf="billingAddress;else changeBillingAddress">
+    <div class="error-info-block">
+      <div class="err_msg" *ngIf="outofStock">
+        <p class="err_form_msg">
+          We're sorry you have selected more of the following product(s) than are in stock.
+          Please change the quantity to a number that's available.Thanks.
+        </p>
+        <div class="stock-list" >
+          <li class="err_form_msg" *ngFor="let data of outofStockList">
+            {{ data.name }}
+          </li>
+        </div>
+      </div>
+        <div class="err_msg"  *ngIf="errorvalidationMsg">
+          {{'invalidcard.errormsgblock' | translate}}
+            <br>
+            <br>
+            <div>
+              {{'invalidcard.emailandphone' | translate}} <br>
+              <a href="mailto:{{'invalidcard.emailId' | translate}}">{{'invalidcard.emailId' | translate}}</a>
+            </div> 
+            <br>
+        </div>
+    </div>
+    <form  
+    [formGroup]="sepaDetailForm"
+    (keydown)="onEnterSepaDetailSubmit($event)"
+    (ngSubmit)="onSepaDetailSubmit($event)" 
+    custom-focus>
+    <section class="sepa-form-section">
+      <div class="section-heading">
+        <h2>{{'paymentCard.yourBillAdd' | translate}}</h2>
+      </div>
+      <div style="display:block">
+        <div class="payer-saved-address clearfix">
+          <div>
+            <div class="saved-address clearfix">
+          
+                <p *ngIf="shippingAddress.customerAddress">
+                      <!-- <input type="hidden" formControlName="billingForm" [value]="shippingAddress.customerAddress" > -->
+                    <span *ngIf="shippingAddress.customerAddress.line1">
+                      {{ shippingAddress.customerAddress.line1 }}<br>
+                    </span>
+      
+                    <span *ngIf="shippingAddress.customerAddress.line2">
+                      {{ shippingAddress.customerAddress.line2 }}<br>
+                    </span>
+                    <span *ngIf="shippingAddress.customerAddress.town">
+                      {{ shippingAddress.customerAddress.town }}<br>
+                    </span>
+      
+                    <span *ngIf="shippingAddress.customerAddress.postalCode">
+                      {{ shippingAddress.customerAddress.postalCode }}<br>
+                    </span>
+                    <span *ngIf="shippingAddress.customerAddress.country">
+                      {{ shippingAddress.customerAddress.country.name }}<br>
+                    </span>
+                    <span *ngIf="shippingAddress.customerAddress.phone">
+                      {{ shippingAddress.customerAddress.phone }}
+                    </span>
+                  </p>
+              <a class="change-address-btn" title="Change billing address" (click)="onChangeBillingAddress()">
+                {{'paymentCard.changeBillAdd' | translate}}
+              </a>
+            </div>
+
+            <div class="form-group form-checkbox">
+              <div class="checkbox bl_checkbox">
+                <input 
+                  style="padding-top: 0px;" 
+                  type="checkbox" 
+                  formControlName="billingForm"
+                  id="sepaBlAddress"
+                  class="checkbox"
+                  (change)="onChangeBLAddress($event)" 
+                  [ngClass]="{ 'has-error  not-valid':!sepaDetailForm.controls['billingForm'].valid &&  sepaDetailForm.get('billingForm').touched}"
+                  >
+                <label  for="sepaBlAddress" 
+                [ngClass]="{ 'terms-not-valid':!sepaDetailForm.controls['billingForm'].valid &&
+                sepaDetailForm.get('billingForm').touched }"
+                 >{{'paymentCard.correctBillAdd' | translate}}</label>
+
+                <div class="terms-error-msg-bottom error-block"
+                *ngIf="(getTypeOf(sepaDetailForm.value['billingForm'])) ||(!sepaDetailForm.controls['billingForm'].valid &&  sepaDetailForm.get('billingForm').touched) ">
+                <span class="check-error-msg-bottom">
+                  {{'paymentCard.correctBillAddErr' | translate}}
+                </span>
+              </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+    <section>
+ 
+            <div class="form-group">
+                <label class="sr-only">IBAN*</label>
+                <input
+                    autocorrect="off"
+                    autocomplete="off"
+                    placeholder="IBAN*" 
+                    formControlName="iban"
+                    type="text"
+                    class="form-control  mandatory" 
+                    [ngClass]="{
+                        'has-error  not-valid': !sepaDetailForm.get('iban').valid && sepaDetailForm.get('iban').touched,
+                        'valid':sepaDetailForm.get('iban').valid
+                      }"
+                  >
+                  <div *ngIf="!sepaDetailForm.controls['iban'].valid &&  sepaDetailForm.get('iban').touched" class="not-valid-error-msg">
+                      <span   *ngIf="sepaDetailForm.controls['iban'].errors.required">
+                        Bitte geben Sie eine IBAN ein.
+                      </span> 
+                      <span   *ngIf="sepaDetailForm.controls['iban'].errors.patternInvalid">
+                        Bitte geben Sie eine IBAN ein.
+                        </span>                    
+                    </div>
+            </div>
+            <div class="form-group">
+                <label class="sr-only">BIC (optional)</label>
+                <input autocorrect="off" autocomplete="off" placeholder="BIC (optional)"
+                formControlName="bic"    type="text" class="form-control  mandatory" >
+            </div>
+            <div class="form-group">
+                <label class="sr-only">Bank*</label>
+                <input 
+                  autocorrect="off"
+                  autocomplete="off" 
+                  placeholder="Name der Bank*"
+                  formControlName="bankName"
+                  type="text"
+                  class="form-control  mandatory"
+                  [ngClass]="{
+                    'has-error  not-valid': !sepaDetailForm.get('bankName').valid && sepaDetailForm.get('bankName').touched,
+                    'valid':sepaDetailForm.get('bankName').isValidFormSubmitted
+                  }"
+              >
+              <div *ngIf="!sepaDetailForm.controls['bankName'].valid &&  sepaDetailForm.get('bankName').touched" class="not-valid-error-msg">
+                  <span   *ngIf="sepaDetailForm.controls['bankName'].errors.required">
+                    Bitte geben Sie eine IBAN ein.
+                  </span> 
+                  <span   *ngIf="sepaDetailForm.controls['bankName'].errors.patternInvalid">
+                    Bitte geben Sie eine IBAN ein.
+                    </span>                    
+                </div>
+                  
+            </div>
+            <div class="form-group">
+                <label class="sr-only">First name*</label>
+                <input 
+                  autocorrect="off" 
+                  autocomplete="off" placeholder="Vorname*"
+                  formControlName="firstName"
+                  type="text"
+                  class="form-control  mandatory"
+                  [ngClass]="{
+                    'has-error  not-valid': !sepaDetailForm.get('firstName').valid && sepaDetailForm.get('firstName').touched,'valid':sepaDetailForm.get('firstName').valid
+                    }">
+                  <div *ngIf="!sepaDetailForm.controls['firstName'].valid &&  sepaDetailForm.get('firstName').touched" class="not-valid-error-msg">
+                    <span   *ngIf="sepaDetailForm.controls['firstName'].errors.required">
+                      {{'paymentCard.firstNError' | translate}}
+                    </span> 
+                    <span   *ngIf="sepaDetailForm.controls['firstName'].errors.patternInvalid">
+                      {{'paymentCard.firstNError' | translate}}
+                      </span>                    
+                  </div>
+            </div>
+            <div class="form-group">
+                <label class="sr-only">Last name*</label>
+                <input 
+                 autocorrect="off"
+                 autocomplete="off" placeholder="Nachname*"
+                 formControlName="lastName"
+                 type="text"
+                 class="form-control  mandatory" 
+                 [ngClass]="{
+                   'has-error  not-valid': !sepaDetailForm.get('lastName').valid && sepaDetailForm.get('lastName').touched,
+                   'valid':sepaDetailForm.get('lastName').valid
+                  }"
+                >
+                 <div *ngIf="!sepaDetailForm.controls['lastName'].valid && sepaDetailForm.get('lastName').touched" class="not-valid-error-msg">
+                   <span   *ngIf="sepaDetailForm.controls['lastName'].errors.required" >
+                    {{'paymentCard.lastNError' | translate}}
+                   </span> 
+                   <span   *ngIf="sepaDetailForm.controls['lastName'].errors.patternInvalid" >
+                    {{'paymentCard.lastNError' | translate}}
+                     </span>                    
+                 </div>
+            </div>
+            <app-mb-terms 
+            [formType]="sepaDetailForm.get('terms')"
+              (setTerms)="onSetTerms($event)"
+              (setPolicyTerms)="onSetPolicyTerms($event)"
+            >
+          </app-mb-terms>
+      
+    </section>
+  </form>
+  </div>
+  <ng-template #changeBillingAddress>
+    <app-billing-address
+        [shippingUserAddress]="shippingAddress"
+        (onSetBillingAddress)="onSetBillingAddress($event)" 
+        [payType]="payType"
+        (onResetAddress)="onResetAddress()"
+        ></app-billing-address>
+  </ng-template>
+  <!-- <div [ngClass]="{'overlay-bg-show':loading,'overlay-bg-hide':!loading}">
+    <app-loading></app-loading>
+  </div> -->
+  <div 
+  class="dl-overlay sepa-overlay payer-loading"
+  [ngClass]="{
+     'dl-overlay-show':loading,
+     'dl-overlay-hide':!loading
+   }">
+   <div class="b2c-title text-center pay-load"> 
+      <div class="load-txt" >
+      <span class="pay-load-text">
+        {{'giftMsg.submitMsg' | translate}} 
+      </span>  
+      </div>  
+   </div>
+</div>

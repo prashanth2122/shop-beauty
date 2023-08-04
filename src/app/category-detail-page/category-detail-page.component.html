@@ -1,0 +1,86 @@
+<div itemscope itemtype="http://schema.org/Product" *ngIf="productInfo">   
+<meta itemprop="name"  content="{{(productInfo.productDisplayName)?productInfo.productDisplayName:productInfo.name}}">
+
+<div class="pdp-container">
+  <div class="mb-breadcrumb col-sm-12" *ngIf="categoryBreadcrumb">
+    <a class="mb-breadcrumb-indicator" (click)="goToHome()">&nbsp;<span>Home&nbsp;</span></a>
+    <a  class="mb-breadcrumb-indicator" *ngFor="let data of categoryBreadcrumb" [ngClass]="{'active-class':data.search}"  (click)="onbreadcrumbClick($event,data)" >
+         <span [innerHtml]="(data.categoryDisplayName)?data.categoryDisplayName:data.name"></span>
+    </a>
+  </div>
+  <div class="bread-crumb"  *ngIf="categoryBreadcrumb"> 
+      <ul>
+       <li (click)="goToHome()"><a  class="homelink ui-link" >
+         &gt;
+       </a></li>
+         </ul>
+       <ul 
+           class="category-root" 
+           *ngFor="let data of categoryBreadcrumb;let k=index; let first = first;let last=last;">
+            <li (click)="onbreadcrumbClick($event,data,first,last)">   
+                 <span [innerHtml]="(data.categoryDisplayName)?data.categoryDisplayName:data.name"></span>&nbsp;
+             </li>
+             <span class="nav-icon">&gt;&nbsp;</span>
+       </ul>
+   </div>
+
+  <app-productview
+    [showDetail]="true"
+    [favourite]="favourite"
+    [productInfo]="productInfo"
+    [curlateProductCode]="curlateProductCode"
+    [curalateEnableSm]="curalateLg"
+    (showDlRstrn)="showDlRstrn()"
+  >
+</app-productview>
+<section class="curalate-lg-section" *ngIf="curalateLg">
+  <div *ngIf="isoCode=='GB'">
+      <div class="curalate-section" #curlElement>
+        <div id="curalate-fanreel" class="curalate-fanreel" style="display: block;">
+          <span>Scent &amp; Style by you #MoltonBrown</span> 
+        </div>
+           <div   data-crl8-container-id="custom-product"  [attr.data-crl8-filter]="curlateProductCode"  data-crl8-auto-init="false"></div>
+     
+        <div id="fanreel-gallery" style="display: block;">	
+          <span class="view-gallery">
+            <a href="/store/mb-gallery">View the gallery</a>
+            <span></span>
+          </span>
+        </div>
+      </div>
+  </div>
+</section>
+
+  <div class="smartContent twoColumn rowComponents">
+    <div class="item" #youMayLike>
+    </div>
+    <div class="item" #worksWellWith>
+    </div>
+  </div>
+  <div *ngIf="productInfo">
+    <div class="pdp-dl-instructions" *ngIf="productInfo.isHazardous" id="deliveryRstnBlock">
+      <app-delivery-instructions
+        [deliveryResctrictions]="deliveryResctrictions"
+        [dlInstructionShowUp]="dlInstructionShowUp"
+      ></app-delivery-instructions>
+    </div>
+  </div>
+  <div id="PDPBVRRContainer" *ngIf="isoCode !='DE'">
+    <div class="rowComponents verticalCollapsibleSections OneLinkHide" id="BVRRWidgetID">
+      <div class="fullWidthContent">
+          <div class="title" (click)="onReviewClick()">
+              <h3 >CUSTOMER REVIEWS</h3>
+              <span [ngClass]="{'cheveron-open':showUpReview,'cheveron-close': !showUpReview}"></span>
+          </div>
+          <div  [ngClass]="{'delivery-review-open':showUpReview,'delivery-review-close': !showUpReview}">
+              <div>
+                 <div class="bv-cleanslate bv-cv2-cleanslate" *ngIf="productInfo"> 
+                     <div  data-bv-show="reviews" [attr.data-bv-product-id]="productInfo.code"></div>
+                 </div>
+              </div>
+          </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>

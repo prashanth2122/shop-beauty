@@ -1,0 +1,431 @@
+
+@import "../../../variable";
+
+.header-top {
+    position: relative;
+    z-index: 999;
+
+    a {
+        color: $header-color-white !important;
+        font-size: 13px;
+        line-height: 9px;
+        span{
+            font-size: 12px;
+            line-height: 12px;
+        }
+    }
+    p {
+        margin: 0;
+        color:$header-color-white;
+    }
+    &-item{
+        position: relative;
+        &:before {
+            content: " ";
+            display: inline-block;
+            height: 100%;
+            width: 1%;
+            vertical-align: middle;
+          }
+          a {
+            display: inline-block;
+            // vertical-align: middle;
+            text-decoration: none;
+          }
+          padding-top:3px;
+    }
+    background-color:$primary-color;
+    width: 100%;
+    min-height: 33px;
+    @media screen and(max-width:$screen-sm){
+        min-height: 26px !important;
+    }
+    .header-top-left-menu {
+        width: 100%;
+        padding: 4px 0;
+        margin-bottom: 0;
+        text-align: right;     
+        a {
+            font-size: 12px;
+            color:$header-color-white;            
+            cursor: pointer;
+            text-transform: capitalize;
+        }
+        li {
+            display: inline-block;
+            padding: 0;
+            font-size: 12px;
+            line-height: 13px;
+            &:nth-child(1) {
+                padding-left: 21px;
+                padding-right: 10px;
+            }
+            &:nth-child(2) {
+                padding-left: 14px;
+                padding-right: 24px;
+            }
+            &:nth-child(3) {
+                padding-left: 0;
+                padding-right: 19px;
+            }
+        }
+        .country {
+            font-size: 12px;
+            line-height: 12px;
+            width: auto;
+            position: relative;
+            &-menu {
+                width: 117px;
+                padding: 5px 5px 5px 0;
+                font-size: 12px;
+                z-index:999;
+                background: $primary-color;
+                top: 20px;
+                list-style-type: none;
+                cursor: pointer;
+                li {
+                    color: $header-color-white;
+                    width: 100%;
+                    padding: 0px 24px;
+                    height: 30px;
+                    a {
+                        width: 100px;
+                        text-align: left;
+                        color: $header-color-white;
+                        text-decoration: none;
+                        cursor: pointer;
+                        font-size:10px;
+                        line-height:10px;
+                        font-weight:400;
+                        width:100%;
+                        &.store_us {
+                            background: url('https://www.moltonbrown.co.uk/images/USflagOver.gif') 0 8px no-repeat;
+                            background-position:0 8px;
+                            background-repeat: no-repeat;
+                            border-radius: 0;
+                            padding: 8px 10px 2px 25px;
+                            float: left;
+                        }
+                        &.store_uk{
+                            background: url('https://css.moltonbrown.co.uk/images/gb.gif') 0 8px no-repeat;
+                            border-radius: 0;
+                            padding: 8px 10px 2px 25px;
+                            float: left;
+                        }
+                        &.store_eu {
+                            background: url('https://www.moltonbrown.co.uk/images/eu.gif') 0 8px no-repeat;
+                            border-radius: 0;
+                            padding: 8px 10px 2px 25px;
+                            float: left;
+                        }
+                        &.store_au {
+                            background: url('https://www.moltonbrown.co.uk/images/au.gif') 0px 8px no-repeat;
+                            border-radius: 0;
+                            padding: 5px 10px 2px 25px;
+                            float: left;
+                        }
+                        &.store_de {
+                            background: url('https://www.moltonbrown.co.uk/images/de.gif') 0 8px no-repeat;
+                            border-radius: 0;
+                            padding: 8px 10px 2px 25px;
+                            float: left;
+                        }
+                        &.store_jp {
+                            background: url('https://www.moltonbrown.co.uk/images/jp.gif') 0 8px no-repeat;
+                            border-radius: 0;
+                            padding: 8px 10px 2px 25px;
+                            float: left;
+                        }
+                    }
+                }
+            }
+        }
+        .profile {
+            position: relative;
+            display: inline-block;
+            padding: 8px 0px 0px 0px;
+            .header-profile-icon {
+                background: url('../../../assets/imgs/My_Account_Icon_White.png') 0 6px no-repeat;
+                border-radius: 0;
+                padding: 8px 26px 4px 11px;
+                background-size: 21px;
+                position: relative;
+            }
+        }
+        .basket {
+            position: relative;
+            top: -2px;
+            z-index: 999;
+            padding: 0 !important;
+      
+        }
+
+    }
+}
+
+.tab-responsive-block {
+    display: none;
+}
+
+.tab-responsive-none {
+    display: block;
+}
+
+.tab-justify-center{
+    justify-content: space-between;
+}
+
+@media(max-width:$screen-sm) {
+    .tab-justify-center{
+        justify-content: center;
+    }
+    .tab-responsive-none {
+        display: none;
+    }
+    .tab-responsive-block {
+        display: block;
+    }
+    .header-starptext {
+        text-align: center;
+    }
+    .header-top{
+        text-align: center;
+      a span{
+               display: none;
+            }  
+    } 
+}
+
+// .mb-menu-ML{
+//     margin-left:65%;
+// }
+// .mb-menu-ML-none{
+//     margin-left:0;
+// }
+.container{
+    width:964px;
+    margin-right: auto;
+    margin-left: auto;
+    padding-left: 11px;
+    padding-right: 11px;
+    text-rendering: optimizeLegibility;
+}
+
+.header-top-amptext{
+    .amp-dc-text{
+        font-size:13px;
+        color:$header-color-white;
+        p{
+            a{
+                padding-top: 9px;
+            }
+        }
+        @media screen and(max-width:$screen-sm){
+            font-size: 12px;line-height:24px;
+        }
+    }
+}
+.country-drpdown-list{
+    .dropdown-toggle{
+        &:after{
+          display: none;   
+        }
+    }
+    .dropdown-menu{
+        background-color:$primary-color;
+        a{
+            &:hover{
+                background-color:$primary-color;
+            }
+        }
+    }
+}
+.profile{
+    &:hover{
+        .acc-menu{
+            display: block;
+            a{
+                cursor: pointer;
+            }
+        }
+    }
+}
+.acc-menu{
+    min-width: 140px;
+    padding: 3px 15px;
+    font-size: 12px;
+    z-index: 999;
+    background: $primary-color;
+    list-style-type: none;
+    display:none;
+    position: absolute;
+    top:38px !important;
+    left: 14px;
+    transform: translateX(-50%);
+    li{
+        display: block !important;
+        text-align: center;
+        padding: 5px 8px !important;
+        a{
+            color: $mb-white!important;
+            padding: 5px 0px;
+            text-decoration: none;
+            display: block;
+            font-size: 12px;
+            text-transform:uppercase;
+        }
+        &.logOut {
+            text-align: center;
+            width: 100%;
+            border-top: 1px solid $mb-white;
+            a{
+                padding-top: 12px!important;
+            }
+        }
+
+    }
+    cursor: pointer;
+    .caret {
+        position: relative;
+        left: 40%;
+        transform: translateX(-40%);
+    &:after{
+        content: "";
+        position: absolute;
+        display: block;
+        width: 0;
+        height: 0;
+        border-width: 14px 17px;
+        border-style: solid;
+        border-color: transparent;
+        z-index: 1001;
+        border-bottom-color: $primary-color;
+        top: -25px;
+        right: 85px;
+    }
+    }
+
+}
+.header-top-right-cntnt{
+    width:50%;
+}
+.header-top-item{
+    width: 50%;
+    align-self: center;
+    @media screen and (max-width:$screen-sm){
+        padding: 0px !important;
+        width: 100%;
+    }
+    &:before{
+        width:auto !important;
+    }
+    
+}
+#popupcountryChange{ 
+    .modal-body{
+        overflow: hidden;
+        p{
+            font-size: 14px !important;
+            margin-bottom: 0px !important;
+            line-height: 1;
+            padding: 10px;
+        }
+    }
+    .modal-country-height{
+        min-height: 208px;
+    }
+    .modal-dialog {
+        width: 480px;
+        min-height: 295px;
+        @media screen and(max-width:425px) {
+            width:95%;
+        }
+     }
+}
+.hidden-cls{
+    display:none !important;
+}
+.country-menu{
+    top: 5px !important;
+    left: -10px !important;
+    min-width:116px !important;
+    border-radius: 0px !important;
+}
+.countryPopCancel{
+    background: #626262;
+    border-radius: 0!important;
+}
+.countryPopConfirm{
+    background: $primary-color;
+    border-radius: 0!important;
+}
+.countryPop {
+    width: 115px;
+    color: $mb-white;
+    border: 0;
+    font-size: 14px;
+    text-align: center;
+    text-transform: uppercase;
+    cursor: pointer;    line-height: 30px;margin:5px 17px;
+}
+.form-inline{
+    justify-content: center;
+}
+.modal-dialog {
+    margin-top: 0;
+    margin-bottom: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  .modal.fade .modal-dialog {
+    transform: translate(0, -100%);
+  }
+  
+  .modal.in .modal-dialog {
+    transform: translate(0, 0);
+  }
+  .cg-country{
+    color: $primary-color;
+    font-size: 1.5em;
+    font-weight: 700;
+  }
+  .modal-body p {
+    font-size: 1em;
+    padding: 10px 0;
+    color: $edition-color;
+    @media screen and(max-width:768px){
+        padding-top: 0;
+    }
+}
+.modal-open .modal {
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+.show{
+    background: rgba(0,0,0,0.63) !important;
+    
+}
+
+.header-text{
+    p{
+        line-height: 2;
+    }
+}
+.header-top .header-top-left-menu .country-menu{
+    background: $primary-color !important;
+}
+// .header-container {
+
+//     .tab-justify-center{
+//         @media screen and (max-width:480px) {
+//              justify-content: space-between !important;
+//         }
+       
+
+//     }
+// }
+
+

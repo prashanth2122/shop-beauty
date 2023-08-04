@@ -1,0 +1,135 @@
+@import"../../../variable";
+.tab{
+    width:100%;
+    height: 32px;
+    float: left;
+    clear: both;
+    margin: 30px 0 0 0;
+    padding: 0;
+    border: 1px solid #CCC;
+    border-radius: 4px;
+    border-right: 0;
+    &-switch {
+        width: 33.33%;
+        height: 30px;
+        line-height: 30px;
+        float: left;
+        background-color: #f2f2f2;
+        border-right: 1px solid #CCC;
+        list-style: none;
+        text-align: center;
+        cursor: pointer;
+        &:hover{
+            position: relative;
+            background-color: #7d6f64;
+            z-index: 1;
+            a{
+             color: $mb-white !important;
+            }
+        }
+        &-active{
+                position: relative;
+                background-color: #7d6f64;
+                z-index: 1;
+                a{
+                    color: $mb-white !important;
+                }
+        }
+    }
+}
+.store-dstn{
+    display: block;
+    overflow: hidden;
+    padding: 20px 0 0 0;
+    clear: both;
+    float: left;
+    width: 100%;
+    @media screen and(max-width:768px){
+        padding-bottom: 20px;
+    }
+    li{
+        list-style: none;
+        display: block;
+
+    }
+    &-left-cntnt{
+        padding-right: 13px;
+        float: left;
+    }
+    &-right-cntnt{
+        width:85%;
+        float: left;
+        @media screen and(max-width:768px) {
+            width: 80%;
+        }
+        input{
+            width: 100%;
+            height: 34px;
+            border: 1px solid #7f7f7f;
+            margin-top: 3px;
+            padding-left: 15px;
+            font-size: 12px;
+            font-style: italic;
+        }
+    }
+}
+.marker-dest{
+    img{
+        padding: 0 5px 10px 0;
+    }
+}
+.get-direction{
+    clear: both;
+    margin-left: 35px;
+    overflow: hidden;
+    button{
+        cursor: pointer;
+        text-transform: capitalize;
+        font-size: 12px;
+        padding: 8px 24px 8px 10px;
+        color: $mb-white;
+        text-decoration: none;
+        float: left;
+        border: 0;
+        background: url('../../../assets/imgs/get-directarw.png') 90% center scroll no-repeat #7d6f64;
+    }
+}
+.tab li a {
+    padding: 10px 19px;
+}
+.tab li.tab-switch-active .walk, .tab li .walk:hover {
+    
+    background: url(../../../assets/imgs/walkbw-ico.png) no-repeat 0 11px;
+}
+.walk{
+    
+    background: url(../../../assets/imgs/walk-ico.png) no-repeat 0 11px;
+}
+.tab li.tab-switch-active .drive, .tab li .drive:hover{
+    
+    background: url(../../../assets/imgs/drivebw-ico.png) no-repeat 0 11px;
+}
+.tab li.tab-switch-active .transit, .tab li .transit:hover{
+    
+    background: url(../../../assets/imgs/transitbw-ico.png) no-repeat 0 11px;
+}
+.drive{
+    
+    background: url(../../../assets/imgs/drive-ico.png) no-repeat 0 11px;
+}
+.transit{
+    
+    background: url(../../../assets/imgs/transit-ico.png) no-repeat 0 11px;
+}
+.store-dstn-left-cntnt{
+    padding-left:15px;
+    img{
+        padding: 0 5px 0px 0;
+    }
+}
+.mb-15{
+    margin-bottom:15px;
+}
+.row.mb-15{
+    align-items: center;
+}

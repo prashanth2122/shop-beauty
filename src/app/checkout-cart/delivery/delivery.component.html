@@ -1,0 +1,116 @@
+<div class="clearfix" >
+    <div class="show-orders-summary clearfix">
+         <button class="btn-show-order" (click)="onViewSummary()">View your order</button>
+    </div>
+    <section class="checkout-content  clearfix">
+        <div class="main-content">
+            <div class="delivery-panel">
+                <div 
+                     class="panel-heading" 
+                     [ngClass]="{
+                         'disabled-tab':paymentBlock,
+                         'enabled':!paymentBlock
+                        }">
+                    <h4 id="dl-header">{{'checkoutFlow.deliveryHeader'| translate }}</h4>
+                    <label class="header-mandatory">{{'checkoutFlow.reqInformation' | translate}}</label>
+                </div>
+                <div>
+                    <section [ngSwitch]="switchServiceType" class="mainSection">               
+                        <section class="delivery-section" *ngSwitchCase="'delivery'"  >
+                        <div class="dl-overlay"  
+                             [ngClass]="{
+                                  'dl-overlay-show':pageLoad,
+                                  'dl-overlay-hide':!pageLoad
+                                }">
+                            <div class="b2c-title"> 
+                                    <span class="loading-txt"> loading... </span>  
+                            </div>
+                        </div>
+                        <section class="panel-body dl-panel-section" >
+                            <div class="section-heading" *ngIf="siteSpecicShipping">
+                                <h2 id="deliveryDlTypeHeader">How do you want to get your order ?</h2>
+                            </div>
+                            <div class="delivery-type-selection" *ngIf="siteSpecicShipping">
+                                <div class="delivery-type-international delivery-type" *ngFor="let data of deliveryModeTypes;let k=index;"
+                                    [ngClass]="{
+                                        'selected':data.selected=='enabled',
+                                        'disabled':'disabled'==data.selected
+                                    }"
+                                    (click)="onDeleveryType(data,k)">
+                                     <i class="icon-dt-uk">
+                                     <img   [src]="data.imageSrc "></i>
+                                    <h5>{{(data.deliveryName =="UK International delivery")?getStandardName(data):data.deliveryName}}</h5>
+                                    <p class="dt-info">{{(data.deliveryName =="UK International delivery")? getStandardDescription(data):data.deliveryDescription}}</p>
+                                    <p class="dt-price">{{(data.deliveryName =="UK International delivery")?getStdDescrptn(data):data.deliveryCostDescription}}</p>
+                                </div>
+                            </div>
+                            <section [ngSwitch]="switchDeliveryType">
+                                <section *ngSwitchCase="'collect'">
+                                <div class="delivery-collapse-block" >
+                                    <app-delivery-form
+                                       [customerInfoUpdate]="customerInfoUpdate"
+                                       (showOverLay)="showOverLay($event)"  
+                                       (onValueChanged)="onShowDeliveryBlock($event)"
+                                       >
+                                    </app-delivery-form>
+                                </div>
+                            </section>
+                                <div class="delivery-collapse-block" *ngSwitchCase="'ship'">
+                                    <app-storepoint 
+                                      (selectedStore)="onSelectedStore($event)"
+                                      >
+                                    </app-storepoint>
+                                </div>
+                            </section>
+                        </section>
+                        </section>
+                        <section *ngSwitchCase="'service'">
+                            <app-delivery-service 
+                                 *ngIf="expressService;else collectServiceBlock" 
+                                 [expressCheckout]="expressCheckout"
+                                 [deliveryInfo]="deliveryServiceInfo" 
+                                 (onSecureChanged)="onSecureChanged($event)"
+                                 (onEditInfo)="onEditInfo($event)"
+                                 (onupdateCart)="onupdateCart($event)"
+                                   >
+                            </app-delivery-service>
+                            <ng-template #collectServiceBlock>
+                                <app-collect-service 
+                                    [deliveryInfo]="collecionInfo" 
+                                    (onEditClkCltInfo)="onEditClkCltInfo($event)"
+                                    (onCollectionChange)="onCollectionChange($event)">
+                               </app-collect-service>
+                            </ng-template>
+                        </section>
+                    </section>
+                </div>
+            </div>
+            <div class="payment-panel" 
+            [ngClass]="{
+                'disabled-tab':!paymentBlock,
+                'enabled':paymentBlock
+            }">
+               <div class="panel-heading">
+                  <h4 id="mb_payment_header" >{{'checkoutFlow.payment' | translate}}</h4>  
+                  <h6 class="header-mandatory">{{'checkoutFlow.reqInformation' | translate}}</h6>
+                </div>
+                <app-paytype
+                     *ngIf="paymentBlock"
+                      [deliveryInfo]="deliveryInfo" 
+                      [expressCheckout]="expressCheckout"
+                >
+                </app-paytype>
+            </div>
+           
+        </div>
+        <div class="order-summary-wrap">
+            <app-order-summary
+               #cartRefElement 
+               [updateCart]="updateCart" 
+               [osDetail]="osDetail" 
+               (postCartData)="postCartData($event)"
+               >
+            </app-order-summary>
+        </div>
+    </section>
+</div>

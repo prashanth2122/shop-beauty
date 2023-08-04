@@ -1,0 +1,93 @@
+<section>
+  <div class="container">
+      <app-mb-bread-crumb [breadcrumb]="breadcrumb"></app-mb-bread-crumb>
+    <div class="rowComponents loginAlign">
+        <h2 class="col-sm-12 log_in">{{mobileDevice?'Log in':''}}</h2>
+        <div class="returning_customer">
+           <div class="returning_customer-log_in">
+                 <!-- <h2>Returning Customers</h2> -->
+                 <h2>{{'myacc.returningCustomers' | translate}}</h2>
+                
+                 <form  
+                   [formGroup]="authForm" 
+                   (keydown)="keyDownFunction($event)"
+                   (ngSubmit)="onSubmitForm($event)" 
+                   custom-focus>
+                   <p class="requiredFieldText"><span class="redstar">*</span> {{'myacc.requiredField' | translate}}</p>
+
+                    <p class=" label_text">{{'myacc.emailAddress' | translate}}<span class="redstar">*</span></p>
+                    <div class="login-fileds" style="position: relative;">
+                     <input 
+                         formControlName="email"
+                         type="email"        
+                         (keydown)="onInputChange($event)"                 
+                         class="text mandatory reg-email" 
+                         [ngClass]="{ 
+                                   'has-error  not-valid':!authForm.controls['email'].valid &&
+                                   authForm.get('email').touched,
+                                   'valid':authForm.get('email').valid,
+                                   'invalid':!authForm.get('email').valid,
+                                   'cred-error':showCrentialError}">
+                     <h2 *ngIf="showCrentialError" class="credential-err-msg">{{'checkoutReg.passwordMismatch'|translate}} </h2>
+                    <div *ngIf="!authForm.controls['email'].valid &&  authForm.get('email').touched" class="not-valid-error-msg">
+                      <span  [hidden]="!authForm.controls['email'].errors.required">{{'login.emailInputFocus'|translate}}</span>
+                      <span  [hidden]="!authForm.controls['email'].errors.patternInvalid">{{'login.invalidEmailAddress'|translate}}</span>
+                    </div>
+                  </div>
+                   <p class=" label_text">{{'myacc.password' | translate}}<span class="redstar">*</span></p>
+                    <div class="pos-relative login-fileds loginpswHelp">
+                        <a class="contextual-help" [placement]="mobileDevice?'top':'right'"      show-delay="100"  ngbTooltip="{{'login.pswdContextual'|translate}}" [placement]="mobileDevice?'top':'right'"  ></a>
+                      <input 
+                      (keydown)="onInputChange($event)"
+                       formControlName="password"  
+                       type="password" 
+                       class="text mandatory" 
+                       maxlength="20"
+                       [ngClass]="{ 
+                        'has-error  not-valid':!authForm.controls['password'].valid &&
+                        authForm.get('password').touched,
+                        'valid':authForm.get('password').valid,
+                        'invalid':!authForm.get('password').valid,
+                        'cred-error':showCrentialError
+                      }"
+                        >      
+                      <div *ngIf="!authForm.controls['password'].valid &&  authForm.get('password').touched" class="not-valid-error-msg">
+                        <span  [hidden]="!authForm.controls['password'].errors.required">{{'login.passwordInputFocus'|translate}}</span>
+                        
+                        <span [hidden]="!authForm.controls['password'].errors?.maxlength"> 
+                            {{'login.invalidPassword'|translate}}
+                        </span>
+                        <span [hidden]="!authForm.controls['password'].errors?.minlength"> 
+                            {{'login.invalidPassword'|translate}}
+                        </span> 
+                  </div>
+                    </div> 
+                       <p class="text-right">
+                        <a class="pull-left enable_password" (click)="onRetrivePassword()">{{'myacc.forgottenYourPassword' | translate}}</a>
+                    </p>
+                    <div class="text-center mob-text-right">
+                    <button [disabled]="disableAction" type="submit" class="buttonStyle">{{'myacc.login' | translate}}</button>
+                   </div>
+                  </form>
+           </div>
+        </div>
+        <div class="hrMb"><hr></div>
+        <div class="newRegisterBlock">
+          <div class=" new_customer-block new-login">
+            <h2>{{'myacc.newCustomer' | translate}}</h2>
+            <h6>{{'myacc.theBenefitsOfRegistering' | translate}}</h6>            
+            {{'myacc.byRegisteringYourDetails' | translate}}
+             <ul>
+               <li>{{'myacc.checkOrderHistoryStatus' | translate}}</li>
+               <li>{{'myacc.storeAndManageMultipleDeliveryAddresses' | translate}}</li>
+               <li>{{'myacc.updateYourPersonalProfileAndPreferences' | translate}}</li>
+               <li>{{'myacc.enjoyASpeedierCheckout' | translate}}</li>
+              </ul>
+              <div class="text-center">
+                  <button (click)="onShowRegisterForm() " class="buttonStyle"> {{'myacc.register' | translate}}</button>
+                 </div>
+            </div>
+          </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,94 @@
+@import"../../../variable";
+.check-balance-required{
+    color: #260e03!important;
+    line-height: 20px;
+    font-size: 13px!important;
+}
+
+.check-balance{
+    h2{
+        font-size: 28px;
+        margin-bottom: 0;
+        padding: 0 0 14px 0;
+        color: $primary-color;
+    }
+}
+.register_label{
+    float: right;
+    width: max-content;
+    padding-top: 5px;
+    color: $primary-color;
+    font-size: 12px;
+    font-weight:normal;
+    display: -webkit-box;
+    @media screen and(max-width:$screen-sm){
+       float: left;
+    }
+}
+.wrapper-block{
+    border: 1px solid #c2c2c2;
+    padding: 15px;
+    padding-left: 15%;
+    .text-right{
+        padding-top: 30px;
+        padding-bottom: 10px;
+    }
+}
+.custom-input{
+    
+    .login_fields{
+        width: 170px;
+        input:focus {
+            border: 2px solid $mb-skyblue;
+          }
+        .giftcard-input{
+            margin-left: -15px;
+            width: 180px !important;
+            height: 22px !important;
+            
+        }
+        
+    }
+}
+.input-label{
+    max-width: 13%;
+}  
+.captcha-input{
+    margin-left: -45px;
+}  
+.redstar {
+color: $edition-color;
+font-size: 12px;
+padding-right: 0;
+}
+.captcha-text{
+    color: $primary-color;
+
+} 
+@media screen and (max-width: $screen-sm) {
+    .captcha-input{
+        margin-left: -15px;
+    } 
+    .captcha-text{
+        display: -webkit-inline-box;
+
+    } 
+}
+.input-block{
+    padding-bottom: 15px;
+}
+.errormsg-block{
+    margin-bottom: 10px;
+    background: #fafafa;
+    border: 2px solid #b21f24;
+    color: #b21f24;
+    padding: 20px;
+    font-size: 12px;
+    p{
+        margin-bottom: 10px;
+    }
+}
+.not-valid-card{
+    border: 2px solid $err-color;
+    background-color:$givex-err-bg;
+}

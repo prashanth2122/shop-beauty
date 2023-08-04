@@ -1,0 +1,208 @@
+
+
+// @font-face {
+//   font-family: 'Trebuchet MS';
+//   src: url(/assets/fonts/trebuc.ttf)format("ttf"),
+//        url(/assets/fonts/trebuc.woff2) format("woff2"),
+//        url(/assets/fonts/trebuc.woff) format("woff"),
+//        url(/assets/fonts/trebuc.svg) format("svg");
+//   font-style: normal;
+// }
+
+@font-face{
+  font-family: 'Century Gothic';
+  src: url('/assets/fonts/Century/fonts/CENTURY.ttf') format("ttf"),
+     url('/assets/fonts/Century/fonts/CENTURY.woff2') format("woff2"),
+     url('/assets/fonts/Century/fonts/CENTURY.woff') format("woff"),
+      url('/assets/fonts/Century/fonts/CENTURY.svg') format("svg");
+}
+@font-face{
+  font-family: 'Century Gothic Regular';
+  src: url('/assets/fonts/CenturyGothic/fonts/century-gothic.ttf') format("ttf"),
+       url('/assets/fonts/CenturyGothic/fonts/GOTHIC.woff2') format("woff2"),
+       url('/assets/fonts/CenturyGothic/fonts/GOTHIC.woff') format("woff"),
+       url('/assets/fonts/CenturyGothic/fonts/GOTHIC.svg') format("svg")
+}
+@font-face{
+  font-family: 'Century Gothic Bold';
+  src: url('/assets/fonts/CenturyGothic-Bold/fonts/GOTHICB.ttf') format("ttf"),
+       url('/assets/fonts/CenturyGothic-Bold/fonts/GOTHICB.woff2') format("woff2"),
+       url('/assets/fonts/CenturyGothic-Bold/fonts/GOTHICB.woff') format("woff"),
+       url('/assets/fonts/CenturyGothic-Bold/fonts/GOTHICB.svg') format("svg")
+}
+@font-face{
+  font-family: 'Century Gothic Italic';
+  src: url('/assets/fonts/CenturyGothic-Italic/fonts/GOTHICI.ttf') format("ttf"),
+       url('/assets/fonts/CenturyGothic-Italic/fonts/GOTHICI.woff2') format("woff2"),
+       url('/assets/fonts/CenturyGothic-Italic/fonts/GOTHICI.woff') format("woff"),
+       url('/assets/fonts/CenturyGothic-Italic/fonts/GOTHICI.svg') format("svg")
+}
+@font-face{
+  font-family: 'Savoyelet';
+  src: url('/assets/fonts/SavoyeLET-Plain.ttf') format("ttf"),
+       url('/assets/fonts/SavoyeLETPlain.woff') format("woff"),
+       url('/assets/fonts/SavoyeLET-Plain.svg') format("svg")
+}
+@font-face{
+  font-family: 'Apple Gothic';
+  src: url('/assets/fonts/AppleGothic/applegothic.ttf') format("ttf"),
+       url('/assets/fonts/AppleGothic/applegothic.otf') format("otf")
+}
+@font-face{
+  font-family: 'URW Gothic';
+  src: url('/assets/fonts/URWGothic/font/URWGothicL-Book.ttf') format("ttf"),
+       url('/assets/fonts/URWGothic/font/URWGothicL-Book.svg') format("svg")
+}
+@font-face{
+  font-family: 'DancingScript Bold';
+  src: url('/assets/fonts/DancingScript/DancingScript-Bold.ttf') format("ttf"),
+  url('/assets/fonts/DancingScript/DancingScript-Bold.woff2') format("woff2"),
+  url('/assets/fonts/DancingScript/DancingScript-Bold.woff') format("woff"),
+  url('/assets/fonts/DancingScript/DancingScript-Bold.svg') format("svg")
+}
+@font-face{
+  font-family: 'DancingScript Medium';
+  src: url('/assets/fonts/DancingScript/DancingScript-Medium.ttf') format("ttf"),
+  url('/assets/fonts/DancingScript/DancingScript-Medium.woff2') format("woff2"),
+  url('/assets/fonts/DancingScript/DancingScript-Medium.woff') format("woff"),
+  url('/assets/fonts/DancingScript/DancingScript-Medium.svg') format("svg")
+}
+@font-face{
+  font-family: 'DancingScript Regular';
+  src: url('/assets/fonts/DancingScript/DancingScript-Regular.ttf') format("ttf"),
+  url('/assets/fonts/DancingScript/DancingScript-Regular.woff2') format("woff2"),
+  url('/assets/fonts/DancingScript/DancingScript-Regular.woff') format("woff"),
+  url('/assets/fonts/DancingScript/DancingScript-Regular.svg') format("svg")
+}
+@font-face{
+  font-family: 'DancingScript SemiBold';
+  src: url('/assets/fonts/DancingScript/DancingScript-SemiBold.ttf') format("ttf"),
+  url('/assets/fonts/DancingScript/DancingScript-SemiBold.woff2') format("woff2"),
+  url('/assets/fonts/DancingScript/DancingScript-SemiBold.woff') format("woff"),
+  url('/assets/fonts/DancingScript/DancingScript-SemiBold.svg') format("svg")
+}
+@font-face{
+  font-family: 'DancingScript VariableFont';
+  src: url('/assets/fonts/DancingScript/DancingScript-VariableFont_wght.ttf') format("ttf")
+}
+$font-trebuc:'Trebuchet MS';
+$font-century-normal:'Century Gothic';
+$font-century-regular:'Century Gothic Regular';
+$font-century-bold:'Century Gothic Bold';
+$font-century-italic:'Century Gothic Italic';
+$UrwGothic:'URW Gothic';
+$appleGothic:'Apple Gothic';
+$h1-font:'Trebuchet MS';
+$editorial-heading:'Savoyelet';
+$dancingScript-bold:'DancingScript Bold';
+$dancingScript-Medium:'DancingScript Medium';
+$dancingScript-Regular:'DancingScript Regular';
+$dancingScript-SemiBold:'DancingScript SemiBold';
+$dancingScript-VariableFont:'DancingScript VariableFont';
+$named-day-active:#9bbb58;
+$header-bg:#000000;
+$primary-color: #000000;
+$err-color:#ae140d;
+$mb-error-bg:#b63432;
+$light-grey:#c2c2c2;
+$edition-color:#464646;
+$mb-btn-bg:#ff9146;
+$mb-btn-highlight-bg:#ff7313;
+$mb-express-bg:#9bbb59;
+$mb-white:#ffffff;
+$mb-enable-bg:#464646;
+$mb-disable-bg:#949292;
+$mb-pick-cat:#3E3E3E;
+$givex-err-bg:#f7e8e9;
+$nav-bg:#f8f8f8;
+$light-border:#d6d6d6;
+$overlay-bg:#f6f6f6;
+$banner-color:#232323;
+$header-color-white:#ffffff;
+$mb-radio-bg:#47a1c5;
+$mb-border-color:#cecece;
+$mb-overlay-bg:#f9f9f9;
+$mb-header-color:#202020;
+$mb-strap-line-color:#5c5151;
+$mb-store-btn-bg:#5c5151;
+$mb-manatee:#7f7f8c;
+$mb-hovergray:#606060;
+$mb-suva-grey:#949292;
+$mb-skyblue:#80bdff;
+$mb-drakskyblue:#007bff;
+$mb-grey: #c6c6c6;
+$mb-product-grey: #686873;
+$mb-cancel-grey:#ccc;
+$mb-disabled-bg: #ffceac;
+$mb-pickmix-grey: #414141;
+$mb-pickmix-lightgrey:#adadad;
+$mb-pickmix-darkgrey:#404040;
+$mb-pickmix-blue: #204d74;
+$mb-popupclose-gray:#D3D3D3;
+$mb-basketpopup-gray:#9c9da1;
+
+
+@for $i from 1 through 100 {
+  .font#{$i} {
+    font-size:0px+$i;
+  }
+    .padding-top-#{$i}{
+      padding-top:0px+$i;
+    };
+    .pt-#{$i}{
+      padding-top:0px+$i;
+    };
+    .margin-top-#{$i}{
+        margin-top:0px+$i;
+      };
+      .ml-#{$i}{
+        margin-left:0px+$i;
+      };
+      .mt-#{$i}{
+        margin-top:0px+$i;
+      };
+      .margin-bottom-#{$i}{
+        margin-top:0px+$i;
+      };
+}
+//== Media queries breakpoints
+//
+//## Define the breakpoints at which your layout will change, adapting to different screen sizes.
+
+// Extra small screen / phone
+//** Deprecated `$screen-xs` as of v3.0.1
+$screen-xs:                  480px !default;
+//** Deprecated `$screen-xs-min` as of v3.2.0
+$screen-xs-min:              $screen-xs !default;
+//** Deprecated `$screen-phone` as of v3.0.1
+$screen-phone:               $screen-xs-min !default;
+
+// Small screen / tablet
+//** Deprecated `$screen-sm` as of v3.0.1
+$screen-sm:                  874px !default;
+$screen-sm-min:              $screen-sm !default;
+//** Deprecated `$screen-tablet` as of v3.0.1
+$screen-tablet:              $screen-sm-min !default;
+
+// Medium screen / desktop
+//** Deprecated `$screen-md` as of v3.0.1
+$screen-md:                  992px !default;
+$screen-md-min:              $screen-md !default;
+//** Deprecated `$screen-desktop` as of v3.0.1
+$screen-desktop:             $screen-md-min !default;
+
+// Large screen / wide desktop
+//** Deprecated `$screen-lg` as of v3.0.1
+$screen-lg:                  1280px !default;
+$screen-lg-min:              $screen-lg !default;
+//** Deprecated `$screen-lg-desktop` as of v3.0.1
+$screen-lg-desktop:          $screen-lg-min !default;
+
+// So media queries don't overlap when required, provide a maximum
+$screen-xs-max:              ($screen-sm-min - 1) !default;
+$screen-sm-max:              ($screen-md-min - 1) !default;
+$screen-md-max:              ($screen-lg-min - 1) !default;
+
+$screen-medium:1024px;
+$screen-large-screen:1540px;//written promotion-product for large screen 
+$screen-xs-sm:320px; 	/*for targetting small screens */

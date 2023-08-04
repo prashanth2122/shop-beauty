@@ -1,0 +1,147 @@
+<section [formGroup]="giftForm" custom-focus>
+  <div class="form-group pos-relative">
+    <label class="sr-only">First name*</label>
+    <input
+      formControlName="FirstName"
+      autocorrect="off"
+      autocomplete="off"
+      placeholder="{{'paymentGiftCard.placeHolderFirst' | translate}}"
+      type="text"
+      class="form-control  mandatory"
+      [ngClass]="{
+        'has-error  not-valid':!giftForm.get('FirstName').valid && giftForm.get('FirstName').touched,
+        'valid': giftForm.get('FirstName').valid
+      }"
+      required
+    />
+    <div
+      *ngIf="
+        (!giftForm.controls['FirstName'].valid &&
+          giftForm.get('FirstName').touched) ||
+        (isValidFormSubmitted != null && !isValidFormSubmitted)
+      "
+      class="not-valid-error-msg"
+    >
+      <span *ngIf="giftForm.controls['FirstName'].errors.patternInvalid">
+        {{'paymentGiftCard.firstNameError' | translate}}
+      </span>
+      <span *ngIf="giftForm.controls['FirstName'].errors.required">
+        {{'paymentGiftCard.firstNameError' | translate}}
+      </span>
+    </div>
+  </div>
+  <div class="form-group pos-relative">
+    <label class="sr-only">Last name*</label>
+    <input
+      autocorrect="off"
+      formControlName="LastName"
+      autocomplete="off"
+      placeholder="{{'paymentGiftCard.placeHolderLast' | translate}}"
+      type="text"
+      class="form-control  mandatory"
+      [ngClass]="{
+        'has-error  not-valid': !giftForm.get('LastName').valid && giftForm.get('LastName').touched,
+        'valid': giftForm.get('LastName').valid
+      }"
+      required
+    />
+    <div
+      *ngIf="!giftForm.controls['LastName'].valid && giftForm.get('LastName').touched"
+      class="not-valid-error-msg"
+    >
+      <span *ngIf="giftForm.controls['LastName'].errors.required">
+        {{'paymentGiftCard.lastNameError' | translate}}
+      </span>
+      <span *ngIf="giftForm.controls['LastName'].errors.patternInvalid">
+        {{'paymentGiftCard.lastNameError' | translate}}
+      </span>
+    </div>
+  </div>
+  <div class="form-group pos-relative">
+    <input
+      formControlName="GivexCardNumber"
+      placeholder="{{'paymentGiftCard.placeHolderNumb' | translate}}"
+      type="text"
+      class="form-control  mandatory contextHlp"
+      [ngClass]="{
+        'has-error  not-valid':!giftForm.get('GivexCardNumber').valid && giftForm.get('GivexCardNumber').touched,
+        'valid': giftForm.get('GivexCardNumber').valid
+      }"
+    />
+    <div
+      *ngIf="
+        (!giftForm.controls['GivexCardNumber'].valid &&
+          giftForm.get('GivexCardNumber').touched) ||
+        (isValidFormSubmitted != null && !isValidFormSubmitted)
+      "
+      class="not-valid-error-msg"
+    >
+      <span *ngIf="giftForm.controls['GivexCardNumber'].errors.required">
+        {{'giftCardNumber'|translate}}
+      </span>
+      <span *ngIf="giftForm.controls['GivexCardNumber'].errors.patternInvalid">
+        {{'giftCardNumber'|translate}}
+      </span>
+    </div>
+    <a
+      class="contextual-help" ngbTooltip="{{'giftCardNumber'|translate}}" [placement]="mobileDevice?'top':'right'" 
+     show-delay="100"
+    ></a>
+  </div>
+  <div class="form-group pos-relative giftPinHelp ">
+    <input
+      formControlName="GivexPinNumber"
+      placeholder="{{'paymentGiftCard.placeHolderPIN' | translate}}"
+      maxlength="6"
+      type="text"
+      class="form-control  mandatory contextHlp"
+      [ngClass]="{
+        'has-error  not-valid':!giftForm.get('GivexPinNumber').valid && giftForm.get('GivexPinNumber').touched,
+        'valid': giftForm.get('GivexPinNumber').valid
+      }"
+    />
+    <div
+      *ngIf="!giftForm.controls['GivexPinNumber'].valid &&giftForm.get('GivexPinNumber').touched"
+      class="not-valid-error-msg"
+    >
+      <span *ngIf="giftForm.controls['GivexPinNumber'].errors.required">
+        {{'giftCardPin'|translate}}
+      </span>
+      <span *ngIf="giftForm.controls['GivexPinNumber'].errors.patternInvalid">
+        {{'paymentGiftCard.pinError' | translate}}
+      </span>
+    </div>
+
+    <a
+      class="contextual-help"
+      show-delay="100"  ngbTooltip="{{'giftCardPin'|translate}}" [placement]="mobileDevice?'top':'right'" 
+    ></a>
+  </div>
+  <div class="form-group pos-relative giftPayHelp">
+    <input
+      formControlName="Amount"
+      placeholder="{{'paymentGiftCard.placeHolderAmount' | translate}}"
+      type="text"
+      class="form-control mandatory contextHlp"
+      [ngClass]="{
+        'has-error  not-valid': !giftForm.get('Amount').valid && giftForm.get('Amount').touched,
+        'valid': giftForm.get('Amount').valid
+      }"
+    />
+    <div
+      *ngIf="!giftForm.controls['Amount'].valid && giftForm.get('Amount').touched "
+      class="not-valid-error-msg"
+    >
+      <span *ngIf="giftForm.controls['Amount'].errors.required">
+        {{'paymentGiftCard.amountError' | translate}}
+      </span>
+      <span *ngIf="giftForm.controls['Amount'].errors?.patternInvalid">
+        {{'paymentGiftCard.amtError' | translate}}
+      </span>
+    </div>
+    <a
+      class="contextual-help"
+      show-delay="100" ngbTooltip="{{'amountToPay'|translate}}" [placement]="mobileDevice?'top':'right'" 
+    ></a>
+  </div>
+</section>

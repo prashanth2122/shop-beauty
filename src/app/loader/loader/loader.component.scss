@@ -1,0 +1,19 @@
+
+.overlay-body{
+    padding: 15px 14px;
+    -webkit-transition: all .5s linear;
+    -o-transition: all .5s linear;
+    transition: all .5s linear;
+    min-height: auto;
+.loading-backdrop{
+    background-color: #f6f6f6;
+    left: 0;
+    width: 100%;
+    position: absolute;
+    z-index: 555;
+    width: 100%;
+    margin: 0 auto;
+    top: 0;
+    height: 100%;
+}
+}

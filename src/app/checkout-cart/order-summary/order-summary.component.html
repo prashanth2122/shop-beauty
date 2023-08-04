@@ -1,0 +1,222 @@
+<div *ngIf="cartData" class="os-summary-list">
+  <div
+    class="order-summary-container"
+    [ngClass]="{ 
+      'order-sm-block': showCart, 
+      'order-sm-hide': !showCart 
+    }"  
+  >
+    <button class="btn-show-order return-checkout" (click)="onReturnCheckOut()">
+      Return to checkout
+    </button>
+    <div class="order-summary clearfix">
+      <div class="order-summary-head">
+        <h2 *ngIf="isocode !='de'">Your Order</h2>
+        <h5 *ngIf="isocode=='de'">Ihre Bestellung</h5>
+        <a *ngIf="isocode!='de'" (click)="onEditBasket($event)" class="link-edit-basket"> {{'orderConfirm.editBasket' | translate}}</a>
+        <a *ngIf="isocode=='de'" (click)="onEditBasket($event)" class="link-edit-basket-de"> Warenkorb bearbeiten</a>
+      </div>
+      <div class="order-summary-product-lists">
+        <div
+          class="order-summary-product-row clearfix"
+          *ngFor="let data of cartData.entries"
+          [hidden]="getHidden(data)"
+        >
+          <div class="order-summary-product-name">
+            <span
+              class="product-content"
+              *ngIf="!data.isBundle; else bundleType"
+              [innerHtml]="data.product.productDisplayName"
+            >
+            </span>
+            <span class="order-product-size_checkoutSummary " *ngIf="isocode=='de'">
+              &nbsp;<span  [innerHtml]="data.product.size"></span>
+            </span>
+            <p *ngIf="isocode=='de'&&!data.isBundle" class="os-de-base-price">
+              <span class="product-base-price mob-productbaseprice" *ngIf="data.product.basePriceForProduct" [innerHtml]="data.product.basePriceForProduct">
+              </span>
+            </p>
+            <ng-template #bundleType>
+              <div *ngIf="data.bundleTemplateId" class="ordersummary-product-heading">
+                <span class="order-product-name">
+                     {{ getBundleContent(data) }}
+                </span>
+              </div>
+              <a
+                (click)="onShowProductDtls(bottle[j])"
+                *ngFor="let bottle of data['product']; let j = index"
+              >
+                <ul *ngIf="!bottle.product.isSample">
+                  <li>
+                    <span
+                      >{{
+                        getBundleProductQuntity(data, bottle)
+                      }}  x</span
+                    >
+                   <span [innerHtml]="bottle.product.productDisplayName"></span> 
+                  </li>
+                </ul>
+              </a>
+              <ul
+                class="bundle-list"
+                *ngIf="data['product'][0]['isTravelPouchSelected']"
+              >
+                <li>
+                  <span>1&nbsp;x&nbsp;</span>
+                  {{'pickMix.travelPouch' | translate}}
+                </li>
+              </ul>
+            </ng-template>
+            <div class="refPrice OneLinkShow">
+              <span class="product-base-price mob-productbaseprice"></span>
+            </div>
+          </div>
+          <div class="order-summary-product-count">
+            x&nbsp;<span>{{ data.quantity }}</span>
+          </div>
+          <div class="order-summary-product-price price-format">
+            <span
+              *ngIf="data.isBundle"
+              [innerHtml]="getBundleTotalPrice(data)"
+            ></span>
+            <span
+              *ngIf="!data.isBundle"
+              [innerHtml]="getTotalPrice(data)"
+            ></span>
+          </div>
+        </div>
+      </div>
+      
+      <div
+      class="clearfix os-sample"
+      *ngFor="let data of cartData.entries"
+      [hidden]="getSampleHidden(data)"
+    >
+      <h5>{{'orderConfirm.sample' | translate}}</h5>
+      <div class="os-sample-list clearfix">
+        <div class="os-sample-prodct-name">
+          <span [innerHtml]="data.product.productDisplayName"></span>&nbsp;
+          <span class="order-product-size_checkoutSummary " *ngIf="data.product.size" [innerHtml]="data.product.size">
+          </span>
+        </div>
+
+        <div class="os-sample-prodct-price">
+            <span style="float: right;">{{'giftMsg.free' | translate}}</span>
+        </div>
+      </div>
+    </div>
+
+      <div class="order-summary-gift-block"  *ngIf="cartData.isGiftBox">
+          <div
+            class="order-summary-subtotal clearfix order-summary-subtotal-gift"
+            *ngIf="cartData.isGiftBox"
+            style="border:0;"
+          >
+            <h5 class="order-summary-subtotal-label">{{'orderConfirm.giftBox' | translate}}</h5>
+            <div class="order-summary-subtotal-price price-format">
+            <span>{{'giftMsg.free' | translate}}</span>  
+            </div>
+          </div>
+          <div *ngIf="cartData.isGiftBoxMessage" class="order-summary-subtotal-message">
+            <div class="order-summary-subtotal clearfix order-summary-subtotal-gift-message" style="border:0;">
+              <h5 class="order-summary-subtotal-label">{{'orderConfirm.giftMsg' | translate}}</h5>
+              <div class="order-summary-subtotal-price price-format"> 
+                <span>{{'giftMsg.free' | translate}}</span> 
+              </div>
+            </div>
+            <app-accordion>
+              <app-accordion-item [expandContent]="editMessage">
+                <div class="accordion-item-header" (click)="onExpandContent()" *ngIf="!editMessage">
+                  <div
+                  class="text-right view-edit-message"       
+                >
+                  <a (click)="onViewMessage(data)">{{'orderConfirm.viewEditMsg' | translate}}</a>
+                </div>
+                </div>
+                <div class="accordion-item-content">
+                  <div class="gift-message-block">
+                    <textarea
+                      maxlength="250"
+                      rows="5"
+                      [(ngModel)]="giftMessage"
+                      (input)="onChangeText($event)"
+                      placeholder="{{'orderConfirm.giftBoxPH' | translate}}"
+                    ></textarea>
+                    <div class="text-right edit-message">
+                      <span>({{ textlength }})&nbsp;</span>
+                      <a (click)="onChangeMessage()">
+                        <span>{{'orderConfirm.saveChange' | translate}}</span>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </app-accordion-item> 
+            </app-accordion>       
+          </div>
+        </div>
+
+
+      <div id="subtotal_delivery_total" *ngIf="cartData">
+        <div class="order-summary-subtotal clearfix">
+          <h5 class="order-summary-subtotal-label">{{'checkoutFlow.subTotal' | translate}}</h5>
+          <div class="order-summary-subtotal-price price-format">
+            <span>{{ cartData.subTotal.formattedValue }}</span>
+          </div>
+        </div>
+        <div class="order-summary-subtotal clearfix" *ngIf="cartData.productTaxDE">
+          <h5 class="order-summary-subtotal-label">inkl.MwSt.</h5>
+          <div class="order-summary-subtotal-price price-format">
+            <span class="inkl-devat" [innerHtml]="cartData.productTaxDE.formattedValue"></span>
+          </div>
+        </div>
+        <div class="order-summary-delivery clearfix">
+          <h5 class="order-summary-delivery-label">{{'checkoutFlow.deliveryHeader'| translate }}</h5>
+          <div class="order-summary-delivery-con mobile-delivery">
+            <span *ngIf="cartData.deliveryCost" >{{
+              (cartData.deliveryCost.value !=0)
+                ? cartData.deliveryCost.formattedValue
+                :'giftMsg.free' | translate 
+            }}</span>
+            <span *ngIf="!cartData.deliveryCost">
+              {{(isocode !='de')?'TBC':'WIRD IM NÄCHSTEN SCHRITT AUSGEWIESEN'}}
+            </span>
+            <!-- <span *ngIf="!cartData.deliveryCost && deSiteSpecific">
+              WIRD IM NÄCHSTEN SCHRITT AUSGEWIESEN
+            </span> -->
+        </div>
+        <div
+          class="order-summary-delivery clearfix"
+          *ngIf="usSpecific && cartData.totalTax"
+        >
+          <h5 class="order-summary-delivery-label">Sales Tax</h5>
+          <div class="order-summary-delivery-con">
+           <span>
+              {{ (usSaleTax) ? cartData.totalTax.formattedValue : "TBC" }}
+            </span>
+          </div>
+        </div>
+        <div class="order-summary-total clearfix detax-mobile">
+          <h3 class="order-summary-total-label">{{'checkoutFlow.Totaltopay' | translate}}</h3>
+          <div class="order-summary-total-price price-format">
+             <span>
+               {{ cartData.totalPriceWithTax.formattedValue }}
+              </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <ul class="os-payment-gateway-icons " style="opacity: 1;">
+    <li class="visa-secure card-type"></li>
+    <li class="master-card card-type"></li>
+    <li class="american-express card-type"></li>
+    <li class="vpay-secure card-type"></li>
+    <li class="mb-secure card-type"></li>
+    <li class="paypal-secure card-type"></li>
+    <li class="ac-logo-klarna card-type" *ngIf="isocode =='de'"></li>
+    <li class="ac-logo-sepa card-type"  *ngIf="isocode =='de'"></li>
+  </ul>
+  <div class="required-information clearfix">{{'checkoutFlow.reqInformation' | translate}}</div>
+</div>
+
+<div class="mb-overlay" [ngClass]="{ 'mb-overlay-block': showCart }"></div>

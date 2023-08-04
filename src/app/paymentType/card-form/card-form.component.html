@@ -1,0 +1,217 @@
+<ng-container [ngSwitch]="switchMode">
+      <div *ngSwitchCase="'cardForm'">
+        <div class="error-info-block"  >
+          <div class="err_msg" *ngIf="outofStock">
+            <p class="err_form_msg">
+              We're sorry you have selected more of the following product(s) than are in stock.
+              Please change the quantity to a number that's available.Thanks.
+            </p>
+            <div class="stock-list" >
+              <li class="err_form_msg" *ngFor="let data of outofStockList">
+                {{ data.name }}
+              </li>
+            </div>
+          </div>
+          <div class="err_msg"  *ngIf="errorvalidationMsg">
+              <!-- Sorry, we have had a problem processing your order. Please check your details and try again,
+              or use an alternative payment card or method. -->
+              {{'invalidcard.errormsgblock' | translate}}
+              <br>
+              <br>
+              <div class="mob-br-remove">
+                {{'invalidcard.emailandphone' | translate}} <br>
+                <!-- If you need help, call us on +44 (0) 808 178 1188 or email<br> -->
+                <a href="mailto:{{'invalidcard.emailId' | translate}}">{{'invalidcard.emailId' | translate}}</a>
+              </div> 
+              <br>
+          </div>
+      </div>
+        <form
+          class="card-entry-form" 
+          [formGroup]="cardDetailForm" 
+          (keydown)="keyDownFunction($event)"
+          (ngSubmit)="oncheckoutContinue($event)" 
+          custom-focus
+          >
+          <section>
+            <div class="section-heading">
+              <h2>{{'paymentCard.yourBillAdd' | translate}}</h2>
+            </div>
+            <div>
+              <div class="payer-saved-address clearfix">
+                <div>
+                  <div class="saved-address clearfix">
+                    <p *ngIf="shippingAddress.customerAddress">
+                      <span *ngIf="shippingAddress.customerAddress.line1">
+                        {{ shippingAddress.customerAddress.line1 }}
+                      </span>
+                      <span *ngIf="shippingAddress.customerAddress.line2">
+                        {{ shippingAddress.customerAddress.line2 }}
+                      </span>
+                      <span *ngIf="shippingAddress.customerAddress.town">
+                        {{ shippingAddress.customerAddress.town }}
+                      </span>
+
+                      <span *ngIf="shippingAddress.customerAddress.district">
+                          {{ shippingAddress.customerAddress.district }}
+                        </span>
+
+                      <span *ngIf="shippingAddress.customerAddress.postalCode">
+                        {{ shippingAddress.customerAddress.postalCode }}
+                      </span>
+
+                      <span *ngIf="shippingAddress.customerAddress.country">
+                        {{ shippingAddress.customerAddress.country.name }}
+                      </span>
+                      <span *ngIf="shippingAddress.customerAddress.phone">
+                        {{ shippingAddress.customerAddress.phone }}
+                      </span>
+                    </p>
+                    <a 
+                      class="change-address-btn" 
+                      title="Change billing address" 
+                      (click)="onChangeBillingAddress()">
+                      {{'paymentCard.changeBillAdd' | translate}}
+                    </a>
+                  </div>
+                  <div class="form-group form-checkbox">
+                    <div class="checkbox bl_checkbox">
+                      <input 
+                        style="padding-top: 0px;" 
+                        type="checkbox" 
+                        class="checkbox" 
+                        id="changeBlAddress"
+                        (change)="onChangeBLAddress($event)" 
+                        formControlName="billingForm"
+                        [ngClass]="{
+                          'has-error  not-valid':(getTypeOf(cardDetailForm.value['billingForm'])) ||(!cardDetailForm.controls['billingForm'].valid &&  cardDetailForm.get('billingForm').touched)
+                          }" />
+                      <label class="top-label"
+                      for="changeBlAddress" 
+                      [ngClass]="{ 
+                        'terms-not-valid':(getTypeOf(cardDetailForm.value['billingForm'])) ||(!cardDetailForm.controls['billingForm'].valid &&  cardDetailForm.get('billingForm').touched)
+                        }">
+                        {{'paymentCard.correctBillAdd' | translate}}
+                      </label>
+                      <div class="bl-err-block error-block"
+                        *ngIf="(getTypeOf(cardDetailForm.value['billingForm'])) ||(!cardDetailForm.controls['billingForm'].valid &&  cardDetailForm.get('billingForm').touched) ">
+                        <span class="check-error-msg-bottom" >
+                          {{'paymentCard.correctBillAddErr' | translate}}
+                        </span>
+                      </div>
+
+                    </div>
+                  </div>
+                </div>
+                <section class="mb-personal-details">
+                    <div class="section-heading">
+                        <legend>{{'paymentCard.yourCardDetail' | translate}}</legend>
+                      </div>
+                  <app-cd-card 
+                    #paymentCardEl 
+                    [isValidFormSubmitted]="isValidFormSubmitted"
+                    (changeCard)="onChangeCardType($event)" 
+                    [group]="cardDetailForm.get('paymentCard')">
+                  </app-cd-card>
+                  <section class="save_card-block" *ngIf="currentUser">
+                    <fieldset>
+                      <legend> Save your details for next time? (optional)</legend>
+                      <div class="form-group">
+                        <div class="checkbox">
+                          <input 
+                            type="checkbox" 
+                            id="saveCardDetails" 
+                            class="savePayment" 
+                            formControlName="saveCard"
+                            (change)="saveCardDetail($event)" 
+                            >
+                          <label for="saveCardDetails" class="top-label">Save your payment details for next time.</label>
+                        </div>
+                      </div>
+                    </fieldset>
+                  </section>
+                  <app-mb-terms 
+                  [formType]="cardDetailForm.get('terms')" 
+                  (setPolicyTerms)="onSetPolicyTerms($event)" 
+                  (setTerms)="onSetTerms($event)">
+                  </app-mb-terms>
+
+                </section>
+              </div>
+            </div>
+          </section>
+        </form>
+      </div>
+      <ng-container *ngSwitchCase="'billingForm'">
+        <app-billing-address 
+            [shippingUserAddress]="shippingAddress" 
+            (onResetAddress)="onResetAddress()"
+            (onSetBillingAddress)="onSetBillingAddress($event)" 
+            [payType]="payType">
+          </app-billing-address>
+      </ng-container>
+      <ng-container *ngSwitchCase="'encryptCard'">
+      <div class="error-info-block">
+          <div class="err_msg" *ngIf="outofStock">
+            <p class="err_form_msg">
+              We're sorry you have selected more of the following product(s) than are in stock.
+              Please change the quantity to a number that's available.Thanks.
+            </p>
+            <div class="stock-list" >
+              <li class="err_form_msg" *ngFor="let data of outofStockList">
+                {{ data.name }}
+              </li>
+            </div>
+          </div>
+          <div class="err_msg"  *ngIf="errorvalidationMsg">
+            {{'invalidcard.errormsgblock' | translate}}
+              <br>
+              <br>
+              <div>
+                {{'invalidcard.emailandphone' | translate}} <br>
+                <a href="mailto:{{'invalidcard.emailId' | translate}}">{{'invalidcard.emailId' | translate}}</a>
+              </div> 
+              <br>
+          </div>
+      </div>
+      <div class="express-payment-method">
+      <legend>{{'paymentCard.chooseACard' | translate}}</legend>
+      <form 
+        [formGroup]="checkoutForm" 
+        (keydown)="keyDownEncryptFunction($event)"
+        (ngSubmit)="onPaymentContinue($event)" 
+        custom-focus>
+        <app-encrypted-card
+          #paymentCardEl 
+          [cards]="cardList" 
+          [group]="checkoutForm.get('cardForm')"
+          (changeCardType)="onChangeCard($event)" 
+          (editCardDetail)="onEditCard()" 
+          (cancelEMit)="cancelEMit($event)"
+          (addNewCard)="onAddNewCard()"
+          >
+        </app-encrypted-card>
+        <app-mb-terms 
+          *ngIf="!newCard" 
+          [formType]="checkoutForm.get('terms')"
+          (setTerms)="onSetEncryptCardTerms($event)" 
+          (setPolicyTerms)="onSetEncryptPolicyTerms($event)">
+        </app-mb-terms>
+      </form>
+    </div>
+  </ng-container>
+   <div 
+       class="dl-overlay payer-loading"
+       [ngClass]="{
+          'dl-overlay-show':loading,
+          'dl-overlay-hide':!loading
+        }">
+        <div class="b2c-title text-center pay-load"> 
+            <div class="load-txt" >
+               <span class="pay-load-text">
+                  {{loadingText}}
+               </span>  
+               </div>
+        </div>
+   </div>
+</ng-container>

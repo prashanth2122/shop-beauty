@@ -1,0 +1,214 @@
+@import "../../../variable";
+.ml-5{
+    margin-left:5px;
+}
+input.form-control.short-field{
+    width: 110px !important;  
+}
+.btn-find-address{
+    width:180px;
+    @media(max-width:$screen-sm){
+        width:100% ;
+    }  
+}
+.btn-default {
+    background-color: $edition-color;
+    color: $mb-white;
+}
+.form-inline  .form-group, .form-inline .radio-inline {
+    margin-right: 10px;
+}
+
+.securityCode{
+    margin-bottom: 20px;
+    position: relative;
+    width: 160px;
+    @media(max-width:$screen-sm){
+        width: 100%!important;
+    }
+    input{
+        width: 160px !important;
+    }
+    @media(max-width:$screen-sm){
+        // width: 100% !important;
+        input{
+            width: calc(100% - 18px) !important;
+            
+        }
+    }
+
+.contextual-help{
+    left:138px;
+    top:3px;
+   
+    @media(max-width:$screen-sm){ 
+        left: unset !important;
+    }
+}
+
+}
+.card_field{
+select.form-control {
+    display: block;
+    height: 48px;
+    border: 1px solid $light-grey;
+    border-radius: 0;
+    margin: 5px 0 15px;
+}
+input[type="text"].form-control.not-valid, input[type="tel"].form-control.not-valid {
+    background-position: 88% 11px !important;
+    background-size: 6px !important;
+}
+}
+.postcodesearchreset a{
+  text-decoration: underline !important;
+}
+.card-entry-form{
+    input,select{
+        &.form-control{
+            width:335px;
+            @media screen and(max-width:768px){
+                width:100%;
+            }
+        }
+        
+          }
+          .not-valid-error-msg{
+              span{
+                font-size: small !important;
+              }
+            width:305px;
+            @media screen and(max-width:768px){
+                width:90%;
+            }
+           
+        } 
+        .card_field{
+            position: relative;
+        
+        }
+}
+.bl_checkbox{
+    height:40px;
+    margin-top:15px;
+    input[type="checkbox"]{
+    &:checked{
+        ~{
+            .check-error-msg-bottom{
+                display:none;
+            }
+        }
+    }
+    ~{
+        .check-error-msg-bottom{
+            display:block;
+        }
+    }
+    }
+}
+
+
+.login_fields{
+    input[type="text"].form-control,
+    input[type="email"],input[type="password"],
+    input[type="email"].form-control,
+    input[type="password"].form-control,
+    input[type="tel"].form-control {
+       ~{
+           .not-valid-error-msg{
+               display:none  ;
+           
+           }
+       }
+    &.not-valid{    
+       &:focus{
+        box-shadow: none;
+       ~{
+        .not-valid-error-msg{
+           display:block ;
+         }
+        }
+       }
+     }
+    }
+}
+.card-form-section{
+input[type="text"].form-control.valid,
+input[type="email"].form-control.valid,
+input[type="password"].form-control.valid,
+input[type="tel"].form-control.valid {
+background-position: 92% 13px !important;
+}
+}
+// .card-form-section{
+//     select{
+//         width:
+//     }
+// }
+.card-entry-form {
+    form{
+        .monthYearAlign {
+            display: flex;
+            justify-content: space-between;
+            width:65%;
+            select{
+            min-width: 165px;
+            }
+        }
+        input{
+            width:65%;
+        }
+        select{
+            width:45%;
+        }
+        .securityCode{
+            position: relative;
+            width: 160px;
+            input {
+                width: 160px;
+                margin: 0;
+              }
+              .contextual-help{
+                  left:25%;
+                  top:3px;
+              }
+        }
+        
+    }
+}
+
+.card_field .contextual-help ~.form-control.not-valid{
+    background-position: 90% 11px !important;
+}
+.card_field .contextual-help ~.form-control.valid {
+    background-position: 90% 13px !important;
+}
+.securityCode.card_field .contextual-help ~.form-control.valid {
+    background-position: 85% 13px !important;
+}
+legend.card-expire{
+    font-size: 15px !important ;
+}
+select.selectDropdowncard{
+    width: 240px !important;
+    @media screen and(max-width:768px){
+        width: 100%!important;
+    }
+}
+.custom-dropdown{
+.not-valid-error-msg::after{
+    bottom: -6px;
+}
+}
+
+.securityCode.card_field .contextual-help ~ .form-control.not-valid {
+    background-position: 85% 11px !important;
+}
+.reg_user{
+    
+.input[type="text"].form-control.not-valid, input[type="tel"].form-control.not-valid {
+    background-position: 90% 8px !important;
+    background-size: 7px !important;
+}
+}
+

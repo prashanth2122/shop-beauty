@@ -1,0 +1,281 @@
+@import "../../../variable";
+.cred-error{
+    border:1px solid $mb-error-bg !important;
+}
+.credential-err-msg{
+    font-size:14px;
+    position: absolute;
+    bottom: 100%;
+    background-color: $mb-error-bg;
+    color: $mb-white;
+    padding: 10px;
+    left: 6%;
+    text-align: center;
+    width: 88%;
+    z-index: 9;
+    &::after{
+        content: '';
+        position: absolute;
+        width: 12px;
+        height: 12px;
+        border: 0;
+        left: 5%;
+        -webkit-transform: rotate(45deg);
+        -ms-transform: rotate(45deg);
+        transform: rotate(45deg);
+        background: $mb-error-bg;
+        bottom: -7px;
+    }
+}
+// input[type="email"].reg-email{
+//  &:focus{
+//      ~{
+//      .credential-err-msg{
+//          display:none;
+//      }
+//     }
+//  }   
+// }
+.log_in {
+    font-size: 28px;
+    padding: 3% 0 0 0px;
+    @media screen and(max-width:$screen-sm){
+        display: block;
+        overflow: hidden;
+        padding: 15px;
+        margin: 0;
+        font-size: 15px;
+        font-weight: 700;
+        color: #000;
+    }
+}
+
+.hrMb{
+    display: none;
+}
+.loginAlign{
+    justify-content: space-between;
+    .text:focus{
+        border-color: $mb-skyblue !important;
+        box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6) !important;
+
+    }
+    .not-valid {
+        background-image: url(https://www.moltonbrown.co.uk/images/exclamation-symbol.png);
+        background-position: 95% 3px !important;
+        background-size: 4px;
+        border: 1px solid $mb-error-bg!important;
+        background-repeat: no-repeat;
+    }
+    &.valid {
+        background-image: url('https://www.moltonbrown.co.uk/images/tick-symbol.png') !important;
+        background-position: 95% 2px !important;
+        background-repeat: no-repeat;
+    }
+    .contextual-help ~ .not-valid, .contextual-help ~ .valid {
+        background-position: 91% 4px !important;
+    }
+}
+    @media screen and(max-width:$screen-sm){
+        .enable_password{
+            margin-bottom: 15px;
+        }
+.loginAlign{
+    flex-direction: column;
+    // padding-left: 10px;
+    }
+    .hrMb{
+        display: block;
+    }
+    .returning_customer-log_in, .new-login{
+        border: none !important;
+margin: 0px !important;
+    }
+    .container{
+        padding-left: 0px !important;
+        padding-right: 0px !important;
+    }
+
+    .new_customer-block, .returning_customer-log_in{
+width: 100% !important ;
+min-height: auto !important ;
+padding-left: 0px ;
+    }
+}
+.new_customer-block{
+    .buttonStyle{
+        margin-top:80px;
+    }
+}
+.returning_customer-log_in{
+    margin: 5% 0 7% 0;
+    box-shadow: none;
+    padding: 20px;
+    border: 1px solid #d6d6d6;
+    float: left;
+    min-height: 312px;
+    padding: 15px;
+    width: 462px;
+    h6 {
+        font-size: 13px;
+        font-weight: 900;
+        color: #260e03;
+        margin: 20px 0 18px 0;
+    }
+    .gender {
+         padding: 5px 10px 0 3px; 
+    }
+    
+    
+    ul {
+        padding: 5px 0;
+    }
+    p {
+          padding: 10px 0 5px 0;
+            font-size: 12px;
+            line-height: 1;
+            font-style: normal;
+    color: #484848!important;
+    }
+    form{
+        .label_text{
+            font-size:15.6px;
+            font-weight: 700 !important;
+            @media screen and (max-width:768px){
+                font-size:12px;
+                font-weight: normal !important;
+            }
+        }
+        a {
+            text-decoration: underline !important;
+            color: #484848 !important;
+            font-weight: normal !important;
+        }
+        input{
+            width: 250px!important;
+            height: 25px!important;
+            padding: 0 5px!important;
+           
+        }
+        .not-valid-error-msg::after{
+            bottom: -6px !important;
+        }
+    }
+    @media screen and (max-width:768px){
+       
+        .loginpswHelp ngb-tooltip-window {
+    -webkit-transform: none !important;
+    -ms-transform: none !important;
+    transform: none !important;
+    background-color: #dc282800 !important;
+    left: auto !important;
+    right: -15px;
+    top: -57px !important;
+    &.bs-tooltip-top .arrow::before {
+        top: 0;
+        border-width: .4rem 0.4rem 0px;
+        border-top-color: #000;
+        right: -85px;
+    }
+  }
+    }
+}
+.requiredFieldText {
+    padding: 30px 0 12px 0 !important;
+    font-size:12px !important;
+    font-weight:100;
+}
+.return-login span {
+    color: $err-color;
+}
+h2 {
+    font-size: 24px;
+    color:$primary-color;
+}
+.new_customer-block {
+    margin: 5% 0 7% 0;
+    box-shadow: none;
+    width: 462px;
+    min-height: 312px;
+    font-size: 12px;
+    h6{
+     
+    margin: 20px 0 18px 0;
+    font-size:13px;
+    font-weight: 900;
+    color: #260e03;
+    }
+}
+.registerAlign{
+    margin:19px 30px 0 0;
+}
+.new-login {
+    border: 1px solid #d6d6d6;
+    float: left;
+    padding: 15px;
+    ul{
+        padding:0 15px;
+    }
+}
+.errr_msg{
+    font-size: 12px;
+}
+.enable_password{
+    cursor: pointer;
+}
+.login-fileds{
+    position: relative;
+    width:250px;
+ 
+   .contextual-help{
+       position: absolute;
+       width:25px;
+       height:25px;
+       right:-12px;
+       background-size: 7px;
+   }
+}
+
+input[type="password"]{
+    &.not-valid {
+        background-image: url("https://www.moltonbrown.co.uk/images/exclamation-symbol.png");
+        background-position: 93% 0px;
+        border: 1px solid $mb-error-bg !important;
+        background-repeat: no-repeat;
+        @media screen and(max-width:768px) {
+          background-position: calc(100% - 41px) 10px;
+        }
+        &:focus {
+          background-image: none !important;
+        }
+      }
+}
+
+input[type="text"].form-control,
+input[type="tel"].form-control {
+&.not-valid{
+    background-position:95% 2px;
+    background-size:4px;
+}
+}
+.login-filedss{
+    position: relative;
+    .contextual-help{
+   
+    }
+}
+
+@media screen and (max-width:768px){
+    .text-center {
+        //text-align: right!important;
+    }
+    .newRegisterBlock{
+        display:none;
+    }
+    .hrMb {
+        display: none;
+    }
+    .mob-text-right {
+        text-align: right!important;
+    }
+}

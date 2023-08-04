@@ -1,0 +1,75 @@
+<section class="checkout-middle-content contentOverlay">
+  <div class="container my-account-tabs">
+    <app-mb-bread-crumb [breadcrumb]="breadcrumb"></app-mb-bread-crumb>
+    <aside class="leftColumn hidden-xs account mob-myaccount-menu" style="margin-top:15px;" >
+      <h2 class="facet_header" (click)="onCollapseMenu()">MY ACCOUNT</h2>
+      <ul class="show-menu-block"> 
+        <li (click)="onContentClick('profile')"><a>My Profile</a></li>
+        <li (click)="onContentClick('address')"><a>Address Book</a></li>
+        <li (click)="onContentClick('payment')"><a>Payment Details</a></li>
+        <li (click)="onContentClick('favourites')"><a>Favourites</a></li>
+        <li (click)="onContentClick('history')"><a>Order History</a></li>
+      </ul>
+    </aside>
+    <!-- <section class="accordion arrows profile-tabs" *ngIf="mobileDevice">
+      <input type="radio" name="accordion" [checked]="checkProfileList" id="cb1" (click)="onContentClick('profile')" />
+      <section class="box">
+        <label class="box-title" for="cb1">My Profile</label>
+        
+        <div class="box-content">
+             <app-customer-detail></app-customer-detail>
+        </div>
+      </section>
+      <input type="radio" name="accordion" [checked]="checkAddressList" id="cb2" (click)="onContentClick('address')" />
+      <section class="box">
+        <label class="box-title" for="cb2">Address Book</label>
+        
+        <div class="box-content">         
+          <app-addressbook></app-addressbook>
+          </div>
+      </section>
+      <input type="radio" name="accordion" [checked]="checkPaymentList" id="cb3" (click)="onContentClick('payment')" />
+      <section class="box">
+        <label class="box-title" for="cb3">Payment Details</label>
+          <div class="box-content">
+            <app-payment-detail></app-payment-detail>
+        </div>
+      </section>
+
+      <input type="radio" name="accordion" [checked]="checkFavouriteList" id="cb4" (click)="onContentClick('favourites')"/>
+      <section class="box">
+        <label class="box-title" for="cb4">Favourites</label>
+        
+        <div class="box-content">
+          <app-favourites></app-favourites>
+        </div>
+      </section>
+      <input type="radio" name="accordion" id="cb5" [checked]="checkOrderHistoryList"  (click)="onContentClick('history')" />
+      <section class="box">
+        <label class="box-title" for="cb5">Order History</label>
+        
+        <div class="box-content">
+          <app-orders></app-orders>
+        </div>
+      </section>
+    </section> -->
+    
+
+    <div class="rowComponents asideMenuMobile" >
+      <aside class="leftColumn hidden-xs account mob-no-display" style="margin-top:15px;">
+        <h2 class="facet_header" (click)="onCollapseMenu()">{{'sidenavig.myAccount' | translate}}</h2>
+        <ul class="show-menu-block"> 
+          <li (click)="onContentClick('profile')"><a>{{'sidenavig.myProfile' | translate}}</a></li>
+          <li (click)="onContentClick('address')"><a>{{'sidenavig.addressBook' | translate}}</a></li>
+          <li (click)="onContentClick('payment')"><a>{{'sidenavig.paymentDetails' | translate}}</a></li>
+          <li (click)="onContentClick('favourites')"><a>{{'sidenavig.favourites' | translate}}</a></li>
+          <li (click)="onContentClick('history')"><a>{{'sidenavig.orderHistory' | translate}}</a></li>
+        </ul>
+      </aside>
+      <div class=" rightColumn">
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+    
+  </div>
+</section>

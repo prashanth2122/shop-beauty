@@ -1,0 +1,296 @@
+<div class="my-account mob-myaccount" *ngIf="updateProfile; else editProfileBlock">
+ <p *ngIf="updatePassword" class="password-cntnt">
+       {{'myacc.passwordChanged' | translate}}
+ </p>
+ <div *ngIf="passwordMismatch" class="error-cntnt">
+  <p >
+    {{'myacc.passError' | translate}}
+   </p>
+ </div>
+  <h2>{{'myProfile.myProfile' | translate}}</h2>
+  <p>
+    {{'myProfile.reviewYourInformation' | translate}}
+  </p>
+  <div class="rowComponents">
+    <div class="col-sm-12 edit-profile" style="position: relative;min-height: 265px;">
+      <div class="dl-overlay"  
+      [ngClass]="{
+            'dl-overlay-show':overlayLoad,
+            'dl-overlay-hide':!overlayLoad
+      }">
+    <div class="b2c-title"> 
+      <span class="loading-txt"> loading... </span>  
+    </div>
+  </div >
+      <h3>{{'myProfile.myInformation' | translate}}</h3>
+      <div *ngIf="user">
+        <div class="rowComponents cs-info-block" >
+          <div class="col-sm-6 update-profileBlock"  >
+              <table width="100%" cellpadding="0" border="0">
+                  <tbody>
+                    <tr>
+                      <td align="right"> {{'myProfile.title' | translate}}</td>
+                      <td class="user-title"><b>{{ user.titleCode ? user.titleCode : "Not yet Complete" }}</b>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td align="right">{{'myProfile.firstName' | translate}}</td>
+                      <td><b>{{ user.firstName ? user.firstName : "Not yet Complete" }}</b></td>
+                    </tr>
+                    <tr>
+                      <td align="right">{{'myProfile.lastName' | translate}}</td>
+                      
+                      <td><b>{{ user.lastName ? user.lastName : "Not yet Complete" }}</b></td>
+                    </tr>
+                    <tr>
+                      <td align="right">{{'myProfile.emailAddress' | translate}}</td>                      
+                      <td><b>{{ user.uid ? user.uid : "Not yet Complete" }}</b></td>
+                    </tr>
+                    <tr>
+                      <td align="right">{{'myProfile.ageGroup' | translate}}</td>                      
+                      <td><b>{{ user.agegroup ? user.agegroup : "Not yet Complete" }}</b>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td align="right">{{'myProfile.gender' | translate}}</td>                      
+                      <td><b>{{ user.gender ? user.gender : "Not yet Complete" }}</b></td>
+                    </tr>
+                  </tbody>
+                </table>
+          </div>
+          <div class="col-sm-6 update-profileBlock" *ngIf="user">
+              <table width="100%" cellpadding="0" *ngIf="user.defaultAddress" >
+                  <tbody>
+                    <tr>
+                      <td valign="top" align="right"> {{'myProfile.address' | translate}}</td>                      
+                      <td class="address_line" valign="top">                        
+                          <b class="firstLine"> {{ user.defaultAddress.line1 }}</b>
+                           <b *ngIf="user.defaultAddress.line2" > <br>{{ user.defaultAddress.line2 }}</b>
+                          </td>
+                    </tr>
+                    <tr>
+                      <td align="right"> {{'myProfile.townCity' | translate}}</td>                      
+                      <td><b>{{ user.defaultAddress.town }}</b></td>
+                    </tr>
+                    <tr>
+                      <td align="right">{{ "form.label.state" | translate }}</td>
+                      <td>
+                        <b>{{
+                          user.defaultAddress.district
+                            ? user.defaultAddress.district
+                            : "Not yet Complete"
+                        }}</b>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td align="right"> {{'myProfile.country' | translate}}</td>                     
+                      <td><b>{{
+                          user.defaultAddress.country
+                            ? user.defaultAddress.country.name
+                            : "Not yet Complete"
+                        }}</b></td>
+                    </tr>
+                    <tr>
+                      <td align="right"> {{'myProfile.postcodeZipcode' | translate}}</td>                     
+                      <td>
+                      <b>{{
+                          user.defaultAddress.postalCode
+                            ? user.defaultAddress.postalCode
+                            : "Not yet Complete"
+                        }}</b>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td align="right"> {{'myProfile.phoneNumber' | translate}}</td>                      
+                      <td>
+                      <b>{{
+                  user.defaultAddress.phone
+                    ? user.defaultAddress.phone
+                    : "Not yet Complete"
+                }}</b>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+          </div>
+        </div>
+        <button class="pull-right buttonStyle" (click)="OnUpdateProfile(data)">
+          {{'myProfile.editmyProfile' | translate}}
+        </button>
+      </div>
+    </div>
+
+    <div class="col-sm-12 rowComponents no-padding accountPasswordChange">
+      <div class="update-pwd  profile-block">
+        <h3>{{'myProfile.changeMyPassword' | translate}}</h3>
+       <p> {{'myProfile.mustbet6and20char' | translate}}</p>
+        <form [formGroup]="updateForm" (ngSubmit)="onSubmitForm($event)" custom-focus>
+          <p class="requiredFieldText label_text">
+            <span class="redstar">*</span> {{'myProfile.requiredField' | translate}}
+          </p>
+          <p class="existing_update-pwd_label label_text">
+            {{'myProfile.currentPassword' | translate}}<span class="redstar">*</span>
+          </p>
+          <span class="login-fields-small" id="updateProfilePassword">
+            <input 
+              autocomplete="off"
+              formControlName="oldPassword"
+              type="password"
+              class="text mandatory form-control"
+              (keyup)="onSubmitField($event)"  
+              autocapitalize="on"
+               [ngClass]="{
+                'has-error not-valid':
+                  !updateForm.get('oldPassword').valid && updateForm.get('oldPassword').touched,  
+                  'valid':updateForm.get('oldPassword').valid,
+                  'cred-error':showCrentialError
+              }" />
+            <div *ngIf="showCrentialError" class="credential-err-msg">{{'myProfile.recognisePwdError' | translate}} </div>
+            <div *ngIf="!updateForm.controls['oldPassword'].valid && updateForm.get('oldPassword').touched
+              " class="not-valid-error-msg">
+              <span [hidden]="!updateForm.controls['oldPassword'].errors.required">
+                {{ "updatePassword.oldPassword" | translate }}</span>
+            </div>
+          </span>
+          <p class="existing_update-pwd_label label_text">
+            {{'myProfile.newPassword' | translate}}<span class="redstar">*</span>
+          </p>
+          <span class="login-fields-small">
+            <input
+              autocomplete="off" 
+              formControlName="password" 
+              type="password"
+              class="mandatory form-control reg_field" 
+              [ngClass]="{
+                'has-error  not-valid':
+                  !updateForm.controls['password'].valid &&
+                  updateForm.get('password').touched,
+                   'valid':updateForm.get('password').valid,
+                  'invalid':!updateForm.get('password').valid
+              }" />
+            <div
+             *ngIf="
+                !updateForm.controls['password'].valid &&
+                updateForm.get('password').touched
+              " class="not-valid-error-msg">
+              <span
+                [hidden]="!updateForm.controls['password'].errors.required">
+                {{ "updatePassword.password" | translate }}
+              </span>
+              <span [hidden]="!updateForm.controls['password'].errors.patternInvalid">
+                {{ "updatePassword.passwordInfo" | translate }}
+              </span>
+            </div>
+          </span>
+          <p class="existing_update-pwd_label label_text">
+            {{'myProfile.verifyPassword' | translate}}<span class="redstar">*</span>
+          </p>
+          <span class="login-fields-small">
+            <input 
+                type="password" 
+                formControlName="confirmPassword" 
+                class="mandatory form-control reg_field" 
+                [ngClass]="{
+                 'has-error  not-valid':!updateForm.controls['confirmPassword'].valid && updateForm.get('confirmPassword').touched, 
+                  'valid':updateForm.get('confirmPassword').valid,
+                  'invalid':!updateForm.get('confirmPassword').valid
+              }" />
+            <div *ngIf="
+                !updateForm.controls['confirmPassword'].valid &&
+                updateForm.get('confirmPassword').touched
+              " class="not-valid-error-msg">
+           
+              <span
+              [hidden]="
+                !updateForm.controls['confirmPassword'].errors
+                  .required
+              "
+              >{{ "register.confirmPassword" | translate }}</span
+            >
+            <span
+              [hidden]="
+                !updateForm.controls['confirmPassword'].errors
+                  .appCustomValidator
+              "
+              >{{ "register.matchPassword" | translate }}</span>
+            </div>
+          </span>
+
+          <div class="pull-right update-pwd-btn">
+            <button type="submit" class="buttonStyle">{{'myProfile.updatePasswrd' | translate}}</button>
+          </div>
+        </form>
+      </div>
+      <div class="edit-options profile-block">
+        <h3>{{'myProfile.expressCheckoutOptions' | translate}}</h3>
+        <p>
+          {{'myProfile.featureAllowsYouToProceedToCheckout' | translate}}
+        </p>
+
+        <div>
+          <div class="col-sm-9 pull-left mob-full toppading">
+            <span> 
+              {{'myProfile.defaultShippingMethod' | translate}}</span>
+            <br />
+            <b *ngIf="user"><span *ngIf="user.shippingMethod">{{
+                user.shippingMethod.description
+                  ? user.shippingMethod.description
+                  : user.shippingMethod.serviceName
+                  ? "From  " + user.shippingMethod.serviceName
+                  : " "
+              }}</span></b>
+          </div>
+          <div class="col-sm-3 pull-left mob-full">
+            <button class="buttonStyle" (click)="OnUpdateProfile(data)">
+              {{'myProfile.edit' | translate}}
+            </button>
+          </div>
+        </div>
+
+        <div>
+          <div class="col-sm-9 pull-left mob-full">
+            <span> {{'myProfile.defaultCard' | translate}}</span>
+            <br />
+            <b *ngIf="user"><span class="cc-accountnumber" *ngIf="user.creditCardInfo">{{
+                
+              user.creditCardInfo.accountnumber
+              }}</span></b>
+          </div>
+          <div class="col-sm-3 pull-left mob-full">
+            <button class="buttonStyle" (click)="OnUpdateCardDetails()">
+              {{'myProfile.edit' | translate}}
+            </button>
+          </div>
+        </div>
+
+        <div>
+          <div class="col-sm-9 pull-left mob-full">
+            <span>
+              {{'myProfile.defaultShippingAddress' | translate}}</span>
+            <br />
+            <b class="default-address" *ngIf="user">
+              <div *ngIf="user.defaultAddress">
+                <span *ngIf="user.defaultAddress.line1">{{
+                  user.defaultAddress.line1
+                }}</span>
+              </div>
+            </b>
+          </div>
+          <div class="col-sm-3 pull-left mob-full">
+            <button class="buttonStyle" (click)="OnUpdateAddress(data)">
+              {{'myProfile.edit' | translate}}
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #editProfileBlock>
+  <div class="my-account">
+    <h2 class="title profile">{{'myProfile.editmyProfile' | translate}}</h2>
+    <p class="padding-p">{{'myProfile.afterChangesClickSave' | translate}}</p>
+    <app-personal-form [profileData]="profileData" (cancelUpdate)="cancelUpdate($event)"></app-personal-form>
+  </div>
+</ng-template>

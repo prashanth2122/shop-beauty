@@ -1,0 +1,380 @@
+@import "../../../../variable";
+
+
+.store_cart {
+    padding-right: 7px;
+    float: left;
+    position: relative;
+}
+.mb-basketDropdown-content {
+    padding: 20px;
+    color: #260e03;
+    background: $header-color-white;
+    left: -430px !important;
+    width: 482px;
+    position: absolute;
+    z-index: 9999 !important;
+    text-transform: none;
+    border: 1px solid #e2e7ea;
+    color: #260e03;
+    top:-999px;
+    @media screen and(max-width:$screen-sm){
+        display:none
+    }
+    &::after{
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        border-top: 1px solid $light-grey;
+        border-left: 1px solid $light-grey;
+        top: 14px;
+        left: 95%;
+        margin-left: -25px;
+        content: '';
+        -webkit-transform: rotate(45deg);
+        -ms-transform: rotate(45deg);
+        transform: rotate(45deg);
+        margin-top: -25px;
+        background: $mb-white;
+    }
+    .basketDropdownCartHeader {
+        text-align: left !important;
+        h1{
+            padding-bottom: 20px;
+            font-size: 18px;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+        h3 {
+            padding-top: 14px;
+            padding-bottom: 20px;
+            font-size: 18px;
+            font-weight: 700;
+            text-transform: uppercase;
+            text-align: left;
+            color: $primary-color;
+            line-height: 1;
+            border-bottom: 1px solid #e2e7ec;
+        }
+  
+       
+    }
+    .emptycart-list{
+        padding: 18.4px 0 15px 0;
+        text-align:left;
+        font-weight: 600;
+         span{
+
+        font-size: 1.1em !important;
+    }
+    }
+    .cart-list-container {
+        max-height: 279px;
+        overflow-x: hidden;
+        overflow-y: auto;
+        &::-webkit-scrollbar {
+           width: 2px;
+        }
+        &::-webkit-scrollbar-thumb {
+          background: #D9D9D9; 
+        }
+        &::-webkit-scrollbar-thumb:hover {
+          background: #555; 
+        }
+        li {
+            width: 100%;
+            float: left;
+            border-bottom: 1px solid #e2e7ea;
+            padding-left: 0 !important;
+            span {
+                font-size: 14px;
+            }
+          
+        }
+        .basket-items {
+            position: relative;
+            padding-right:10px !important;
+
+            .basket-item-Image {
+                width: 26%;
+                padding: 18px 6px !important;
+                float: left;
+                -moz-user-select: none;
+            }
+            .basket-item {
+                width: 35%;
+                padding: 20px 10px 10px 0;
+                float: left;
+                text-align: left;
+                line-height: 12px;
+                p {
+                    width: 100%;
+                    text-align: left;
+                    padding: 10px 0 5px 0;
+                    float: left;
+                    font-size: 14px;
+                    // font-family: "Trebuchet MS", arial, sans-serif;
+                    font-family: Century Gothic Regular;
+                    color:$primary-color;
+                }
+                a{
+                    color:$primary-color !important;
+                }
+            }
+            h4 {
+                line-height: 15px;
+                font-size: 14px;
+                color: $primary-color;
+                min-height: 35px;
+                padding-bottom: 10px;
+                a {
+                    font-size: 14px !important;
+                    font-family: Century Gothic Regular;
+                    // font-family: "Trebuchet MS", arial, sans-serif;
+                    line-height: 14px;
+                }
+            }
+            .item-size {
+                width: 100% !important;
+                text-transform: uppercase;
+                color: $primary-color;
+                font-size: 14px;
+            }
+            .prod-qty {
+                width: auto;
+                float: left;
+                line-height: 130px;
+                text-transform: uppercase;
+                font-size: 14px;
+                color: $primary-color;
+            }
+            .pricesContainer {
+                line-height: 130px;
+                color: $primary-color;
+                text-align: right;
+                width:95%;
+                span.price-format {
+                    margin-right: 14px;
+                    font-size: 14px;
+                }
+            }
+            .remove-item {
+                background: transparent url('https://www.moltonbrown.co.uk/images/close-icon-black.png') no-repeat;
+                padding: 10px 20px 15px 10px;
+                background-size: 19px;
+                width: 10px;
+                border: 0;
+                outline: 0;
+                position: absolute;
+                top: 56px;
+                right: -7px;
+                cursor: pointer;
+            }
+        }
+    }
+    .caret {
+        display: inline-block;
+        width: 0;
+        height: 0;
+        margin-left: 2px;
+        vertical-align: middle;
+        border: 0;
+        &:before {
+            border-color: rgba(231, 231, 231, 0);
+            border-bottom-color: #e2e7ea;
+            border-width: 15px;
+            margin-left: -20px;
+            margin-right: -1px;
+            left: 451px;
+            top: -30px;
+        }
+        &:after,
+        &:before {
+            bottom: 100%;
+            right: 20px;
+            border: solid transparent;
+            content: " ";
+            height: 0;
+            width: 0;
+            position: absolute;
+            pointer-events: none;
+        }
+        &:after {
+            border-color: rgba(255, 255, 255, 0);
+            border-bottom-color: $header-color-white;
+            border-width: 14px;
+            margin-left: -19px;
+            left: 451px;
+            top: -27px;
+        }
+    }
+}
+
+
+.store_viewCart {
+    background: url('../../../../assets/imgs/Basket_Icon_White.png') 1px 4px no-repeat;
+    padding: 5px 15px 13px 17px;
+    @media (max-width:$screen-sm) {
+        min-width: 50px;
+        background: transparent url('../../../../assets/imgs/header-sprite.png') no-repeat;
+        background-size: 314px;
+        background-position: -276px 12px;
+        position: absolute;
+        top: -1px;
+        right: -10px;
+        height: 50px;
+    }
+}
+.cart-items {
+    position: absolute;
+    bottom: 0;
+    left: 13px;
+    top: 7px;
+    color: $primary-color;
+    border: 1px solid $primary-color;
+    background: $mb-white none repeat scroll 0 0;
+    border-radius: 50%;
+    height: 18px;
+    min-width: 18px;
+    text-align: center;
+    line-height: 16px;
+    font-size: 9px;
+    padding: 0 3px;
+    @media(max-width: $screen-sm){
+        left: -10px;
+        top: 25px;
+    }
+}
+.cart-items>span{
+    font-size:9px;
+    @media(max-width: $screen-sm){
+    font-size:11px;
+    }
+}
+.store_richContainer {
+    padding: 20px;
+    color: #260e03;
+    background: $header-color-white;
+    left: -435px !important;
+    top: 37px !important;
+    width: 482px;
+    position: absolute;
+    z-index: 9999;
+    text-transform: none;
+    border: 1px solid #e2e7ea;
+    .caret {
+        border: 0;
+        display: inline-block;
+        width: 0;
+        height: 0;
+        margin-left: 2px;
+        vertical-align: middle;
+        border-top: 4px solid;
+        border-right: 4px solid transparent;
+        border-left: 4px solid transparent;
+    }
+}
+.store_chevron {
+    background: url('https://www.moltonbrown.co.uk/images/btn_checkouts.png') no-repeat right 0;
+    height: 25px;
+    padding: 17px;
+    background: $primary-color;
+    width: 150px;
+    font-size: 14px;
+    text-align: center;
+    position: relative;
+    right: 125px;
+    padding: 10px 25px 28px 24px;
+    font-size: 14px;
+}
+.sub-totalItems{
+    margin-top: -5px;
+    padding: 20px  0px 10px 0px;
+}
+.sub-total-block{
+    display: flex;
+    font-size: 16px;
+    clear: both;
+    justify-content: space-between;
+    padding-left: 2px;
+    div{
+      
+    }
+
+}
+.view-basket-block{
+    display: block;
+    text-align:center;
+    padding: 10px 0 5px 0;
+   .basket-btn{
+        font-weight: 400;
+        color: $header-color-white;
+        text-align: center;
+        vertical-align: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        background-color: $primary-color;
+        border: 1px solid transparent;
+        padding: 5px 25px 5px 24px;
+        font-size:16px;
+        line-height: 1.5;
+        width:150px;
+        border-radius:0;
+        text-transform: uppercase;
+        height: 25px;
+       cursor: pointer;
+    }
+}
+
+
+.show-cart-cntnt{
+    top:40px !important;
+}
+.show-cart-cntnt-block{
+    top:40px !important;
+}
+.hide-cart-cntnt{
+    top:-933px ;
+}
+
+.prod-title{
+    h4{
+        a{
+            text-transform: capitalize !important;
+            cursor: pointer;
+        }
+        span{
+            cursor: default;
+        }
+    }
+}
+.prdct-size{
+    text-align: left;
+    padding: 10px 0 5px 0;
+    float: left;
+    font-size: 14px;
+    font-family: "Trebuchet MS",arial,sans-serif;
+    text-transform: uppercase;
+    span{
+        text-transform: lowercase;
+        font-weight: 100;
+    }
+}
+.de-base-price {
+    width: 100px;
+    padding: 10px 0 10px;
+    .product-base-price {
+        color: #464646!important;
+        display: block!important;
+        font-size: 14px;
+        font-style: italic;
+        line-height: 17px;
+        font-family: 'Times New Roman', Times, serif;
+    }
+}
+.full-img,.full-img img {
+    width: 100%;
+    float: left;
+}

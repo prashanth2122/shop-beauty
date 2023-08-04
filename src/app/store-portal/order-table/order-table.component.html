@@ -1,0 +1,106 @@
+<section class="order-tbl clearfix" *ngIf="orderData">
+<table class="table-striped">
+    <thead>
+        <th class="od-sn" *ngIf="orderData.serialNo">{{orderData.serialNo}}</th>
+        <th class="od-slct" *ngIf="orderData.select" style="padding-left: 12px;">Select</th>
+        <th class="od-number" *ngIf="orderData.orderNumber">{{orderData.orderNumber}}</th>
+        <th class="od-cs-name" *ngIf="orderData.customerName">{{orderData.customerName}}</th>
+        <th class="od-date" *ngIf="orderData.orderDate">{{orderData.orderDate}}</th>
+        <th class="od-val" *ngIf="orderData.amount">{{orderData.amount}}</th>
+        <th class="od-action" *ngIf="orderData.action">{{orderData.action}}</th>
+    </thead>
+    <tbody *ngIf="stores">
+        <tr *ngFor="let data of stores;let ndx=index"
+         >
+            <td class="od-sn">
+              {{ndx+1}}
+            </td>
+            <td  
+                class="od-slct" 
+                *ngIf="data.switchStatus =='COMPLETELYPROCESSED'" 
+                style="padding: 15px 18px;position: relative;">
+              <input  
+                  type="checkbox"  
+                  class="od-slct-checkbox" 
+                  (change)="onCheckOrder(ndx)"
+              />
+              <span class="od-slct-lbl"></span>
+            </td>
+            <td class="od-number">
+              {{data.code}}
+            </td>
+            <td class="od-cs-name">
+              {{(data.deliveryAddress.firstName) ?data.deliveryAddress.firstName+ '' +data.deliveryAddress.lastName:data.paymentInfo.accountHolderName }}
+            </td>
+            <td class="od-date">
+             {{data.created |date:'dd/M/y'}}
+            </td>
+            <td class="od-val">
+              {{data.totalPriceWithTax.formattedValue}}
+            </td>
+            <td class="od-action" *ngIf="data.switchStatus =='cancelledList'">
+              Cancelled 
+            </td>
+            <td class="od-action" *ngIf="data.switchStatus =='COMPLETELYPROCESSED'">
+              <a class="btn od-check-in" 
+              (click)="onAppendUserData($event,data)" 
+              data-toggle="modal"
+              data-target="#modalStoreportalPopup"
+              >
+                Check in
+              </a>
+            </td>
+            <td class="od-action" *ngIf="data.switchStatus =='collected'">
+                <button class="od-collect" (click)="onDispactchOrder($event,data)" [ngClass]="{'action-bg':data.status=='READYTOCOLLECT'}">
+                 Collect
+                </button>
+              </td>
+          </tr>
+    </tbody>
+</table>
+
+
+<div
+class="modal"
+id="modalStoreportalPopup"
+tabindex="-1"
+role="dialog"
+aria-hidden="true"
+>
+<div
+class="chck-modal-dialog modal-dialog modal-full container modal-dialog-scrollable modal-lg checkout-modal"
+role="document"
+>
+<div class="modal-content portal-modal-content">
+  <div class="chck-modal-header modal-header">
+    <button type="button" class="close" data-dismiss="modal">
+      &times;
+    </button>
+    <h4 class="modal-title text-left">check in</h4>
+  </div>
+  <div class="modal-body portal-modal-body" style="position: relative;" *ngIf="orderInfo"> 
+    <div class="order-info-content">
+       {{
+         (orderInfo.deliveryAddress.firstName) ?orderInfo.deliveryAddress.firstName+ '' +orderInfo.deliveryAddress.lastName:orderInfo.paymentInfo.accountHolderName 
+        }}
+     <span>order no. &nbsp;{{orderInfo.code}}</span>
+     <div class="portal-query">
+       Are you sure want to check in this order?
+     </div>
+    </div>
+   </div>
+   <div class="portal-modal-footer">
+    <button type="button" class="btn" data-dismiss="modal" (click)="onDispactchOrder(event,orderInfo)">Yes</button>
+    <button type="button" class="btn" data-dismiss="modal" >No</button>
+  </div>
+
+</div>
+</div>
+</div>
+
+<div class="margin-top-10" *ngIf="orderData.switchStatus==='dispatch'&&stores.length!=0">
+    <button class="btn-sbmt" (click)="onBulkCheck($event)">Bulk Check in</button>
+</div>
+</section>
+
+

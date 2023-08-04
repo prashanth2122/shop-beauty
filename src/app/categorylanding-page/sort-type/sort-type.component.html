@@ -1,0 +1,52 @@
+<div class="sort-box">
+  <div class="product-layout">
+    <a
+      class="layout-a"
+      (click)="onGridClick(true)"
+      [ngClass]="{ active: gridToggle }"
+      ><span></span
+    ></a>
+    <a
+      class="layout-b"
+      (click)="onGridClick(false)"
+      [ngClass]="{ active: !gridToggle }"
+      ><span></span
+    ></a>
+  </div>
+  <div class="sort-list">
+    <a class="clear-link" (click)="onClearAll()">Clear All</a>
+    <div class="sortby-main">
+      <form>
+        <select
+          id="sortBySelect"
+          class="sort-by-select"
+          name="sort"
+          (change)="sortByCahnge($event)"
+        >
+          <option value="" selected="selected"> Sort by</option>
+          <option id="option" value="displayName:ascending">Name A to Z</option>
+          <option id="option" value="displayName:descending"
+            >Name Z to A</option
+          >
+          <option id="option" value="price:ascending">Price Low to High</option>
+          <option id="option" value="price:descending"
+            >Price High to Low</option
+          >
+        </select>
+      </form>
+    </div>
+    <div class="filter-by dropdown " >
+      <span>
+        <a
+          class="filter-by-text"
+          data-toggle="modal"
+          data-target="#modalFacetPopup"
+          (click)="onMbFilterByClick()"
+        >
+          Filter by
+          <span *ngIf="checkList" class="facet-check"></span>
+        </a>
+      </span>
+    </div>
+  </div>
+</div>

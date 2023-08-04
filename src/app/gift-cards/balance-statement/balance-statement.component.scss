@@ -1,0 +1,73 @@
+@import"../../../variable";
+.balanceDetail{
+    padding: 20px 10px;
+    float: left;
+    margin: 15px 0;
+    width: 100%;
+    h2{
+        font-size: 18px;
+        margin-bottom: 0;
+        padding: 0 0 14px 0;
+        color: $primary-color;
+    }
+    .sheet{
+        font-size:13px; 
+        padding: 15px;
+        border: 1px solid #ccc;
+    
+        .sheetHeader{
+            display: flex;
+            font-weight: 700;
+    div{
+        padding: 0 15px 7px;
+    }
+        }
+        .sheetBody{
+    
+            display: flex; 
+               div{
+        padding: 0 15px 7px;
+    }
+        }
+    .sheet-cell{
+        width:33.33%;
+    }
+
+    }
+}
+.page_viewAll{
+    display: inline-block;
+    width: auto;
+    height: 19px;
+    float: left;
+    padding-top: 3px;
+    a{
+        line-height: 14px;
+        margin: 0;
+        text-decoration: underline !important;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 13px;
+        cursor: pointer;
+        color: $edition-color ;
+        vertical-align: bottom;
+    }
+}
+.page-nav-btn-hide{
+    display: none;
+}
+.page-active{
+    font-weight:bold;
+    color:$primary-color !important;
+}
+.continue-shp-button-gift{
+    padding-left: 15px;
+    cursor: pointer;
+}
+.pagination{
+  .page-item{
+      .page-link {
+          cursor: pointer;
+      }
+  }  
+}

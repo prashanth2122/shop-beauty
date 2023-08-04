@@ -1,0 +1,42 @@
+@import"../../../variable";
+.charity-container{
+    a{
+        text-decoration: none;
+        color:$primary-color;
+        &:hover{
+            text-decoration: underline;
+        }
+    }
+}
+
+aside {
+    width: 194px;
+    border: 0;
+    text-align: left;
+    padding:4px 10px 20px 10px;
+     h3.facet_header {
+        font-size: 13px;
+        line-height: 30px;
+        color: #666;
+        font-weight: 700;
+        text-transform: uppercase;
+        cursor: pointer;
+        text-align: left!important;
+        margin-bottom: 0!important;
+
+        @media(max-width: $screen-sm){
+            display: none !important;
+        }
+    }
+ 
+}    
+.rightColumn{
+           width:740px !important;
+
+       } 
+  @media screen and (max-width:$screen-sm) {
+    .rightColumn, aside{
+           width:100% !important;
+
+       }        
+    }

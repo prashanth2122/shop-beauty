@@ -1,0 +1,82 @@
+<div class="clickcollect-wrap" >
+  <section class="find-box cc-postcode" *ngIf="loadGMscript">
+     <h4>{{'clickCollect.title'|translate}}</h4>
+     <form [formGroup]="storePointForm"  custom-focus>
+      <div class="form-group clearfix store-code-container">
+
+        <div class="store-code-input-container">
+          <div class="store-code-fx-1" >
+           <label class="sr-only">Post code</label>
+               <input
+                 #search 
+                 googlePlaces
+                 (onSelect)="setAddress($event)"
+                 type="text"
+                 (change)="onChangePostcode($event)"
+                 (keydown)="onSearchKeyDown($event)"
+                 formControlName="zipcode"   
+                 placeholder="{{'store.search'|translate}}"
+                 class="text form-control pull-left cc-postcode-input"
+                 [ngClass]="{
+                    'has-error  not-valid':(!storePointForm.controls['zipcode'].valid && storePointForm.get('zipcode').touched)||(!storePointForm.controls['zipcode'].valid && storePointForm.get('zipcode').touched&&emptyStores)
+                     }" />
+              
+                    <div *ngIf="storePointForm.controls['zipcode'].valid&&storePointForm.get('zipcode').touched">
+                    <span class="no-strores-error-msg" 
+                    *ngIf="emptyStores" >
+                     Sorry,no stores found near &nbsp;  &quot; {{storePointForm.controls['zipcode'].value}} &quot; 
+                    </span>
+                  </div>
+                 <div 
+                 *ngIf="!storePointForm.controls['zipcode'].valid &&  storePointForm.get('zipcode').touched"
+                 class="not-valid-error-msg ">
+                 <span [hidden]="!storePointForm.controls['zipcode'].errors.required">{{'store.search'|translate}}</span>
+               </div>  
+                
+         </div>
+            <button  (click)="onPostCodeClick($event)"class=" btn btn-default btn-find-address" >{{'store.findStore' | translate}}</button>
+          </div>
+       </div>
+      </form>
+  </section>
+  <section class="cc-stores-list" *ngIf="showStores">
+    <section class="clearfix" *ngIf="ukSite" >
+     <div class="cc-results-count cc-results-left" *ngIf="storesList">
+         <span class="cc-results-size">{{storesList.length}}</span> locations found
+     </div>
+     <div *ngIf="!emptyStores">
+     <div class="form-group" *ngFor="let point of storeTypeList;let k=index;">
+         <div class="checkbox storepoint">
+             <input 
+               id="{{point.sortBy}}"
+               type="checkbox"  
+               [checked]="point.checked" 
+               (change)="checkMBStores($event,point,k)"  >
+             <label for="{{point.sortBy}}" >
+               <img class="store-point-img" [src]="point.img" alt="logo">
+                <span [innerHtml]="point.name">                   
+                 </span>  
+             </label>
+         </div>    
+     </div>
+  </div>
+</section>
+     <header class="cc-stores-list-header clearfix">
+         <nav class="cc-stores-view-nav">
+             <a  class="list-view "  [ngClass]="{'selected':listView}" (click)="onShowStoreList(true)">LIST</a>
+             <a  class="google-map-view"  [ngClass]="{'selected':!listView}" (click)="onShowStoreList(false)">MAP</a>
+         </nav>
+         <div class="us-cc-stores" *ngIf="!ukSite">{{storesList.length}} locations found </div>
+     </header>
+     <div class="toggle-store-view" *ngIf="listView; else mapView">
+       <app-collection-list (showMapsOpenHour)="onShowMapsOpenHour($event)" [storeList]="storesList" (emitselectedStore)="emitselectedStore($event)" ></app-collection-list>
+     </div>
+     <ng-template #mapView>
+      <app-store-locator *ngIf="loadGMscript" [openHourWindow]="openHourWindow" [storePoints]="storesList"></app-store-locator>
+    </ng-template>
+  </section>
+  <div   [ngClass]="{'overlay-bg-show':storeLoad,'overlay-bg-hide':!storeLoad}" >
+      <app-loading></app-loading>
+   </div>
+ </div>
+

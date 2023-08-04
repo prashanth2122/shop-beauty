@@ -1,0 +1,177 @@
+@import "../../../variable";
+.payment-type-card {
+    background: url('https://css.moltonbrown.co.uk/images/payment-methods.png') no-repeat;
+    width: 74px;
+    height: 47px;
+    display: inline-block;
+    margin-top: 5px;
+    &.icon-card{
+        background-position: 0 0;
+    }
+    &.icon-card-paypal {
+        background-position: 0 -48px ;
+    }
+    &.icon-card-giftcard {
+        background-position: 0 -96px ;
+    }
+    &.icon-card-klarna {
+        background-position: 0 -144px; 
+    }
+    &.icon-card-sepa {
+        background-position: 0 -191px;
+    }
+}
+
+/*paymentType*/
+
+.mb-paytype{
+    width: 259px;    
+    min-height: 130px;
+    padding: 9px;
+    float: left;
+    text-align: center;
+    border: 1px solid #c2c2c2;
+    background-color: $mb-white;
+    cursor: pointer;
+    position: relative;
+    transition: opacity 0.7s;
+    @media screen and (max-width:$screen-sm) {
+        padding:10px 5px;width:48%;
+        float: none;
+        display: inline-block;
+    }
+    h5 {
+        font-size: 16px;
+        margin: 0 0 10px;
+        padding-bottom: 10px;
+        color: $primary-color;
+        border-bottom: 1px solid $light-grey;
+        @media screen and(max-width:480px){
+            font-size:12px;
+        }
+    }
+    &.mb-dt-selected{
+        border-color: $primary-color;
+        &:after {
+        content: '';
+        display: block;
+        width: 15px;
+        height: 15px;
+        position: absolute;
+        bottom: -7px;
+        left: 50%;
+        margin-left: -7px;
+        border-color: $primary-color;
+        background-color: $mb-white;
+        box-shadow: 1px 1px 0 $primary-color;
+        -webkit-transform: rotate(45deg);
+        -moz-transform: rotate(45deg);
+        -ms-transform: rotate(45deg);
+        transform: rotate(45deg);
+    }
+}
+
+}
+
+.subtotal-flex{ 
+    .card-block-height{
+    width:169px !important;
+    min-height:116px !important;
+    margin:2px;
+    text-decoration: none;
+    @media screen and(max-width:$screen-sm) {
+        width:30% !important;
+        min-height:94px !important;
+        margin: 7px 5px;
+    }
+    h5{
+    margin: 0;
+    padding-bottom: 0px;
+    color: $primary-color;
+    border-bottom: none;
+    font-size: 15px;
+        @media screen and(max-width:$screen-sm) {       
+            margin: 0px 0 5px;
+        }
+    }
+    .payment-types{
+        text-decoration: none;
+        &:hover{
+            text-decoration: none; 
+        }
+    }
+}
+@media screen and(max-width:$screen-sm) {
+    display: inline-block;
+    text-align: center;
+    width: 100%;
+    }
+}
+.mb-dt-unselected{
+    filter: opacity(0.5);
+    opacity: .5;
+}
+.payType-overlay{
+     .dl-overlay {
+        min-height: 200px !important; 
+        
+     }
+}
+.dl-overlay-payType{
+    min-height: 200px !important; 
+    .b2c-title {
+        
+    }
+}
+ .bl_checkbox{ 
+    label{
+        &::before {
+         top:  -4px;
+     }
+    }
+ }
+.mb-dt-disabled{
+    background-color: #e7e7e7;
+    cursor: not-allowed;
+}
+#GermanData{
+    font-size: 12px;
+}
+@media screen and(max-width:$screen-sm) {
+    .subtotal-flex .card-block-height h5 {
+        word-break: break-all;
+    }
+}
+
+
+.small-dropdown{
+    .bootstrap-select{
+        button{
+            &.dropdown-toggle{
+                min-width: 125px;
+                width:125px;
+           }
+         }
+         .select-month,.select-year{
+          &.has-error{
+               ~{
+                 button{
+                   &.dropdown-toggle{
+                    border: 1px solid #b63432 !important;
+                  }
+                }
+              }
+             }
+           }
+    }
+}
+:not(.input-group) > .bootstrap-select.select-month.form-control:not([class*=col-]) {
+    min-width: 125px;
+    width:125px;
+    height: 48px;
+}
+:not(.input-group) > .bootstrap-select.select-year.form-control:not([class*=col-]) {
+    min-width: 125px;
+    width:125px;
+    height: 48px;
+}

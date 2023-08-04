@@ -1,0 +1,171 @@
+<div class="container plp-top-container">
+  <app-mb-bread-crumb *ngIf="breadcrumb" [breadcrumb]="breadcrumb"></app-mb-bread-crumb>
+
+  <div  class="out-of-stock-cntnt" *ngIf="outofstock">
+    <p [innerHtml]="outofstockMessage">
+      <!-- We're sorry you have selected more of the following product(s) than are in stock. Please change the quantity to a number that's available. Thanks
+    <li
+    *ngIf="productInfo"
+    >
+  <span   [innerHtml]="productInfo.productDisplayName | safe: 'html'"></span>.0 available
+  <div>
+    If you continue to experience problems whilst placing order please call +44 (0) 808 178 1188
+    +44 (0) 808 178 1188 or email <a href="mailto:{{csServicecommunication}}">{{csServicecommunication}}</a>
+    for assistance.
+  </div>
+  </li>  -->
+    </p>
+  
+   </div>
+  <!-- <div class="category-main" *ngIf="categorybanner">
+     <h1 *ngIf="categorybanner.categoryDisplayName">
+      {{categorybanner.categoryDisplayName}}<span *ngIf="pagination" class="count">(<span id="resultsCount">{{pagination.totalResults}}</span>)</span>
+    </h1>
+</div> -->
+  <app-categorybanner
+    *ngIf="categorybanner"
+    [categorybanner]="categorybanner"
+    [pagination]="pagination"
+  ></app-categorybanner>
+</div>
+
+<main class="plp-view_container container">
+ <div class="category-top-bar"   
+    *ngIf="activeProducts">
+    <div class="filterby-content">
+        <h2>{{'categoryLandingPage.filterBy'|translate}}</h2>
+    </div>
+    <div class="pager-bar">
+        <app-pager
+            *ngIf="pagination"
+            [pagination]="pagination"
+            [catalogSpecific]="catalogSpecific"
+            [pager]="pager"
+            [viewAllProducts]="viewAllProducts"
+            (viewAll)="onviewAllClick($event)"
+            (onShowFirstPage)="onShowFirstPage($event)"
+            (productperPage)="fetchProductperPage($event)"
+            (fetchperPage)="fetchProductNextperPage($event)"
+      ></app-pager>
+    </div>
+</div>
+  <app-sort-type
+  [searchPrdId]="searchPrdId"
+  [checkList]="checkList"
+  (onGridToggle)="onGridClick($event)"
+  (clearAll)="onClearAll()"
+  (onSortByChange)="sortByChange($event)"
+  (filterby)="onMbFilterByClick()"
+  (updateFilterData)="onUpdateFilterData($event)"
+  (onShowFilterFacet)="onCheckRefineFacet()"
+  >
+  </app-sort-type>
+    <section *ngIf="!freshRelevanceSpecific; else freshrelevanceblock">
+      <div class="row plp-container-grid" *ngIf="activeProducts;else overlayTmpl">
+          <div 
+              class="plp-container-load-block"     
+              [ngClass]="{ 
+                'overlay-bg-show': !pageLoad, 
+                'overlay-bg-hide': pageLoad 
+              }">
+              <div class="b2c-title">
+               <span class="loading-txt"> loading... </span> 
+              </div>
+          </div>
+        <!-- facet starts -->
+        <div
+          class="facets col-md-3 left-menu "
+          [ngClass]="{
+            'container-display-block': catalogSpecific,
+            'container-display-none': !catalogSpecific
+          }"
+        >
+          <app-filter
+            [openFacet]="openFacet"
+            [searchDisplay]="false"
+            [facetResponse]="facetResponse"
+            [searchPrdId]="searchPrdId"
+            [catId]="catId"
+            [modal]="false"
+            (clearParams)="onClearAll()"
+            (refetchProducts)="onRefetchProducts($event)"
+          >
+          </app-filter>
+        </div>
+        <!-- facet ends -->
+        <div
+          class="plp-products-container    col-sm-12 "
+          *ngIf="activeProducts"
+          [ngClass]="{
+            'col-md-9': catalogSpecific,
+            'col-md-12 no-padding': !catalogSpecific
+          }"
+        >
+          <div class="catalog_plp">
+            <app-product
+              *ngIf="pagination"
+              [categoryResponse]="categoryResponse"
+              [activeProducts]="activeProducts"
+              [pagedItems]="pagedItems"
+              [displayGrid]="displayGrid"
+            >
+            </app-product>
+          </div>
+          <div class="page_btm">
+            <app-pager
+              [pagination]="pagination"
+              [pager]="pager"
+              [catalogSpecific]="catalogSpecific"
+              [viewAllProducts]="viewAllProducts"
+              (viewAll)="onviewAllClick($event)"
+              (onShowFirstPage)="onShowFirstPage($event)"
+              (productperPage)="fetchProductperPage($event)"
+              (fetchperPage)="fetchProductNextperPage($event)"
+            ></app-pager>
+          </div>
+        </div>
+      </div>
+      <ng-template #overlayTmpl>
+          <div class="plp-overlay">
+              <div class="b2c-title">
+                <span class="loading-txt"> loading... </span> 
+              </div>
+          </div>
+      </ng-template>
+    </section>
+</main>
+
+<!-- modal -->
+<ng-template #freshrelevanceblock>
+  <div class="freshrelavance-container container" >
+    <div class="heading" *ngIf="categorybanner">
+      <h2 class="content-inline-block">Bestsellers</h2>
+      <h2 class="content-inline-block viewAllProducts" >
+        <a (click)="onViewAllProducts()">
+          View All&nbsp;{{ categorybanner.categoryDisplayName }}&nbsp;Products
+        </a>
+      </h2>
+    </div>
+    <div #parentCategory>
+    </div>
+  </div>
+</ng-template>
+
+<div 
+  class="modal" 
+  id="modalFacetPopup" 
+  tabindex="-1" 
+  role="dialog" 
+  aria-hidden="true">
+  <div class="modal-dialog modal-full" role="document">
+    <app-filter
+      [facetResponse]="facetResponse"
+      [searchPrdId]="searchPrdId"
+      [modal]="true"
+      [catId]="catId"
+      (clearParams)="onClearAll()"
+      (refetchProducts)="onRefetchProducts($event)"
+    >
+    </app-filter>
+  </div>
+</div>

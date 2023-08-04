@@ -1,0 +1,23 @@
+<input type="hidden" id="moltonbrown">
+<div class="store-front-container">
+  <div id="sidebar">
+      <app-menu [sidemenuStatus]="toggleMainMenu" ></app-menu>
+  </div>
+  <div id="mainBar" class="main-content">
+      <div class="storefront-content">
+        <div class="storefront-cs-header" [ngClass]="{'storefront-cs-header-show':enableCSHeader}">
+        <app-cs-header></app-cs-header>  
+      </div>
+        <div  class="storefront-checkout-header" [ngClass]="{'storefront-header':checkoutStatus}">
+          <app-cookiebar></app-cookiebar>
+          <app-header *ngIf="checkoutStatus"></app-header>   
+        </div>
+        <main  class="storefront">
+            <router-outlet></router-outlet>
+          </main>
+          <div  class="storefront-checkout-footer" [ngClass]="{'storefront-footer':checkoutStatus}">
+        <app-footer ></app-footer>
+        </div>
+      </div>
+  </div>
+</div>

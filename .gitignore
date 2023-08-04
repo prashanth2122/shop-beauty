@@ -1,0 +1,8 @@
+node_modules
+dist
+src/environments/environment.ts
+functions
+.firebase
+.firebaserc
+firebase.json
+package-lock.json

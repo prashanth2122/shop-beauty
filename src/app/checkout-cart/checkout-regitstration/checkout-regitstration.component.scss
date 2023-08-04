@@ -1,0 +1,303 @@
+@import "../../../variable";
+
+.checkout-login-form-container {
+  padding: 24px;
+  overflow: hidden;
+  color: $edition-color;
+  background: $mb-white;
+  position: relative;
+  height: 496px;
+  @media screen and (max-width: $screen-sm) {
+    height: auto;
+    padding: 10px;
+  }
+  .overlay-load-block {
+    position: absolute;
+    top: 0;
+    margin: 0 auto;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: $overlay-bg;
+    z-index: 99999;
+    padding: 30px 0;
+    opacity: 0.9;
+    .b2c-title {
+      position: absolute;
+      top: 10%;
+      left:50%;
+      transform: translate(-50%);
+      text-transform: lowercase;
+      font-size: 14px !important;
+        &::before {
+        content: "";
+        background: url("../../../assets/imgs/loading-compass.svg") no-repeat center center;
+        background-size: 20px 20px;
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        transform: translateZ(0) scale(1, 1);
+        -webkit-transform: translateZ(0) scale(1, 1);
+        -moz-transform: translateZ(0) scale(1, 1);
+        -ms-transform: translateZ(0) scale(1, 1);
+        transform: translateZ(0) scale(1, 1);
+        -webkit-animation: spin 2.5s linear infinite;
+        animation: spin 2.5s linear infinite;
+        outline: 1px solid transparent;
+      }
+      .loading-txt{
+        float: right !important;
+      padding-left: 5px !important;
+      font-size: 14px !important;
+      padding-top: 2px !important;
+  
+      }
+    }
+  }
+  .help-block{
+    a{
+    text-decoration: underline;
+    cursor: pointer;
+   }
+  }
+  .sign-in {
+    margin-bottom: 50px;
+    @media screen and (max-width: $screen-sm) {
+      margin-bottom: 0px;
+    }
+    input[type="email"].not-valid,
+    input[type="password"].not-valid{
+      background-position: 88% 11px !important;
+    }
+    input[type="email"].valid,
+    input[type="password"].valid{
+      background-position: 90% 13px !important;
+    }
+    .required-info {
+      position: absolute;
+      top: 14px;
+      right: 24px;
+      text-align: right;
+      font-size: 14px;
+      line-height: 1.42857;
+      @media screen and (max-width: $screen-sm) {
+        display: block;
+        width: 100%;
+        position: unset;
+        font-size: 12px;
+      }
+    }
+    .section-heading {
+      h1 {
+        font-size: 1.7142857143em;
+        margin: 30px 0;
+        font-weight: normal;
+        font-weight: 700;
+        
+      @media screen and (max-width: $screen-sm) {
+        margin:15px 0;
+        font-size: 20px;
+      }
+      }
+    }
+    fieldset {
+      margin-bottom: 2px;
+      legend {
+        font-size: 1.2857142857em;
+        color: $primary-color;
+        border: 0;
+        margin: 0 0 12px 0;
+        @media screen and(max-width:$screen-sm) {
+          font-size:1em;
+        }
+      }
+      .form-inline {
+        margin-bottom: 15px;
+        display: block;
+        .form-group {
+          position: relative;
+        }
+        .radio-inline {
+          margin-right: 10px;
+          @media screen and (max-width: 320px) {
+            margin-right: 0px;
+          }
+        }
+        .form-group,
+        .radio {
+          display: inline-block;
+          vertical-align: middle;
+          @media screen and(max-width:480px){
+            display:block;
+          }
+        }
+        .help-block {
+          display: block;
+          margin: 5px 0 10px 5px;
+          color: $edition-color;
+          &.inline {
+            display: inline-block;
+            margin: 0;
+            vertical-align: middle;
+            font-size: 14px;
+            line-height: 1.45;
+            padding-left:12px;
+            @media screen and(max-width:480px){
+              padding-left:0px
+            }
+          }
+          &.password {
+            position: absolute;
+            margin-top: 10px;
+            text-decoration: none !important;
+            font-size: 14px;
+            a {
+              color: $edition-color !important;
+            }
+          }
+        }
+      
+        .form-control {
+          background-color: #ebebeb;
+          height: 48px;
+          border: 1px solid $light-grey;
+          border-radius: 0;
+          font-size: 14px;
+          color: #555 !important;
+          &.fixed-width {
+            width: 335px;
+            @media screen and(max-width:480px) {
+              width: 100%;
+            }
+          }
+        }
+      }
+    }
+    .btn {
+      border: 0;
+      width: 180px;
+      height: 48px;
+      border-radius: 0;
+      text-transform: uppercase;
+      font-size: 1.0714285714em;
+      transition: background 0.3s ease-in-out;
+      position: relative;
+      &-primary {
+        &:disabled{
+        background-color: $mb-disabled-bg !important;
+        opacity: 1;
+        }
+      }
+      &-primary {
+        &:disabled{
+           &:hover {
+              background-color: $mb-disabled-bg !important;
+              opacity: 1;
+              cursor: initial !important;
+            }
+         }
+      }
+      &-primary {
+        background-color: $mb-btn-bg;
+        width: 230px;
+        &:focus {
+          background-color: $mb-btn-highlight-bg;
+        }
+        &:hover {
+          background-color: $mb-btn-highlight-bg;
+        }
+        @media screen and (max-width: $screen-sm) {
+          width: 100%;
+        }
+      }
+      &.active-removal {
+        margin: 85px 0 0 0 !important;
+        float: right;
+        cursor: pointer;
+        @media screen and (max-width: $screen-sm) {
+          float: none;
+          margin: 40px 0 0 0 !important;
+        }
+      }
+    }
+    .icon-padlock {
+      position: relative;
+      top: 1px;
+      display: inline-block;
+      font-style: normal;
+      font-weight: normal;
+      line-height: 1;
+      margin-left: 18px;
+      &:before {
+        content: "";
+        display: inline-block;
+        background: url("../../../assets/imgs/padlock-white.png") no-repeat 0 center;
+        position: absolute;
+        height: 24px;
+        left: -24px;
+        top: -21px;
+        width: 20px;
+        z-index: 1;
+      }
+    }
+  }
+}
+
+
+// button{
+//   &:focus{
+//     &:active{
+//   box-shadow: none;
+//   outline: none;
+// }
+// }
+// }
+// .btn-primary:not(:disabled):not(.disabled):active:focus{
+//   box-shadow: none;
+//   outline: none;
+// }
+.credential-err-msg{
+  font-size:14px;
+  position: absolute;
+  bottom: 100%;
+  background-color: $mb-error-bg;
+  color: $mb-white;
+  padding: 10px;
+  left: 6%;
+  text-align: center;
+  width: 88%;
+  z-index: 9;
+  &::after{
+      content: '';
+      position: absolute;
+      width: 12px;
+      height: 12px;
+      border: 0;
+      left: 5%;
+      -webkit-transform: rotate(45deg);
+      -ms-transform: rotate(45deg);
+      transform: rotate(45deg);
+      background: $mb-error-bg;
+      bottom: -7px;
+  }
+}
+.password-radio{
+  &:hover{
+    cursor: pointer;
+  }
+}
+.overlay-bg-show{
+  display: block;
+}
+.overlay-bg-hide{
+  display: none;
+}
+
+.radio input[type="radio"]{
+  cursor: pointer;
+}
+.radio-existingGuest.checkLoginPswd{
+  &:after{
+    top:4px !important;
+  }
+}

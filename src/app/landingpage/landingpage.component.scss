@@ -1,0 +1,350 @@
+@import"../../variable";
+#landingpage-conatiner .main__inner-wrapper{
+            width:934px;
+    margin-right: auto;
+    margin-left: auto;
+    text-rendering: optimizeLegibility;
+    @media screen and (max-width:$screen-sm) {
+        width: 100%;
+    }
+    .amp-dc-splitBlock {
+        .amp-dc-card-link{
+            border:2px solid $primary-color;
+            background-color:$mb-white !important;
+            color:$primary-color !important;
+            &:hover{
+                background-color:$primary-color !important;
+                color:$mb-white !important;
+            }
+        }
+    }
+        .amp-dc-homepage .amp-dc-block-wrap{
+                .home-banner-container{
+                    .amp-dc-banner-pic-wrap{
+                        .amp-dc-image,.amp-dc-video-wrap{
+                            height:500px; 
+                              @media screen and (max-width:$screen-sm) {
+                                    height: auto;
+                                }
+                            img,video{
+                                width:100%;
+                                height:100%;
+                             
+                            }
+                        }
+                    }
+                    
+                }
+                .amp-dc-splitBlock{
+                    display:flex !important;
+                    justify-content: center !important;
+                    
+    @media screen and (max-width:$screen-sm) {
+                    flex-direction: column;
+    }
+                    .amp-dc-split-part{
+                        float: none ;
+                        .amp-dc-split-part-wrap{
+                            .amp-dc-homepage {
+                                .amp-dc-block-wrap{
+
+                                    .amp-dc-card{
+                                        .amp-dc-card-wrap{
+                                            .homepage-rightsection-card-image-03{
+                                                width:428px;
+                                                height: auto;
+                                                @media screen and(max-width:$screen-sm) {
+                                                    margin: auto;
+                                                    width:95%;height:auto;
+                                                }
+                                            }
+                                        }
+                                    }
+                                    .amp-dc-image {
+                                        width:428px;
+                                        height: auto;
+                                        @media screen and(max-width:$screen-sm) {
+                                            margin: auto;
+                                            width:95%;height:auto;
+                                        }
+                                    }
+                                }
+                            }
+                           
+                            .homepage-leftsection-card-01 .amp-dc-card-wrap .amp-dc-card-img-wrap{
+                            
+                                .amp-dc-image, .amp-dc-video-wrap{
+                                        width:428px;
+                                            height:288.41px;
+                                            float:right;
+                                            @media screen and(max-width:$screen-sm) {
+                                                float: none;
+                                            }
+                            }  
+                            &::after{
+                                clear: both !important;
+                            }
+                             
+                            } 
+                            .amp-dc-card .homepage-leftsection-card-02 .amp-dc-card-wrap .amp-dc-card-img-wrap .amp-dc-image{
+                                float:right;
+                            }
+                            .amp-dc-card{
+                                .amp-dc-card-wrap{
+                                    .amp-dc-card-img-wrap{
+                                        margin-top: 20px;
+                                        margin-left: 11px;
+                                        margin-right: 11px;
+                                        .homepage-leftsection-card-image-01,.homepage-rightsection-image-01,.homepage-rightsection-card-image-02{
+                                            width:428px;
+                                            height: auto;
+                                            @media screen and(max-width:$screen-sm) {
+                                                margin: auto;
+                                                width:95%;height:auto;
+                                            }
+                                        }
+                                        .homepage-leftsection-card-image-02{
+                                            width:428px;
+                                            height: auto; float: right;
+                                              @media screen and(max-width:$screen-sm) {
+                                                margin: auto;
+                                                width:95%;height:auto;
+                                                float: none
+                                            }
+                                        }
+
+                                    }
+                                }
+                            }
+
+                        }
+                    }
+                }
+                
+          
+                .misc-banner-01 .amp-dc-card-wrap{
+                .amp-dc-card-text-wrap .amp-dc-card-link{
+                    color: $primary-color;
+    line-height: 21px;font-family: Georgia;font-style:italic;
+    font-size: 18px;background-color: transparent;padding-top: 0px;
+                }
+                } 
+            
+        
+
+
+
+
+
+
+
+
+            @media only screen and (max-width: 690px) and (min-width: 1px){
+                // #uk-hp-prod-feed-fr_carousel .product .product_name {
+                //     // height: 55px !important;
+                // }
+                }
+                .imagecontainer{
+                     .van-aimation {
+                            position: absolute;
+                            background-image: url('https://www.moltonbrown.co.uk/MBPromoImages/Microsites/SharedImages/FreeDelivery/animated-van.gif') !important;
+                    }
+                }
+
+
+
+
+
+    
+
+.amp-dc-card .amp-dc-card-name{
+    font-size :15px;
+    line-height: 20px;
+    color:$primary-color;font-weight:700;margin-bottom: 4px;
+}
+.amp-dc-card .amp-dc-card-description{
+    font-style: italic;
+    font-family: Georgia;
+    padding-bottom: 11px;
+    font-size: 14px;
+    line-height: 1.2;display:block !important ;color: $primary-color
+}
+.amp-dc-banner .amp-dc-banner-header {
+    font-size: 28px;
+    padding-bottom: 11px;
+    color: $primary-color;
+    font-weight: 500;
+    line-height: 1.1;
+    @media screen and(max-width:480px){
+        font-size:24px;
+    }
+}
+.amp-dc-banner .amp-dc-banner-subheader {
+    font-size: 20px;
+    font-style: italic;
+    font-family: Georgia;
+    line-height: 1.2;
+    @media screen and (max-width:480px){
+        font-size: 15px;
+    }
+}
+.amp-dc-card-text-wrap .amp-dc-card-link{
+    padding: 7px 25px 5px;
+    line-height: 20px;
+    display: inline-block;
+    text-decoration: none;
+    color: $mb-white;
+    background-color: $primary-color;
+    text-transform: uppercase;
+
+
+}
+// .amp-dc-splitBlock .amp-dc-split-part.amp-dc-size-50 {
+//     width: auto !important;
+// }
+
+.amp-dc-card .amp-dc-card-text-wrap{
+    padding:10px 0 0 0;
+    width:428.51px;
+}
+@media screen and (max-width: $screen-sm){
+    .amp-dc-splitBlock .amp-dc-split-part:first-child {
+    padding: 0;
+}
+.amp-dc-card .amp-dc-card-text-wrap{
+width:100%;
+
+margin: 0 !important;
+padding-left: 10px;
+padding-right: 10px;
+}
+}
+
+.amp-dc-card .amp-dc-card-link {
+    margin-top: 0px !important;
+}
+.amp-dc-card .amp-dc-card-description{
+    margin:0 auto;
+}
+
+// #uk-hp-prod-feed-fr_carousel{ 
+//     .slick-prev{
+//         text-indent: 100%;
+//         white-space: nowrap;
+//         overflow: hidden;
+//         left: -55px !important;
+//     }
+//     .slick-next{
+//         text-indent: 100%;
+//         white-space: nowrap;
+//         overflow: hidden;
+//         right:-25px !important;
+//     }
+// }
+// #uk-hp-prod-feed-fr_carousel .product .product_image img {
+//     width: 121px;
+//     height: 121px;
+//     margin: auto;
+// }
+.misc-banner-01{
+ .amp-dc-banner-pic-wrap .amp-dc-image{
+    width:880px;
+    height:175px;
+    margin:auto;
+    @media screen and(max-width:$screen-sm){
+           width:100%;
+    height:auto;
+    }
+}   
+.amp-dc-banner-info-wrap{
+    position: static;
+    width: 750px;
+    margin: auto;   
+    @media screen and(max-width:$screen-sm){
+    width:auto !important;
+    }
+
+}
+} 
+}
+}
+ .misc-banner-01 {
+     margin-top: 20px;
+    .amp-dc-banner-info-wrap{
+      
+        .amp-dc-banner-info
+        {
+        //   width:750px !important;
+          @media screen and (max-width:$screen-sm) {
+              width:100%;
+          }
+            .amp-dc-banner-description{
+        font-size: 14px !important;
+        padding-bottom: 10px;    line-height: 1.2;
+        margin:auto;
+    }
+    
+    .misc-banner-01{
+        margin:0px;
+        background-color: transparent !important;color: $primary-color !important;
+             font-family: Georgia !important;
+             font-style: italic;font-size:18px;    line-height: 1.2;
+&::after{
+border-top: 5px solid transparent;
+border-left: 5px solid;
+border-bottom: 5px solid transparent;
+content: "";
+display: inline-block;
+height: auto;
+width: auto;
+margin-left: 3px;
+vertical-align: baseline;
+visibility: visible;
+}
+    }
+        } .amp-dc-banner-description{
+        font-size: 14px !important;
+        padding-bottom: 10px;    line-height: 1.2;
+        margin:auto;font-style: normal;
+    }
+
+    } 
+background:transparent;color:$primary-color !important;
+
+}
+#landingpage-conatiner .main__inner-wrapper .amp-dc-homepage .amp-dc-block-wrap .amp-dc-card .amp-dc-card-text-wrap{
+    margin-top: 20px;
+    margin-left: 11px;
+    margin-right: 11px;
+}
+.homepage-leftsection-card-02, .homepage-leftsection-card-01{
+  .amp-dc-card-text-wrap{
+float: right;
+}  
+} 
+
+.homepage-gifslot {
+    margin-top: 20px;
+    float:right;
+    margin-right:11px;
+}
+
+@media (max-width:$screen-sm){
+// #uk-hp-prod-feed-fr_carousel{
+//      .slick-list {
+//        z-index: 333 !important;
+//       }
+//      .product{
+//         z-index: 333 !important; 
+//       }
+//  }
+}
+.homepage-slot{
+        .amp-dc-card-wrap {
+            opacity: 0;
+            transition: opacity 500ms;
+        }
+}
+.fade-wrapper{
+  opacity: 1 !important;
+}

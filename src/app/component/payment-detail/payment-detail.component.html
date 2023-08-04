@@ -1,0 +1,71 @@
+<div class="my-account">
+  <h2 id="myaccPaymentDtls">{{'PaymentDetails.PaymentDetails' | translate}}</h2>
+  <div class="mob-my-account">
+    <div *ngIf="recaptchaErr" class="captcha-error-cntnt">
+      <p>{{'savedCard.recaptchaError' | translate}}</p>
+    </div>
+    <p>{{'PaymentDetails.saveTimeSaveAddress' | translate}}</p>
+    <div class="col-sm-12 edit-profile">
+      <div class="dl-overlay"  
+          [ngClass]="{
+                'dl-overlay-show':overlayLoad,
+                'dl-overlay-hide':!overlayLoad
+          }">
+        <div class="b2c-title"> 
+          <span class="loading-txt"> loading... </span>  
+        </div>
+      </div>
+      <h3>{{'PaymentDetails.mySavedCards' | translate}}</h3>
+
+      <p class="saved-cards-info">
+        {{'PaymentDetails.springCleanRemovedCardDetails' | translate}}
+      </p>
+      <div class="default-cntnt">
+        <p class="contexual-content">
+          <b *ngIf="defaultCard">{{'PaymentDetails.makeDefaultCard' | translate}}
+            <a
+            *ngIf="defaultCard"
+            class="contextual-help payment-helpicon"
+            show-delay="100" 
+            ngbTooltip="{{'PaymentDetails.paymentToolTip' | translate}}" 
+            [placement]="mobileDevice?'top':'right'"  
+            ></a>
+          </b>
+
+        </p>
+
+      <div class="row paymentAlign">
+        <div
+          class="col-sm-4 paymentCards"
+          *ngFor="let payt of cards; let i = index"
+        >
+          <div *ngIf="payt.cardType" class="paymentCards-type">
+            {{ payt.cardType }}
+          </div>
+          <div class="cc-accountnumber" *ngIf="payt.ccaccountnumber" [innerHtml]="replaceEncryptNumber(payt.ccaccountnumber)"></div>
+          <div class="paymentCards-acc-name">
+            <span *ngIf="payt.firstName">{{ payt.firstName }} &nbsp;</span>
+            <span *ngIf="payt.lastName">{{ payt.lastName }}</span>
+          </div>
+          <div>
+            <span>Exp Date</span> : {{ payt.expirationmonth }}/{{
+              payt.expirationyear
+            }}
+          </div>
+    
+          <p><a class="myaccount-edit" title="Edit  Card" (click)="onEditPayment(payt, i)">{{'PaymentDetails.edit' | translate}}</a></p>
+          <p><a class="myaccount-remove" title="Remove  Card" (click)="onRemoveCard(payt, i)">{{'PaymentDetails.remove' | translate}}</a></p>
+          <p [hidden]="payt.isDefault">
+            <a class="myaccount-default" title="Make Default Card" (click)="onMakeDefaultCard(payt)">{{'PaymentDetails.makeDefaultCard' | translate}}</a>
+          </p>
+        </div>
+      </div>
+    </div>
+    </div>
+  </div>
+</div>
+<app-payment-new-saved-card
+  (updateCard)="onUpdateCards()"
+  (onSubmitRecapchaDtl)="onSubmitRecapchaDtl($event)"
+  [addresses]="addressList"
+></app-payment-new-saved-card>

@@ -1,0 +1,58 @@
+@import"../../variable";
+.store-portal-container{
+    padding: 10px 0;
+    width: 980px;
+    margin: 0 auto;
+    .wrapper{
+        width: 100%;
+        float: left;
+        background: $mb-white;
+        border-radius: 6px;
+      .header{
+        width: 980px;
+        .logo{
+            img{
+                padding: 20px 0;
+            }
+        }
+      }
+      hr{
+        border: 0;
+        border-top: 3px solid $primary-color;
+      }
+      .footer-wrap {
+        width: 100%;
+        margin: 8px 0 0 0;
+        float: left;
+        color: $primary-color;
+        font-size: 12px;
+        border-top: 2px solid $primary-color;
+        padding-top: 5px;
+        .footer {
+          margin: 0 auto!important;
+          width: 99.5%;
+          float: left;
+          color: $primary-color!important;
+          .copy {
+            float: none;
+            padding: 0;
+            color: $primary-color;
+        }
+      }
+    }
+    }
+}
+.header{
+  position: relative;
+.store-portal-info{
+  position: absolute;
+  top:0;
+  right:0;
+  span{
+    font-size:14px;
+    font-weight: 500;
+    text-decoration: underline;
+    cursor: pointer;
+  }
+}
+}

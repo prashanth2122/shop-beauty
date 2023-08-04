@@ -1,0 +1,943 @@
+{
+    "titleBar":"Molton Brown\u00AE US | Luxury Beauty, Fragrance, Bath & Body Gift Sets",
+
+    "form":{
+      "label":{
+        "state":"State",
+        "loading":"loading..."     
+      }
+    },
+
+    "sidenavig":{
+    "myAccount":"MY ACCOUNT",
+    "myProfile":"My Profile",
+    "addressBook":"Address Book",
+    "paymentDetails":"Payment Details",
+    "favourites":"Favourites",
+    "orderHistory":"Order History",
+    "logOut":"LOG OUT"
+   },
+
+   "menu":{
+    "findAStore":"FIND A STORE",
+    "changeCountry":"CHANGE COUNTRY",
+    "home":"HOME",
+    "signIn":"Sign In",
+    "register":"Register",
+    "myAccount":"MY ACCOUNT",
+    "logOut":"LOGOUT",
+    "newsLetter":" NEWSLETTER",
+    "cancel":"Cancel",
+    "confirm":"Confirm",
+    "update":"Update ",
+    "close":"CLOSE",
+    "addToFav":"Add to Favourites",
+    "pleaseSelect":"Please Select",
+    "allStores":"All Stores",
+    "mobileSearch":"I'm looking for..."
+    },
+
+    "myacc":{
+      "login/Register":"Login/Register",
+      "returningCustomers":"Returning Customers",
+      "requiredField":"Required Field",
+      "emailAddress":"Email Address",
+      "password":"Password",
+      "forgottenYourPassword":"Forgotten your password?",
+      "login":"Login",
+    
+      "newCustomer":"New Customer",
+      "theBenefitsOfRegistering":"The benefits of registering",
+      "byRegisteringYourDetails":"By registering your details and creating an account you will be able to:",
+      "checkOrderHistoryStatus":"Check order history and status",
+      "storeAndManageMultipleDeliveryAddresses":"Store and manage multiple delivery addresses",
+      "updateYourPersonalProfileAndPreferences":"Update your personal profile and preferences",
+      "enjoyASpeedierCheckout":"Enjoy a speedier checkout",
+      "register":"Register",
+      "passError":"New Password can not be same as the Old Password.",
+      "passwordChanged":"Your password has been changed"
+
+    
+      },
+
+      "forgotPassword":{
+        "forgotpassword":"Forgotten Your Password?",
+        "enterEmailAddress":"Please enter your email address and we will send you an email containing your login details.",
+        "emailAddress":"Email Address",
+        "continueShopping":"Continue Shopping",
+        "submit":"Submit",
+        "passwordSent":"Your password has now been sent. Please check your email inbox.",
+        "noProfile":"No Profile found"
+        },
+
+      "newCustRegisForm":{
+        "newCustomerRegistrationForm":"New Customer Registration Form",
+        "loginDetails":"Login Details", 
+        "requiredField":"Required Field",
+        "email":"Email",
+        "verifyEmail":"Verify Email",
+        "password":"Password",
+        "verifyPassword":"Verify Password",
+        "personalDetails":"Personal Details",
+        "title":"Title",
+        "overAge":"Over 60",
+        "chooseCountry":"Choose Country *",
+        "pleaseSelect":"Please Select",
+        "firstName":"First Name",
+        "lastName":"Last Name",
+        "country":"Country",
+        "postcodeZipcode":"Postcode/Zipcode",
+        "address":"Address",
+        "townCity":"City",
+        "phoneNumber":"Phone Number",
+        "ageGroup":"Age Group",
+        "gender":"Gender",
+        "female":"Female",
+        "male":"Male",
+        "joinOurGuestList":"Join Our Guest List",
+        "beTheFirstToHearAboutOurLatestProd":"Be the first to hear about our latest product launches, limited edition collections, private sales and exclusive event invites. All straight to your inbox, door or phone.",
+        "weAlwaysTreatYourPersonalDetails":"We always treat your personal details with the utmost care and never sell them to other companies. You can unsubscribe at any time.",
+        "iWouldLikeTo":"I would like to receive communications from Molton Brown.",
+        "termsConditions":"Terms & Conditions",
+        "termsConditionsError":"! Please agree to the terms & conditions.",
+        "accept":"I accept the ",
+        "termsCond":"Terms & Conditions",
+        "and":"and",
+        "cookiePolicy":"Privacy & Cookie Policy",
+        "submit":"Submit"
+     
+       },
+
+       "myProfile":{
+        "myProfile":"My Profile",
+        "reviewYourInformation":"Review your information. To make updates, click on Edit my Profile below.",
+        "myInformation":"My Information",
+        "title":"Title",
+        "firstName":"First Name",
+        "lastName":"Last Name",
+        "emailAddress":"Email Address",
+        "ageGroup":"Age Group",
+        "gender":"Gender",
+        "address":"Address",
+        "townCity":"City",
+        "country":"Country",
+        "postcodeZipcode":"Postcode/Zipcode",
+        "phoneNumber":"Phone Number",
+        "editmyProfile":" Edit my Profile ",
+        "afterChangesClickSave":" After you've made the desired changes, click Save. ",
+      
+        "changeMyPassword":"Change my Password",
+        "mustbet6and20char":"Must be between 6 and 20 characters long",
+        "recognisePwdError":"We didn't recognise that password. Please try again.",
+        "requiredField":"Required Field",
+        "currentPassword":"Current Password",
+        "newPassword":"New Password",
+        "verifyPassword":"Verify Password",
+        "updatePasswrd":"Update Password",
+      
+        "expressCheckoutOptions":"Express Checkout Options",
+        "featureAllowsYouToProceedToCheckout":"This feature allows you to proceed to checkout in one click - saving you time. Simply setup your default options and then next time you shop with us login and when you are ready click on the Express Checkout Button in the cart page.",
+        "defaultShippingMethod":"Default Shipping Method",
+        "defaultCard":"Default Card",
+        "defaultShippingAddress":"Default Shipping Address",
+        "edit":" Edit "
+      
+      },
+
+      "editMyProfile":{
+        "editMyProfile":"Edit my Profile",
+        "afterDesiredChangesClickSave":" After you've made the desired changes, click Save. ",
+        "title":"Title",
+        "firstName":"First Name",
+        "lastName":"Last Name",
+        "country":"Country",
+        "postcodeZipcode":"Postcode/Zipcode",
+        "address":"Address",
+        "townCity":"City",
+        "phoneNumber":"Phone Number",
+        "ageGroup":"Age Group",
+        "pleaseSelect":"Please select",
+        "gender":"Gender",
+        "female":"Female",
+        "male":"Male",
+        "expressCheckoutOptions":"Express checkout options",
+        "defaultShippingMethod":"Default Shipping Method",
+        "selectDefaultShipping":"Select Default Shipping",
+        "submit":"Submit"
+      },
+
+      "addressBook":{
+        "addressBook":"Address Book",
+        "saveTimeSaveAddress":"Save time every time you place an order. Create and manage multiple addresses here, you can edit your address information at any time.",
+        "defaultShippingAddress":"Default Shipping Address",
+        "edit":" Edit ",
+        "remove":"Remove",
+        "default":"Default",
+        "addNewAddress":"Add a New Address",
+        "title":"Title",
+        "firstName":"First Name",
+        "lastName":"Last Name",
+        "emailAdd":"Email Address*",
+        "country":"Country",
+        "postcodeZipcode":"Postcode/Zipcode",
+        "address":"Address",
+        "townCity":"City",
+        "phoneNumber":"Phone Number",
+        "clear":"Clear",
+        "save":"Save",
+        "addNewAdd":"Add new address",
+        "saveAdd":"SAVE ADDRESS",
+        "saveChanges":"SAVE CHANGES",
+        "cancel":"Cancel",
+        "cancelButton":"CANCEL"
+        
+      },
+      
+      "PaymentDetails":{
+        "PaymentDetails":"Payment Details",
+        "card":"Card",
+        "saveTimeSaveAddress":"Save time every time you place an order. Manage your credit card information here, you can edit your payment or billing address information at any time.",
+        "mySavedCards":"My Saved Cards",
+        "edit":" Edit ",
+        "remove":"Remove",
+        "makeDefaultCard":"Make Default Card",
+        "paymentToolTip":"Your default payment details will be automatically added during checkout to make placing your next order quicker.",
+        "springCleanRemovedCardDetails":"We've had a spring clean and removed any expired or invalid card details so don't worry if it looks like there's information missing, this has now been securely deleted.",
+        "addNewCard":"Add new card",
+        "cardType":"Card Type",
+        "chooseCard":"Choose Card Type",
+        "cardNumber":"Card Number",
+        "cardholderFirstName":"Cardholder's First Name",
+        "cardholderLastName":"Cardholder's Last Name",
+        "startDate":"Start Date",
+        "selectMonth":"Select month",
+        "selectYear":"Select year",
+        "expirationDate":"Expiration Date",
+        "expSelectMonth":"Select month*",
+        "expSelectYear":"Select year*",     
+        "chooseAddress":"Choose an address",
+        "enterNewBillingAdd":"Or, enter a new billing address.",
+        "country":"Country",
+        "postcodeZip":"Postcode/Zipcode",
+        "address":"Address",
+        "townCity":"City",
+        "phoneNumber":"Phone Number",
+        "submit":"Submit"
+      },
+      
+      "favourites":{
+        "favourites":"Favourites",
+        "favouritesNotYetAdded":"To save you time when shopping, simply add the items you buy regularly to your favorites list. You can then add these items to your cart without having to search for them again.",
+        "myFavourites":"My Favourites",
+        "addToBasket":"Add to Cart",
+        "removeThisProduct":"Remove This Product",
+        "goodChoiceFav":"Good choice! We've popped this product into your",
+        "addedToFav":"Added to Favourites"
+      },
+      
+      "orderHistory":{
+        "orderHistory":"Order History",
+        "viewOrderHistory":"View the most recent details available about your order. Please note that only orders placed after September 21st 2010 will be shown. If you have an enquiry about an order placed before this date please contact our customer service team.",
+        "myOrders":"My Orders",
+        "noPreviousOrders":"You have no previous orders.",
+        "date":"Date",
+        "orderNumber":"Order Number",
+        "orderTotal":"Order Total",
+        "status":"Status",
+        "orderProcessing":"Order Processing",
+        "view":"View",
+        "continueShopping":" Continue Shopping "
+      },
+
+      "orderDetails":{
+        "orderDetails":"Order Details",
+        "callCustomer":"Call customer services Free on +44 (0) 8081781188",
+        "orderNumber":"Order Number:",
+        "placedOn":"Placed on:",
+        "shipmentTrack":"Shipment Tracking Information",
+        "trackingNo":"Tracking Number",
+        "delOption":"Delivery Option",
+        "orderInfo":"Detailed Order Information",
+        "product":"Product",
+        "price":"Price",
+        "quantity":"Quantity",
+        "total":"Total",
+        "subTotal":"Subtotal:",
+        "delivery":"Delivery:",
+        "repeatOrderMsg":"Repeat order. When repeating an order, only products still available will be added to your cart."
+        },
+
+    "changeCountry": "CHANGE COUNTRY",
+    "NEWSLETTER" : "NEWSLETTER",
+    "FINDASTORE":" FIND A STORE",
+    "quickView": "Quick View",
+   "yourBasketEmpty": "Your shopping cart... is empty.",
+   "startShopping":"START SHOPPING",
+   "yourShoppingBasket":"Your shopping cart",
+   
+   "continueShopping":"CONTINUE SHOPPING",
+   "secureCheckout":"SECURE CHECKOUT",
+   "basketBC": "SHOPPING CART",
+   "sampleAndGiftBox":"Samples",
+   "sampleGiftMsg":"Thanks for shopping with us. Please choose a FREE sample.",
+   "add":"ADD",
+   "checkout":"CHECKOUT",
+   "remove":"Remove",
+   "product":"PRODUCT",
+   "qty":"QTY",
+   "price":"PRICE",
+   "total":"TOTAL",
+  "enterPromoCode":"Enter promo code",
+  "apply":"APPLY",
+  "subTotal":"Estimated Total",
+  "securityGauranteed":"SECURITY GUARANTEED",
+  "wouldLikeFreeGiftBox":"Would you like a FREE gift box and gift message?",
+   "yesIWouldLGiftBox": "Yes, I would like a free gift box.",
+   "yesAlreadyGiftBoxed":"Your products are already gift boxed.",
+  "YIWouldPGiftMsg":  "I would like to provide a gift message.",
+  "requiredInfo" : "Required information",
+  "signOrContinueAsGuest":"Sign in or continue as a guest",
+  "whtYrsEmailAdd":"What's your email address?",
+  "weWillSndUOrdConfToThisAdd" :"(We'll send your order confirmation to this address)",
+  "doYouHaveAnAccount":"Do you have an account?",
+  "noYouCanSaveYourDetailsLater":"No (you can save your details later)",
+  "yesMyPwdIs":"Yes, my password is:",
+  "IHaveForgotPassword": "I've forgotten my password",
+  "continue":"CONTINUE",  
+"needHelp":"Need help ?",
+"telephoneCustomer":"1-866-933-2344",
+"groupSecurityCode":"This is the last three digits on the back of your credit card, or for AMEX this is the 4 digits on the front of your card.",
+  
+"quickViewData":{
+  "productCode":"Product Code:",
+  "size":"Size:",
+  "quantity":"Quantity :",
+  "fullDetails":"Full Details",
+  "shareThis":"SHARE THIS",
+  "outOfStk":"Out of stock",
+  "dlInstruction":"Click here for full details of shipping services"
+},
+
+  "login":{
+    "emailInputFocus":"What's your email address?",
+    "invalidEmailAddress":"This email address doesn't look right. Please check the format is myemail@myaddress.com",
+    "passwordInputFocus":"What's your password?",
+    "invalidPassword":"Password must be between 6 and 20 characters long.",
+    "pswdContextual":"Password must be between 6 and 20 characters.",
+    "defaultShippingAdd":"Your default delivery/shipping address will be automatically added during checkout to make placing your next order quicker.",
+    "addressBookPhone":"We will only contact you about your order.",
+    "updatePaymentDetails":"We will only contact you about your order."
+  },
+  "invalidcard":{
+    "errormsgblock":"Sorry, we have had a problem processing your order. Please check your details and try again,or use an alternative payment card or method.",
+    "emailandphone":"If you need help, call us on 1-866-933-2344 or email",
+    "emailId":"uscustomerservice@moltonbrown.com"
+  },
+  
+"checkoutFlow":{
+"deliveryHeader":"Shipping",
+"deliveryQuestion":"Where do you want us to ship to?",
+"deliveryCheckoutService": "Your delivery service",
+"placeHolderFirst": "First name*",
+"placeHolderLast": "Last name*",
+"placeHolderPhone": "Telephone number*",
+"placeHolderAdd": "Address line 1*",
+"placeHolderAddr": "Address line 2 (optional)",
+"placeHolderpostCode": "Zip code",
+"placeHolderpostCity": "City*",
+"titleError":"Please select a title",
+"firstNameError":" What's your first name ? ",
+"lastNameError":" What's your last name ? ",
+"phoneNoError":"What's your contact telephone number?",
+"phoneNoLenError":"This telephone number doesn't look right. It must be between 10 and 14 characters.",
+"addError":" What's the first line of the address? ",
+"postCodeError":"What's your zip code?",
+"postCodeErr":" Your zip code must be between 5 to 6 characters. ",
+"cityError":" Please enter a city. ",
+"editBasket":"Edit cart",
+"Totaltopay":"Estimated total",
+"continueToPay":"CONTINUE TO PAYMENT ",
+"yourOrder":"Your order",
+"subTotal":"Subtotal",
+"reqInformation":"* Required information",
+"payment":"Payment",
+"rights":"All rights reserved.",
+"howToPay":"How would you like to pay?",
+"saveAddress":"SAVE ADDRESS",
+"deliveryTime":"Your order will arrive on",
+"cancelBtnCheckOut":"CANCEL",
+"confirmCheckoutAddress":"CONFIRM ADDRESS",
+"deliveryTimeCheckout":"Your order will be received within"
+},
+
+"paymentCard":{
+  "yourBillAdd":"Your billing address",
+  "changeBillAdd":"Change billing address",
+  "correctBillAdd":"This is my correct billing address.*",
+  "correctBillAddErr":"! Please confirm your billing address is correct or use link to change billing address",
+  "yourCardDetail":"Your card details",
+  "expires":"Expires",
+  "placeHCardNum":"Card number*",
+  "placeHFirstN":"Card holder's first name*",
+  "placeHLastN":"Card holder's last name*",
+  "secureCode":"Security code*",
+  "cardNumError":" What's your card number? This is the long number across the front. ",
+  "cardNumErr":" This card number doesn't look right. Please check and try again. ",
+  "firstNError":" What is the first name on your card? ",
+  "lastNError":" What is the last name on your card? ",
+  "monthError":"Please select a month.",
+  "yearError":"Please select a year.",
+  "secureCodeErr":"What is the security code on your card?",
+  "secureCodeError":"This security code doesn't look right. It must be between 3 and 4 characters.",
+  "joinGuestList":"Join our guest list",
+  "beFirstToHear":"Be the first to hear about our latest product launches, limited edition collections, private sales and exclusive event invites. All straight to your inbox, door or phone.",
+  "weAlwaysTreat":"We always treat your personal details with the utmost care and never sell them to other companies. You can unsubscribe at any time.",
+  "receiveCommunication":"I would like to receive communication from Molton Brown.",
+  "termsConditions":"Terms & Conditions",
+  "placeOrder":"PLACE ORDER",
+  "chooseACard":"Choose a card to pay with",
+  "maskededitaddress":"Edit the billing address for this payment method."
+  },
+
+  "paymentPayPal":{
+    "clickPayPal":"Click the 'Pay with PayPal' button below to place your order and continue to PayPal.",
+    "payWith":"pay with"
+  },
+
+  "paymentGiftCard":{
+    "wantToSplit":"Do you want to split the payment between credit or debit card and a gift card?",
+    "noSplit":"No, I'll pay with just my gift card.",
+    "yesSplit":"Yes, I would like to split my payment.",
+    "placeHolderFirst": "First name*",
+    "placeHolderLast": "Last name*",
+    "firstNameError":" What's your first name ? ",
+    "lastNameError":" What's your last name ? ",
+    "placeHolderNumb": "Gift card number*",
+    "placeHolderPIN": "Gift card PIN*",
+    "placeHolderAmount": "Amount to pay*",
+    "amountError":" How much do you want to pay from your gift card? ",
+    "amtError":" Please enter valid amount. ",
+    "pinError":"This PIN doesn't look right. It must be 6 digits.",
+    "splitMsg":"Split your payment with a debit or credit card"
+    },
+  "resetPassword":{
+  "uid":"What's your email address?",
+  "invalidEmail":"This email address doesn't look right. Please check the format is myemail@myaddress.com",
+  "backButton":"Back"
+  },
+  "register":{
+    
+    "uid":"What's your email address?",
+    "invalidEmailAddress":"This email address doesn't look right. Please check the format is myemail@myaddress.com",
+    "confirmEmail":"Please confirm your email.",
+    "matchEmail":"The emails don't match.",
+    "passwordEnter":"Please enter a password.",
+    "invalidPassword":"Password must be between 6 and 20 characters long.",
+    "confirmPassword":"Please enter confirm password.",
+    "matchPassword":"The passwords don't match.",
+    "titleCode":"Please select a title.",
+    "country":"Please select a country.",
+    "firstName":"What's your first name?",
+    "lastName":"What's your last name?",
+  
+    "exceptUkallCountryPostCode":"No postcode or zip code? Just enter 000.",
+    "town":"Please enter a city.",
+    "postCode":"What's your postcode or zip code?",    
+    "district":"Please enter a State.",
+    "postCodeInvalid":"Please enter a valid postcode or enter the address manually.",
+    "passwordInfo":"Password must be between 6 and 20 characters.",
+    "phonenumberInfo":"We will only contact you about your order.",
+    "line1":"What's the first line of the address?",
+    "city":"Please enter a city.",
+    "phone":"What's your contact telephone number?",
+    "phoneLength":"This telephone number doesn't look right. It must be between 8 and 14 characters.",
+    
+    "termsCheckbox":"! Please agree to the terms & conditions."
+    
+  },
+  "clickAndcollect":{
+    "select":"CHOOSE STORE"
+  },
+  "updatePassword":{
+  
+  "oldPassword":"Please enter old password",
+  "password":" Please enter a password.",
+    "confirmPassword":"Please enter confirm password.",
+     "matchPassword":"The passwords don't match.",
+    "passwordInfo":"Password must be between 6 and 20 characters."
+  },
+  "checkoutReg":{
+    "emailPlaceHolder":"Enter your email address*",
+    "passwrdPlaceHolder":"Enter your password*",
+    "emlInputFocus":"What's your email address?",
+    "invalidEmailAdd":"This email address doesn't look right. Please check the format is myemail@myaddress.com",
+    "password":" Please enter a password.",
+    "invalidPassword":"Password must be between 6 and 20 characters",
+    "passwordMismatch":"Your email address or password may be incorrect. Please try again."
+  
+  },
+  
+    "phoneInfo":"We will only contact you about your order."   ,
+    "giftCardNumber":"This is the 21-digit number on the back of your gift card.",
+    "giftCardPin":"Scratch off the panel on the back of the card to reveal the 6-digit number.",
+    "amountToPay":"Enter the amount you wish to pay.",
+    "cardFormSecurityCode":"We will only contact you about your order.",
+    "postCodes":"No postcode or zip code? Just enter 000.",
+  "giftCard" : [
+  {
+    "name": "Molton Brown Gift Cards",
+    "route": "/gift-cards",
+    "template": true
+  },
+  {
+    "name": "About Gift Cards",
+    "route": "/store/gift-cards/about"
+  },
+  {
+    "name": "Buy Gift Cards",
+    "route": "/store/gifts/gift-cards/cat0012/"
+  },
+  {
+    "name": "Check your Balance",
+    "route": "/store/gift-cards/check-balance"
+  },
+  {
+    "name": "Register your Card",
+    "route": "/store/gift-cards/protected/registerCard"
+  },
+  {
+    "name": "Transfer Balance",
+    "route": "/store/gift-cards/protected/transferBalance"
+  },
+  {
+    "name": "Report Lost/StolenCards",
+    "route": "/store/gift-cards/protected/reportLostStolenCards"
+  },
+  {
+    "name": "FAQs",
+    "route": "/store/gift-terms-conditions"
+  },
+  {
+    "name": "Terms & Conditions",
+    "route": "/store/gift-terms-conditions"
+  }
+  ],
+  "welcomeCart":"1. WELCOME",
+  "delAndPay":"2. SHIPPING & PAYMENT",
+  "confirmation":"3. CONFIRMATION",
+  "basePrice":"basePrice",
+  
+  
+  "savedCard":{
+  
+  "cardType":"Please select a card type.",
+  "cardNumber":"What's your card number? This is the long number across the front.",
+  "cardHolderFirstName":"What is the first name on your card?",
+  "cardHolderLastName":"What is the last name on your card?",
+  "startDateMonth":"Please select a month.",
+  "startDateYear":"Please select a year.",
+  "newbillCountry" :"Please select a country.",
+  "postCode":"What's your postcode or zip code?",
+  "line1" :"What's the first line of the address?",
+  "town":"Please enter a city.",
+  "phone":"What's your contact telephone number?",
+  "recaptchaError":"Please complete all required fields before proceeding to the next stage.",
+  "editBill":"Edit Billing Information"
+   },
+  
+  "newsLetter":{
+    "newsLetterGuest":"Join our guest list",
+    "newsLetterHear":"Be the first to hear about our latest product launches, limited edition collections, private sales and exclusive event invites. All straight to your inbox, door or phone.",
+    "emailAddress":"What's your email address?",
+    "firstName":"What's your first name?",
+    "lastName":"What's your last name?",
+    "dateOfBirth":"Date of birth",
+    "specialTreat":"(For an extra special treat on your birthday)",
+    "day":"Day",
+    "month":"Month",
+    "year":"Year",
+    "gender":"Gender",
+    "female":"Female",
+    "male":"Male",
+    "nonBinary":"Non-binary",
+    "recieveComm":"I would like to receive communications from Molton Brown.",
+    "communication":"! Please agree to receive communications.",
+    "submit":"Submit",
+    "terms":"! Please agree to the terms & conditions.",
+    "requiredField":"Required Field",
+    "personalDetails":"We always treat your personal details with the utmost care and never sell them to other companies. You can unsubscribe at any time.",
+    "thankYou":"Thank you",
+    "thankYouOne":"Thank you ",
+    "thankYouMsg":"for subscribing to our newsletter.",
+    "continueShopping":"CONTINUE SHOPPING"
+    },
+  
+
+  "payDetails":{
+    "cardType":"Please select a card type.",
+    "cardNumber":"What's your card number? This is the long number across the front.",
+    "cardholderFirstName":"What is the first name on your card?",
+    "cardholderLastName":"What is the last name on your card?",
+    "expirationDate":"Please select a month.",
+    "expiryDate":"Please select valid expiry date",
+    "expirationYear":"Please select a year.",
+    "country":"Please select a country.",
+    "postCode":"What's your postcode or zip code?",
+    "line1":"What's the first line of the address?",
+    "town":"Please enter a city.",
+    "phone":"What's your contact telephone number?",
+    "invalidPhonenumber":"This telephone number doesn't look right. It must be between 8 and 14 characters."
+  },
+  "giftMsg":{
+    "giftMessage":"Please add a gift message.",
+    "free":"FREE",
+    "invalidGiftCardno":"Please enter valid gift card number and/or PIN.",
+    "rightAmount":"Please enter the right amount to proceed further",
+    "addCard":"There isn't enough credit on your gift card to complete your order. Please add more gift card credit or use your debit/credit card to pay for the rest of the order. Please ",
+    "afterClickHere":" to check your gift card balance.",
+    "submitMsg":"Please wait while we submit your order... ",
+    "orderTableDelivery":"Shipping",
+    "yes":"Yes",
+    "no":"No"
+  },
+  "store":{
+    "search":"Enter a store name, zip code or town*",
+    "findStore":"FIND STORE "
+  },
+  "clickCollect":{
+    "title":"Find a Molton Brown store"
+  },
+  "feedback":{
+    "enquiryType":"Please select what type of enquiry you would like to make:",
+    "jobTitle":"Job Title",
+    "companyName":"Company Name",
+    "businessType":"Business Type",
+    "hotelName":"Hotel Name",
+    "emailAdd":"Email Address",
+    "confirmEmail":"Confirm Email Address",
+    "phoneNum":"Phone Number",
+    "orderNum":"Order Number",
+    "country":"Country",
+    "postZipCode":"Postcode/Zipcode",
+    "address":"Address",
+    "townCity":"Town/City",
+    "countryState":"County/State",
+    "webSite":"Website",
+    "msg":"Message",
+    "spamSecure":"Spam protection security",
+    "mandatoryFld":"All fields marked with * are mandatory.",
+    "submit":"Submit",
+    "First_Name":"What's your first name?",
+    "Last_Name":"What's your last name?",
+    "Email_Address":"What's your email address?",
+    "invalidEmailAddress":"This email address doesn't look right. Please check the format is myemail@myaddress.com",
+    "Confirm_Email":"Please confirm your email.",
+    "matchEmail":"The emails don't match.",
+   "message":"Please provide the message",
+  "captcha":"Please enter the correct text",
+  "Job_Title": "Please provide the Job Title",
+  "Company_name":"What is the name of Company?",
+  "Business_Type": "Please select Bussiness Type. ",
+   "Hotel_Name":"Please provide the Hotel Name",
+   "ordersOne":"Should you have a question regarding a new or existing online order, you may be able to find the answer in our",
+   "ordersTwo":"If you are unable to locate the answer you are looking for, simply fill out the form below to contact our Customer Service team. We aim to respond to all enquiries within 2 working days.",
+   "compliments":"Should you like to feedback compliments on our products or services, simply fill out the form below which will be sent to our Customer Service team. We look forward to hearing from you.",
+   "complaintOne":"Molton Brown takes pride in our product and services, making your feedback invaluable for the continual development of both of these elements.",
+   "complaintTwo":"If you have an issue you would like to bring to our attention, simply fill out the form detailed below. Our Customer Service team aim to respond within 2 workings days.",
+   "prodEnqOne":"Molton Brown takes pride in our products, making your feedback invaluable for their continual development. If you would like to give us some feedback regarding a product, simply fill out the form detailed below.",
+   "prodEnqTwo":"We may feature your comments anonymously on our website, so if you would not like us to do so, please let us know. We look forward to hearing from you.",
+   "prodFeedbkOne":"Molton Brown takes pride in our products, making your feedback invaluable for their continual development. If you would like to give us some feedback regarding a product, simply fill out the form detailed below.",
+   "prodFeedbkTwo":"We may feature your comments anonymously on our website, so if you would not like us to do so, please let us know. We look forward to hearing from you.",
+   "stockistEnqOne":"Should you have a question regarding the location of Molton Brown's stockist, you may be able to locate this information using our onlinestore finder.",
+   "stockistEnqTwo":"If you have a more generic enquiry regarding Molton Brown stockists, simply fill out the form below to contact our Customer Service team. We aim to respond to all enquiries within 2 working days.",
+   "hotelAment":"If your enquiry is for US, Canada & Caribbean, please visit Molton Brown USA.If your enquiry is for Japan, please visit Molton Brown Japan.If your enquiry is for Australia, please visit Molton Brown Australia.",
+   "spaHotel":"If your enquiry is for Japan, please visit Molton Brown Japan. If your enquiry is for Australia, please visit Molton Brown Australia."
+  },
+  "cookie":{
+    "detailTxt":"We use cookies to ensure you get the best experience on our website. By browsing you agree to our use of cookies",
+    "ManageCookie":"Manage Cookies",
+    "acceptCookie":"Accept Cookies"
+  },
+  "products":{
+    "addToBasket":"Add to Cart",
+    "search":"Your search for",
+    "adjustTo":"was adjusted to",
+    "productFor":"Products found for"
+  },
+  "pickMix":{
+    "pickMix":"Pick & Mix Travel Toiletries",
+    "createToiletries":"Create your own toiletries travel bag.",
+    "removeProduct":"Tap or click a product to remove from your selection",
+    "price":"PRICE:",
+    "threeFor":"3 for",
+    "sixFor":"6 for",
+    "pick":"PICK",
+    "packBuy":"PACK & BUY",
+    "Continue":"CONTINUE",
+    "or":"or",
+    "yourSelection":"YOUR SELECTION",
+    "addToBasket":"ADD TO CART",
+    "optionalBag":"Add an optional travel bag.",
+    "noBag":"No Bag",
+    "travelPouch":"Travel Pouch",
+    "free":"FREE",
+    "sorry":"SORRY",
+    "reachMax":"You have reached your maximum number of products.",
+    "createAnother":"If you want more products, please complete your current Pick & Mix and create another one",
+    "alternateRemove":"Alternatively, remove one of the products from your current selection and add this one.",
+    "close":"CLOSE"
+  },
+  "addtoBasket":"Add to Cart",
+  "yourBasket": "YOUR CART",
+
+  "pickerpopup":{
+    "headingChooseGift":"Choose your gift",
+    "optionsBelow":"Congratulations! Please pick from the options below.",
+    "remove":"Remove",
+    "add":"ADD"
+  },
+  "orderConfirm":{
+    "editBasket":"Edit cart",
+    "thankyouHeading":"Thank you for your order.",
+    "yourOrdernum":"Your order number is",
+    "beingProcess":" is being processed",
+    "supportEmail":"uscustomerservice@moltonbrown.com",
+    "serviceNumber":"1-866-933-2344",
+    "orderConfirmEmail":"An order confirmation will be emailed to ",
+    "shortly":"shortly",
+    "yourOrder":"Your order",
+    "continueShopping":"Continue shopping",
+    "questionOrder":"Questions about your order?",
+    "callUsOn":"Call us on ",
+    "orEmail":"or email",
+    "checkmyaccount":"You can check your order and all your previous online orders in",
+    "Myaccount":" My Account",
+    "saveDetailsNextTime":"Save your details for next time ?",
+    "checkboxQuickerCreateAcc":"Checkout quicker by creating an account for ",
+    "emailEnd":"",
+    "Passwort":"Password*",
+    "confirmPswd":"Confirm password*",
+    "savePaydetNextTime":"Save payment details for next time .",
+    "createAcc":"Create Account",
+    "product":"PRODUCT", 
+    "qty":"QTY", 
+    "price":"PRICE", 
+    "total":"TOTAL" , 
+    "deliveryAddress":"Deliver Address:",
+    "billingAddress":"Billing address",
+    "editAdd":"Edit Address",
+    "editCard":"Edit card",
+    "subTotal":"Subtotal",
+    "accExists":"An account already exists for this email address. You can sign in or reset your password",
+    "here":"here.",
+    "orderWontAppear":"However, this order will not appear in your order history.",
+    "accCreated":"Account created for",
+    "checkYourOrder":"Welcome to Molton Brown . You can now check your order and all your future online orders in",
+    "sample":"Sample(s)",
+    "giftBox":"Gift box",
+    "giftMsg":"Gift message",
+    "viewEditMsg":"View & edit message",
+    "giftBoxPH":"Please enter a message up to 250 characters (including spaces)*",
+    "saveChange":"Save Changes",
+    "deSpecificOrderconfirmationText":""
+  },
+  "breadcrumb":{
+    "home":"Home"
+    
+    },
+  "basketpage":{
+    "basketPagetotal":"Estimated total",
+    "remove":"REMOVE",
+    "inStock":"In Stock",
+    "outOfStock":"Out Of Stock",
+    "pickAgain":"Pick Again",
+    "couponAlreadyRedeemed":"You have already redeemed this promotion.",
+    "couponErrormsg":"That code doesn't look familiar. Please check and try again."
+  },
+  "mapDetails":{
+    "mapOpeningHour" :"Opening hours"
+  },
+  "outOfStockMsgs":{
+    "isOutofStock":"is out of stock. Please remove to continue."
+    },
+  "changeCountrypopup":{
+    "Heading":"CHANGING COUNTRY?",
+     "middleText":"You're about to travel away from the USA site.",
+     "textSet1":"On the site you're about to visit you'll find the different prices, delivery times and delivery costs for your country so you can shop without doing any tricky maths.",
+     "textSet2":"Please be aware that when you move to another site your shopping cart will be emptied.",
+     "textSet3":"Love,",
+     "cancelButton":"CANCEL",
+     "continueButton":"CONTINUE"
+  },
+  
+  "miniCart":{
+    "viewBasket": "VIEW CART",
+    "subTotal":"SUB TOTAL",
+    "qty":"QTY:"
+
+  }, 
+  "categoryLandingPage":{
+    "filterBy":"FILTER BY",
+    "clearAll":"Clear all",
+    "viewAll":"View all"
+  },
+  "storeFinder":{
+    "storeFinder":"Store Finder",
+    "findNearStore":"Find your nearest Molton Brown Store, Stockist or Hotel partner using our store locator.",
+    "placeHoldercity":"Enter a city, town or postcode",
+    "search":" Search ",
+    "noStore":"Sorry, no stores found near",
+    "tryAgain":"Please try again.",
+    "suggestion":"Suggestions:",
+    "spellCorrrectly":"Make sure street and city names are spelt correctly",
+    "includeTown":"Try including a town or city",
+    "enterPostCode":"Try entering a post code",
+    "widdenSearch":"Widen your search area"
+    },
+  "editorial":{
+    "More Stories":"More Stories",
+    "Features":"Features",
+    "Lifestyle":"Lifestyle",
+    "Travel":"Travel",
+    "Fragrance":"Fragrance",
+    "Perfumers":"Perfumers",
+    "News":"News",
+    "newsRoom":"News Room",
+    "inTheKnow":"In the Know",
+    "collections":"Collections",
+    "films":"Films",
+    "readMore":"Read More"
+  },
+  "footer":{
+    "browseInfo":"BROWSE INFORMATION",
+    "joinGuestList":"JOIN THE GUEST LIST"
+
+  },
+  
+  "asmData":{
+    "username":"What's your Username?",
+    "patternInvalid":"What's your Username?",
+    "password":"What's your password?",
+    "invalidPassword":"Password must be between 6 and 20 characters long."
+  },
+  "frData":{
+    "shopOurFavourites" :"Shop our Customer Favorites"
+  } , 
+  "loadingTxt":{
+    "loading":"loading..."
+  },
+  "pdp":{   
+   "deliveryInstructionHeading":"Shipping"
+  },
+  "sitemap":[
+    {
+        "title": "Help & Information",
+        "sub_cat": [
+            {
+                "name": "Contact Us",
+                "url": "/store/contact-us"
+            },
+            {
+                "name": "FAQ's & Help",
+                "url": "/store/faqs"
+            },
+            {
+                "name": "Affiliate Enquiries",
+                "url": "/store/affiliates"
+            },
+            {
+                "name": "Trade & Press Enquiries",
+                "url": "/store/trade-enquiries"
+            },
+            {
+                "name": "Sitemap",
+                "url": "/store/sitemap"
+            }
+        ]
+    },
+    {
+        "title": "About Us",
+        "sub_cat": [
+            {
+                "name": "About Us",
+                "url": "/store/about-us"
+            },
+            {
+                "name": "Our Heritage",
+                "url": "/store/features/molton-brown-history"
+            }
+        ]
+    },
+    {
+        "title": "Our Services",
+        "sub_cat": [
+            {
+                "name": "Shipping & Returns",
+                "url": "/store/shipping"
+            },
+            {
+                "name": "Store Finder",
+                "url": "/store/company/stores"
+            },
+            {
+                "name": "Hotel Amenities",
+                "url": "/store/hotel-amenities"
+            }
+        ]
+    },
+    {
+        "title": "Our Policies",
+        "sub_cat": [
+            {
+                "name": "Terms and Conditions",
+                "url": "/store/terms-conditions"
+            },
+            {
+                "name": "Privacy & Cookie Policy",
+                "url": "/store/privacy-policy"
+            }
+        ]
+    },
+    {
+        "title": "Corporate Gifts",
+        "sub_cat": [],
+        "url": "/store/corporate-gifts"
+    },
+    {
+        "title": "Careers",
+        "sub_cat": [],
+        "url": "/store/careers"
+    }
+],
+  "notFoundPage":{
+    "Search":"Search By",
+    "AboutUs":"About Us",
+    "mbStores":"Molton Brown Stores",
+    "contactUs":"Contact us",
+    "delivery":"Delivery",
+    "privacyPolicy":"Privacy Policy",
+    "t&c":"Terms & Conditions",
+    "faqs":"FAQs",
+    "siteMap":"Site Map",
+    "ohDearieMe":"OH DEARIE ME! THERE SEEMS TO HAVE BEEN A LITTLE HICCUP...",
+    "pageNotExsist":"We can't find the page you were looking for - this might be because the page no longer exists or you may have typed the link incorrectly.",
+    "correctTheURL":"Please check the address and spelling or go back to the beginning, at the",
+    "homeLink":"Molton Brown homepage",
+    "mbSupport":"If you're still having trouble, contact Customer Services via",
+    "mbemail":"email",
+    "giveUsCall":"or give us a call on Freephone +44 (0) 808 178 1188"
+  },
+  "sessionExpiredPage":{
+    "side-tracked":"Got side-tracked? Don't worry.",
+    "descriptionLine1":"While you were busy or browsing somewhere else, we had to end your session (sorry, it's a security thing).",
+    "descriptionLine2":"If you were logged in, we've got your cart ready to go - just log in to continue.",
+    "descriptionLine3":" If you weren't logged in, we've emptied your cart. Please refill it and complete your order so we can set to work."
+  },
+  "fragranceFinder":{
+    "addSample":"Add a 1.5FL sample to cart*",
+    "productTandC":"*The $5 cost of your two samples is redeemable against"
+  
+  }
+     
+  
+  }

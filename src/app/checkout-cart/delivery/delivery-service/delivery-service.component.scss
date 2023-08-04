@@ -1,0 +1,634 @@
+@import "../../../../variable";
+.mb-icon-dt-uk {
+  img {
+    width: 60px;
+    height: 40px;
+    @media screen and(max-width:$screen-sm) {
+      width: 40px;
+      height: 30px;
+    }
+  }
+}
+.choose-delivery-day {
+  .named-day-delivery-available{
+  .available-day-row:hover{
+    background-color: $mb-white !important;
+      }
+      button:disabled,
+button[disabled]:hover{
+background-color: $overlay-bg !important;
+}
+    }
+    .avail-day{
+      cursor: pointer;
+    }
+  h4 {
+    font-size: 18px;
+    line-height: 1.1;
+    color: $primary-color;
+    &.ukstd {
+      font-size: 14px !important;
+      padding: 10px 0;
+      a {
+        text-decoration: underline;
+        cursor: pointer;
+        font-weight: normal;
+      }
+    }
+  }
+}
+.delivery_service {
+  min-height: 270px;
+  margin-bottom: 0 !important;  
+  display: block;  
+  @media screen and(max-width:$screen-sm) {
+      min-height: 300px;
+  }
+  h2 {
+    margin-bottom: 12px;
+  }
+  .subtotal-flex {
+    .mb-payment-type {
+      height: 160px;
+      
+      &.mb-dt-selected{
+        border:1px solid $primary-color;
+      }
+    }
+  }
+  &.card-body {
+    padding: 0 !important;
+  }
+}
+.icon-calendar-sml {
+  background: url("../../../../assets/imgs/calendar-icon.png") no-repeat 0 0;
+  height: 24px;
+  width: 48px;
+  float: left;
+}
+.dt-delivery-details{
+  min-height: 110px;
+  height: 100%;
+  .dl-service{
+    .del-service-title{
+      margin-left: -2px;
+      margin-top: 0;
+    }
+  }
+  .delivery-method{
+   width:70% !important;
+   vertical-align: -webkit-baseline-middle;
+   margin-left:10px;
+   span{
+     font-size:14px;
+   }
+ }
+ .user-delivery-details {
+  background-color: $light-grey;
+  padding: 0 10px 10px;
+  color: $primary-color;
+  .totalto-pay{
+     display: none;
+  }
+  @media screen and(max-width:$screen-sm){
+    .totalto-pay{
+      display: block;
+      font-size: 16px;
+      font-weight: bold;
+      border-bottom: 0!important;
+      padding-bottom: 0!important
+   }
+  }
+
+}
+.user-delivery-method{
+  border-bottom: 1px solid $primary-color;
+  padding: 10px 0;
+  display:flex; 
+}
+.edit-details{
+  float:right;
+  flex: 2;
+  text-align: right;
+}
+.delivery-method{
+  display:inline-block;
+  width:130px;
+  vertical-align: -webkit-baseline-middle;
+}
+}
+
+.delivery-country {
+  font-size: inherit;
+  line-height: 1;
+}
+.addressLine {
+  display: flex;
+}
+.dl-py-method {
+  width: 92%;
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
+  margin-bottom: 10px;
+  @media screen and (max-width: 580px) {
+    bottom: -10px;
+  }
+}
+.named-day-delivery {
+  padding: 15px;
+  border: 1px solid $primary-color;
+  background-color: $mb-white;
+  margin: 0px 0 10px;
+  @media screen and(max-width:$screen-sm){
+    padding: 10px;
+  }
+  .dl-overlay{
+    background-color: $mb-white !important; 
+  }
+  .named-day-delivery-available:first-child {
+    padding-top: 5px;
+  }
+}
+.dt-outstaion {
+  height: auto;
+  width: 100%;
+  background-color: transparent;
+  text-align: center;
+  cursor: default;
+  .mb-dt-selected {
+    padding: 20px;
+    width: 100%;
+    border: 1px solid $light-grey;
+    margin-bottom: 20px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing:    border-box;
+    -o-box-sizing:      border-box;
+    box-sizing:         border-box;
+  }
+  h5 {
+    font-size: 16px;
+    margin: 0 0 10px;
+    color: $primary-color;
+    border-bottom: 0;
+    span {
+      font-size: 16px;
+      display: block;
+      @media(max-width:$screen-sm){
+        font-weight: bold;
+        font-size: 14px;
+        display: inline-block;
+      }
+    }
+  }
+  h5.outstation-dt-price {
+    margin-bottom: 0;
+  }
+}
+.dl-service {
+  margin-bottom: 10px;
+  h2 {
+    line-height: 1.1;
+    font-size: 18px;
+    margin-bottom: 12px;
+    font-weight: 600;
+    color:$primary-color;
+    text-indent: 8px;
+  }
+  &-py-table {
+     display: flex;
+    justify-content: space-between;
+    width: 100%;
+    &-cell {
+      display: flex;
+      width: 100%;
+      justify-content: space-around;
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing:    border-box;
+      -o-box-sizing:      border-box;
+      box-sizing:         border-box;
+    }
+  }
+}
+.dl-service-py-table-cell {
+  .mb-payment-type {
+    height: 160px !important;
+    margin: 0px 5px;
+  }
+}
+
+.delivery-customer-info {
+  display: inline-block;
+  width: 65%;
+  text-transform: capitalize;
+  position: relative;
+  vertical-align: -webkit-baseline-middle;
+  margin-left: 10px;
+  span{
+    font-size:14px;
+  }
+  .customer-dt {
+    @media screen and (max-width:$screen-sm) {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;     
+    }
+  }
+}
+.deliverPhoneNumber {
+  display: flex;
+}
+.choose-service-block{
+ width:100%;
+}
+
+.btn-continue-payment{
+    position: relative;
+    border: none;
+    background-color: $mb-btn-bg;
+    color:$mb-white;
+    width: 230px;
+    font-size: 15px;
+    font-weight: 400;
+    margin-left:10px;
+    font-family: $font-century-regular, $font-century-normal, Verdana, sans-serif;
+    height: 48px;
+    border-radius: 0;
+    text-transform: uppercase;
+    font-size: 15px;
+    transition: background-color 0.3s ease-in-out;    
+    @media screen and (max-width:$screen-sm) {
+      margin-left:0; width: 100%;
+    }
+  &:active { 
+    background-color: $mb-btn-highlight-bg !important;
+  }
+  &:focus,&:hover{
+    background-color: $mb-btn-highlight-bg;
+    border: none;
+    outline: none;
+  }
+
+.icon-padlock {
+  position: relative;
+  top: 1px;
+  display: inline-block;
+  font-style: normal;
+  font-weight: normal;
+  line-height: 1;
+  margin-left: 18px;
+  &::before {
+    content: "";
+    display: inline-block;
+    background: url('../../../../assets/imgs/padlock-white.png') no-repeat 0 center;
+    position: absolute;
+    height: 24px;
+    left: -24px;
+    top: -21px;
+    width: 20px;
+    z-index: 1;
+}
+}
+}
+.mb-dt-price{
+  font-size:14px;
+  color: $primary-color;
+}
+.mb-payment-type {
+  &.mb-dt-selected{
+    border:1px solid $primary-color;
+  }
+}
+.dl-service-methods{
+  position: relative;
+  height: 100%;
+}
+.dl-service-height{
+  min-height: 250px;
+}
+.named-day-section{
+  position: relative;
+}
+.named-day-block{
+  min-height: 480px;
+  height: 100%;
+}
+
+
+.icon-valid-white {
+  background: url('../../../../assets/imgs/tick-icon-white.png') no-repeat center top;
+  height: 24px;
+  width: 24px;
+  margin-left: 10px;
+}
+
+.icon-home {
+  background: url('../../../../assets/imgs/house-icon.png') no-repeat 0 0;
+  height: 24px;
+  width: 42px;
+  
+  @media screen and(max-width:$screen-sm){
+width:24px;
+  }
+}
+.icon-telephone {
+  background: url('../../../../assets/imgs/telephone-icon.png') no-repeat 0 0;
+  height: 24px;
+  width: 42px;
+  float: left;
+  @media screen and(max-width:$screen-sm){
+       width:24px;
+  }
+}
+.icon-uk-std-dt {
+  height: 24px;
+  width:42px;
+  background: url('../../../../assets/imgs/delivery-options-icon.png') no-repeat 0 0;
+  float: left;
+  @media screen and(max-width:$screen-sm){
+      background-size: 35px auto;
+      background-position: 0 2px;
+      width:24px;
+  }
+}
+.icon-bg-block{
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 5px;
+}
+
+
+
+
+.delivery-method-content{
+  width:100%;
+}
+.edit-delivery-details{
+  color:$primary-color !important;
+  text-decoration: underline !important;
+  font-size:14px;
+  cursor: pointer;
+  &:hover{
+      text-decoration:underline;
+  }
+}
+
+.subtotal-flex{
+  display:flex;
+  grid-template-rows: auto;
+  justify-content:space-between;
+}
+
+.mb-dt-header {
+  padding-bottom: 10px;
+  color: $primary-color;
+  border-bottom: 1px solid $light-grey;
+}
+
+.mb-dt-hideBlock{
+  display: none;
+}
+
+
+.btn-primary {
+  background-color: $mb-btn-bg;
+  width: 245px;
+  &:hover{
+      background-color: $mb-btn-bg;  
+  }
+}
+.mb-dt-unselected{
+  filter: opacity(0.5);
+  opacity: .5;
+}
+.named-day-section{
+.delivery-service-method {
+  position: relative;
+  top: -60px;
+  margin-bottom: -50px;
+  
+}
+}
+@media screen and(max-width:$screen-sm){
+  .named-day-section{
+    .delivery-service-method {
+      top: -90px;
+      margin-bottom: -80px;
+      
+    }
+    }
+
+}
+
+.ukstd {
+  font-size: 14px;
+  padding: 10px 0;
+}
+.available-day-row {
+  padding: 5px;
+  background-color: #f6f6f6;
+  border: 1px solid $light-grey;
+  margin-top: 5px;
+  display: flex;
+  width:100%;
+  height: 41px;
+  justify-content: space-between;
+  &.avail-day{
+    &:hover{
+      background-color:$mb-white;
+    }
+  }
+}
+.named-day{
+  margin-right:12px
+}
+.delivery-day{
+  width: 270px;
+  text-align: left;
+  padding: 0 10px;
+  @media screen and(max-width:$screen-sm){
+      width: 45%;
+      font-size: 11px;
+  }
+}
+.named-day-delivery{
+  .available-day-row{
+    justify-content: left !important;
+  .delivery-day-type{
+    width: 190px !important;
+    text-align: left;
+    margin-right: -7px;
+  }
+ }
+}
+.delivery-day-type{
+  width: 125px;
+  @media screen and(max-width:$screen-sm)
+  {  width:80px;font-size: 11px;}
+}
+.delivery-day-price{
+  
+  @media screen and(max-width:$screen-sm)
+  {  font-size: 11px;}
+}
+.icon-international-sml {
+  height: 32px;
+  width:50px;
+  background: url('../../../../assets/imgs/delivery-options-icon.png') no-repeat -2px -136px;
+  float: left;
+  @media screen and(max-width:$screen-sm) {
+    width: 32px;
+  }
+  
+}
+
+.disabled{
+  filter: opacity(0.65);
+  opacity: 0.65;
+}
+.pt-10{
+  padding-top:10px;
+}
+.mb-dt-price{
+  font-size:14px;
+}
+
+.active-day{
+  border-color: $named-day-active !important;
+  background-color: $mb-white !important;
+  box-shadow: 0 0 1px $named-day-active inset !important;
+}
+
+.service-block{
+.width-align{
+  width: 55%;
+  @media (max-width:$screen-sm) {
+    width:100%;
+  }
+}
+}
+
+.dt-delivery-details{
+  .user-delivery-details{
+    .pt-10 {
+      border-bottom: 1px solid $primary-color;
+      padding-bottom: 10px;
+      .delivery-type{
+        margin-left: 4px;
+        padding-bottom: 5px;
+      }
+    }
+    .user-delivery-bg{
+      .mt-25{
+        margin-top:10px;
+      }
+      
+    }
+  }
+  .dl-service{
+    .dl-service-py-table{
+      .dl-service-py-table-cell{
+        .choose-service-block{
+          .dt-outstaion{
+            .ct-payment{
+              margin-bottom: 16px;
+              
+    @media screen and(max-width:768px){
+      
+      margin-bottom: 0px;
+    }
+              .order-delivery-date{
+                padding-top: 8px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+.delivery-service-method{
+  .choose-delivery-day{
+    .delivery-date-title{
+      font-weight: 700;
+      color: $primary-color;
+      
+    }
+    .ukstd{
+      a{
+        color: $primary-color !important;
+        text-decoration: underline;
+        &:hover{
+          text-decoration: underline;
+          color: $primary-color !important;
+        }
+      }
+    }
+    .ukstd{
+      a{
+        color: $primary-color !important;
+      }
+    }
+  }
+}
+
+.dt-delivery-details{
+  .panel-body{
+  padding: 15px 5px !important;
+  }
+} 
+.contOrder{
+  display:flex;
+  margin-top: 15px;
+  left: 51%;
+  width: 100%;
+  @media screen and(max-width:$screen-sm){
+    flex-direction: column;
+    bottom:0;
+    width: 97%;
+    left: 5px;
+    text-align: left;
+    transform: translateX(0%);
+    top: 100%;
+    min-height: 120px;
+    margin-left: 0;
+    margin:0 auto;
+    margin-top: 15px;
+    .order-delivery-date{
+      padding: 15px 0;
+    }
+  }
+  @media screen and(max-width:$screen-xs){
+
+    .order-delivery-date{
+      padding: 8px 0;
+    }
+  }
+}
+.hazardous-text {
+  margin-top: 9px;
+  a{
+    text-decoration: underline !important;
+    font-size: 13px;
+    color: $primary-color;
+    opacity: 0.65;
+  }
+}
+@media screen and(max-width:768px){
+  .dl-service-py-table {
+    position: relative;
+  }
+  .order-delivery-date span {
+    font-size: 14px;
+  }
+  .named-day-delivery-available {
+    margin-bottom: 1em;
+  }
+}
+.mb-type-delevery{
+  &.deactive{
+    cursor: default;
+  }
+}

@@ -1,0 +1,166 @@
+@import "../../../variable";
+.payer-saved-address {
+    position: relative;
+    color: $primary-color;
+    .form-group{
+       margin-top:10px;
+    }
+    p{
+        span{
+            font-size:14px;
+        }
+    }
+}
+
+.jointxttwo, .jointxtone {
+    margin-bottom: 15px;
+    span{
+        font-size: 14px;
+     color: $primary-color
+    } 
+}
+.jointitle, .tctitle {
+    font-size: 1.2em;
+    margin: 0 0 12px!important;
+}
+.ml-5{
+    margin-left:5px;
+}
+.section-heading{
+    h2{
+        font-size: 18px;
+        margin: 0 0 12px 0;
+    }
+}
+.saved-address {
+    position: relative;
+    color: $primary-color;
+    // font-weight: 900;
+    width:99%;
+    p{
+        width:49%;
+    }
+}
+.change-address-btn{
+    position: absolute;
+    text-align: right;
+    right: 0;
+    bottom: -10px;
+    font-size: 16px;
+    color:$edition-color !important;
+    font-weight:normal;
+    text-decoration: underline !important;
+    cursor: pointer;
+}
+.save_details{
+    border-bottom:1px solid $light-grey;
+    margin:8px 0;
+}
+
+input.form-control.short-field{
+    width: 110px !important;  
+}
+.btn-find-address{
+    width:180px;
+    @media(max-width:$screen-sm){
+        width:100% ;
+    }  
+}
+.btn-default {
+    background-color: $edition-color;
+    color: $mb-white;
+}
+.form-inline  .form-group, .form-inline .radio-inline {
+    margin-right: 10px;
+}
+
+.securityCode{
+    position: relative;
+    width: 160px !important;
+    input{
+        width: 160px !important;
+    }
+    @media(max-width:$screen-xs-min){
+        // width: 100% !important;
+        input{
+            width: 100% !important;
+        }
+    }
+
+.contextual-help{
+    left:140px;
+    top:3px;
+}
+}
+select.form-control {
+    display: block;
+    height: 48px;
+    border: 1px solid $light-grey;
+    border-radius: 0;
+    margin: 5px 0;
+}
+.postcodesearchreset a{
+  text-decoration: underline !important;
+}
+.card-entry-form{
+    input{
+        &.form-control{
+            width:335px;
+            @media screen and(max-width:768px){
+                width:100%;
+            }
+        }
+          }
+}
+.kl-msg{
+    font-size:12px;
+    margin-top: 7px;
+}
+.b2c-title{
+    &::first-letter{
+        text-transform: uppercase;
+    }
+    &.pay-load{
+        width: 100%;
+        top: 5%;
+        text-align: center;
+        font-size: 14px;
+        display: flex;
+        place-content: center;
+        .load-txt{
+            margin-top: 2px;
+        }
+       span.pay-load-text{
+        width: 100%;
+        margin: 8px;
+        font-size: 14px;
+       }    
+    }
+}
+.klarna-form{
+    .bl_checkbox {
+        height: unset !important;
+    }
+}
+.bl_checkbox{ 
+    label{
+        &::before {
+         top:  -4px;
+     }
+    }
+ }
+ @media screen and(max-width:768px){
+    .checkbox label.klarna-label:after {
+        top: 0;
+    }
+ }
+ .error-info-block{
+    .err_msg{
+        text-transform: none;
+        a{
+            text-transform: none;
+            text-decoration: underline;
+        }
+    }
+
+}

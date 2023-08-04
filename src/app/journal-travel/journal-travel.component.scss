@@ -1,0 +1,13 @@
+@import"../../variable";
+#journal-travel-landingpage{
+    margin:auto;
+    text-align: center;
+width:878px;
+height:auto;
+}
+@media screen and (max-width:$screen-sm){
+    #journal-travel-landingpage{
+    width:100%;
+    height:auto;
+    }
+}

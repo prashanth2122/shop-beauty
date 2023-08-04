@@ -1,0 +1,31 @@
+<div class="heading">
+    <div class="mblogo-head">
+        <a (click) ="goHome()">
+         <img src="assets/imgs/logo_pages_new.png" alt="Molton Brown London">
+        </a>
+    </div>
+    <h4>BI-REPORTS</h4>
+</div>
+<div class="calenders">
+    <div *ngIf="firstlist"class="calc">
+        <h6>Choose from date</h6>
+        <ngb-datepicker #dp [(ngModel)]="model1" (navigate)="date = $event.next"></ngb-datepicker>
+    </div>
+    <div *ngIf="secondlist" class="calc">
+        <h6>Choose to date</h6>
+        <ngb-datepicker #dp1 [(ngModel)]="model" (navigate)="date = $event.next"></ngb-datepicker>
+    </div>
+    <hr />
+</div>
+<div *ngIf="secondlist" class="dropdown-calender" >Report Type :
+    <select id="ReportType">
+        <option value="OrderReport">OrderReport</option>
+        <option value="Pick & Mix Report">Pick & Mix Report</option>
+    </select>
+</div>
+<div class="dropdown-calender">
+    <button *ngIf="firstlist" class="btn btn-sm btn-outline-primary mr-2 next-btn" (click) ="fromdate()">Next</button>
+    <button *ngIf="secondlist" class="btn btn-sm btn-outline-primary mr-2 next-btn" (click)="selectToday()">Download</button>
+</div>
+
+<hr />

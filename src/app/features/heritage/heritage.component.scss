@@ -1,0 +1,138 @@
+@import"../../../variable";
+
+.breadcrumb-nav {
+    width: 100%;
+    background: #f8f8f8;
+    border-top: 1px solid #cccccc;
+    border-bottom: 1px solid #cccccc;
+}
+.space-between {
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+}
+
+.flex-align {
+    height: inherit;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+.breadcrumb-nav ul {
+    list-style: none;
+    width: 938px;
+    height: 35px;
+    margin: auto;
+}
+.breadcrumb-nav ul li {
+    font-size: 15px;
+    font-style: italic;
+    display: inline-block;
+   a{
+      font-family: Georgia !important; 
+   } 
+}
+.black-color1 {
+    color: $primary-color;
+    font-size: 15px !important;font-family: Georgia !important;}
+    .black-color {
+        color: $primary-color;
+        font-size: 15px !important;
+        font-family: Georgia !important;
+    &:before {
+        border-top: 5px solid transparent;
+        border-right: 5px solid;
+        border-bottom: 5px solid transparent;
+        content: "";
+        display: inline-block;
+        height: 0;
+        margin-right: 7px;
+        visibility: visible;
+        width: 0;
+    }
+}
+.social-section-bcc {
+    padding-top: 20px;
+}
+.social-section-bcc {
+padding-top: 24px;
+text-align: center;
+padding-bottom: 5px;
+}
+.share-heading {
+font-size: 17px;
+margin: 0;
+}
+.social-container-bcc {
+padding-top: 16px;
+}
+.social-icons-bcc {
+display: inline-block;
+background: url('https://media.moltonbrown.co.uk/i/moltonbrown/social-icons.png') no-repeat;
+overflow: hidden;
+text-indent: -9999px;
+text-align: left;
+height: 25px;
+}
+
+.icon-fb {
+background-size: 44px;
+width: 15px;
+background-position: -8px -51px;
+}
+.icon-tw {
+background-size: 46px;
+width: 28px;
+background-position: -9px -23px;
+}
+.icon-em {
+background-size: 46px;
+width: 33px;
+background-position: -7px 5px;
+}
+.fb-color {
+    background: #3B5998;
+}
+.tw-color {
+    background: #1DA1F2;
+}
+ .em-color {
+    background: #F28D4F;
+}
+.social-btn-bcc {
+    display: inline-flex;
+        align-content: center;
+        -webkit-box-align: center;
+        align-items: center;
+        justify-content: center;
+        min-width: 110px;
+        text-decoration: none;
+        color: #fff;
+        height: 37px;
+        position: relative;
+        border-radius: 25px;
+        -webkit-border-radius: 25px;
+        margin: 0 12px;
+      }
+      .share-heading {
+        font-weight: 500;
+        font-size: 17px;
+        margin: 0;
+        font-style: italic;
+    }
+    .container {
+        width: 964px;
+        margin-right: auto;
+        margin-left: auto;
+        padding-left: 15px;
+        padding-right: 15px;
+        text-rendering: optimizeLegibility;
+        @media (max-width: 768px) {
+          width: 100%;
+        }
+      }

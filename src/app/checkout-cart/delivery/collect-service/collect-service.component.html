@@ -1,0 +1,129 @@
+<section>
+  <div class="dt-delivery-details">
+    <div class="user-delivery-details">
+      <div class="padding-top-10 user-delivery-bg  clearfix">
+        <i class="icon-click-collect-dt icon-bg-block"></i>
+        <div class="delivery-method">Click & Collect</div>
+        <div class="edit-details">
+          <a
+            class="edit-delivery-details"
+            (click)="onEditDeliveryType('collect')"
+            >Edit this</a
+          >
+          <i class="icon-valid-white icon-bg-block"></i>
+        </div>
+      </div>
+      <div class="padding-top-10 user-delivery-bg  clearfix">
+        <img class="stores-icon-mblogo"  *ngIf="storeData.storeType == 'MBSTORES' " src="assets/imgs/mb-storecc.png">
+        <img class="stores-icon-mblogo"  *ngIf="storeData.storeType != 'MBSTORES' " src="assets/imgs/DPD-cc-point.png">
+        <div class="delivery-method">
+          <div class="address">
+          <h6>{{ storeData.name }}</h6>
+          <p>
+           <span *ngIf=" storeData.address.line1 ">{{storeData.address.line1}},&nbsp;</span>
+           <span *ngIf=" storeData.address.line2 ">{{storeData.address.line2}},&nbsp;</span>
+           <span *ngIf=" storeData.address.town ">{{storeData.address.town}},&nbsp;</span>
+           <span *ngIf=" storeData.address.postalCode "> {{storeData.address.postalCode}},&nbsp;</span>
+           <span *ngIf=" storeData.address.country.name ">{{storeData.address.country.name}}</span>
+          </p>
+        </div>
+      </div>
+        <div class="edit-details">
+          <a class="edit-delivery-details" (click)="onEditDeliveryType('ship')"
+            >Edit this</a
+          >
+          <i class="icon-valid-white icon-bg-block"></i>
+        </div>
+      </div>
+      <div class="pt-10 user-delivery-bg  clearfix" *ngIf="storeData.mobile">
+        <i class="icon-telephone  icon-bg-block"></i>
+        <div class="delivery-method">{{ storeData.mobile }}</div>
+        <div class="edit-details">
+          <a class="edit-delivery-details" (click)="onEditComminication()"
+            >Edit this</a
+          >
+          <i class="icon-valid-white icon-bg-block"></i>
+        </div>
+      </div>
+
+      <div *ngIf="totalToPay" class="pt-10 user-delivery-bg  totalto-pay clearfix">
+        {{'checkoutFlow.Totaltopay' | translate}}
+        <div class="edit-details" *ngIf="singletonServ.cartObj">
+          {{ singletonServ.cartObj.totalPriceWithTax.formattedValue }}
+       </div>
+      </div>
+
+
+    </div>
+  </div>
+
+  <div class="panel-body" [hidden]="payment">
+    <div class="cs-communication">
+      <div class="telephone  cs-communication-block ">
+        <form
+          [formGroup]="communicateForm"
+          (ngSubmit)="onSubmitForm($event)"
+          custom-focus
+        >
+          <fieldset>
+            <h4>What's your contact number?</h4>
+            <p>
+              Just in case we need to contact you about your order. We will
+              never spam you or sell your information.
+            </p>
+            <div class="form-group clearfix">
+              <div       class="form-inline manual_field">
+              <select  *ngIf="usSpecificForm"
+               class="mandatory form-control selectDropdown cntry-select click-colect-select">
+                <option>Mobile</option>
+                <option>Other</option>
+              </select>
+              <div class="dt-delivery-form-block" [ngClass]="{'us-store-cc-form':usSpecificForm,'uk-store-cc-form':!usSpecificForm}" >
+                <a
+                  class="contextual-help"
+                  show-delay="100"  ngbTooltip="{{'register.phonenumberInfo'|translate}}" [placement]="mobileDevice?'top':'right'"  
+                ></a>
+                <input
+                  autocorrect="off"
+                  autocomplete="off"
+                  placeholder="{{'checkoutFlow.placeHolderPhone' | translate}}"
+                  maxlength="14"
+                  (keydown)="telePhoneKeyDown($event)"
+                  type="text"
+                  class=" text form-control mandatory contextHlp pull-left cc-postcode-input"
+                  formControlName="phone"
+                  type="text"
+                  [ngClass]="{
+                    'has-error not-valid':!communicateForm.get('phone').valid && communicateForm.get('phone').touched,
+                     'valid':  communicateForm.get('phone').valid 
+                  }"/>
+                <div *ngIf="!communicateForm.controls['phone'].valid && communicateForm.get('phone').touched"
+                  class="not-valid-error-msg cc-communication-err-msg" >
+                  <span
+                    *ngIf="communicateForm.controls['phone'].errors.required"
+                    >{{'checkoutFlow.phoneNoError' | translate}}</span
+                  >
+                  <span *ngIf="communicateForm.controls['phone'].errors.patternInvalid">
+                    This telephone number doesn't look right. It must be between
+                    10 and 14 characters.
+                  </span>
+                </div>
+              </div>
+              </div>
+            </div>
+
+            <p class="help-info">
+              Enter a mobile number for free text order updates.
+            </p>
+            <div class="text-right">
+                <button   type="submit" class=" btn-continue-payment pull-right" >
+                    <span class="icon-padlock"></span>{{'checkoutFlow.continueToPay' | translate}}
+                </button>
+            </div>
+          </fieldset>
+        </form>
+        <div></div>
+      </div>
+    </div>
+  </div>
+</section>

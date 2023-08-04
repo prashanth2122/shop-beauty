@@ -1,0 +1,190 @@
+<div #sapWrapper></div>
+<header id="email-preferences-header">
+  <div class="header-container clearfix">
+      <div class="header-logo">
+          <a  href="/store/index" title="">
+<img     src="assets/imgs/logo_pages_new.png" alt="Molton Brown London">
+</a>
+</div>
+  </div>
+</header>
+<div class="conatiner newsletter-body">
+  <div class="checkout-content">
+    <div class="samples-container">
+      <div class="innerSampleContainer">
+        <form 
+        [formGroup]="newsLetterForm"
+        (ngSubmit)="onSubmitForm($event)"
+        custom-focus
+          class="newsletter-update-form">
+          <fieldset>
+            <h2>Tell us more...</h2>
+            <h4 class="mobile-center">
+              Please enter your details below so that we can personalise your
+              experience to tell you more about what you love.
+            </h4>
+            <div class="form-group">
+              <input
+                formControlName="firstName"
+                autocorrect="off"
+                autocomplete="off"
+                placeholder="First Name*"
+                type="text"
+                class="form-control  mandatory"
+                
+              />
+            </div>
+            <div class="form-group">
+              <input
+                formControlName="lastName"
+                autocorrect="off"
+                autocomplete="off"
+                placeholder="Last Name*"
+                type="text"
+                class="form-control  mandatory"
+
+              />
+            </div>
+            <div class="form-group">
+              <input
+                formControlName="emailAddress"
+                autocorrect="off"
+                autocomplete="off"
+                placeholder="Email Address*"
+                type="text"
+                class="form-control  mandatory"
+              />
+            </div>
+            <h4 class="margin-space">
+              Date of birth<span class="lighter"
+                >(For an extra special treat on your birthday)</span
+              >
+            </h4>
+            <div class="form-group split-input ">
+              <select   formControlName="day" class="mandatory form-control daydropdown">
+                <option  selected>Day</option>       
+                <option *ngFor="let day of days">{{ day.day }}</option>    
+            </select>
+            </div>
+            <div class="form-group split-input ">
+              <select formControlName="month" class="mandatory form-control daydropdown">
+                <option>Month</option>
+                <option *ngFor="let month of months">{{ month.month }}</option>
+              </select>
+            </div>
+            <div class="form-group split-input ">
+              <select formControlName="year" class="mandatory form-control daydropdown">
+                <option>Year</option>
+                <option *ngFor="let year of years">{{ year.year }}</option>
+              </select>
+            </div>
+            <div class="form-group clearfix mobile-margin">
+              <h4 class="gender-title">Gender</h4>
+              <div class="radio gender-radio">
+                <input name="gender" formControlName="gender" type="radio" value="0" />
+                <label for="genderfemale">Female</label>
+              </div>
+              <div class="radio">
+                <input name="gender"  formControlName="gender" type="radio" value="1" />
+                <label for="gendermale">Male</label>
+              </div>
+              <div class="radio">
+                <input name="gender" formControlName="gender" value="2" type="radio" />
+                <label for="genderneutral">Non-binary</label>
+              </div>
+            </div>
+            <h4>
+              Postal address&nbsp;<span class="lighter"
+                >(For exclusive invitations and updates straight to your
+                door)</span
+              >
+            </h4>
+            <div class="form-group">
+              <input
+                autocorrect="off"
+                autocomplete="off"
+                placeholder="House Number / Name"
+                type="text"
+                formControlName="line1"
+                class="form-control  mandatory"
+                
+              />
+            </div>
+            <div class="form-group">
+              <input
+                autocorrect="off"
+                autocomplete="off"
+                placeholder="Street"
+                type="text"
+                formControlName="line2"
+                class="form-control  mandatory"
+                
+              />
+            </div>
+            <div class="form-group">
+              <input
+                autocorrect="off"
+                autocomplete="off"
+                placeholder="Town or City"
+                type="text"
+                formControlName="town"
+                class="form-control  mandatory"
+                
+              />
+            </div>
+            <div class="form-group">
+              <input
+                autocorrect="off"
+                autocomplete="off"
+                placeholder="County, state or region"
+                type="text"
+                formControlName="district"
+                class="form-control  mandatory"
+                
+              />
+            </div>
+            <div class="form-group">
+              <input
+                autocorrect="off"
+                autocomplete="off"
+                placeholder="Postcode or zip code"
+                type="text"
+                formControlName="postalCode"
+                class="form-control  mandatory"
+                
+              />
+            </div>
+            <div class="form-group countrySelect">
+              <select class="mandatory form-control"      formControlName="country">
+                <option value="">Please select</option>
+                <option *ngFor="let data of countries"  [ngValue]="data">{{data.name}}</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <input type="submit" value="update" class="btn btn-default" />
+            </div>
+          </fieldset>
+
+       
+        <p class="lighter">*Required field</p>
+        <br />
+        <p>
+          To <strong>unsubscribe</strong> from Molton Brown completely please
+          <input type="hidden" formControlName="unsubscribe" >
+          <a (click)="onUnsubsribe()">click here</a>
+        </p>
+        <br />
+        <p>
+          We will only use your information for marketing purposes. Molton Brown
+          does not share your information with third parties and you can
+          unsubscribe at any time.
+        </p>
+      </form>
+      </div>
+      <div class="inner-container-RightBlock">
+        <img src="//images.moltonbrown.co.uk/MBPromoImages/email-signup_desktop.jpg" class="desk-block" />
+      </div>
+    </div>
+  </div>
+</div>
+

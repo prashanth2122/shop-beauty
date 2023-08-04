@@ -1,0 +1,130 @@
+<div class="container store-service-point">
+  <div class="rowComponents mt-10 find-store">
+    <div class="col-sm-6 find-store-search" *ngIf="loadGMscript">
+      <h1>{{'storeFinder.storeFinder' | translate}} </h1>
+      <div class="form-inline">
+        <input
+          placeholder="Enter a city, town or postcode"
+          googlePlaces
+          [(ngModel)]="storeName"
+          (onSelect)="setAddress($event)"
+        />
+        <button class="btn btn-default findStore " (click)="searchAddress($event)">Search</button>
+      </div>
+    </div>
+  </div>
+  <div class="store-view" *ngIf="storesList"> {{uniqStoreList}}&nbsp;results found</div>
+  <div class="row rowComponents mt-10  mb-stores">
+    <div class="col-md-6 col-sm-12 right-nomargin">
+      <ul class="mb-stores-check-list">
+        <li *ngFor="let data of storeTypeList;let k=index;">
+          <span
+            ><input
+              type="checkbox"
+              id="{{'stores'+k}}"             
+              [checked]="data.checked"
+              (change)="onChangeStoreBy($event,k)"
+            /><label  for="{{'stores'+k}}">{{ data.name }}</label></span
+          >
+        </li>
+      </ul>
+      <div class="map-footer mob-footer"></div>
+      <div class="find-store-filter-list" *ngIf="uniqStoreList!=0">
+        <div *ngFor="let storeDataInfo of storesList;let k=index">
+         <div class="store" *ngIf="storeDataInfo.header">
+          <h3>{{storeDataInfo.name}}</h3>
+         </div>
+         <div  class="mb-stores-list"*ngFor="let storeData of storeDataInfo.data;let p=index">
+          <div class="mb-stores-left-cntnt">
+            <div class="img-con">
+              <img [src]="storeData.image"/>
+            </div>
+            <div class="mb-stores-detail">
+              <h4>
+                <a (click)="onFindStoreDetail(storeData)">{{ storeData.name }}</a>
+              </h4>
+              <p>
+                <span *ngIf="storeData.address.line1">{{
+                  storeData.address.line1
+                }}&nbsp;<br /></span
+                >
+                <span *ngIf="storeData.address.line2">{{
+                  storeData.address.line2
+                }}&nbsp;<br /></span
+                >
+                <span *ngIf="storeData.address.town">{{
+                  storeData.address.town
+                }}&nbsp;<br /></span
+                >
+                 <span *ngIf="storeData.address.postalCode">{{
+                  storeData.address.postalCode
+                }}&nbsp;<br /></span
+                >
+                <span *ngIf="storeData.address.country">{{
+                  storeData.address.country.name
+                }}</span>
+              </p>
+
+              <div class="mb-stores-open-time">
+                <p *ngIf="storeData.currentOpenHour">
+                  Open today {{ storeData.currentOpenHour.openingTime }}
+                </p>
+              </div>
+            </div>
+            <div class="showmore_trigger">
+              <span
+                class="more"
+                (click)="onShowDt($event,k,p)"
+                *ngIf="!storeData.show"
+                >More Details</span
+              >
+              <span
+                class="less"
+                (click)="onShowDt($event,k,p)"
+                *ngIf="storeData.show"
+                >Less Details</span
+              >
+            </div>
+            <div class="showmore_one" *ngIf="storeData.show">
+              <div class="showmore_content">
+                <div class="opening-hours">
+                  <h4>Opening Hours</h4>
+                  <ul class="openinghrs-list">
+                    <li *ngFor="let kaoStor of storeData.kaoOpeningHoursList">
+                      <span class="days">{{ kaoStor.day }}</span>
+                      <span class="time">{{ kaoStor.openingTime }}</span>
+                    </li>
+                  </ul>
+                </div>
+                <div class="telephone">
+                  <h4>Telephone</h4>
+                  <p>{{ storeData.address.phone }}</p>
+                </div>
+                <div class="map-links clearfix">
+                  <a (click)="onFindStoreDetail(storeData)">Store Details</a>
+                  <a (click)="onFindStoreDirection(storeData)" >Get Directions</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="mb-stores-right-cntnt">
+            <div class="shop-imgcon"></div>
+            <div class="shop-dist">
+              <p>{{ storeData.formattedDistance }}</p>
+            </div>
+          </div>
+       </div>
+     </div>
+    </div>
+    </div>
+    <div class="col-sm-6 mb-stores-locator no-margin-left">
+      <div id="storeFinderMapView"></div>
+      <div class="map-footer"></div>
+    </div>
+  </div>
+  <div class="justify-content-center freshrelavance ">
+      <h2 class="customer">{{'frData.shopOurFavourites' | translate}}</h2>
+      <div #storeFinderFeed></div>
+  </div> 
+</div>
+

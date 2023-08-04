@@ -1,0 +1,148 @@
+
+
+   <div class="sticky-wrapper">
+
+   <div class="pickMix-block clearfix pickmix-sticky-body" #pickMixEl>
+     <div class="innerPage">
+<div class="mob-container">
+  <div class="pickMix-block-container ">
+        <div class="group" *ngIf="collection">
+          <div class="pickMix-item" *ngFor="let data of collection[0];let k=index;"
+            [ngClass]="{'opt-selected':data.selection}">
+            <div class="pickMix-item-img" style="background-repeat:no-repeat;" [ngStyle]="{'background-image':getBgImage(false,k+1)}">
+              <span *ngIf="data.selection">
+                <picture (click)="onRemoveItem($event,k)" >
+                      <source srcset="{{data.amplienceImageName}}?$pickAndMixImg$&amp;fmt=webp" type="image/webp">
+                      <source srcset="{{data.amplienceImageName}}?$pickAndMixImg$&amp;fmt=jpg" type="image/jpeg">
+                      <img src="{{data.amplienceImageName}}?$pickAndMixImg$&amp;fmt=jpg">
+                   </picture>
+
+                </span>
+            </div>
+            <div class="pickMix-selection-indicator" ></div>
+          </div>
+        </div>
+
+        <div class="pickMix-progress-container" >
+          <div class="pickMix-progress-indicator" [ngClass]="{'summary-progress-indicator':totalCount==3||totalCount>3}">
+            {{'pickMix.threeFor' | translate}}&nbsp;<span [innerHtml]="getThreePackCurrencyCode(threePackCurrencyCode)"></span>
+          </div>
+        </div>
+      </div>
+      <div class="pickMix-block-container mob-pick-right">
+        <div class="group" *ngIf="collection">
+          <div class="pickMix-item" *ngFor="let data of collection[1];let k=index;"
+            [ngClass]="{'opt-selected':data.selection}">
+            <div class="pickMix-item-img"  [ngStyle]="{'background-image':getBgImage(false,k+4)}" >
+              <span *ngIf="data.selection">
+                  <picture (click)="onRemoveItem($event,k+3)" >
+                      <source srcset="{{data.amplienceImageName}}?$pickAndMixImg$&amp;fmt=webp" type="image/webp">
+                      <source srcset="{{data.amplienceImageName}}?$pickAndMixImg$&amp;fmt=jpg" type="image/jpeg">
+                      <img src="{{data.amplienceImageName}}?$pickAndMixImg$&amp;fmt=jpg">
+                   </picture>
+               </span>
+            </div>
+            <div class="pickMix-selection-indicator"></div>
+          </div>
+        </div>
+        <div class="pickMix-progress-container" >
+          <div class="pickMix-progress-indicator" [ngClass]="{'summary-progress-indicator':totalCount==6}" >
+            {{'pickMix.sixFor' | translate}}&nbsp;<span [innerHtml]="getSixPackCurrencyCode(sixPackCurrencyCode)"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+      <div class="price-container clearfix">
+        <div class="price set-price">{{'pickMix.price' | translate}} <span [innerHtml]="pickPackPrice"></span> </div>
+        <div class="continue form-inline justify-content-center margin-top-20">
+          <button class="cta" [ngClass]="{'disabled':!pickBuyCheck}" [disabled]="!pickBuyCheck" (click)="onChecKToCart($event)">{{'pickMix.Continue' | translate}}</button>
+        </div>
+      </div>
+     </div>
+      <div class="remove-tooltip " *ngIf="!pickItems">{{'pickMix.removeProduct' | translate}}</div>
+    </div>
+<div class="rowComponents mt-12" *ngIf="pickMixData" >
+ <div class="pm-category-wrapper">
+    <aside class="pickMix-aside category-wrapper" >
+        <ul class="navigation clearfix " id="pickListSubcategories" *ngIf="pickMixData.subcategories">
+          <li *ngFor="let data of pickMixData.subcategories;let k=index;">
+            <a href="#{{data.id}}"
+              (click)="scrollToUsageSection($event, data.id)">
+              {{data.categoryDisplayName}}</a>
+          </li>
+        </ul>
+      </aside>
+ </div>
+ <div class="pickmix-product-container clearfix" (scroll)="scrollToPick()">
+  <div class="product-list clearfix ">
+    <section id="{{data.id}}" class="page-section" *ngFor="let data of pickMixData.subcategories;let p =index;" #pickMixEl>
+      <div class="item" *ngFor="let product of data.products;let k=index;">
+        <div class="product-img">
+            <picture  class="pick-mix-product-img">
+                <source srcset="https://media.moltonbrown.co.uk/s/moltonbrown/{{product.code}}_uk_set?$pickAndMixImg$&amp;fmt=webp" type="image/webp">
+                <source srcset="https://media.moltonbrown.co.uk/s/moltonbrown/{{product.code}}_uk_set?$pickAndMixImg$&amp;fmt=jpg" type="image/jpeg">
+                <img src="https://media.moltonbrown.co.uk/s/moltonbrown/{{product.code}}_uk_set?$pickAndMixImg$&amp;fmt=jpg">
+              </picture>
+          </div>
+        <div class="product-description text-center">
+          <h3 class="product-title">
+            <span class="break-words">{{product.productDisplayName}}</span>
+          </h3>
+        </div>
+        <p class="text-center sample-quantity">
+          <a class="sample-info-tooltip showsInlineBlock"
+            [ngClass]="{'sample-info-tooltip':!product.action, 'close-sample-info':product.action}"
+            (click)="showTooltip($event,p,k)"></a>
+        </p>
+        <a class="btn-add" (click)="onAddProduct($event,product)"
+          *ngIf="product.stock.stockLevelStatus != 'outOfStock'; else outOfStock">
+          <span></span>
+        </a>
+        <ng-template #outOfStock>
+        <span class="out-of-stock">{{'quickViewData.outOfStk' | translate}}</span>
+        </ng-template>
+        
+        <div class="more-info-content" (click)="onInfoContentClick($event)"  [ngClass]="{'info-block':product.action&&infoPopup,'info-close':!product.action||!infoPopup}">
+            <div class="more-info-scroll">
+                <p [innerHtml]="product.description"></p>
+            </div>
+        </div>
+      </div>
+    </section>
+  </div>
+  <span class="scroll-hint" [ngClass]="{'hide-scroll-hint': hideScrollHint}"></span>
+</div>
+</div>
+
+
+</div>
+
+<div
+  class="modal pm-modal"
+  tabindex="-1"
+  role="dialog"
+  aria-hidden="true"
+  [ngStyle]="{'display':display}"
+>
+  <div
+    class="chck-modal-dialog pm-modal-box modal-dialog modal-full container modal-dialog-scrollable"
+    role="document"
+  >
+    <div class="modal-content">
+      <div class="chck-modal-header modal-header pm-modal-header">
+        <!-- <button type="button" class="close" data-dismiss="modal" (click)="onCloseModal($event)">
+          &times;
+        </button> -->
+        <h4 class="modal-title text-center">{{'pickMix.sorry' | translate}}</h4>
+      </div>
+      <div class="modal-body">
+        <p>{{'pickMix.reachMax' | translate}}</p>
+        <p>{{'pickMix.createAnother' | translate}}</p>
+        <p>{{'pickMix.alternateRemove' | translate}}</p>
+      </div>
+      <div class="modal-footer pm-modal-footer">
+        <a class="btn btn-close pm-modal-close" data-dismiss="modal" (click)="onCloseModal($event)">{{'pickMix.close' | translate}}</a>
+      </div>
+    </div>
+  </div>
+</div>

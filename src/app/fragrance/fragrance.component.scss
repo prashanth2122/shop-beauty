@@ -1,0 +1,46 @@
+@media screen and (max-width:874px) {
+    .mob-fragrance {
+        padding-left: 0;
+        padding-right: 0;
+    }
+    .type-container .container .form-check {
+        margin-bottom: 36px;
+    }
+    .restart-arrow-container.btn,.left-arrow-container.btn {
+        height: 35px;
+    }
+}
+
+@media only screen and (-webkit-min-device-pixel-ratio: 2) and (max-device-width: 568px) and (min-device-width: 320px){
+    .pref-selector label {
+        width: 145px;
+        height: 156px;
+    }
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 2) and (max-device-width: 521px) and (min-device-width: 411px){
+    .pref-selector label {
+        width: 180px;
+        height: 205px;
+    }
+}   
+
+
+@media only screen and (-webkit-min-device-pixel-ratio: 3) and (max-device-width: 500px) and (min-device-width: 375px){
+    .pref-selector label {
+        width: 172px;
+        height: 186px;
+    }
+}  
+@media only screen and (-webkit-min-device-pixel-ratio: 2) and (max-device-width: 667px) and (min-device-width: 375px){
+    .pref-selector label {
+        width: 172px;
+        height: 186px;
+    }
+} 
+@media only screen and (-webkit-min-device-pixel-ratio: 3) and (max-device-width: 812px) and (min-device-width: 375px) {
+    .pref-selector video {
+        width: 172px;
+        height: 174px;
+    }
+}
+

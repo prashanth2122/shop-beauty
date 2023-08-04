@@ -1,0 +1,32 @@
+<div *ngIf="!catBanner;else categoryBanner">
+    <div class="category_banner-block" *ngIf="categorybanner">
+        <div class="catbanner">
+            <div class="banner-container">
+                <h1 [innerHtml]="categorybanner.categoryDisplayName"></h1>
+                <span class="category-results">
+                  <span *ngIf="pagination" class="count">(<span id="resultsCount">{{pagination.totalResults}}</span>)</span>
+                </span>
+                <div class="banner_description">
+                    <p class="bannerDescription" [innerHtml]="categorybanner.description"></p>
+                </div>
+                <div class="banner_childcategories" *ngIf="childRoot">
+                    <div class="categorybanner_row">
+                        <div *ngFor="let subproduct of categoryBannerList;" class="categorybanner_products">
+                            <a  
+                             routerLink="{{getRouterPath(subproduct)}}" 
+                             routerLinkActive="active" 
+                             (click)="onSubPrductClick($event,subproduct)"
+                             [innerHtml]="subproduct.categoryDisplayName"
+                             >
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<ng-template #categoryBanner>
+    <div #categoryBannerEl>
+    </div>
+</ng-template>

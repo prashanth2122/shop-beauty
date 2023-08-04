@@ -1,0 +1,19 @@
+<section class="store-portal-container">
+  <div class="wrapper">
+    <div class="header">
+       <div class="logo text-center">
+        <a>
+          <img src="assets/imgs/logo_pages_new.png" alt="Molton Brown London">
+        </a>
+       </div>
+       <div class="store-portal-info" *ngIf="auth.status">Welcome {{auth.storeName}}| <span (click)="onSignOut()">Sign out</span></div>
+    </div> 
+    <hr>
+    <router-outlet></router-outlet>
+    <div class="footer-wrap">
+        <div class="footer text-center">
+          <div class="copy">&copy;&nbsp;Molton Brown Store Associates Admin Portal. All rights reserved.</div>
+        </div>
+      </div>
+  </div>
+</section>

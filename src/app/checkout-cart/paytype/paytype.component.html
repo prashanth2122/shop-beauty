@@ -1,0 +1,81 @@
+<div class="panel-body" >
+    <div 
+        class="dl-overlay  dl-overlay-payType"  
+        [ngClass]="{
+          'dl-overlay-show':pageLoad,
+          'dl-overlay-hide':!pageLoad
+        }">
+        <div class="b2c-title">
+            <span class="loading-txt"> loading... </span>  
+          </div>
+    </div>
+  <section class="mainSection">
+      <div class="section-heading">
+          <h2> {{'checkoutFlow.howToPay' | translate}}</h2>
+      </div>
+      <div class="subtotal-flex card-list" style="border:0;">
+
+          <a 
+              class="mb-paytype mb-type-delevery card-block-height"
+              *ngFor="let type of payType;let k=index;"
+              [ngClass]="{
+                  'mb-dt-selected':type.selected,
+                  'mb-choosen':selectedPayType !=undefined && type.selected ,
+                  'mb-dt-unselected':selectedPayType !=undefined && !type.selected,
+                  'mb-dt-disabled':type.disabled
+                }"
+              (click)="onDeleveryPayType(type.value,k,type.disabled)"              
+             >
+              <h5 class="mb-dt-header mb-dt-margin payment-types" id="{{divIdDe}}" >{{type.name}}</h5>
+              <i class="mb-icon-dt-uk payment-type-card"
+                 [ngClass]="{
+                     'icon-card-sepa':type.value=='sepa',
+                     'icon-card-klarna':type.value=='klarna' ,
+                     'icon-card':type.value=='credit',
+                     'icon-card-paypal':type.value=='paypal',
+                     'icon-card-giftcard':type.value=='gift'
+                    }">
+             </i>
+          </a>
+      </div>
+      <section>
+      <div [ngSwitch]="switchPaymentType">
+             <app-card-form
+                   [deliveryInfo]="shippingInfo"
+                  [showSubmitBtn]="true" 
+                  *ngSwitchCase="'credit'"
+                 >
+             </app-card-form>
+             <app-paypal 
+                  [deliveryInfo]="shippingInfo" 
+                  *ngSwitchCase="'paypal'"
+              >
+             </app-paypal>  
+              <app-giftcard
+              [deliveryInfo]="shippingInfo"
+              *ngSwitchCase="'gift'"
+              >
+           </app-giftcard>
+           <app-klarna
+             [deliveryInfo]="shippingInfo"
+             *ngSwitchCase="'klarna'" 
+             >
+           </app-klarna>
+           <app-sepa
+              [deliveryInfo]="shippingInfo"
+              *ngSwitchCase="'sepa'" 
+              >
+            </app-sepa>
+      </div>
+    </section>
+    <ng-template #loadPayType>
+      <section class="payType-overlay">
+          <div class="dl-overlay dl-overlay-show">
+              <div class="b2c-title">
+                  <span class="loading-txt"> loading... </span>  
+                </div>
+          </div>
+    </section>
+    </ng-template>
+  </section>
+</div>

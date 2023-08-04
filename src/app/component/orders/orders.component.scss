@@ -1,0 +1,206 @@
+@import"../../../variable";
+.order-dtls{
+    margin-top:8px;
+    @media screen and (max-width:768px){
+        margin-top: 17px;
+    }
+    h3 {
+    font-size: 18px;
+    padding: 5px 0;
+    font-weight: normal;
+    @media screen and (max-width:768px){
+        font-size: 15px;
+        font-weight: 700;
+    }
+    &.customer {
+        color: #260e03;
+        padding: 0 0 4px 1px;
+}
+
+}
+}
+.buttonStyles{
+    padding: 5px 10px;
+    margin-top: 10px;
+}
+.my-account{
+    margin:15px;
+    @media screen and(max-width:$screen-sm) {
+        width: 100%;
+        margin: 0;
+        //padding: 15px!important;
+    }
+     h2 {
+    font-size: 28px;
+    margin-bottom: 0;
+    padding: 0 0 14px 0;
+    color: $primary-color;
+    @media screen and(max-width:$screen-sm) {
+        width:100%;  
+        font-size: 14px;
+        font-weight: 700;
+        text-transform: uppercase;
+    }
+}
+.edit-profile {
+    border: 1px solid #d6d6d6;
+    padding: 20px 10px;
+    float: left;
+    margin: 15px 0;
+    width: 488px;
+    h3 {
+        font-weight: 700;
+        font-size: 1.2em;
+        color: $primary-color!important;
+        padding-left: 0!important;
+    }
+    .label{
+        padding: 5px 30px 5px 0;
+        width: 50%;
+        text-align:right;
+    }
+}
+}
+.orderHistoryContainer{
+    font-size:13px;  padding: 15px 0;
+    border: 1px solid #ccc;
+    @media screen and (max-width:768px){
+        border: none;
+    }
+    .orderHistoryHeader{
+        display: flex;
+        font-weight: 700;
+div{
+    padding: 0 15px 7px;
+}
+    }
+    .orderHistoryBody{
+
+        display: flex; 
+           div{
+    padding: 0 15px 7px;
+}
+    }
+    .orderDate{
+        width:20%;
+        @media screen and (max-width:768px){
+            width: 46%;
+            padding: 0 4px 7px!important;
+        }
+    }
+    .orderNumber{
+        width:20%;
+        @media screen and (max-width:768px){
+            padding: 0 4px 7px!important;
+            width: 46%;
+        }
+    }
+    .orderTotal{
+        width:20%;
+        @media screen and (max-width:768px){
+            padding: 0 4px 7px!important;
+            width: 33%;
+        }
+    }
+    .orderStatus{
+        @media screen and (max-width:768px){
+            padding: 0 4px 7px!important;
+        }
+width:20%
+
+    }
+    .orderHistoryButton{
+        @media screen and (max-width:768px){
+            padding: 0 4px 7px!important;
+            text-align: right;
+        }
+width:20%
+    }
+}
+.order-head{
+    display: flex;
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 10px;  
+    justify-content: space-between;
+    position: relative;
+    @media screen and (max-width:768px){
+        border-top: 1px solid #ccc;;
+        border-bottom: 0;
+        display: block;
+    }
+    .rowCompts{
+        top:-5px;
+    }
+    .page_viewAll{
+        a{
+            line-height: 10px;
+        }
+    }
+}
+.emptyMyOrderHistory{
+    display: block;
+    h3{
+    margin-bottom: 10px;  
+    font-size: 18px;
+    border-bottom: 1px solid #b0b9bf;
+    padding: 5px 0;
+    margin: 20px 0!important;
+    font-weight: normal;
+  }
+  p.no-order-content{
+    color: #260e03!important;
+    line-height: 20px;
+    font-size: 13px!important;
+  }
+  .buttonStyle{
+      text-transform: capitalize;
+  }
+}
+
+.page_viewAll{
+    display: inline-block;
+    width: auto;
+    height: 19px;
+    float: left;
+    padding-top: 3px;
+    a{
+        margin: 0;
+        text-decoration: underline !important;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 13px;
+        cursor: pointer;
+        color: $edition-color;
+        vertical-align: bottom;
+        @media screen and (max-width:768px){
+            text-decoration: none !important;
+        }
+    }
+}
+.page-nav-btn-hide{
+    display: none;
+}
+.page-active{
+    font-weight:700;
+    color:$primary-color !important;
+}
+.page-item{
+    .page-link{
+        cursor: pointer;
+    }
+}
+@media screen and (max-width:768px){
+    .paginations {
+        width: 100%;
+        display: block;
+    }
+    .order-dtls .orderHistoryContainer .orderHistoryHeader .orderDate,
+    .order-dtls .orderHistoryContainer .orderHistoryHeader .orderStatus,
+    .order-dtls .orderHistoryContainer .orderHistoryBody .orderDate,
+    .order-dtls .orderHistoryContainer .orderHistoryBody .orderStatus {
+        display: none;
+    }
+    .my-account {
+        padding: 15px!important;
+    }
+}

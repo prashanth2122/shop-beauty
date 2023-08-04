@@ -1,0 +1,39 @@
+
+<div style="visibility: hidden;height: 0px;padding:0px;margin:0px;" *ngFor="let s of sizes" class="{{s.css + ' ' + (prefix + s.id) }}">{{s.name}}</div>
+
+<section class="landingpage_wrapper">
+<div id="bannerslot"></div>
+<!-- <div (click)="scrolldown()">
+  <a>scroll down</a>
+</div> -->
+<!-- <div class="pos-absolute-scroll" (click)="scrolldown()">
+  <a class="scroll-container" id="scrollDown">
+  <span class="font-xsmall uppercase block">Scroll Down</span>
+  <div class="arrow-down animated-arrow"></div>
+  </a></div> -->
+
+<div id="landingpage-conatiner" >
+  <div  class="landingpage-container main__inner-wrapper landing_template_wrappper" >
+    <div class="card-fade" id="dlBannerslot">
+    </div>
+    <div id="card-list-slot1">
+    </div>
+    <div id="cardListslot"></div>
+    <div *ngIf="ukcountrysite" class="crSlot">
+      <div class="curalate-headings" style="margin:auto;text-align:center;color:#000;" *ngIf="enablecurlateHeading">
+        <h3 class="curralate-hp-fanreel"><i class="sharingIcons instagram"></i>
+          <span class="uppercase"> LOVE IT &amp; SHARE IT </span> with #MoltonBrown</h3>
+         <a 
+            href="/store/mb-gallery" 
+            class="shop-the-gallery" 
+            style="font-family:Times New Roan;font-size: 14px;color:#000;font-style:italic;text-decoration:none;">
+           Shop the gallery 
+          <span class="arrow-right"></span>
+        </a>
+      </div>
+      <div data-crl8-container-id="custom-homepage" data-crl8-auto-init="false"></div>
+    </div>
+    <div id="heritageSlot"></div>
+  </div>
+</div>
+</section>

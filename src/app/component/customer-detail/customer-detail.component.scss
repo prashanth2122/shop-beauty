@@ -1,0 +1,364 @@
+@import "../../../variable";
+.cred-error{
+    border:1px solid $mb-error-bg !important;
+    
+}
+.credential-err-msg{
+    font-size:14px !important;
+    position: absolute;
+    bottom: 100%;
+    background-color: $mb-error-bg;
+    color: $mb-white;
+    padding: 10px;
+    left: 6%;
+    text-align: center;
+    width: 88%;
+    z-index: 9;
+    &::after{
+        content: '';
+        position: absolute;
+        width: 12px;
+        height: 12px;
+        border: 0;
+        left: 5%;
+        -webkit-transform: rotate(45deg);
+        -ms-transform: rotate(45deg);
+        transform: rotate(45deg);
+        background: $mb-error-bg;
+        bottom: -6px;
+    }
+}
+.my-account{
+    padding: 6px 0 5px 18px;
+    position: relative;
+    @media screen and(max-width:$screen-sm) {
+        padding: 0;
+    }
+     h2 {
+    font-size: 28px;
+    margin-bottom: 0;
+    padding: 0 0 14px 0;
+    color: $primary-color;
+    @media screen and(max-width:$screen-sm) {
+        width:100%;  
+        font-size: 14px;
+        text-transform: uppercase;
+        font-weight: 700;
+    }
+}
+p {
+    @media screen and(max-width:$screen-sm) {
+        font-size: 12px;
+    }
+}
+
+.cs-info-block{
+    table {
+        border-collapse: collapse;
+        border-spacing: 0;
+        font-size: 12px!important;
+        margin: 20px 0;
+        white-space: normal;
+        line-height: normal;
+        font-weight: normal;
+        font-size: medium;
+        font-variant: normal;
+        font-style: normal;
+        text-align: start;
+        vertical-align: baseline;
+        @media screen and(max-width:$screen-sm) {
+            margin-top: 0;
+        }
+        td{
+            &:first-child {
+                padding: 5px 30px 5px 0;
+                width: 50%;
+                @media screen and(max-width:$screen-sm) {
+                    text-align: left;
+                }
+            }
+            b{
+                font-size: 12px !important;
+            }
+        }
+    }
+}
+.password-cntnt{
+    font-weight:700;
+
+}
+.error-cntnt{
+    p{
+        display: block;
+        border: 2px solid $err-color;
+        background-color: #fafafa;
+        margin: 0;
+        width: 100%;
+        padding: 10px 15px;
+        font-size: 12px!important;
+        text-align: left;
+        color: $err-color !important;
+        font-size: 12px!important;
+    }
+}
+.edit-profile {
+    border: 1px solid #d6d6d6;
+    padding: 20px 10px;
+    float: left;
+    margin: 15px 0;
+    width: 488px;
+    @media(max-width:$screen-sm){
+        padding: 0;
+        border: none;
+    }
+    h3 {
+        font-weight: 700;
+        font-size: 1.2em;
+        color: $primary-color!important;
+        padding-left: 0!important;
+        padding-bottom: 10px;
+        @media screen and(max-width:$screen-sm) {
+            font-size: 14px;
+        }
+    }
+    .label{
+        padding: 5px 30px 5px 0;
+        width: 51%;
+        text-align:right;overflow-wrap: break-word;
+    }
+}
+}
+.update-pwd {
+    padding-bottom: 47px;
+    width: 238px;
+    margin-right: 20px !important;
+    @media(max-width:$screen-sm){
+        width:100%;
+    }
+}
+.profile-block{
+    border: 1px solid #d6d6d6;
+    padding: 20px 10px;
+    margin: 15px 0;
+    min-height: 386px;
+    float: left;
+    @media screen and(max-width:768px) {
+        border: none;
+        padding: 0;
+    }
+    h3 {
+        padding-left: 0!important;
+        font-weight: 700;
+        margin-bottom: 10px;
+        color: $primary-color!important;        
+        font-size: 14px;
+     }
+     @media(max-width: $screen-sm){
+            width: 100%;
+            min-height: 265px;
+            max-width: 100% !important;
+     }
+     .cc-accountnumber{
+        text-transform:capitalize;
+        font-size:14px;
+    }
+}
+.edit-options {
+max-width: 488px;
+}
+    @media screen and(max-width:768px) {
+    .accountPasswordChange{
+        justify-content: space-evenly;
+        .update-pwd{
+            margin-right: 0 !important;
+        }
+    }
+
+    .rightColumn[_ngcontent-c9] {
+        width: 96% !important;
+        margin: auto;
+    }
+}
+.no-padding{
+    padding:0;
+}
+.login-fields-small {
+    width: 210px !important;
+    position: relative;
+    padding: 0!important;
+    display: inline-block;
+    @media screen and(max-width:768px) {
+        display: block;
+    }
+    input{
+        width:inherit;
+
+    }
+    input[type=password]{
+        
+    height:25px !important;
+    }
+}
+.update-pwd-btn{
+    margin-top:20px;
+}
+.label_text{
+    padding-bottom:5px;padding-top: 5px;
+}
+.update-profileBlock{
+    margin-top:20px;
+    @media screen and(max-width:768px) {
+        padding: 0;
+        margin-top: 0;
+    }
+    .user-title{
+        text-transform: capitalize;
+    }
+    p{
+        font-size: 12px;
+        font-weight: 700;
+        word-break: break-all;
+        &.label{
+            font-weight:normal !important;
+            font-weight: 700;
+        }
+    }
+    .address_line{
+     b{
+         &:empty{
+             display:none;
+         }
+     }
+    }
+}
+@media screen and (max-width:425px){
+    .update-pwd{
+        margin-right: 0px !important;
+    }
+}
+
+.edit-options{
+    div{
+        margin:15px 0px;
+        @media screen and(max-width:768px) {
+            margin: 0;
+        }
+        .buttonStyle{
+            margin-top: 10px;
+        }
+    }
+}
+.form-inline{
+    p{
+        width:48%;
+    }
+}
+.gender{
+    text-transform: lowercase;
+}
+
+.login-fields-small{
+    input[type="text"].form-control,
+    input[type="email"].form-control,
+    input[type="password"].form-control {
+    &.not-valid{
+        background-position:95% 2px !important;
+        background-size:4px !important;
+    }
+    &.valid {
+        background-image: url('https://www.moltonbrown.co.uk/images/tick-symbol.png') !important;
+        background-position: 95% 2px;
+        background-repeat: no-repeat;
+    }
+    }
+}
+.default-address{
+    margin:0 !important;
+    div{
+        margin:0 !important;   
+        line-height: 2;
+    }
+}
+
+
+.myacc-block{
+ padding-left: 0px !important;
+   }
+   
+@media screen and(max-width:768px) {
+    .pull-right {
+        float: left!important;
+    }
+    .mob-full {
+        padding: 0;
+    }
+    .toppading {
+        padding-top: 20px;
+    }
+    .my-account .title.profile {
+        padding: 15px;
+        margin: 0;
+        font-size: 15px;
+        font-weight: 700;
+        color: #000;
+        text-transform: capitalize;
+    }
+    .mob-myaccount {
+        padding: 10px 15px!important;
+    }
+    .padding-p {
+        padding: 15px;
+    }
+    
+}
+.dl-overlay{
+    min-height: 250px;
+    background-color: $mb-white;
+    position: absolute;
+    width: 100%;
+    z-index: 9;
+    height: 100%;
+    display: none;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    &-hide{
+      opacity: 0;
+      display: none;
+    }
+    &-show{
+      opacity: 1;
+      display: block;
+    }
+    transition: all ease-in 500ms;
+    .b2c-title {
+      position: absolute;
+      top: 5%;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 14px !important;
+      margin: 0 auto;
+      text-align: center;
+      &::before {
+        content: "";
+        background: url("../../../assets/imgs/loading-compass.svg") no-repeat center center;
+        background-size: 20px 20px;
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        transform: translateZ(0) scale(1, 1);
+        -webkit-transform: translateZ(0) scale(1, 1);
+        -ms-transform: translateZ(0) scale(1, 1);
+        transform: translateZ(0) scale(1, 1);
+        -webkit-animation: spin 2.5s linear infinite;
+        animation: spin 2.5s linear infinite;
+        outline: 1px solid transparent;
+    }
+    .loading-txt{
+      float: right !important;
+      padding-left: 5px !important;
+      font-size: 14px !important;
+     padding-top: 2px !important;
+    }
+   }
+  }

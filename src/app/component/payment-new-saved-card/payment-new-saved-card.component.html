@@ -1,0 +1,519 @@
+<section class="new-saved-card-form">
+  <form 
+   id="newsavecardForm" 
+   class="registration_form" 
+   [formGroup]="updateSaveCard"
+   (keydown)="keyDownFunction($event)"
+   (ngSubmit)="onSubmitForm($event)"
+    style="clear:both" custom-focus>
+    <h6 class="title profile" >{{'PaymentDetails.addNewCard' | translate}}</h6>
+    <div class="error-info-block">
+        <div class="err_msg"  *ngIf="errorvalidationMsg">
+          {{'invalidcard.errormsgblock' | translate}}
+            <br>
+            <br>
+            <div>
+              {{'invalidcard.emailandphone' | translate}} <br>
+              <a href="mailto:{{'invalidcard.emailId' | translate}}">{{'invalidcard.emailId' | translate}}</a>
+            </div> 
+            <br>
+        </div>
+    </div>
+    <div class="col-xs-12 row">
+      <div class="col-sm-12 col-md-4  ">
+        <label class="register_label " for="reg_country">{{'PaymentDetails.cardType' | translate}}<span class="redstar">*</span></label>
+      </div>
+      <div class="col-sm-12 col-md-8 text-left ">
+        <span class="login_fields">
+          <select formControlName="cardType" (change)="onChangeCardType($event)" class="form-control mandatory"
+            [ngClass]="{
+              'has-error  not-valid':
+                !updateSaveCard.controls['cardType'].valid &&
+                updateSaveCard.get('cardType').touched
+            }">
+            <option value="" selected>{{'PaymentDetails.chooseCard' | translate}}</option>
+            <option [value]="card.value" *ngFor="let card of cardType">{{card.content}}</option>
+          </select>
+          <div *ngIf="
+              (!updateSaveCard.controls['cardType'].valid &&
+                updateSaveCard.get('cardType').touched) ||
+              (isValidFormSubmitted != null && !isValidFormSubmitted)
+            " class="not-valid-error-msg">
+            <span
+              [hidden]="!updateSaveCard.controls['cardType'].errors.required">{{ "payDetails.cardType" | translate }}</span>
+          </div>
+        </span>
+      </div>
+    </div>
+    <div class="col-xs-12 row">
+      <div class="col-sm-12 col-md-4  ">
+        <label class="register_label ">{{'PaymentDetails.cardNumber' | translate}}<span class="redstar">*</span></label>
+      </div>
+      <div class="col-sm-12 col-md-8 text-left ">
+        <span class="login_fields">
+          <input  type="text" formControlName="cardNumber" class="form-control mandatory reg_field"
+            [ngClass]="{
+              'has-error  not-valid':
+                !updateSaveCard.controls['cardNumber'].valid &&
+                updateSaveCard.get('cardNumber').touched,
+              valid: updateSaveCard.get('cardNumber').valid,
+              invalid: !updateSaveCard.get('cardNumber').valid
+            }" />
+          <div *ngIf="
+              (!updateSaveCard.controls['cardNumber'].valid &&
+                updateSaveCard.get('cardNumber').touched) ||
+              (isValidFormSubmitted != null && !isValidFormSubmitted)
+            " class="not-valid-error-msg">
+            <span *ngIf="updateSaveCard.controls['cardNumber'].errors.required">
+              {{'paymentCard.cardNumError' | translate}}
+            </span>
+            <span
+            *ngIf="updateSaveCard.controls['cardNumber'].errors.minlength">
+            {{'paymentCard.cardNumErr' | translate}}
+          </span>
+          <span
+          *ngIf="updateSaveCard.controls['cardNumber'].errors.maxlength">
+          {{'paymentCard.cardNumErr' | translate}}
+        </span>
+          <span
+          *ngIf="updateSaveCard.controls['cardNumber'].errors.patternInvalid&&!updateSaveCard.controls['cardNumber'].errors.maxlength&&!updateSaveCard.controls['cardNumber'].errors.minlength">
+          The card type and card number do not match. Please check and try again.
+        </span>
+          </div>
+        </span>
+      </div>
+    </div>
+    <div class="col-xs-12 row">
+      <div class="col-sm-12 col-md-4  ">
+        <label class="register_label ">{{'PaymentDetails.cardholderFirstName' | translate}}<span class="redstar">*</span></label>
+      </div>
+      <div class="col-sm-12 col-md-8 text-left ">
+        <span class="login_fields">
+          <input  type="text" formControlName="cardHolderFirstName" class="form-control mandatory "
+            [ngClass]="{
+              'has-error  not-valid':
+                !updateSaveCard.controls['cardHolderFirstName'].valid &&
+                updateSaveCard.get('cardHolderFirstName').touched,
+                valid: updateSaveCard.get('cardHolderFirstName').valid,
+                invalid: !updateSaveCard.get('cardHolderFirstName').valid
+            }" />
+          <div *ngIf="
+              !updateSaveCard.controls['cardHolderFirstName'].valid &&
+              updateSaveCard.get('cardHolderFirstName').touched
+            " class="not-valid-error-msg">
+            <span [hidden]="
+                !updateSaveCard.controls['cardHolderFirstName'].errors.required
+              ">{{ "payDetails.cardholderFirstName" | translate }}</span>
+          </div>
+        </span>
+      </div>
+    </div>
+    <div class="col-xs-12 row">
+      <div class="col-sm-12 col-md-4  ">
+        <label class="register_label ">{{'PaymentDetails.cardholderLastName' | translate}}<span class="redstar">*</span></label>
+      </div>
+      <div class="col-sm-12 col-md-8 text-left ">
+        <span class="login_fields">
+          <input  
+            type="text" 
+            formControlName="cardHolderLastName" 
+            class="form-control mandatory"
+            [ngClass]="{
+              'has-error  not-valid':
+                !updateSaveCard.controls['cardHolderLastName'].valid &&
+                updateSaveCard.get('cardHolderLastName').touched,
+                valid: updateSaveCard.get('cardHolderLastName').valid,
+                invalid: !updateSaveCard.get('cardHolderLastName').valid
+            }" />
+
+          <div *ngIf="
+              !updateSaveCard.controls['cardHolderLastName'].valid &&
+              updateSaveCard.get('cardHolderLastName').touched
+            " class="not-valid-error-msg">
+            <span [hidden]="
+                !updateSaveCard.controls['cardHolderLastName'].errors.required
+              ">{{ "payDetails.cardholderLastName" | translate }}</span>
+          </div>
+        </span>
+      </div>
+    </div>
+    <div class="col-xs-12 row" *ngIf="isocode !='DE'">
+      <div class="col-sm-12 col-md-4  ">
+        <label class="register_label ">{{'PaymentDetails.startDate' | translate}}</label>
+      </div>
+      <div class="col-sm-12 col-md-8 text-left  ">
+        <span class="login-fields start-date">
+          <select class="small_fields" formControlName="startDateMonth">
+            <option value="" selected>{{'PaymentDetails.selectMonth' | translate}}</option>
+            <option *ngFor="let month of expireMonth">{{ month.month }}</option>
+          </select>
+
+          <select class=" small_fields" formControlName="startDateYear">
+            <option value="" selected>{{'PaymentDetails.selectYear' | translate}}</option>
+            <option *ngFor="let month of expiredYear">{{ month.year }}</option>
+          </select>
+        </span>
+      </div>
+    </div>
+    <div class="col-xs-12 row">
+      <div class="col-sm-12 col-md-4  ">
+        <label class="register_label ">{{'PaymentDetails.expirationDate' | translate}} <span class="redstar">*</span></label>
+      </div>
+      <div class="col-sm-12 col-md-8 text-left">
+        <span class="login-fields start-date">
+          <select 
+             #monthEl
+             id="monthExpire"
+              class="small_fields  form-control mandatory" 
+              formControlName="month"
+              (change)="onChangeMonthOpt($event)"
+               [ngClass]="{
+              'has-error  not-valid':
+                !updateSaveCard.controls['month'].valid &&
+                updateSaveCard.get('month').touched
+            }">
+            <option value="" selected>{{'PaymentDetails.expSelectMonth' | translate}}</option>
+            <option *ngFor="let month of expireMonth">{{ month.month }}</option>
+          </select>
+
+          <div *ngIf="
+              !updateSaveCard.controls['month'].valid &&
+              updateSaveCard.get('month').touched
+            " class="not-valid-error-msg edit-card-expire-month">
+            <span [hidden]="
+                !updateSaveCard.controls['month'].errors.required
+              ">{{ "payDetails.expirationDate" | translate }}</span>
+              <span *ngIf="updateSaveCard.controls['month'].errors.incorrect"
+              >{{'payDetails.expiryDate' | translate}}</span>
+          </div>
+     
+          <select 
+              class="small_fields form-control mandatory" 
+              formControlName="year"              
+              (change)="onChangeYearOpt($event)"
+              [ngClass]="{
+              'year-has-error  year-not-valid':
+                !updateSaveCard.controls['year'].valid &&
+                updateSaveCard.get('year').touched
+            }">
+            <option value="" selected>{{'PaymentDetails.expSelectYear' | translate}}</option>
+            <option *ngFor="let month of expireYear">{{ month.year }}</option>
+          </select>
+
+          <div *ngIf="
+              !updateSaveCard.controls['year'].valid &&
+              updateSaveCard.get('year').touched
+            " class="year-not-valid-error-msg  edit-card-expire-year">
+            <span
+              [hidden]="!updateSaveCard.controls['year'].errors.required">{{ "payDetails.expirationYear" | translate }}</span>
+          </div>
+        </span>
+      </div>
+    </div>
+
+    <div class="col-xs-12 row" *ngIf="ukLoopBtnStatus">
+      <div class="col-sm-12 col-md-4  ">
+        <label class="register_label ">Issue Number</label>
+      </div>
+      <div class="col-sm-12 col-md-8 text-left ">
+        <span class="login_fields">
+          <input minlength="3" maxlength="4" type="text" formControlName="issueNumber" class="form-control mandatory" />
+        </span>
+      </div>
+    </div>
+    <h3 class="title profile">{{'PaymentDetails.chooseAddress' | translate}}</h3>
+
+    <div class="row">
+      <div class="col-sm-4 savedCardAddressBlock addressSize padding-top-15"
+        *ngFor="let data of addressList;let k=index;">
+        <input  name ="blAddress" type="radio" class="radio chooseradio" [checked]="data.defaultAddress"
+          (change)="onSetaddress(k)" />
+         <div class="address-book">
+          <div class="locality">{{data.firstName}}&nbsp;{{data.lastName}}</div>
+          <div class="adr">
+            <div class="street-address">
+              {{data.line1}}
+            </div>
+            <div class="street-address">{{data.line2}}</div>
+            <div class="locality" *ngIf="data.town">
+              {{data.town}}
+            </div>
+            <div *ngIf="data.district">
+                {{ data.district }}
+              </div>
+            <div class="postal-code">{{data.postCode}}</div>
+            <div>
+              {{data.country.name}}
+            </div>
+          </div>
+          <div class="tel">{{data.phone}}</div>
+        </div>
+      </div>
+    </div>
+    <div class="row ">
+      <h3 class="col-sm-6 title">
+        <span>
+          <input 
+                 #blAddressEl
+                 type="radio"
+                 name ="blAddress"
+                 class="radio chooseradio" 
+                 (change)="onEnterNewAddress($event)"
+          />
+        </span>
+        {{'PaymentDetails.enterNewBillingAdd' | translate}}
+      </h3>
+    </div>
+
+    <div class="col-xs-12 row">
+      <div class="col-sm-12 col-md-4 ">
+        <label class="register_label " for="reg_country">{{'PaymentDetails.country' | translate}}<span class="redstar">*</span></label>
+      </div>
+      <div class="col-sm-12 col-md-8 text-left ">
+        <span class="login_fields">
+          <select 
+              class="form-control mandatory"  
+              (change)="onChangeCountry($event)" 
+              formControlName="country" 
+              [ngClass]="{
+              'has-error  not-valid':
+                !updateSaveCard.controls['country'].valid &&
+                updateSaveCard.get('country').touched
+            }">
+            <option value="" selected="selected">{{'menu.pleaseSelect' | translate}}</option>
+            <option *ngFor="let data of countries; let k = index" [ngValue]="data">{{ data.name }}</option>
+          </select>
+
+          <div *ngIf="
+              !updateSaveCard.controls['country'].valid &&
+              updateSaveCard.get('country').touched
+            " class="not-valid-error-msg">
+            <span
+              [hidden]="!updateSaveCard.controls['country'].errors.required">{{ "payDetails.country" | translate }}</span>
+          </div>
+        </span>
+      </div>
+    </div>
+                              
+    <div class="col-xs-12 row" >
+      <div class="col-sm-12 col-md-4 ">
+        <label class="register_label " for="reg_postcode">{{'PaymentDetails.postcodeZip' | translate}}<span class="redstar">*</span></label>
+      </div>
+      <div class="col-sm-12 col-md-8 text-left ">
+        <span class="login_fields">
+          
+     <a class="contextual-help"   *ngIf="!ukLoopBtnStatus && !usSpecific"
+     ngbTooltip="{{'register.exceptUkallCountryPostCode'|translate}}"
+       [placement]="mobileDevice?'top':'right'"  
+     show-delay="100"></a>
+          <input 
+               #myInput
+               type="text"
+               (keydown)="onSearchKeyUp($event)"
+               class="mandatory form-control "
+               formControlName="postCode"
+               [ngClass]="{ 
+                'has-error  not-valid':(!updateSaveCard.controls['postCode'].valid && updateSaveCard.get('postCode').touched) ||(postCodeError),
+                'not-valid-postcode': !postCodeStatus
+              }" /> 
+          <div *ngIf="(!updateSaveCard.controls['postCode'].valid &&  updateSaveCard.get('postCode').touched)||(postCodeError)"
+            class="not-valid-error-msg">
+            <span *ngIf="!postCodeStatus">Please enter a valid postcode or enter the address manually.</span>
+            <span [hidden]="!updateSaveCard.controls['postCode'].errors?.required">
+              {{'payDetails.postCode'|translate}}</span>
+              <span
+              [hidden]="
+                !updateSaveCard.controls['postCode'].errors.patternInvalid
+              "
+            >{{'checkoutFlow.postCodeErr' | translate}}</span>
+          </div>
+          <div class="postcode-msg-block">
+            <span>Please enter a valid postcode or enter the address manually.</span>
+          </div> 
+        </span>
+        <span class="ml-8 find-address" *ngIf="ukLoopBtnStatus">
+          <button class="buttonStyle mt-1" (click)="onLookupAddress($event)"> Lookup Address</button>
+        </span>
+      </div>
+  
+    </div>
+    <div class="col-xs-12 row " *ngIf="postalAddresses">
+      <div class="col-sm-12 col-md-4  ">
+        <label class="register_label ">Select address<span class="redstar">*</span></label>
+      </div>
+
+      <div class="col-sm-12 col-md-8 text-left ">
+        <span class="login_fields">
+          <select 
+            class="mandatory form-control"
+            formControlName="address"
+            (change)="onSelectPlace($event.target.value)">
+            <option  value="" selected>Select Address</option>
+            <option *ngFor="let data of postalAddresses; let k = index" [value]="data.Id">{{ data.StreetAddress }},
+              &nbsp;{{ data.Place }}</option>
+          </select>
+        </span>
+      </div>
+    </div>
+
+    <div class="col-xs-12 row">
+      <div class="col-sm-12 col-md-4 ">
+        <label class="register_label " for="reg_address">{{'PaymentDetails.address' | translate}}<span class="redstar">*</span></label>
+      </div>
+      <div class="col-sm-12 col-md-8 text-left ">
+        <span class="login_fields">
+          <input 
+              type="text" 
+              class="form-control mandatory" 
+              formControlName="line1" 
+              [ngClass]="{
+              'has-error  not-valid':
+                !updateSaveCard.controls['line1'].valid &&
+                updateSaveCard.get('line1').touched
+            }" />
+          <input  type="text" class="form-control mandatory" formControlName="line2"
+            style="margin-top:15px;" />
+
+          <div *ngIf="
+              !updateSaveCard.controls['line1'].valid &&
+              updateSaveCard.get('line1').touched
+            " class="not-valid-error-msg">
+            <span [hidden]="
+                !updateSaveCard.controls['line1'].errors.required
+              ">{{ "payDetails.line1" | translate }}</span>
+          </div>
+        </span>
+      </div>
+    </div>
+    <div class="col-xs-12 row">
+      <div class="col-sm-12 col-md-4 ">
+        <label class="register_label ">{{'PaymentDetails.townCity' | translate}}<span class="redstar">*</span></label>
+      </div>
+      <div class="col-sm-12 col-md-8 text-left ">
+        <span class="login_fields">
+          <input  type="text" class="form-control mandatory" formControlName="town" [ngClass]="{
+              'has-error  not-valid':
+                !updateSaveCard.controls['town'].valid &&
+                updateSaveCard.get('town').touched
+            }" />
+
+          <div *ngIf="
+              !updateSaveCard.controls['town'].valid &&
+              updateSaveCard.get('town').touched
+            " class="not-valid-error-msg">
+            <span
+              [hidden]="!updateSaveCard.controls['town'].errors.required">{{ "payDetails.town" | translate }}</span>
+          </div>
+        </span>
+      </div>
+    </div>
+
+    <div class="col-xs-12 row"  *ngIf="!usSpecificForm; else usStates">
+      <div class="col-sm-12 col-md-4 ">
+        <label class="register_label ">{{ "form.label.state" | translate }}</label>
+      </div>
+      <div class="col-sm-12 col-md-8 text-left ">
+         <span class="login_fields">
+          <input 
+           autocorrect="off"  
+           formControlName="district"  
+           placeholder="County (optional)" 
+           type="text" 
+           class="form-control  mandatory" 
+           autocapitalize="on"
+           [ngClass]="{ 
+            'has-error not-valid': !updateSaveCard.get('district').valid&& updateSaveCard.get('district').touched
+          }"
+           >
+      </span>
+      </div>
+    </div>
+
+
+<ng-template #usStates>
+    <div class="col-xs-12 row">
+        <div class="col-sm-12 col-md-4 ">
+          <label class="register_label ">{{ "form.label.state" | translate }}<span class="redstar">*</span></label>
+        </div>
+        <div class="col-sm-12 col-md-8 text-left ">
+           <span class="login_fields">
+            <select  
+               *ngIf="stateList"
+               class="mandatory form-control"
+               formControlName="district" 
+               [ngClass]="{ 
+                'has-error not-valid': !updateSaveCard.get('district').valid&& updateSaveCard.get('district').touched
+              }"     
+               >
+              <option *ngFor="let data of stateList;let k=index;" [ngValue]="data" >{{data.name}}</option>
+            </select>
+            <input 
+            *ngIf="!stateList"
+             autocorrect="off"  
+             formControlName="district"  
+             placeholder="State" 
+             type="text" 
+             class="form-control  mandatory" 
+             autocapitalize="on"
+             [ngClass]="{ 
+              'has-error not-valid': !updateSaveCard.get('district').valid&& updateSaveCard.get('district').touched
+            }"
+             >
+             <div *ngIf="
+             !updateSaveCard.controls['district'].valid &&
+             updateSaveCard.get('district').touched
+           " class="not-valid-error-msg">
+           <span [hidden]="
+               !updateSaveCard.controls['district'].errors
+                 .required
+             ">     {{  (stateList)?  'Please select a state' :'Please enter a County/State/Region '}}</span>
+         </div>
+         </span>  
+        </div>
+      </div>
+    </ng-template>
+    <div class="col-xs-12 row">
+      <div class="col-sm-12 col-md-4 ">
+        <label class="register_label ">{{'PaymentDetails.phoneNumber' | translate}}<span class="redstar" >*</span></label>
+      </div>
+      <div class="col-sm-12 col-md-8 text-left ">
+        <span class="login_fields">
+          <a class="contextual-help"  show-delay="100" ngbTooltip="{{'register.phonenumberInfo'|translate}}" [placement]="mobileDevice?'top':'right'"  ></a>
+
+          <input 
+             type="text" 
+             class="form-control mandatory" 
+             formControlName="phone"
+             [ngClass]="{
+              'has-error  not-valid':
+                !updateSaveCard.controls['phone'].valid &&
+                updateSaveCard.get('phone').touched
+            }" />
+          <div *ngIf="!updateSaveCard.controls['phone'].valid &&  updateSaveCard.get('phone').touched"
+          class="not-valid-error-msg">
+          <span [hidden]="!updateSaveCard.controls['phone'].errors.required">{{'payDetails.phone'|translate}}</span>
+          <span
+            [hidden]="!updateSaveCard.controls['phone'].errors.patternInvalid">{{'payDetails.invalidPhonenumber'|translate}}</span>
+        </div>
+        </span>
+      </div>
+    </div>
+
+
+
+    <div class="col-xs-12 row">
+      <div class="col-sm-12 col-md-4 ">
+      </div>
+      <div class="col-sm-12 col-md-8 text-left ">
+        <span class="login_fields">
+          <re-captcha formControlName="recaptcha"></re-captcha>
+        </span>
+      </div>
+    </div>
+
+    <div class="col-sm-12 text-right" style="padding: 15px;">
+      <button class="buttonStyle" type="submit">{{'PaymentDetails.submit' | translate}}</button>
+    </div>
+  </form>
+</section>
+

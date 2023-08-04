@@ -1,0 +1,239 @@
+@import"../../../../variable";
+
+.orderDetailsBlock{
+    padding: 10px;
+    border:1px solid #ccc;
+    @media screen and (max-width:768px){
+        border: none;
+    }
+    span{
+        font-weight: normal; 
+        line-height: 22px;
+        padding-left: 5px;
+        @media screen and (max-width:768px){
+            font-weight: 700;
+        }
+    }
+    &::after{
+        clear: both;
+    }
+    margin-top:20px;
+    .orderList,h6,.innerOrdTotal{
+        font-size:14px;
+        font-weight: 700;
+    }
+    .OrderSubtotal{
+        display: flex;
+        align-items: flex-end;
+        flex-direction: column;
+        .innerOrdTotal{
+            width: 20%;
+            display:flex;
+            justify-content: flex-start;
+            @media screen and (max-width:768px){
+                width: 36%;
+            }
+            span.finalBlock-lt{
+                width: 145px;
+            }
+
+        }
+        margin-top: 20px;
+    }
+ }
+ .image, .product{
+    a{
+cursor: pointer;
+ } 
+ } 
+ .orderDetailsServiceNumber{
+ display: flex;
+ justify-content:flex-end;
+ }
+ .orderList {
+    display: flex;
+    min-width: 150px;
+ }
+ .orderShipTrackInfo,.orderDetailsInfo{
+    display: table;
+    width: 100%;
+    .tr.header{
+
+        .td{
+        font-weight:700 !important;
+        padding:10px 0; 
+        font-size: 14px;
+        &.image, &.quantity{
+            width:25%;
+                    } &.quantity{
+                        width:20%;
+                                }
+        &.product{
+width:35%;
+        }
+        &.price, &.total{
+            width:10%;
+        }
+       &.trackNumber, &.deliveryOption{
+           width:50%;
+       }
+        } 
+     
+ }
+    .tr{
+        display: table-row;
+        
+   
+    .td{
+        display: table-cell;font-size: 12px;
+        text-align: center; 
+        @media screen and (max-width:768px){
+            text-align: left;
+        }
+    }
+    }
+ }
+ p{
+     margin-top: 10px
+ }
+ .buttonStyle{
+     float: right;
+     margin-top:10px; 
+     &::after{
+        border-top: 4px solid transparent;
+        border-left: 4px solid;
+        border-bottom: 4px solid transparent;
+        content: "";
+        display: inline-block;
+        height: 0;
+        margin-left: 5px;
+        visibility: visible;
+        width: 0;
+     }
+ }
+.orderShipTrackInfo{
+    .td{
+        &.trackNumber{
+            text-align: left !important;
+        }
+
+        &-left-cell{
+            text-align: left !important;
+        }
+  
+    }
+}
+@media screen and (max-width:768px){
+    .bar-header {
+        padding: 15px;
+        margin: 0;
+        font-size: 15px;
+        font-weight: 700;
+        color: #000;
+        
+    }
+    .orderDetailsServiceNumber {
+        padding: 15px;
+        justify-content: left;
+    }
+    .no-display,.mob-nodisply {
+        display: none!important;
+    }
+    .td.image a img {
+        width: 100%;
+        float: left;
+    }
+    .padding-10 {
+        padding: 10px;
+    }
+    
+}
+
+.orderDetailsInfo{
+   
+    .tr.header{
+        .td{
+            @media screen and (max-width:768px){
+                text-align: left;
+            }
+        &.image, &.quantity{
+           
+                    } &.quantity{
+                      
+                                }
+        &.product{
+            @media screen and (max-width:768px){
+            width: 40%!important;
+            }
+        }
+        &.price, &.total{
+           
+        }
+       &.trackNumber, &.deliveryOption{
+           
+       }
+        }     
+ }
+    .tr{      
+       .td.image {
+        @media screen and (max-width:768px){
+            width: 40%!important;
+            padding-top: 0%;
+            } 
+       } 
+       .td.product.mob-display {
+        @media screen and (max-width:768px){
+            width: 100%!important;
+            } 
+       }
+    .td{       
+        @media screen and (max-width:768px){
+            text-align: left;
+            width: 20%!important;
+            float: left;
+            padding-top: 30%;
+        }
+    }
+    }
+ }
+ .orderDetailsInfo .tr .td.mob-display {
+     display: none;
+     @media screen and (max-width:768px){
+         display: block;
+         padding-top: 0;
+     }
+ }
+.out-of-stock-cntnt{
+    p{
+        display: block;
+        border: 2px solid $err-color;
+        background-color: #fafafa;
+        margin: 0;
+        width: 100%;
+        padding: 10px 15px;
+        font-size: 12px!important;
+        text-align: left;
+        color: $err-color !important;
+        font-size: 12px!important;
+        white-space: pre-line;
+        line-height: 25px;
+    }
+  }
+  .error-info-block{
+    .err_msg {
+      color: $err-color;
+      padding-right: 5px;
+      text-transform: capitalize;
+      font-weight: 400;
+      font-size: 14px;
+      margin: 5px 0px;
+      color: $err-color;
+      a{
+        text-transform: capitalize;
+        font-weight: 400;
+        font-size: 14px;
+        margin: 5px 0px;
+        color: $err-color !important; 
+      }
+    }
+  }

@@ -1,0 +1,725 @@
+{
+  "headerPromotion":{
+    "content":"b9feeb0d-e3cd-4b82-9270-65106b152ff8"
+   },
+  "ampHome":[
+    {"content":"fd8d2754-a6c0-42a2-9f2a-b2226ab104ce","order":1,"templateName":"slot-contentWrapper","identifier":"#bannerslot"},
+    {"content":"9a023641-5a3c-4a3b-a979-be8e4817d9bb","order":2,"templateName":"slot-contentWrapper","identifier":"#dlBannerslot"},
+    {"content":"6ce7aedb-153f-4abd-a9bd-fc2b47bedaa0","order":3,"templateName":"slot-contentWrapper","identifier":"#card-list-slot1"},
+    {"content":"abc70bd4-e953-4afc-beac-331edf9de543","order":4,"templateName":"slot-contentWrapper","identifier":"#cardListslot"},
+    {"content":"2c1ffa90-325a-42a0-9095-03b72d0a6fcc","order":6,"templateName":"slot-contentWrapper","identifier":"#heritageSlot"}
+  ],
+  "specialOffers":{
+    "titleName":"Special Offers & Deals | Beauty Products | Molton Brown\u00AE UK",
+    "content":[
+    {"content":"b93ad16b-b32b-4f3d-a5e2-273f6d9d9d3e","order":1,"templateName":"slot-contentWrapper","identifier":"#specialOffersFR"},
+    {"content":"43a18954-e25f-4cce-b8da-1277ae48935f","order":2,"templateName":"slot-contentWrapper","identifier":"#specialOfferBanner1"},
+    {"content":"358b3d76-dc84-482c-accf-305daf16d1c9","order":2,"templateName":"slot-contentWrapper","identifier":"#specialOfferBanner2"},
+    {"content":"e44c2046-1822-41a8-b0cf-1e8bcb1b49d2","order":2,"templateName":"slot-contentWrapper","identifier":"#specialOfferBanner3"},
+    {"content":"78f0bcb4-4923-4566-8afa-c3243f4561cb","order":2,"templateName":"slot-contentWrapper","identifier":"#specialOfferBanner4"},
+    {"content":"6e8f42fd-94aa-4617-91e5-37e56e055b58","order":2,"templateName":"slot-contentWrapper","identifier":"#specialOfferBanner5"},
+    {"content":"a77eef90-c11a-42ee-b1ea-6f398f6b9f46","order":2,"templateName":"slot-contentWrapper","identifier":"#specialOfferBanner6"},
+    {"content":"da6d64a4-68f8-4ad9-9cd7-908837047441","order":2,"templateName":"slot-contentWrapper","identifier":"#specialOfferCardlist"}
+
+  ]
+},
+  "feature":{
+    "Feature":[
+      {"content":"0192a8c6-84d0-4608-821b-fe7907b6cb04","order":1,"templateName":"slot-contentWrapper","identifier":"#featureNavBar"},
+      {"content":"1b451117-045f-49ac-ae9b-cba13e4ba26b","order":2,"templateName":"slot-contentWrapper","identifier":"#featureNavUnderneath"},
+      {"content":"48434a01-c2cf-41ac-b26d-2b32de50f2a9","order":3,"templateName":"slot-contentWrapper","identifier":"#featureBannner"},
+      {"content":"4e0cd570-7d65-4fc2-b976-ee803b0f203f","order":4,"templateName":"slot-contentWrapper","identifier":"#featureCardList"},
+      {"content":"4b0ffe92-c30c-4229-9cbf-8a819fb98130","order":5,"templateName":"slot-contentWrapper","identifier":"#featureFRQuote"}
+    ],
+    "Lifestyle":[
+      {"content":"0192a8c6-84d0-4608-821b-fe7907b6cb04","order":1,"templateName":"slot-contentWrapper","identifier":"#featureNavBar","category":"Lifestyle","title":"Lifestyle"},
+      {"content":"0f7de6ad-67bb-43c9-bb05-b8612e14631e","order":2,"templateName":"slot-contentWrapper","identifier":"#lifestyleNavUnderneath"},
+      {"content":"06bcfd2b-f4df-48a5-a0bd-a82e7bfffd50","order":3,"templateName":"slot-contentWrapper","identifier":"#lifestyleBannner"},
+      {"content":"d9b44445-fdbe-40b8-b4a2-151c45fb311e","order":4,"templateName":"slot-contentWrapper","identifier":"#lifestyleCardList"}
+    ],
+    "meettheperfumers":[
+      {"content":"0192a8c6-84d0-4608-821b-fe7907b6cb04","order":1,"templateName":"slot-contentWrapper","identifier":"#featureNavBar","category":"Perfumers","title":"MEET THE PERFUMERS"},
+      {"content":"9377ca8d-80a7-48f0-be60-07bcd22be387","order":2,"templateName":"slot-contentWrapper","identifier":"#meettheperfumersNavUnderneath"},
+      {"content":"2fa28a22-0e47-4164-bc0f-80c425f6094d","order":3,"templateName":"slot-contentWrapper","identifier":"#meettheperfumersCardList"}
+      
+    ],
+    "travel":[
+      {"content":"0192a8c6-84d0-4608-821b-fe7907b6cb04","order":1,"templateName":"slot-contentWrapper","identifier":"#featureNavBar","category":"Travel","title":"Travel"},
+      {"content":"78fe8cbf-0fcd-4097-8390-08004c1f1bfd","order":2,"templateName":"slot-contentWrapper","identifier":"#travelNavUnderneath"},
+      {"content":"d3221547-a1f8-488b-8a59-a4b88e287e15","order":3,"templateName":"slot-contentWrapper","identifier":"#travelBannner"},
+      {"content":"43ef586b-29f6-44a9-91f6-1172c94d28e4","order":4,"templateName":"slot-contentWrapper","identifier":"#travelCardList"}
+    ],
+    "news":[
+      {"content":"0192a8c6-84d0-4608-821b-fe7907b6cb04","order":1,"templateName":"slot-contentWrapper","identifier":"#featureNavBar","category":"News","title":"News"},
+      {"content":"0549c64e-ad16-4c04-9efc-7be0fa7d70ca","order":2,"templateName":"slot-contentWrapper","identifier":"#newsNavUnderneath"},
+      {"content":"620e615a-7c98-4489-9cf7-d05b5f0ef200","order":3,"templateName":"slot-contentWrapper","identifier":"#newsBannner"},
+      {"content":"c4e376d7-0714-4387-8109-7380dcdad1b9","order":4,"templateName":"slot-contentWrapper","identifier":"#newsCardList"}
+
+    ],
+    "heritageEl":{
+      "content": "0ae8e5b4-7ff5-4134-a52d-1c0b138f9137",
+      "templateName":"slot-contentWrapper",
+      "category":"News","title":"Our Heritage Since 1973","readingTime":"2 Minutes"
+    },
+    "perfumecollective":{
+      "content": "ef199f2d-de2a-4726-b78e-9d8679b8f07d",
+      "templateName":"slot-contentWrapper",
+      "category":"FRAGRANCE HUB","title":"THE PERFUME COLLECTIVE","readingTime":"2 Minutes"
+    },
+    "homewithlust":{
+      "content": "14dfd649-391e-4def-8ebc-33dc02f10491",
+      "templateName":"slot-contentWrapper",
+      "category":"Lifestyle","title":"At Home With: Lust Living","readingTime":"2 Minutes"
+    },
+    "suedeorris":{
+      "content": "aa47aca5-2d57-4fd6-bf09-046388e93d81",
+      "templateName":"slot-contentWrapper",
+      "category":"Fragrance","title":"Suede Orris","readingTime":"2 Minutes"
+    },
+    "blackpepper":{
+      "content": "38dc8152-509d-48b6-ab88-4ecd2a127310",
+      "templateName":"slot-contentWrapper",
+      "category":"Fragrance","title":"Re-Charge Black Pepper","readingTime":"2 Minutes"
+    },
+    "pinkpepper":{
+      "content": "46f479d1-650c-4b4e-9d51-9aff9bb67887",
+      "templateName":"slot-contentWrapper",
+      "category":"Fragrance","title":"Re-Charge Pink Pepper","readingTime":"2 Minutes"
+    },
+    "seafennel":{
+      "content": "b7ad4e8e-8e1e-4244-91ab-52c0c18b0bb7",
+      "templateName":"slot-contentWrapper",
+      "category":"Fragrance","title":"Coastal Cypress & Sea Fennel","readingTime":"2 Minutes"
+    },
+    "autumnhome":{
+      "content": "d0de5d71-d1ac-493c-9f61-f2f82d14b26b",
+      "templateName":"slot-contentWrapper",
+      "category":"Lifestyle","title":"YOUR AUTUMN SCENTS GUIDE: A Year In Fragrance","readingTime":"2 Minutes"
+    },
+    "tobaccoabsolute":{
+      "content": "3dacea5a-cf81-40d2-af7f-7f3bd426bb80",
+      "templateName":"slot-contentWrapper",
+      "category":"Fragrance","title":"Tobacco Absolute","readingTime":"2 Minutes"
+    },
+    "mensgrooming":{
+      "content": "c045c2f9-0020-4dc6-bef8-01ec5fa85bc0",
+      "templateName":"slot-contentWrapper",
+      "category":"Lifestyle","title":"5 Steps to Skincare Success","readingTime":"2 Minutes"
+    },
+    "oudhgold":{
+      "content": "5b168fd4-28a9-4bcf-beac-11b9ceef75d5",
+      "templateName":"slot-contentWrapper",
+      "category":"Fragrance","title":"Mesmerising Oudh & Gold","readingTime":"2 Minutes"
+    },
+    "giftwrappingservice":{
+      "content": "b776f340-1a47-4bc9-b255-d4dccff393ac",
+      "templateName":"slot-contentWrapper",
+      "category":"News","title":"Complimentary Gift Wrapping","readingTime":"2 Minutes"
+    },
+    "bergamot":{
+      "content": "4403747b-4cdc-4d13-85fc-a1ec2979e858",
+      "templateName":"slot-contentWrapper",
+      "category":"Fragrance","title":"Orange & Bergamot","readingTime":"2 Minutes"
+    },
+    "russianleather":{
+      "content": "ea8fed6c-a805-46f9-96ba-1227e1a880f2",
+      "templateName":"slot-contentWrapper",
+      "category":"Fragrance","title":"Russian Leather","readingTime":"2 Minutes"
+    },
+    "rhubarbrose":{
+      "content": "f22fe650-6d1a-407f-92ae-2f13461304cf",
+      "templateName":"slot-contentWrapper",
+      "category":"Fragrance","title":"Delicious Rhubarb & Rose","readingTime":"2 Minutes"
+    },
+    "rosaabsolute":{
+      "content": "333466de-e374-4923-a159-11d7baa5d11b",
+      "templateName":"slot-contentWrapper",
+      "category":"Fragrance","title":"Rosa Absolute","readingTime":"2 Minutes"
+    },
+    "blackpeppersport":{
+      "content": "d6654eaf-2c0d-492d-bc7f-3ff95ebe706c",
+      "templateName":"slot-contentWrapper",
+      "category":"Fragrance","title":"Re-Charge Black Pepper Sport","readingTime":"2 Minutes"
+    },
+    "cocoandsandalwood":{
+      "content": "6a1f6da7-3af8-4301-a0fe-15d8f092d5a0",
+      "templateName":"slot-contentWrapper",
+      "category":"Fragrance","title":"Serene Coco & Sandalwood","readingTime":"2 Minutes"
+    },
+    "onlineexclusive":{
+      "content": "d423aaed-e49c-47ee-a677-7ba44eca5aac",
+      "templateName":"slot-contentWrapper",
+      "category":"Fragrance","title":"Mandarin & Clary Sage","readingTime":"2 Minutes"
+    },
+    "grapefruit":{
+      "content": "63415faa-5a6d-458c-bc22-76211c64b28e",
+      "templateName":"slot-contentWrapper",
+      "category":"Fragrance","title":"Vetiver & Grapefruit","readingTime":"2 Minutes"
+    },
+    "jasminsunrose":{
+      "content": "15b31511-3d4e-496c-986b-0c85ecc61de8",
+      "templateName":"slot-contentWrapper",
+      "category":"Fragrance","title":"Jasmine & Sun Rose","readingTime":"2 Minutes"
+    },
+    "topholidaydestination":{
+      "content": "88583e8d-1eb7-41c8-8965-bdfdfc5bfc72",
+      "templateName":"slot-contentWrapper",
+      "category":"Travel","title":"The Places to Be in 2019","readingTime":"2 Minutes"
+    },
+    "mbhistory":{
+      "content": "0ae8e5b4-7ff5-4134-a52d-1c0b138f9137",
+      "templateName":"slot-contentWrapper",
+      "category":"News","title":"Our Heritage Since 1973","readingTime":"2 Minutes"
+    },
+    "maialemout":{
+      "content": "9f02a6cd-154b-4bfc-a5f3-ee52a98a719d",
+      "templateName":"Listicleandeditorialtemplate",
+      "category":"Perfumer","title":"PERFUMER COLLECTIVE: Maïa Lernout","readingTime":"2 Minutes"
+    },
+    "heavenlygingerlily":{
+      "content": "5869efb3-7e9e-4f07-9ab0-0b97505d1bf7",
+      "templateName":"slot-contentWrapper",
+      "category":"Fragrance","title":"Heavenly Gingerlily","readingTime":"2 Minutes"
+    },
+    "refillablefragrance":{
+      "content": "5325b57c-0ca0-428a-b40f-7709aa339ee8",
+      "templateName":"Listicleandeditorialtemplate",
+      "category":"News Room","title":"INTRODUCING REFILLABLE FRAGRANCE: Eaux de Toilette & Eau de Parfum","readingTime":"2 Minutes"
+    },
+    "onlineperfumeguide":{
+      "content": "282bf539-bbe6-46dc-9547-d8fe894365b8",
+      "templateName":"Listicleandeditorialtemplate",
+      "category":"Listicle - Numerical","title":"HOW TO SHOP FOR FRAGRANCE ONLINE: Your Perfume Buying Guide","readingTime":"2 Minutes"
+    },
+    "christmasrecipes":{
+      "content": "7edae0f6-7a82-4ba7-8541-efcd026d44fb",
+      "templateName":"Listicleandeditorialtemplate",
+      "category":"Editorial","title":"A BIZARRE BRANDY PAIRING RECIPE; Created by The Mother Cooker","readingTime":"2 Minutes"
+    },
+    "jeromedimarino":{
+      "content": "025caf89-c93b-4737-89dc-5dc0c09a308f",
+      "templateName":"Listicleandeditorialtemplate",
+      "category":"Perfumer-Profile","title":"PERFUMER COLLECTIVE: Jérôme Di Marino","readingTime":"2 Minutes"
+    },
+    "toiletteeau":{
+      "content": "15fadbeb-146d-4cb1-93d1-3c8fa3ddd46d",
+      "templateName":"Listicleandeditorialtemplate",
+      "category":"Editorial","title":"EAU DE TOILETTE VS. EAU DE PARFUM: A Fragrance Buying Guide","readingTime":"2 Minutes"
+    },
+    "jacqueschabert":{
+      "content": "759e92dd-7a5a-4019-b2c4-143ce11e6981",
+      "templateName":"Listicleandeditorialtemplate",
+      "category":"Perfumer-Profile","title":"PERFUMER COLLECTIVE: Jacques Chabert","readingTime":"2 Minutes"
+    },
+    "springhomefragrances":{
+      "content": "96336e39-aa19-4259-8216-a532e7052b79",
+      "templateName":"Listicleandeditorialtemplate",
+      "category":"Lifestyle","title":"HOW TO SCENT YOUR HOME FOR SPRING","readingTime":"2 Minutes"
+    },
+    "jasminesunrose":{
+      "content": "60bc03d6-1513-4de8-9ce7-fa9aa2ec90bb",
+      "templateName":"Listicleandeditorialtemplate",
+      "category":"Lifestyle","title":"Pretty Bold Survey Results","readingTime":"2 Minutes"
+    },
+    "fashionforlunch":{
+      "content": "817569d6-26f9-4e7a-bb03-6d98b0a514f2",
+      "templateName":"Listicleandeditorialtemplate",
+      "category":"News","title":"At Home With: Fashion For Lunch","readingTime":"2 Minutes"
+    },
+    "summerhome":{
+      "content": "1def434b-c622-48aa-b024-0e0a0bb76e64",
+      "templateName":"Listicleandeditorialtemplate",
+      "category":"Listicle","title":"YOUR SUMMER SCENTS CHECKLIST: A Year in Fragrance","readingTime":"2 Minutes"
+    },
+    "jasmineyourbold":{
+      "content": "ce9f4077-f7d8-47d4-9b26-9591d10afe2c",
+      "templateName":"Listicleandeditorialtemplate",
+      "category":"News","title":"Glamour UK x Molton Brown","readingTime":"2 Minutes"
+    },
+    "storeevents":{
+      "content": "6c20b295-c499-4f65-b0ea-33143034f1a7",
+      "templateName":"slot-contentWrapper",
+      "title":"Molton Brown | Store Events"
+
+    },
+    "healthyhaircareroutine":{
+      "content": "74c10b43-a6b7-4e8c-873e-682502c35411",
+      "templateName":"Listicleandeditorialtemplate",
+      "category":"Listicle","title":"A LUXURY AT-HOME HAIRCARE REGIME: 5 Steps to Luminous Locks","readingTime":"2 Minutes"
+    },
+    "shopbycolour":{
+      "content": "f4188732-5871-409b-a2d5-a20dd2df1baa",
+      "templateName":"Listicleandeditorialtemplate",
+      "category":"Editorial","title":"SHOP BY COLOUR: Your Guide to a Stylish, Colourful Home","readingTime":"2 Minutes"
+    },
+    "relaxingbathguide":{
+      "content": "d47711ec-cb99-4a8e-b28e-6f98b1fe0035",
+      "templateName":"Listicleandeditorialtemplate",
+      "category":"Lifestyle","title":"Winters at Home: The Power of Bathing","readingTime":"2 Minutes"
+    },
+    "greeneyedgirl":{
+      "content": "2ecc1732-6202-4a82-b3d3-02b1a02672db",
+      "templateName":"Listicleandeditorialtemplate",
+      "category":"Lifestyle","title":"AT HOME WITH: The Green Eyed Girl","readingTime":"2 Minutes"
+    },
+    "geraniumnblurthelines":{
+      "content": "44c88bf1-1cb4-4fcf-8fec-029c33f9fda2",
+      "templateName":"Listicleandeditorialtemplate",
+      "category":"Lifestyle","title":"TAKING DOWN GENDER BINARIES WITH GQ: Blur the Lines","readingTime":"2 Minutes"
+    },
+    "designatnineteen":{
+      "content": "b2464e29-b45c-4810-823b-d52cf535627d",
+      "templateName":"Listicleandeditorialtemplate",
+      "category":"Lifestyle","title":"HOW TO SCENT YOUR HOME FOR SPRING","readingTime":"2 Minutes"
+    },
+    "perfectPairWedding":{
+      "content": "850e346e-659b-49c4-8e20-327a34ac09f4",
+      "templateName":"Listicleandeditorialtemplate",
+      "category":"Lifestyle","title":"THE PERFECT PAIR: Wedding Gift Guide","readingTime":"2 Minutes"
+     },
+     "the-signature-journey-the-saxon-hotel":{
+      "content": "613dfaa3-946b-4b68-aed7-241364342de4",
+      "templateName":"Listicleandeditorialtemplate",
+      "category":"Travel","title":"SAXON HOTEL, JOHANNESBURG","readingTime":"2 Minutes"
+     },
+     "conde-nast-traveler-hotel-guide":{
+      "content": "6b11b282-cbab-4500-9914-50d836286aab",
+      "templateName":"Listicleandeditorialtemplate",
+      "category":"Travel","title":"5 LUXURIOUS HOTELS OF THE WORLD","readingTime":"2 Minutes"
+     },
+     "behind-the-fragrance":{
+      "content": "b5d9d9ce-34d6-4eb8-a6cf-b20ea6a8d734",
+      "templateName":"slot-contentWrapper",
+      "category":"","title":"","readingTime":"2 Minutes"
+     },
+     "meet-the-perfumers-carla-chabert":{
+      "content": "83c76acb-4756-411c-8158-06eaed156677",
+      "templateName":"Perfumer-Profile",
+      "category":"","title":"PERFUMER COLLECTIVE: Carla Chabert","readingTime":"2 Minutes"
+     }
+
+
+
+
+
+     
+  },
+"footers":[
+  {
+    "name":"Complimentary Gifts & Products",
+    "image":"https://www.moltonbrown.co.uk/images/4BottleBox.png",
+    "route":"/store/special-offers/catUKSpecialOffers"
+  },
+  {
+    "name":"COMPLIMENTARY UK DELIVERY OVER &#163;49",
+    "image":"https://www.moltonbrown.co.uk/images/DeliveryVan.png",
+    "route":"/store/delivery"
+  },
+  {
+    "name":"Complimentary Click & Collect",
+    "image":"https://www.moltonbrown.co.uk/images/Click&Collect.png",
+    "route":"/store/delivery"
+  },
+  {
+    "name":"SHOP IN YOUR LOCAL STORE",
+    "image":"https://www.moltonbrown.co.uk/images/DropPinIcon.png",
+    "route":"/store/company/stores"
+  }
+],
+"moltonBrownPolicies" : [
+{
+  "name": "Help & Information ",
+  "data": [
+    { "name": "Contact Us", "templateName": "contact-us", "org": true },
+    { "name": "FAQs & Help", "templateName": "faqs", "org": true },
+    { "name": "Affiliate Enquiries", "org": false, "routename": "affliate" },
+    {
+      "name": "Trade & Press Enquiries",
+      "templateName": "trade-enquiries",
+      "org": true
+    },
+    { "name": "Sitemap", "templateName": "sitemap", "org": true }
+  ]
+},
+{
+  "name": "About Us",
+  "data": [
+    { "name": "About Molton Brown", "templateName": "about-us", "org": true },
+    {
+      "name": "Our Heritage",
+      "templateName": "features",
+      "org": true,
+      "childroute": true,
+      "childRouteName": "molton-brown-history"
+    }
+  ]
+},
+{
+  "name": "Our services",
+  "data": [
+    { "name": "Delivery & Returns", "templateName": "delivery", "org": true },
+    {
+      "name": "Store Finder",
+      "templateName": "company",
+      "org": true,
+      "childroute": true,
+      "childRouteName": "stores"
+    },
+    { "name": "Hotel Amenities", "templateName": "hotel-amenities", "org": true },
+    { "name": "Refer a Friend", "templateName": "refer_a_friend", "org": true }
+  ]
+},
+{
+  "name": "our policies",
+  "data": [
+    {
+      "name": "Terms & Conditions",
+      "templateName": "terms-conditions",
+      "org": true
+    },
+    { "name": "Privacy Policy", "templateName": "privacy-policy", "org": true },
+    { "name": "Gender Pay Policy" ,"routePDF":"https://www.moltonbrown.co.uk/MBPromoImages/Social/Molton-Brown-Gender-Pay-Gap.pdf" },
+    { "name": "Modern Slavery Act Statement", "routePDF":"https://www.moltonbrown.co.uk/MBPromoImages/Social/Modern-Slavery-Act-Statement.pdf" },
+    { "name": "Online Accessibiliy Statement", "routePDF":"https://www.moltonbrown.co.uk/MBPromoImages/Social/Online_Accessibility_Statement_Molton_Brown_2019.pdf  " }
+  ]
+},
+{
+  "name": "corporate gifts",
+ 
+  "templateId": "ee27602d-f776-483d-93b8-940f63858006",
+  "contentType": "containerwithMultipleContent",    
+  "templateName": "corporate-gifts",
+  "titleName":"Luxury Corporate Gifts | Molton Brown"
+
+
+},
+{
+  "name": "careers",
+  "templateName": "careers",
+  "templateId": "b53d52e2-5cce-430a-983c-9a1d4ea725e7",
+  "contentType": "homepage",    
+  "titleName":"Careers"
+},
+{
+  "name": "",
+  "templateName": ""
+}
+],
+"hotelAmenities" : [
+{
+  "name": "Hotel-Amenities",
+  "filterBy": "hotel-amenities",
+  "templateId": "f6007e3f-bd5d-489a-bf5c-e8052dc6e856",
+  "contentType": "containerwithMultipleContent",
+  "templateName": "acc-template-homepage",
+  "titleName":"Molton Brown Hotel Amenities"
+},
+{
+  "name": "Why Molton Brown",
+  "filterBy": "about",
+  "contentType": "",
+  "templateId": "aff2b812-fbb1-4afd-b83e-6b1a8e8d27db",
+  "templateName": "acc-template-homepage",
+  "titleName": "Why Molton Brown?"
+},
+
+{
+  "name": "Hotel-Products",
+  "filterBy": "hotel-products",
+  "templateId": "a237a9b4-7066-48f1-9474-ee6e54249727",
+  "contentType": "homepage",
+  "templateName": "acc-template-homepage",
+  "titleName": "Molton Brown Hotel Amenities Program",
+  "children": [
+    {
+      "name": "Luxury Collection I",
+      "filterBy": "luxury-collection-one",
+      "templateId": "94b53b02-998f-4ae0-a335-4d29fb893d0b",
+      "contentType": "homepage",
+      "templateName": "acc-template-homepage","titleName": "Luxury Collection I"
+    },
+    {
+      "name": "Luxury Collection II",
+      "filterBy": "luxury-collection-two",
+      "templateId": "8ffe8e10-974c-46b6-9551-5bec7e883442",
+      "contentType": "homepage",
+      "templateName": "acc-template-homepage",
+      "titleName": "Luxury Collection II"
+    },
+    {
+      "name": "The 1973 Collection",
+      "filterBy": "the-1973-collection",
+      "templateId": "869d31ab-20e6-4616-bdec-aaa8d42c178b",
+      "contentType": "homepage",
+      "templateName": "acc-template-homepage",
+      "titleName": "The 1973 Collection"
+    },
+    {
+      "name": "Essential Accessories",
+      "filterBy": "essential-accessories",
+      "templateId": "1c5712ba-5e2e-4e61-a83a-8ac94dd6ea69",
+      "contentType": "homepage",
+      "templateName": "acc-template-homepage",
+      "titleName": "Essential Accessories"
+    },
+    {
+      "name": "Turndown Service",
+      "filterBy": "turndown-service",
+      "templateId": "dfa6ab9e-f2a4-4ffd-bee0-6e9957240dda",
+      "contentType": "containerwithMultipleContent",
+      "templateName": "acc-template-homepage",
+      "titleName": "Turndown Service"
+    },
+    {
+      "name": "Hand Care",
+      "filterBy": "hand-care",
+      "templateId": "2e6cb9cb-d683-4962-83f9-80b2c8f2d9d2",
+      "contentType": "containerwithMultipleContent",
+      "templateName": "acc-template-homepage",
+      "titleName": "Hand Care"
+    },
+    {
+      "name": "Skin Care",
+      "filterBy": "skin-care",
+      "templateId": "218f5d8a-0c91-4645-a4f8-7d55bc2df2fa",
+      "contentType": "containerwithMultipleContent",
+      "templateName": "acc-template-homepage",
+      "titleName": "Skin Care"
+    },
+    {
+      "name": "The Home Collection",
+      "filterBy": "catUKHF",
+      "templateId": "",
+      "contentType": "",
+      "templateName": ""
+    }
+  ]
+},
+{
+  "name": "Bespoke Hotel Amenities",
+  "filterBy": "bespoke-hotel-amenities",
+  "templateId": "36fd8816-e9c5-4a14-a98f-4d401722c421",
+  "contentType": "homepage",
+  "templateName": "acc-template-homepage",
+  "titleName":"Molton Brown Bespoke Hotel Amenities"
+},
+{
+  "name": "Download Hotel Brochure",
+  "filterBy": "hotel-brochure",
+  "templateId": "efd1be5a-7a1f-4dd6-a107-d57b8cc1f518",
+  "contentType": "homepage",
+  "templateName": "acc-template-homepage",
+  "titleName": "Download Hotel Brochure"
+
+},
+{
+  "name": "Contact Hotel Amenities",
+  "filterBy": "hotel-brochure",
+  "templateId": "Contact-Hotel-Amenities",
+  "contentType": "",
+  "templateName": ""
+}
+],
+"organisation" : [
+{
+  "name": "About Us",
+  "filterBy": "about-us",
+  "templateId": "1b7ab2df-f35f-4509-9bec-c6cabf7bd0d5",
+  "contentType": "homepage",
+  "templateName": "acc-template-homepage",
+  "titleName": "About Us | Molton Brown",
+  "routepath":"/store/about-us" 
+
+},
+{
+  "name": "Contact Us",
+  "filterBy": "contact-us",
+  "templateId": "0d85bf11-95a0-4116-8408-34b9a1c4a173",
+  "contentType": "text",
+  "templateName": "acc-template-homepage",
+  "titleName": "Contact Us",
+  "routepath":"/store/contact-us"  
+},
+{
+  "name": "Trade Enquiries",
+  "filterBy": "trade-enquiries",
+  "templateId": "da98298f-7c7c-4ea1-bfa2-894b0a82ad03",
+  "contentType": "homepage",
+  "templateName": "acc-template-homepage",
+  "titleName": "Trade Enquiries | Molton Brown",
+  "routepath":"/store/trade-enquiries"  
+},
+{
+  "name": "Delivery & Returns",
+  "filterBy": "delivery",
+  "templateId": "ee1745a7-5e99-4c04-8882-3e121bc68cb1",
+  "contentType": "homepage",
+  "templateName": "acc-template-homepage",
+  "titleName": "Delivery & Returns",
+  "routepath":"/store/delivery"  
+},
+{
+  "name": "Molton Brown Stores",  
+  "route":"store/company/stores"
+},
+{
+  "name": "Terms & Conditions",
+  "filterBy": "terms-conditions",
+  "templateId": "b3b8c0d7-6131-4594-9ae9-50564435d349",
+  "contentType": "homepage",
+  "templateName": "acc-template-homepage",
+  "titleName": "Molton Brown Terms & Conditions",
+  "routepath":"/store/terms-conditions",  
+  
+  "children": [
+    {
+      "name": "Gift Cards Terms & Conditions",
+      "filterBy": "gift-terms-conditions",
+      "templateId": "ee3ca8cc-6cd8-4068-8540-81f413ae0108",
+      "contentType": "homepage",
+      "templateName": "acc-template-homepage",
+      "titleName": "Gift Card Terms & Conditions",
+      "routepath":"/store/gift-terms-conditions"  
+    },
+    {
+      "name": "Promotional Terms & Conditions",
+      "filterBy": "promo-terms-conditions",
+      "templateId": "bc1b0cf9-e785-4fa0-a1bb-7c9ec0329f27",
+      "contentType": "homepage",
+      "templateName": "acc-template-homepage",
+      "titleName": "Promotional Terms & Conditions",
+      "routepath":"/store/promo-terms-conditions" 
+    }
+  ]
+},
+{
+  "name": "Privacy & Cookie Policy",
+  "templateId": "f4e22cd7-8cb7-4d19-b063-5b2a7dde5b8d",
+  "filterBy": "privacy-policy",
+  "contentType": "homepage",
+  "templateName": "acc-template-homepage",
+  "titleName": "Molton Brown UK Privacy Policy",
+  "routepath":"/store/privacy-policy" 
+
+},
+{
+  "name": "FAQs & Help",
+  "filterBy": "faqs-list",
+  "header":true,
+  "templateId": "72e0566a-a3e3-4fde-858c-43567bc3c71d",
+  "contentType": "text",
+  "templateName": "acc-template-homepage",
+  "titleName": "Delivery FAQs",
+  "routepath":"/store/faqs-list",
+  "children": [
+    {
+      "name": "Placing an Order",
+      "filterBy": "faqs-order",
+      "templateId": "3a09d1be-0e23-4656-9b85-67b0c53cb36a",
+      "contentType": "text",
+      "templateName": "acc-template-homepage",
+      "titleName": "Placing an Order FAQs",
+      "routepath":"/store/faqs-order"
+    },
+    {
+      "name": "Delivery",
+      "filterBy": "faqs",
+      "templateId": "72e0566a-a3e3-4fde-858c-43567bc3c71d",
+      "contentType": "text",
+      "templateName": "acc-template-homepage",
+      "titleName": "Delivery FAQs",
+      "routepath":"/store/faqs"
+    },
+    {
+      "name": "Online Account",
+      "filterBy": "faqs-account",
+      "templateId": "f82de641-f6da-41e0-88d6-3c8f7c69521c",
+      "contentType": "text",
+      "templateName": "acc-template-homepage",
+      "titleName": "Online Account FAQs",
+      "routepath":"/store/faqs-account"
+    },
+    {
+      "name": "Product",
+      "filterBy": "faqs-product",
+      "templateId": "d68f90df-9ea6-4e72-91e9-4cd072e36e38",
+      "contentType": "text",
+      "templateName": "acc-template-homepage",
+      "titleName": "Product FAQs",
+      "routepath":"/store/faqs-product"
+
+    },
+    {
+      "name": "Gift Card",
+      "filterBy": "gift-cards",      
+      "childby":"faqs",
+      "templateId": "1695b5bf-8077-4aa9-be4d-eb23c8aaca0d",
+      "contentType": "text",
+      "templateName": "acc-template-homepage",
+      "titleName": "Gift Card FAQs",
+      "routepath":"/store/gift-cards/faqs"
+    },
+    {
+      "name": "Company",
+      "filterBy": "faqs-company",
+      "templateId": "44bb672d-8e49-40ee-9dfc-623f6e731059",
+      "contentType": "text",
+      "templateName": "acc-template-homepage",
+      "titleName": "Company FAQs",
+      "routepath":"/store/faqs-company"
+    },
+    {
+      "name": "Careers",
+      "filterBy": "careers/faqs",
+      "templateId": "3c8d1c77-67d8-445e-be48-7c1a9017cc49",
+      "contentType": "text",
+      "templateName": "acc-template-text",
+      "titleName": "Careers FAQs",
+      "routepath":"/store/careers/faqs"
+    }
+  ]
+},
+{
+  "name": "Sitemap",
+  "filterBy": "sitemap"
+}
+],
+"checkoutCart":{
+    "footerLinks":[
+        {
+          "name": "Delivery Information",
+          "templateName": "acc-template-homepage",
+          "contentId": "ee1745a7-5e99-4c04-8882-3e121bc68cb1",
+          "contentType": ""
+        },
+        {
+          "name": "Returns Policy",
+          "templateName": "acc-template-homepage",
+          "contentId": "ee1745a7-5e99-4c04-8882-3e121bc68cb1",
+          "contentType": ""
+        },
+        {
+          "name": "Privacy & Cookie Policy",
+          "templateName": "acc-template-homepage",
+          "contentId": "f4e22cd7-8cb7-4d19-b063-5b2a7dde5b8d",
+          "contentType": ""
+        },
+        {
+          "name": "Terms & Conditions",
+          "templateName": "acc-template-homepage",
+          "contentId": "b3b8c0d7-6131-4594-9ae9-50564435d349",
+          "contentType": ""
+        }
+      ]
+  },
+  "pickagainpromotionalText":{
+   "content": {
+      "name": "Promotional Terms & Conditions",
+      "filterBy": "promo-terms-conditions",
+      "templateId": "bc1b0cf9-e785-4fa0-a1bb-7c9ec0329f27",
+      "contentType": "homepage",
+      "templateName": "acc-template-homepage",
+      "titleName": "Promotional Terms & Conditions"
+    }
+  }
+}

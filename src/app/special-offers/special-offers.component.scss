@@ -1,0 +1,18 @@
+@import"../../variable";
+    .specialoffers-slots{
+        padding-top: 20px;
+    }
+    @media screen and (min-width: 769px) {
+        #specialOffer-page{
+            width: 964px;
+            padding-left: 0;
+            padding-right: 0;
+      }
+    }
+    @media screen and (max-width: 768px) { 
+    #specialOffer-page{
+        width:100%;
+        height:auto;
+        }
+    }
+    

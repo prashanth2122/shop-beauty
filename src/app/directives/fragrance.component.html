@@ -1,0 +1,1652 @@
+<!-- <div class="container text-center app-holder" ng-app="moltonBrownApp">
+		<form ng-controller="QuizController" ng-submit="sendData()" ng-class="getBGImg">
+
+			<div class="begin-copy" ng-show="welcomeStep" ng-cloak>
+				<div class="welcome-holder">
+					<h1>Match Your Fragrance to You</h1>
+
+					<h3>Fragrance Finder</h3>
+
+					<h6>
+						Selecting a scent can be overwhelming; the Fragrance Finder will take you on an illuminating, interactive journey to connect you with your ideal match - not by getting you to think about fragrance, but by telling us about you. Our smart system will select a scent that is most suited to your highly distinctive, truly unique self.
+					</h6>
+
+					<img src="assets/resource/img/timeCounter.svg" />
+
+					<button ng-click="beginExp()" type="button" class="btn btn-outline-primary">Begin your experience</button>
+				</div>
+			</div>
+
+
+
+			<div ng-show="showSteps" ng-cloak class="show-steps">
+
+				<div class="dot-container">
+
+					<hr class="dot-line" />
+
+					<span class="dot" ng-class="{ 'active': activeStage1}"></span>
+					<span class="dot" ng-class="{ 'active': activeStage2}"></span>
+					<span class="dot" ng-class="{ 'active': activeStage3}"></span>
+					<span class="dot" ng-class="{ 'active': activeStage4}"></span>
+					<span class="dot" ng-class="{ 'active': activeStage5}"></span>
+				</div>
+				
+			</div>
+
+			<div ng-show="showPref" ng-cloak>
+				<div class="type-container" ng-repeat="prefQuestions in preference[0].questions">
+					<h2>{{prefQuestions.title}}</h2>
+
+					<div class="container" ng-show="startStep1" ng-cloak>
+						<div class="form-check form-check-inline">
+							<div class="pref-selector" ng-repeat="chosen in prefQOne">
+								<label class="pref-card"> <input
+									ng-click="nextStep(1, list, prefQuestions.type, null, chosen.type)" type="radio"
+									name="{{chosen.type}}" ng-model="list.selected"
+									value="{{chosen.key}}"> <img src="{{chosen.image_url}}" />
+								</label>
+							</div>
+						</div>
+
+
+						
+						<button class="restart-arrow-container btn" ng-click="restartExp()">
+							<i class="fas fa-redo-alt fa-3x d-none"></i>
+							<img src="assets/resource/img/arrow-restart.svg" />
+							<span>Restart</span>
+						</button>
+
+					</div>
+
+					<div class="container" ng-show="startStep2" ng-cloak>
+						<div class="form-check form-check-inline">
+							<div class="pref-selector" ng-repeat="chosen in prefQTwo">
+								<label class="pref-card"> <input
+									ng-click="nextStep(2, list, prefQuestions.type, null, chosen.type)" type="radio"
+									name="chosen.type" ng-model="list.selected"
+									value="{{chosen.key}}"> <img src="{{chosen.image_url}}" />
+								</label>
+							</div>
+						</div>
+
+						<button class="left-arrow-container btn" ng-click="prevStep(2, null, prefQuestions.type)">
+							<i class="fas fa-arrow-left fa-2x d-none"></i> 
+							<img src="assets/resource/img/arrow-back.svg" />
+							<span>back</span>
+						</button>
+
+						<button class="restart-arrow-container btn" ng-click="restartExp()">
+							<i class="fas fa-redo-alt fa-3x d-none"></i>
+							<img src="assets/resource/img/arrow-restart.svg" />
+							<span>Restart</span>
+						</button>
+
+					</div>
+
+					<div class="container" ng-show="startStep3" ng-cloak>
+						<div class="form-check form-check-inline">
+							<div class="pref-selector" ng-repeat="chosen in prefQThree">
+								<label class="pref-card"> <input
+									ng-click="nextStep(3, list, prefQuestions.type, null, chosen.type)" type="radio"
+									name="{{chosen.type}}" ng-model="list.selected"
+									value="{{chosen.key}}"> <img src="{{chosen.image_url}}" />
+								</label>
+							</div>
+						</div>
+
+						<button class="left-arrow-container btn" ng-click="prevStep(3, null, prefQuestions.type)">
+							<img src="assets/resource/img/arrow-back.svg" /> <span>back</span>
+						</button>
+
+						<button class="restart-arrow-container btn" ng-click="restartExp()">
+							<img src="assets/resource/img/arrow-restart.svg" /> <span>Restart</span>
+						</button>
+
+					</div>
+
+					<div class="container" ng-show="startStep4" ng-cloak> 
+						<div class="form-check form-check-inline">
+							<div class="pref-selector" ng-repeat="chosen in prefQFour">
+								<label class="pref-card"> <input
+									ng-click="nextStep(4, list, prefQuestions.type, null, chosen.type)" type="radio" name="{{chosen.type}}"
+									ng-model="list.selected" value="{{chosen.key}}"> <img src="{{chosen.image_url}}" />
+								</label>
+							</div>
+						</div>
+											
+						<button class="left-arrow-container btn" ng-click="prevStep(4, null, prefQuestions.type)">
+							<img src="assets/resource/img/arrow-back.svg" /> <span>back</span>
+						</button>
+
+						<button class="restart-arrow-container btn" ng-click="restartExp()">
+								<img src="assets/resource/img/arrow-restart.svg" /> <span>Restart</span>
+						</button>
+					</div>
+				</div>
+			</div>
+
+			<div ng-show="showAttract" ng-cloak>
+
+				<div class="type-container" ng-repeat="attractQuestions in attraction[0].questions" ng-show="attractionQuestions" ng-cloak>
+					<h2>{{attractQuestions.title}}</h2>
+
+					<div class="container" ng-show="showAttractStep1" ng-cloak>
+						<div class="form-check form-check-inline">
+							<div class="pref-selector" ng-repeat="chosen in attrQOne">
+								<label class="pref-card"> <input ng-click="nextStep(1, list, attractQuestions.type, null, chosen.type)"
+									type="radio" name="{{chosen.type}}" ng-model="list.selected"
+									ng-value="{{chosen.key}}"> <img src="{{chosen.image_url}}" />
+								</label>
+							</div>
+						</div>
+
+						<button class="left-arrow-container btn" ng-click="prevStep(1, null, attractQuestions.type)">
+							<img src="assets/resource/img/arrow-back.svg" /> <span>back</span>
+						</button>
+
+						<button class="restart-arrow-container btn" ng-click="restartExp()">
+								<img src="assets/resource/img/arrow-restart.svg" /> <span>Restart</span>
+							</button>
+
+					</div>
+
+					<div class="container" ng-show="showAttractStep2" ng-cloak>
+						<div class="form-check form-check-inline">
+							<div class="pref-selector" ng-repeat="chosen in attrQTwo">
+								<label class="pref-card"> <input ng-click="nextStep(2, list, attractQuestions.type, null, chosen.type)"
+									type="radio" name="{{chosen.type}}" ng-model="list.selected"
+									value="{{chosen.key}}"> <img src="{{chosen.image_url}}" />
+								</label>
+							</div>
+						</div>
+
+						<button class="left-arrow-container btn" ng-click="prevStep(2, null, attractQuestions.type)">
+							<img src="assets/resource/img/arrow-back.svg" /> <span>back</span>
+						</button>
+
+						<button class="restart-arrow-container btn" ng-click="restartExp()">
+								<img src="assets/resource/img/arrow-restart.svg" /> <span>Restart</span>
+							</button>
+					</div>
+
+					<div class="container" ng-show="showAttractStep3" ng-cloak>
+						<div class="form-check form-check-inline">
+							<div class="pref-selector" ng-repeat="chosen in attrQThree">
+								<label class="pref-card"> <input
+									ng-click="nextStep(3, list, attractQuestions.type, null, chosen.type)"
+									type="radio" name="{{chosen.type}}" ng-model="list.selected"
+									value="{{chosen.key}}"> <img src="{{chosen.image_url}}" />
+								</label>
+							</div>
+						</div>
+
+						<button class="left-arrow-container btn" ng-click="prevStep(3, null, attractQuestions.type)">
+							<img src="assets/resource/img/arrow-back.svg" /> <span>back</span>
+						</button>
+
+						<button class="restart-arrow-container btn" ng-click="restartExp()">
+								<img src="assets/resource/img/arrow-restart.svg" /> <span>Restart</span>
+							</button>
+					</div>
+
+					<div class="container" ng-show="showAttractStep4" ng-cloak>
+						<div class="form-check form-check-inline">
+							<div class="pref-selector" ng-repeat="chosen in attrQFour">
+								<label class="pref-card"> <input
+									ng-click="nextStep(4, list, attractQuestions.type, null, chosen.type)"
+									type="radio" name="chosen.type" ng-model="list.selected"
+									value="{{chosen.key}}"> <img src="{{chosen.image_url}}" />
+								</label>
+							</div>
+						</div>
+
+						<button class="left-arrow-container btn" ng-click="prevStep(4, null, attractQuestions.type)">
+							<img src="assets/resource/img/arrow-back.svg" /> <span>back</span>
+						</button>
+
+						<button class="restart-arrow-container btn" ng-click="restartExp()">
+								<img src="assets/resource/img/arrow-restart.svg" /> <span>Restart</span>
+							</button>
+					</div>
+
+				</div>
+
+				<div class="type-container" ng-repeat="indulgeQuestions in attraction[0].selection.indulgent[0].questions" ng-show="attractIndulgentQuestions" ng-cloak>
+
+					<h2 ng-show="indMainTitle">{{indulgeQuestions.title}}</h2>
+					<h2 ng-show="indMindsetTitle">{{indulgeQuestions.mindset[0].questions[0].title}}</h2>
+
+					<div class="container" ng-show="indQuestions" ng-cloak>
+						<div class="form-check form-check-inline">
+							<div class="pref-selector" ng-repeat="chosen in attrIndQ">
+								<label class="pref-card"> <input
+									ng-click="nextStep(6, list, indulgeQuestions.type, indulgeQuestions.parent)"
+									type="radio" name="chosen.type" ng-model="list.selected"
+									value="{{chosen.key}}"> <img src="{{chosen.image_url}}" />
+								</label>
+							</div>
+						</div>
+
+						<button class="left-arrow-container btn" ng-click="prevStep(6, list, indulgeQuestions.type, indulgeQuestions.parent)">
+							<img src="assets/resource/img/arrow-back.svg" /> <span>back</span>
+						</button>
+
+						<button class="restart-arrow-container btn" ng-click="restartExp()">
+								<img src="assets/resource/img/arrow-restart.svg" /> <span>Restart</span>
+							</button>
+					</div>
+					
+					<div class="container" ng-show="indTQuestions" ng-cloak>
+						<div class="form-check form-check-inline">
+							<div class="pref-selector" ng-repeat="chosen in attrIndQEdt">
+								<label class="pref-card"> <input
+									ng-click="nextStep(9, list, indulgeQuestions.type, indulgeQuestions.parent, chosen.key)"
+									type="radio" name="chosen.type" ng-model="list.selected"
+									value="{{chosen.key}}"> <img src="{{chosen.image_url}}" />
+								</label>
+							</div>
+						</div>
+
+						<button class="left-arrow-container btn" ng-click="prevStep(9, list, indulgeQuestions.type, indulgeQuestions.parent)">
+							<img src="assets/resource/img/arrow-back.svg" /> <span>back</span>
+						</button>
+
+						<button class="restart-arrow-container btn" ng-click="restartExp()">
+								<img src="assets/resource/img/arrow-restart.svg" /> <span>Restart</span>
+							</button>
+					</div>
+					
+					<div class="container" ng-show="indPQuestions" ng-cloak>
+						<div class="form-check form-check-inline">
+							<div class="pref-selector" ng-repeat="chosen in attrIndQEdp">
+								<label class="pref-card"> <input
+									ng-click="nextStep(9, list, indulgeQuestions.type, indulgeQuestions.parent, chosen.key)"
+									type="radio" name="chosen.type" ng-model="list.selected"
+									value="{{chosen.key}}"> <img src="{{chosen.image_url}}" />
+								</label>
+							</div>
+						</div>
+
+						<button class="left-arrow-container btn" ng-click="prevStep(9, list, indulgeQuestions.type, indulgeQuestions.parent)">
+							<img src="assets/resource/img/arrow-back.svg" /> <span>back</span>
+						</button>
+
+						<button class="restart-arrow-container btn" ng-click="restartExp()">
+								<img src="assets/resource/img/arrow-restart.svg" /> <span>Restart</span>
+							</button>
+					</div>
+					
+					<div ng-show="indMindsetQuestions" ng-cloak>
+						<div class="container" ng-show="showIndMindsetStep1" ng-cloak>
+							<div class="form-check form-check-inline">
+								<div class="pref-selector" ng-repeat="chosen in attrIndMindQOne">
+									<label class="pref-card"> <input
+										ng-click="nextStep(10, list, indulgeQuestions.mindset[0].questions[0].type, indulgeQuestions.parent, chosen.type)"
+										type="radio" name="{{chosen.type}}" ng-model="list.selected"
+										value="{{chosen.key}}"> <img src="{{chosen.image_url}}" />
+									</label>
+								</div>
+							</div>
+						
+							<button class="left-arrow-container btn" ng-click="prevStep(10, list, indulgeQuestions.mindset[0].questions[0].type, indulgeQuestions.parent)">
+								<img src="assets/resource/img/arrow-back.svg" /> <span>back</span>
+							</button>
+
+							<button class="restart-arrow-container btn" ng-click="restartExp()">
+								<img src="assets/resource/img/arrow-restart.svg" /> <span>Restart</span>
+							</button>
+						</div>
+						
+						<div class="container" ng-show="showIndMindsetStep2" ng-cloak>
+							<div class="form-check form-check-inline">
+								<div class="pref-selector" ng-repeat="chosen in attrIndMindQTwo">
+									<label class="pref-card"> <input
+										ng-click="nextStep(11, list, indulgeQuestions.mindset[0].questions[0].type, indulgeQuestions.parent, chosen.type)"
+										type="radio" name="{{chosen.type}}" ng-model="list.selected"
+										value="{{chosen.key}}"> 
+										<video loop autoplay muted width="100%">
+											<source src="{{chosen.image_url}}" type="video/mp4"></source>
+										</video>
+									</label>
+								</div>
+							</div>
+						
+							<button class="left-arrow-container btn" ng-click="prevStep(11, list, indulgeQuestions.mindset[0].questions[0].type, indulgeQuestions.parent)">
+								<img src="assets/resource/img/arrow-back.svg" /> <span>back</span>
+							</button>
+
+							<button class="restart-arrow-container btn" ng-click="restartExp()">
+								<img src="assets/resource/img/arrow-restart.svg" /> <span>Restart</span>
+							</button>
+						</div>
+						
+						<div class="container" ng-show="showIndMindsetStep3" ng-cloak>
+							<div class="form-check form-check-inline">
+								<div class="pref-selector" ng-repeat="chosen in attrIndMindQThree">
+									<label class="pref-card"> <input
+										ng-click="nextStep(12, list, indulgeQuestions.mindset[0].questions[0].type, indulgeQuestions.parent, chosen.type)"
+										type="radio" name="{{chosen.type}}" ng-model="list.selected"
+										value="{{chosen.key}}"> <img src="{{chosen.image_url}}" />
+									</label>
+								</div>
+							</div>
+						
+							<button class="left-arrow-container btn" ng-click="prevStep(12, list, indulgeQuestions.mindset[0].questions[0].type, indulgeQuestions.parent)">
+								<img src="assets/resource/img/arrow-back.svg" /> <span>back</span>
+							</button>
+
+							<button class="restart-arrow-container btn" ng-click="restartExp()">
+								<img src="assets/resource/img/arrow-restart.svg" /> <span>Restart</span>
+							</button>
+						</div>
+						
+						<div class="container" ng-show="showIndMindsetStep4" ng-cloak>
+							<div class="form-check form-check-inline">
+								<div class="pref-selector" ng-repeat="chosen in attrIndMindQFour">
+									<label class="pref-card"> <input
+										ng-click="nextStep(13, list, indulgeQuestions.mindset[0].questions[0].type, indulgeQuestions.parent, chosen.type)"
+										type="radio" name="{{chosen.type}}" ng-model="list.selected"
+										value="{{chosen.key}}"> 
+										<img src="{{chosen.image_url}}" />
+									</label>
+								</div>
+							</div>
+						
+							<button class="left-arrow-container btn" ng-click="prevStep(13, list, indulgeQuestions.mindset[0].questions[0].type, indulgeQuestions.parent)">
+								<img src="assets/resource/img/arrow-back.svg" /> <span>back</span>
+							</button>
+
+							<button class="restart-arrow-container btn" ng-click="restartExp()">
+								<img src="assets/resource/img/arrow-restart.svg" /> <span>Restart</span>
+							</button>
+						</div>
+					</div>
+					
+					
+				</div>
+
+				<div class="type-container" ng-repeat="balancedQuestions in attraction[0].selection.balanced[0].questions" ng-show="attractBalancedQuestions" ng-cloak>
+
+					
+					<h2>{{balancedQuestions.mindset[0].questions[0].title}}</h2>
+
+					
+					<div ng-show="balMindsetQuestions" ng-cloak>
+						<div class="container" ng-show="showBalMindsetStep1" ng-cloak>
+							<div class="form-check form-check-inline">
+								<div class="pref-selector"
+									ng-repeat="chosen in attrBalMindQOne">
+									<label class="pref-card"> <input
+										ng-click="nextStep(10, list, balancedQuestions.mindset[0].questions[0].type, balancedQuestions.parent, chosen.type)"
+										type="radio" name="{{chosen.type}}" ng-model="list.selected"
+										value="{{chosen.key}}"> <img src="{{chosen.image_url}}" />
+									</label>
+								</div>
+							</div>
+						
+							<button class="left-arrow-container btn" ng-click="prevStep(10, list, balancedQuestions.mindset[0].questions[0].type, balancedQuestions.parent)">
+								<img src="assets/resource/img/arrow-back.svg" /> <span>back</span>
+							</button>
+
+							<button class="restart-arrow-container btn" ng-click="restartExp()">
+								<img src="assets/resource/img/arrow-restart.svg" /> <span>Restart</span>
+							</button>
+						</div>
+						
+						<div class="container" ng-show="showBalMindsetStep2" ng-cloak>
+							<div class="form-check form-check-inline">
+								<div class="pref-selector"
+									ng-repeat="chosen in attrBalMindQTwo">
+									<label class="pref-card"> <input
+										ng-click="nextStep(11, list, balancedQuestions.mindset[0].questions[0].type, balancedQuestions.parent, chosen.type)"
+										type="radio" name="{{chosen.type}}" ng-model="list.selected"
+										value="{{chosen.key}}"> 
+										<video loop autoplay muted width="100%">
+											<source src="{{chosen.image_url}}" type="video/mp4"></source>
+										</video>
+									</label>
+								</div>
+							</div>
+						
+							<button class="left-arrow-container btn" ng-click="prevStep(11, list, balancedQuestions.mindset[0].questions[0].type, balancedQuestions.parent)">
+								<img src="assets/resource/img/arrow-back.svg" /> <span>back</span>
+							</button>
+
+							<button class="restart-arrow-container btn" ng-click="restartExp()">
+								<img src="assets/resource/img/arrow-restart.svg" /> <span>Restart</span>
+							</button>
+						</div>
+						
+						<div class="container" ng-show="showBalMindsetStep3" ng-cloak>
+							<div class="form-check form-check-inline">
+								<div class="pref-selector"
+									ng-repeat="chosen in attrBalMindQThree">
+									<label class="pref-card"> <input
+										ng-click="nextStep(12, list, balancedQuestions.mindset[0].questions[0].type, balancedQuestions.parent, chosen.type)"
+										type="radio" name="{{chosen.type}}" ng-model="list.selected"
+										value="{{chosen.key}}"> <img src="{{chosen.image_url}}" />
+									</label>
+								</div>
+							</div>
+						
+							<button class="left-arrow-container btn" ng-click="prevStep(12, list, balancedQuestions.mindset[0].questions[0].type, balancedQuestions.parent)">
+								<img src="assets/resource/img/arrow-back.svg" /> <span>back</span>
+							</button>
+
+							<button class="restart-arrow-container btn" ng-click="restartExp()">
+								<img src="assets/resource/img/arrow-restart.svg" /> <span>Restart</span>
+							</button>
+						</div>
+						
+						<div class="container" ng-show="showBalMindsetStep4" ng-cloak>
+							<div class="form-check form-check-inline">
+								<div class="pref-selector"
+									ng-repeat="chosen in attrBalMindQFour">
+									<label class="pref-card"> <input
+										ng-click="nextStep(13, list, balancedQuestions.mindset[0].questions[0].type, balancedQuestions.parent, chosen.type)"
+										type="radio" name="{{chosen.type}}" ng-model="list.selected"
+										value="{{chosen.key}}"> 
+										<img src="{{chosen.image_url}}" />
+									</label>
+								</div>
+							</div>
+						
+							<button class="left-arrow-container btn" ng-click="prevStep(13, list, balancedQuestions.mindset[0].questions[0].type, balancedQuestions.parent)">
+								<img src="assets/resource/img/arrow-back.svg" /> <span>back</span>
+							</button>
+
+							<button class="restart-arrow-container btn" ng-click="restartExp()">
+								<img src="assets/resource/img/arrow-restart.svg" /> <span>Restart</span>
+							</button>
+						</div>
+					</div>
+					
+					
+				</div>
+
+				<div class="type-container" ng-repeat="givingQuestions in attraction[0].selection.giving[0].questions" ng-show="attractGivingQuestions" ng-cloak>
+
+					<h2 ng-show="giveMainTitle">{{givingQuestions.title}}</h2>
+					<h2 ng-show="giveMindsetTitle">{{givingQuestions.mindset[0].questions[0].title}}</h2>
+
+					<div class="container" ng-show="giveQuestions" ng-cloak>
+						<div class="form-check form-check-inline">
+							<div class="pref-selector"
+								ng-repeat="chosen in attrGiveQ">
+								<label class="pref-card"> <input
+									ng-click="nextStep(6, list, givingQuestions.type, givingQuestions.parent)"
+									type="radio" name="chosen.type" ng-model="list.selected"
+									value="{{chosen.key}}"> <img src="{{chosen.image_url}}" />
+								</label>
+							</div>
+						</div>
+
+						<button class="left-arrow-container btn" ng-click="prevStep(6, list, givingQuestions.type, givingQuestions.parent)">
+							<img src="assets/resource/img/arrow-back.svg" /> <span>back</span>
+						</button>
+
+						<button class="restart-arrow-container btn" ng-click="restartExp()">
+							<img src="assets/resource/img/arrow-restart.svg" /> <span>Restart</span>
+						</button>
+					</div>
+					
+					<div class="container" ng-show="giveTQuestions" ng-cloak>
+						<div class="form-check form-check-inline">
+							<div class="pref-selector"
+								ng-repeat="chosen in attrGiveQEdt">
+								<label class="pref-card"> <input
+									ng-click="nextStep(9, list, givingQuestions.type, givingQuestions.parent, chosen.key)"
+									type="radio" name="{{chosen.type}}" ng-model="list.selected"
+									value="{{chosen.key}}"> <img src="{{chosen.image_url}}" />
+								</label>
+							</div>
+						</div>
+
+						<button class="left-arrow-container btn" ng-click="prevStep(9, list, givingQuestions.type, givingQuestions.parent)">
+							<img src="assets/resource/img/arrow-back.svg" /> <span>back</span>
+						</button>
+
+						<button class="restart-arrow-container btn" ng-click="restartExp()">
+							<img src="assets/resource/img/arrow-restart.svg" /> <span>Restart</span>
+						</button>
+					</div>
+					
+					<div class="container" ng-show="givePQuestions" ng-cloak>
+						<div class="form-check form-check-inline">
+							<div class="pref-selector"
+								ng-repeat="chosen in attrGiveQEdp">
+								<label class="pref-card"> <input
+									ng-click="nextStep(9, list, givingQuestions.type, givingQuestions.parent, chosen.key)"
+									type="radio" name="{{chosen.type}}" ng-model="list.selected"
+									value="{{chosen.key}}"> <img src="{{chosen.image_url}}" />
+								</label>
+							</div>
+						</div>
+
+						<button class="left-arrow-container btn" ng-click="prevStep(9, list, givingQuestions.type, givingQuestions.parent)">
+							<img src="assets/resource/img/arrow-back.svg" /> <span>back</span>
+						</button>
+
+						<button class="restart-arrow-container btn" ng-click="restartExp()">
+							<img src="assets/resource/img/arrow-restart.svg" /> <span>Restart</span>
+						</button>
+					</div>
+					
+					<div ng-show="giveMindsetQuestions" ng-cloak>
+						<div class="container" ng-show="showGiveMindsetStep1" ng-cloak>
+							<div class="form-check form-check-inline">
+								<div class="pref-selector"
+									ng-repeat="chosen in attrGiveMindQOne">
+									<label class="pref-card"> <input
+										ng-click="nextStep(10, list, givingQuestions.mindset[0].questions[0].type, givingQuestions.parent, chosen.type)"
+										type="radio" name="{{chosen.type}}" ng-model="list.selected"
+										value="{{chosen.key}}"> <img src="{{chosen.image_url}}" />
+									</label>
+								</div>
+							</div>
+						
+							<button class="left-arrow-container btn" ng-click="prevStep(10, list, givingQuestions.mindset[0].questions[0].type, givingQuestions.parent)">
+								<img src="assets/resource/img/arrow-back.svg" /> <span>back</span>
+							</button>
+
+							<button class="restart-arrow-container btn" ng-click="restartExp()">
+								<img src="assets/resource/img/arrow-restart.svg" /> <span>Restart</span>
+							</button>
+
+						</div>
+						
+						<div class="container" ng-show="showGiveMindsetStep2" ng-cloak>
+							<div class="form-check form-check-inline">
+								<div class="pref-selector"
+									ng-repeat="chosen in attrGiveMindQTwo">
+									<label class="pref-card"> <input
+										ng-click="nextStep(11, list, givingQuestions.mindset[0].questions[0].type, givingQuestions.parent, chosen.type)"
+										type="radio" name="{{chosen.type}}" ng-model="list.selected"
+										value="{{chosen.key}}"> 
+										<video loop autoplay muted width="100%">
+											<source src="{{chosen.image_url}}" type="video/mp4"></source>
+										</video>
+									</label>
+								</div>
+							</div>
+						
+							<button class="left-arrow-container btn" ng-click="prevStep(11, list, givingQuestions.mindset[0].questions[0].type, givingQuestions.parent)">
+								<img src="assets/resource/img/arrow-back.svg" /> <span>back</span>
+							</button>
+
+							<button class="restart-arrow-container btn" ng-click="restartExp()">
+								<img src="assets/resource/img/arrow-restart.svg" /> <span>Restart</span>
+							</button>
+						</div>
+						
+						<div class="container" ng-show="showGiveMindsetStep3" ng-cloak>
+							<div class="form-check form-check-inline">
+								<div class="pref-selector"
+									ng-repeat="chosen in attrGiveMindQThree">
+									<label class="pref-card"> <input
+										ng-click="nextStep(12, list, givingQuestions.mindset[0].questions[0].type, givingQuestions.parent, chosen.type)"
+										type="radio" name="{{chosen.type}}" ng-model="list.selected"
+										value="{{chosen.key}}"> <img src="{{chosen.image_url}}" />
+									</label>
+								</div>
+							</div>
+						
+							<button class="left-arrow-container btn" ng-click="prevStep(12, list, givingQuestions.mindset[0].questions[0].type, givingQuestions.parent)">
+								<img src="assets/resource/img/arrow-back.svg" /> <span>back</span>
+							</button>
+
+							<button class="restart-arrow-container btn" ng-click="restartExp()">
+								<img src="assets/resource/img/arrow-restart.svg" /> <span>Restart</span>
+							</button>
+						</div>
+						
+						<div class="container" ng-show="showGiveMindsetStep4" ng-cloak>
+							<div class="form-check form-check-inline">
+								<div class="pref-selector"
+									ng-repeat="chosen in attrGiveMindQFour">
+									<label class="pref-card"> <input
+										ng-click="nextStep(13, list, givingQuestions.mindset[0].questions[0].type, givingQuestions.parent, chosen.type)"
+										type="radio" name="{{chosen.type}}" ng-model="list.selected"
+										value="{{chosen.key}}"> 
+										<img src="{{chosen.image_url}}" />
+									</label>
+								</div>
+							</div>
+						
+							<button class="left-arrow-container btn" ng-click="prevStep(13, list, givingQuestions.mindset[0].questions[0].type, givingQuestions.parent)">
+								<img src="assets/resource/img/arrow-back.svg" /> <span>back</span>
+							</button>
+
+							<button class="restart-arrow-container btn" ng-click="restartExp()">
+								<img src="assets/resource/img/arrow-restart.svg" /> <span>Restart</span>
+							</button>
+						</div>
+					</div>
+					
+					
+				</div>
+			</div>
+
+			<div ng-show="showArticu" ng-cloak>
+				<div class="type-container" ng-repeat="articuQuestions in articulation[0].questions" ng-show="articulationQuestions" ng-cloak>
+					<h2>{{articuQuestions.title}}</h2>
+
+					<div class="container" ng-show="showArticuStep1" ng-cloak>
+						<div class="form-check form-check-inline">
+							<div class="pref-selector"
+								ng-repeat="chosen in articuQOne">
+								<label class="pref-card"> <input
+									ng-click="nextStep(1, list, articuQuestions.type, null, chosen.type)"
+									type="radio" name="{{chosen.type}}" ng-model="list.selected"
+									ng-value="{{chosen.key}}"> <img
+									src="{{chosen.image_url}}">
+								</label>
+							</div>
+						</div>
+
+						<button class="left-arrow-container btn" ng-click="prevStep(1, list, articuQuestions.type)">
+							<img src="assets/resource/img/arrow-back.svg" /> <span>back</span>
+						</button>
+
+						<button class="restart-arrow-container btn" ng-click="restartExp()">
+								<img src="assets/resource/img/arrow-restart.svg" /> <span>Restart</span>
+							</button>
+					</div>
+
+					<div class="container" ng-show="showArticuStep2" ng-cloak>
+						<div class="form-check form-check-inline">
+							<div class="pref-selector"
+								ng-repeat="chosen in articuQTwo">
+								<label class="pref-card"> <input
+									ng-click="nextStep(2, list, articuQuestions.type, null, chosen.type)"
+									type="radio" name="{{chosen.type}}" ng-model="list.selected"
+									value="{{chosen.key}}"> <img
+									src="{{chosen.image_url}}">
+								</label>
+							</div>
+						</div>
+
+						<button class="left-arrow-container btn" ng-click="prevStep(2, list, articuQuestions.type)">
+							<img src="assets/resource/img/arrow-back.svg" /> <span>back</span>
+						</button>
+
+						<button class="restart-arrow-container btn" ng-click="restartExp()">
+								<img src="assets/resource/img/arrow-restart.svg" /> <span>Restart</span>
+							</button>
+					</div>
+
+					<div class="container" ng-show="showArticuStep3" ng-cloak>
+						<div class="form-check form-check-inline">
+							<div class="pref-selector"
+								ng-repeat="chosen in articuQThree">
+								<label class="pref-card"> <input
+									ng-click="nextStep(3, list, articuQuestions.type, null, chosen.type)"
+									type="radio" name="{{chosen.type}}" ng-model="list.selected"
+									value="{{chosen.key}}"> <img
+									src="{{chosen.image_url}}">
+								</label>
+							</div>
+						</div>
+
+						<button class="left-arrow-container btn" ng-click="prevStep(3, list, articuQuestions.type)">
+							<img src="assets/resource/img/arrow-back.svg" /> <span>back</span>
+						</button>
+
+						<button class="restart-arrow-container btn" ng-click="restartExp()">
+								<img src="assets/resource/img/arrow-restart.svg" /> <span>Restart</span>
+							</button>
+					</div>
+
+					<div class="container" ng-show="showArticuStep4" ng-cloak>
+						<div class="form-check form-check-inline">
+							<div class="pref-selector"
+								ng-repeat="chosen in articuQFour">
+								<label class="pref-card"> <input
+									ng-click="nextStep(4, list, articuQuestions.type, null, chosen.type)"
+									type="radio" name="{{chosen.type}}" ng-model="list.selected"
+									value="{{chosen.key}}"> <img
+									src="{{chosen.image_url}}">
+								</label>
+							</div>
+						</div>
+
+						<button class="left-arrow-container btn" ng-click="prevStep(4, list, articuQuestions.type)">
+							<img src="assets/resource/img/arrow-back.svg" /> <span>back</span>
+						</button>
+
+						<button class="restart-arrow-container btn" ng-click="restartExp()">
+								<img src="assets/resource/img/arrow-restart.svg" /> <span>Restart</span>
+							</button>
+					</div>
+
+				</div>
+
+				<div class="type-container" ng-repeat="indulgeQuestions in articulation[0].selection.indulgent[0].questions" ng-show="articuIndulgentQuestions" ng-cloak>
+
+					<h2 ng-show="articuIndMainTitle">{{indulgeQuestions.title}}</h2>
+					<h2 ng-show="articuIndMindsetTitle">{{indulgeQuestions.mindset[0].questions[0].title}}</h2>
+
+					<div class="container" ng-show="articuIndQuestions" ng-cloak>
+						<div class="form-check form-check-inline">
+							<div class="pref-selector"
+								ng-repeat="chosen in articuIndQ">
+								<label class="pref-card"> <input
+									ng-click="nextStep(6, list, indulgeQuestions.type, indulgeQuestions.parent)"
+									type="radio" name="{{chosen.type}}" ng-model="list.selected"
+									value="{{chosen.key}}"> <img src="{{chosen.image_url}}" />
+								</label>
+							</div>
+						</div>
+
+						<button class="left-arrow-container btn" ng-click="prevStep(6, list, indulgeQuestions.type, indulgeQuestions.parent)">
+							<img src="assets/resource/img/arrow-back.svg" /> <span>back</span>
+						</button>
+
+						<button class="restart-arrow-container btn" ng-click="restartExp()">
+								<img src="assets/resource/img/arrow-restart.svg" /> <span>Restart</span>
+							</button>
+					</div>
+
+					<div ng-show="articuIndMindsetQuestions" ng-cloak>
+						<div class="container" ng-show="showArticuIndMindsetStep1" ng-cloak>
+							<div class="form-check form-check-inline">
+								<div class="pref-selector"
+									ng-repeat="chosen in articuIndMindQOne">
+									<label class="pref-card"> <input
+										ng-click="nextStep(10, list, indulgeQuestions.mindset[0].questions[0].type, indulgeQuestions.parent, chosen.type)"
+										type="radio" name="{{chosen.type}}" ng-model="list.selected"
+										value="{{chosen.key}}"> <img src="{{chosen.image_url}}" />
+									</label>
+								</div>
+							</div>
+						
+							<button class="left-arrow-container btn" ng-click="prevStep(10, list, indulgeQuestions.mindset[0].questions[0].type, indulgeQuestions.parent)">
+								<img src="assets/resource/img/arrow-back.svg" /> <span>back</span>
+							</button>
+
+							<button class="restart-arrow-container btn" ng-click="restartExp()">
+								<img src="./resource/img/arrow-restart.svg" /> <span>Restart</span>
+							</button>
+						</div>
+						
+						<div class="container" ng-show="showArticuIndMindsetStep2" ng-cloak>
+							<div class="form-check form-check-inline">
+								<div class="pref-selector"
+									ng-repeat="chosen in articuIndMindQTwo">
+									<label class="pref-card"> <input
+										ng-click="nextStep(11, list, indulgeQuestions.mindset[0].questions[0].type, indulgeQuestions.parent, chosen.type)"
+										type="radio" name="{{chosen.type}}" ng-model="list.selected"
+										value="{{chosen.key}}"> 
+										<video loop autoplay muted width="100%">
+											<source src="{{chosen.image_url}}" type="video/mp4"></source>
+										</video>
+									</label>
+								</div>
+							</div>
+						
+							<button class="left-arrow-container btn" ng-click="prevStep(11, list, indulgeQuestions.mindset[0].questions[0].type, indulgeQuestions.parent)">
+								<img src="assets/resource/img/arrow-back.svg" /> <span>back</span>
+							</button>
+
+							<button class="restart-arrow-container btn" ng-click="restartExp()">
+								<img src="assets/resource/img/arrow-restart.svg" /> <span>Restart</span>
+							</button>
+						</div>
+						
+						<div class="container" ng-show="showArticuIndMindsetStep3" ng-cloak>
+							<div class="form-check form-check-inline">
+								<div class="pref-selector"
+									ng-repeat="chosen in articuIndMindQThree">
+									<label class="pref-card"> <input
+										ng-click="nextStep(12, list, indulgeQuestions.mindset[0].questions[0].type, indulgeQuestions.parent, chosen.type)"
+										type="radio" name="{{chosen.type}}" ng-model="list.selected"
+										value="{{chosen.key}}"> <img src="{{chosen.image_url}}" />
+									</label>
+								</div>
+							</div>
+						
+							<button class="left-arrow-container btn" ng-click="prevStep(12, list, indulgeQuestions.mindset[0].questions[0].type, indulgeQuestions.parent)">
+								<img src="assets/resource/img/arrow-back.svg" /> <span>back</span>
+							</button>
+
+							<button class="restart-arrow-container btn" ng-click="restartExp()">
+								<img src="assets/resource/img/arrow-restart.svg" /> <span>Restart</span>
+							</button>
+						</div>
+						
+						<div class="container" ng-show="showArticuIndMindsetStep4" ng-cloak>
+							<div class="form-check form-check-inline">
+								<div class="pref-selector"
+									ng-repeat="chosen in articuIndMindQFour">
+									<label class="pref-card"> <input
+										ng-click="nextStep(13, list, indulgeQuestions.mindset[0].questions[0].type, indulgeQuestions.parent, chosen.type)"
+										type="radio" name="{{chosen.type}}" ng-model="list.selected"
+										value="{{chosen.key}}"> 
+										<img src="{{chosen.image_url}}" />
+									</label>
+								</div>
+							</div>
+						
+							<button class="left-arrow-container btn" ng-click="prevStep(13, list, indulgeQuestions.mindset[0].questions[0].type, indulgeQuestions.parent)">
+								<img src="assets/resource/img/arrow-back.svg" /> <span>back</span>
+							</button>
+
+							<button class="restart-arrow-container btn" ng-click="restartExp()">
+								<img src="assets/resource/img/arrow-restart.svg" /> <span>Restart</span>
+							</button>
+						</div>
+					</div>
+					
+					
+				</div>
+
+				<div class="type-container" ng-repeat="balancedQuestions in articulation[0].selection.balanced[0].questions" ng-show="articuBalancedQuestions" ng-cloak>
+
+					<h2 ng-show="articuBalMainTitle">{{balancedQuestions.title}}</h2>
+					<h2 ng-show="articuBalMindsetTitle">{{balancedQuestions.mindset[0].questions[0].title}}</h2>
+
+					<div class="container" ng-show="articuBalQuestions" ng-cloak>
+						<div class="form-check form-check-inline">
+							<div class="pref-selector"
+								ng-repeat="chosen in articuBalQ">
+								<label class="pref-card"> <input
+									ng-click="nextStep(6, list, balancedQuestions.type, balancedQuestions.parent)"
+									type="radio" name="{{chosen.type}}" ng-model="list.selected"
+									value="{{chosen.key}}"> <img src="{{chosen.image_url}}" />
+								</label>
+							</div>
+						</div>
+
+						<button class="left-arrow-container btn" ng-click="prevStep(6, list, balancedQuestions.type, balancedQuestions.parent)">
+							<img src="assets/resource/img/arrow-back.svg" /> <span>back</span>
+						</button>
+
+						<button class="restart-arrow-container btn" ng-click="restartExp()">
+								<img src="assets/resource/img/arrow-restart.svg" /> <span>Restart</span>
+							</button>
+					</div>
+					
+					<div class="container" ng-show="articuBalTQuestions" ng-cloak>
+						<div class="form-check form-check-inline">
+							<div class="pref-selector"
+								ng-repeat="chosen in articuBalQEdt">
+								<label class="pref-card"> <input
+									ng-click="nextStep(9, list, balancedQuestions.type, balancedQuestions.parent, chosen.key)"
+									type="radio" name="{{chosen.type}}" ng-model="list.selected"
+									value="{{chosen.key}}"> <img src="{{chosen.image_url}}" />
+								</label>
+							</div>
+						</div>
+
+						<button class="left-arrow-container btn" ng-click="prevStep(9, list, balancedQuestions.type, balancedQuestions.parent)">
+							<img src="assets/resource/img/arrow-back.svg" /> <span>back</span>
+						</button>
+
+						<button class="restart-arrow-container btn" ng-click="restartExp()">
+							<img src="assets/resource/img/arrow-restart.svg" /> <span>Restart</span>
+						</button>
+					</div>
+					
+					<div class="container" ng-show="articuBalPQuestions" ng-cloak>
+						<div class="form-check form-check-inline">
+							<div class="pref-selector"
+								ng-repeat="chosen in articuBalQEdp">
+								<label class="pref-card" > 
+								<input ng-click="nextStep(9, list, balancedQuestions.type, balancedQuestions.parent, chosen.key)" type="radio" name="chosen.type" ng-model="list.selected"
+									value="{{chosen.key}}"> <img src="{{chosen.image_url}}">
+								</label>
+							</div>
+						</div>
+
+						<button class="left-arrow-container btn" ng-click="prevStep(9, list, balancedQuestions.type, balancedQuestions.parent)">
+							<img src="assets/resource/img/arrow-back.svg" /> <span>back</span>
+						</button>
+
+						<button class="restart-arrow-container btn" ng-click="restartExp()">
+							<img src="assets/resource/img/arrow-restart.svg" /> <span>Restart</span>
+						</button>
+					</div>
+					
+					<div ng-show="articuBalMindsetQuestions" ng-cloak>
+						<div class="container" ng-show="showArticuBalMindsetStep1" ng-cloak>
+							<div class="form-check form-check-inline">
+								<div class="pref-selector"
+									ng-repeat="chosen in articuBalMindQOne">
+									<label class="pref-card"> <input
+										ng-click="nextStep(10, list, balancedQuestions.mindset[0].questions[0].type, balancedQuestions.parent, chosen.type)"
+										type="radio" name="{{chosen.type}}" ng-model="list.selected"
+										value="{{chosen.key}}"> <img src="{{chosen.image_url}}" />
+									</label>
+								</div>
+							</div>
+						
+							<button class="left-arrow-container btn" ng-click="prevStep(10, list, balancedQuestions.mindset[0].questions[0].type, balancedQuestions.parent)">
+								<img src="assets/resource/img/arrow-back.svg" /> <span>back</span>
+							</button>
+
+							<button class="restart-arrow-container btn" ng-click="restartExp()">
+								<img src="assets/resource/img/arrow-restart.svg" /> <span>Restart</span>
+							</button>
+						</div>
+						
+						<div class="container" ng-show="showArticuBalMindsetStep2" ng-cloak>
+							<div class="form-check form-check-inline">
+								<div class="pref-selector"
+									ng-repeat="chosen in articuBalMindQTwo">
+									<label class="pref-card"> <input
+										ng-click="nextStep(11, list, balancedQuestions.mindset[0].questions[0].type, balancedQuestions.parent, chosen.type)"
+										type="radio" name="{{chosen.type}}" ng-model="list.selected"
+										value="{{chosen.key}}"> 
+										<video loop autoplay muted width="100%">
+											<source src="{{chosen.image_url}}" type="video/mp4"></source>
+										</video>
+									</label>
+								</div>
+							</div>
+						
+							<button class="left-arrow-container btn" ng-click="prevStep(11, list, balancedQuestions.mindset[0].questions[0].type, balancedQuestions.parent)">
+								<img src="assets/resource/img/arrow-back.svg" /> <span>back</span>
+							</button>
+
+							<button class="restart-arrow-container btn" ng-click="restartExp()">
+								<img src="assets/resource/img/arrow-restart.svg" /> <span>Restart</span>
+							</button>
+						</div>
+						
+						<div class="container" ng-show="showArticuBalMindsetStep3" ng-cloak>
+							<div class="form-check form-check-inline">
+								<div class="pref-selector"
+									ng-repeat="chosen in articuBalMindQThree">
+									<label class="pref-card"> <input
+										ng-click="nextStep(12, list, balancedQuestions.mindset[0].questions[0].type, balancedQuestions.parent, chosen.type)"
+										type="radio" name="{{chosen.type}}" ng-model="list.selected"
+										value="{{chosen.key}}"> <img src="{{chosen.image_url}}" />
+									</label>
+								</div>
+							</div>
+						
+							<button class="left-arrow-container btn" ng-click="prevStep(12, list, balancedQuestions.mindset[0].questions[0].type, balancedQuestions.parent)">
+								<img src="assets/resource/img/arrow-back.svg" /> <span>back</span>
+							</button>
+
+							<button class="restart-arrow-container btn" ng-click="restartExp()">
+								<img src="assets/resource/img/arrow-restart.svg" /> <span>Restart</span>
+							</button>
+						</div>
+						
+						<div class="container" ng-show="showArticuBalMindsetStep4" ng-cloak>
+							<div class="form-check form-check-inline">
+								<div class="pref-selector"
+									ng-repeat="chosen in articuBalMindQFour">
+									<label class="pref-card"> <input
+										ng-click="nextStep(13, list, balancedQuestions.mindset[0].questions[0].type, balancedQuestions.parent, chosen.type)"
+										type="radio" name="{{chosen.type}}" ng-model="list.selected"
+										value="{{chosen.key}}"> 
+										<img src="{{chosen.image_url}}" />
+									</label>
+								</div>
+							</div>
+						
+							<button class="left-arrow-container btn" ng-click="prevStep(13, list, balancedQuestions.mindset[0].questions[0].type, balancedQuestions.parent)">
+								<img src="assets/resource/img/arrow-back.svg" /> <span>back</span>
+							</button>
+
+							<button class="restart-arrow-container btn" ng-click="restartExp()">
+								<img src="assets/resource/img/arrow-restart.svg" /> <span>Restart</span>
+							</button>
+						</div>
+					</div>
+					
+					
+				</div>
+
+				<div class="type-container" ng-repeat="givingQuestions in articulation[0].selection.giving[0].questions" ng-show="articuGivingQuestions" ng-cloak>
+
+					<h2 ng-show="articuGiveMainTitle">{{givingQuestions.title}}</h2>
+					<h2 ng-show="articuGiveMindsetTitle">{{givingQuestions.mindset[0].questions[0].title}}</h2>
+
+					<div class="container" ng-show="articuGiveQuestions" ng-cloak>
+						<div class="form-check form-check-inline">
+							<div class="pref-selector"
+								ng-repeat="chosen in articuGiveQ">
+								<label class="pref-card"> <input
+									ng-click="nextStep(6, list, givingQuestions.type, givingQuestions.parent)"
+									type="radio" name="chosen.type" ng-model="list.selected"
+									value="{{chosen.key}}"> 
+									<img src="{{chosen.image_url}}" />
+								</label>
+							</div>
+						</div>
+
+						<button class="left-arrow-container btn" ng-click="prevStep(6, list, givingQuestions.type, givingQuestions.parent)">
+							<img src="assets/resource/img/arrow-back.svg" /> <span>back</span>
+						</button>
+
+						<button class="restart-arrow-container btn" ng-click="restartExp()">
+							<img src="assets/resource/img/arrow-restart.svg" /> <span>Restart</span>
+						</button>
+					</div>
+					
+					<div class="container" ng-show="articuGiveTQuestions" ng-cloak>
+						<div class="form-check form-check-inline">
+							<div class="pref-selector"
+								ng-repeat="chosen in articuGiveQEdt">
+								<label class="pref-card"> <input
+									ng-click="nextStep(9, list, givingQuestions.type, givingQuestions.parent, chosen.key)"
+									type="radio" name="chosen.type" ng-model="list.selected"
+									value="{{chosen.key}}"> <img src="{{chosen.image_url}}" />
+								</label>
+							</div>
+						</div>
+
+						<button class="left-arrow-container btn" ng-click="prevStep(9, list, givingQuestions.type, givingQuestions.parent)">
+							<img src="assets/resource/img/arrow-back.svg" /> <span>back</span>
+						</button>
+
+						<button class="restart-arrow-container btn" ng-click="restartExp()">
+							<img src="assets/resource/img/arrow-restart.svg" /> <span>Restart</span>
+						</button>
+					</div>
+					
+					<div class="container" ng-show="articuGivePQuestions" ng-cloak>
+						<div class="form-check form-check-inline">
+							<div class="pref-selector"
+								ng-repeat="chosen in articuGiveQEdp">
+								<label class="pref-card"> <input
+									ng-click="nextStep(9, list, givingQuestions.type, givingQuestions.parent, chosen.key)"
+									type="radio" name="chosen.type" ng-model="list.selected"
+									value="{{chosen.key}}"> <img src="{{chosen.image_url}}" />
+								</label>
+							</div>
+						</div>
+
+						<button class="left-arrow-container btn" ng-click="prevStep(9, list, givingQuestions.type, givingQuestions.parent)">
+							<img src="assets/resource/img/arrow-back.svg" /> <span>back</span>
+						</button>
+
+						<button class="restart-arrow-container btn" ng-click="restartExp()">
+							<img src="assets/resource/img/arrow-restart.svg" /> <span>Restart</span>
+						</button>
+					</div>
+					
+					<div ng-show="articuGiveMindsetQuestions" ng-cloak>
+						<div class="container" ng-show="showArticuGiveMindsetStep1" ng-cloak>
+							<div class="form-check form-check-inline">
+								<div class="pref-selector"
+									ng-repeat="chosen in articuGiveMindQOne">
+									<label class="pref-card"> <input
+										ng-click="nextStep(10, list, givingQuestions.mindset[0].questions[0].type, givingQuestions.parent, chosen.type)"
+										type="radio" name="{{chosen.type}}" ng-model="list.selected"
+										value="{{chosen.key}}"> <img src="{{chosen.image_url}}" />
+									</label>
+								</div>
+							</div>
+						
+							<button class="left-arrow-container btn" ng-click="prevStep(10, list, givingQuestions.mindset[0].questions[0].type, givingQuestions.parent)">
+								<img src="assets/resource/img/arrow-back.svg" /> <span>back</span>
+							</button>
+
+							<button class="restart-arrow-container btn" ng-click="restartExp()">
+								<img src="assets/resource/img/arrow-restart.svg" /> <span>Restart</span>
+							</button>
+						</div>
+						
+						<div class="container" ng-show="showArticuGiveMindsetStep2" ng-cloak>
+							<div class="form-check form-check-inline">
+								<div class="pref-selector"
+									ng-repeat="chosen in articuGiveMindQTwo">
+									<label class="pref-card"> <input
+										ng-click="nextStep(11, list, givingQuestions.mindset[0].questions[0].type, givingQuestions.parent, chosen.type)"
+										type="radio" name="{{chosen.type}}" ng-model="list.selected"
+										value="{{chosen.key}}"> 
+										<video loop autoplay muted width="100%">
+											<source src="{{chosen.image_url}}" type="video/mp4"></source>
+										</video>
+									</label>
+								</div>
+							</div>
+						
+							<button class="left-arrow-container btn" ng-click="prevStep(11, list, givingQuestions.mindset[0].questions[0].type, givingQuestions.parent)">
+								<img src="assets/resource/img/arrow-back.svg" /> <span>back</span>
+							</button>
+
+							<button class="restart-arrow-container btn" ng-click="restartExp()">
+								<img src="assets/resource/img/arrow-restart.svg" /> <span>Restart</span>
+							</button>
+						</div>
+						
+						<div class="container" ng-show="showArticuGiveMindsetStep3" ng-cloak>
+							<div class="form-check form-check-inline">
+								<div class="pref-selector"
+									ng-repeat="chosen in articuGiveMindQThree">
+									<label class="pref-card"> <input
+										ng-click="nextStep(12, list, givingQuestions.mindset[0].questions[0].type, givingQuestions.parent, chosen.type)"
+										type="radio" name="{{chosen.type}}" ng-model="list.selected"
+										value="{{chosen.key}}"> <img src="{{chosen.image_url}}" />
+									</label>
+								</div>
+							</div>
+						
+							<button class="left-arrow-container btn" ng-click="prevStep(12, list, givingQuestions.mindset[0].questions[0].type, givingQuestions.parent)">
+								<img src="assets/resource/img/arrow-back.svg" /> <span>back</span>
+							</button>
+
+							<button class="restart-arrow-container btn" ng-click="restartExp()">
+								<img src="assets/resource/img/arrow-restart.svg" /> <span>Restart</span>
+							</button>
+						</div>
+						
+						<div class="container" ng-show="showArticuGiveMindsetStep4" ng-cloak>
+							<div class="form-check form-check-inline">
+								<div class="pref-selector"
+									ng-repeat="chosen in articuGiveMindQFour">
+									<label class="pref-card"> <input
+										ng-click="nextStep(13, list, givingQuestions.mindset[0].questions[0].type, givingQuestions.parent, chosen.type)"
+										type="radio" name="{{chosen.type}}" ng-model="list.selected"
+										value="{{chosen.key}}"> 
+										 <img src="{{chosen.image_url}}" />
+									</label>
+								</div>
+							</div>
+						
+							<button class="left-arrow-container btn" ng-click="prevStep(13, list, givingQuestions.mindset[0].questions[0].type, givingQuestions.parent)">
+								<img src="assets/resource/img/arrow-back.svg" /> <span>back</span>
+							</button>
+
+							<button class="restart-arrow-container btn" ng-click="restartExp()">
+								<img src="assets/resource/img/arrow-restart.svg" /> <span>Restart</span>
+							</button>
+						</div>
+					</div>
+					
+					
+				</div>
+
+			</div>
+
+			<div ng-show="showFunc" ng-cloak>
+				<div class="type-container" ng-repeat="funcQuestions in function[0].questions" ng-show="functionQuestions" ng-cloak>
+					<h2>{{funcQuestions.title}}</h2>
+
+					<div class="container" ng-show="showFuncStep1" ng-cloak>
+						<div class="form-check form-check-inline">
+							<div class="pref-selector"
+								ng-repeat="chosen in funcQOne">
+								<label class="pref-card"> <input
+									ng-click="nextStep(1, list, funcQuestions.type, null, chosen.type)"
+									type="radio" name="{{chosen.type}}" ng-model="list.selected"
+									ng-value="{{chosen.key}}"> <img src="{{chosen.image_url}}" />
+								</label>
+							</div>
+						</div>
+
+						<button class="left-arrow-container btn" ng-click="prevStep(1, list, funcQuestions.type)">
+							<img src="assets/resource/img/arrow-back.svg" /> <span>back</span>
+						</button>
+
+						<button class="restart-arrow-container btn" ng-click="restartExp()">
+								<img src="assets/resource/img/arrow-restart.svg" /> <span>Restart</span>
+							</button>
+					</div>
+
+					<div class="container" ng-show="showFuncStep2" ng-cloak>
+						<div class="form-check form-check-inline">
+							<div class="pref-selector"
+								ng-repeat="chosen in funcQTwo">
+								<label class="pref-card"> <input
+									ng-click="nextStep(2, list, funcQuestions.type, null, chosen.type)"
+									type="radio" name="{{chosen.type}}" ng-model="list.selected"
+									value="{{chosen.key}}"> <img src="{{chosen.image_url}}" />
+								</label>
+							</div>
+						</div>
+
+						<button class="left-arrow-container btn" ng-click="prevStep(2, list, funcQuestions.type)">
+							<img src="assets/resource/img/arrow-back.svg" /> <span>back</span>
+						</button>
+
+						<button class="restart-arrow-container btn" ng-click="restartExp()">
+								<img src="assets/resource/img/arrow-restart.svg" /> <span>Restart</span>
+							</button>
+
+					</div>
+
+					<div class="container" ng-show="showFuncStep3" ng-cloak>
+						<div class="form-check form-check-inline">
+							<div class="pref-selector"
+								ng-repeat="chosen in funcQThree">
+								<label class="pref-card"> <input
+									ng-click="nextStep(3, list, funcQuestions.type, null, chosen.type)"
+									type="radio" name="{{chosen.type}}" ng-model="list.selected"
+									value="{{chosen.key}}"> <img src="{{chosen.image_url}}" />
+								</label>
+							</div>
+						</div>
+
+						<button class="left-arrow-container btn" ng-click="prevStep(3, list, funcQuestions.type)">
+							<img src="assets/resource/img/arrow-back.svg" /> <span>back</span>
+						</button>
+
+						<button class="restart-arrow-container btn" ng-click="restartExp()">
+								<img src="assets/resource/img/arrow-restart.svg" /> <span>Restart</span>
+							</button>
+
+					</div>
+
+					<div class="container" ng-show="showFuncStep4" ng-cloak>
+						<div class="form-check form-check-inline">
+							<div class="pref-selector"
+								ng-repeat="chosen in funcQFour">
+								<label class="pref-card"> <input
+									ng-click="nextStep(4, list, funcQuestions.type, null, chosen.type)"
+									type="radio" name="{{chosen.type}}" ng-model="list.selected"
+									value="{{chosen.key}}"> <img src="{{chosen.image_url}}" />
+								</label>
+							</div>
+						</div>
+
+						<button class="left-arrow-container" ng-click="prevStep(4, list, funcQuestions.type)">
+							<img src="assets/resource/img/arrow-back.svg" /> <span>back</span>
+						</button>
+
+						<button class="restart-arrow-container btn" ng-click="restartExp()">
+								<img src="assets/resource/img/arrow-restart.svg" /> <span>Restart</span>
+							</button>
+					</div>
+
+				</div>
+
+				<div class="type-container" ng-repeat="balancedQuestions in function[0].selection.balanced[0].questions" ng-show="funcBalancedQuestions" ng-cloak>
+
+					
+					<h2>{{balancedQuestions.mindset[0].questions[0].title}}</h2>
+
+					
+					<div ng-show="funcBalMindsetQuestions" ng-cloak>
+						<div class="container" ng-show="showFuncBalMindsetStep1" ng-cloak>
+							<div class="form-check form-check-inline">
+								<div class="pref-selector"
+									ng-repeat="chosen in balancedQuestions.mindset[0].questions[0].question_one">
+									<label class="pref-card"> <input
+										ng-click="nextStep(10, list, balancedQuestions.mindset[0].questions[0].type, balancedQuestions.parent, chosen.type)"
+										type="radio" name="{{chosen.type}}" ng-model="list.selected"
+										value="{{chosen.key}}"> <img src="{{chosen.image_url}}" />
+									</label>
+								</div>
+							</div>
+						
+							<button class="left-arrow-container btn" ng-click="prevStep(10, list, balancedQuestions.mindset[0].questions[0].type, balancedQuestions.parent)">
+								<img src="assets/resource/img/arrow-back.svg" /> <span>back</span>
+							</button>
+
+							<button class="restart-arrow-container btn" ng-click="restartExp()">
+								<img src="assets/resource/img/arrow-restart.svg" /> <span>Restart</span>
+							</button>
+
+						</div>
+						
+						<div class="container" ng-show="showFuncBalMindsetStep2" ng-cloak>
+							<div class="form-check form-check-inline">
+								<div class="pref-selector"
+									ng-repeat="chosen in balancedQuestions.mindset[0].questions[0].question_two">
+									<label class="pref-card"> <input
+										ng-click="nextStep(11, list, balancedQuestions.mindset[0].questions[0].type, balancedQuestions.parent, chosen.type)"
+										type="radio" name="{{chosen.type}}" ng-model="list.selected"
+										value="{{chosen.key}}"> 
+										<video loop autoplay muted width="100%">
+											<source src="{{chosen.image_url}}" type="video/mp4"></source>
+										</video>
+									</label>
+								</div>
+							</div>
+						
+							<button class="left-arrow-container btn" ng-click="prevStep(11, list, balancedQuestions.mindset[0].questions[0].type, balancedQuestions.parent)">
+								<img src="assets/resource/img/arrow-back.svg" /> <span>back</span>
+							</button>
+
+							<button class="restart-arrow-container btn" ng-click="restartExp()">
+								<img src="assets/resource/img/arrow-restart.svg" /> <span>Restart</span>
+							</button>
+						</div>
+						
+						<div class="container" ng-show="showFuncBalMindsetStep3" ng-cloak>
+							<div class="form-check form-check-inline">
+								<div class="pref-selector"
+									ng-repeat="chosen in balancedQuestions.mindset[0].questions[0].question_three">
+									<label class="pref-card"> <input
+										ng-click="nextStep(12, list, balancedQuestions.mindset[0].questions[0].type, balancedQuestions.parent, chosen.type)"
+										type="radio" name="{{chosen.type}}" ng-model="list.selected"
+										value="{{chosen.key}}"> <img src="{{chosen.image_url}}" />
+									</label>
+								</div>
+							</div>
+						
+							<button class="left-arrow-container btn" ng-click="prevStep(12, list, balancedQuestions.mindset[0].questions[0].type, balancedQuestions.parent)">
+								<img src="assets/resource/img/arrow-back.svg" /> <span>back</span>
+							</button>
+
+							<button class="restart-arrow-container btn" ng-click="restartExp()">
+								<img src="assets/resource/img/arrow-restart.svg" /> <span>Restart</span>
+							</button>
+						</div>
+						
+						<div class="container" ng-show="showFuncBalMindsetStep4" ng-cloak>
+							<div class="form-check form-check-inline">
+								<div class="pref-selector"
+									ng-repeat="chosen in balancedQuestions.mindset[0].questions[0].question_four">
+									<label class="pref-card"> <input
+										ng-click="nextStep(13, list, balancedQuestions.mindset[0].questions[0].type, balancedQuestions.parent, chosen.type)"
+										type="radio" name="{{chosen.type}}" ng-model="list.selected"
+										value="{{chosen.key}}"> 
+										<img src="{{chosen.image_url}}" />
+									</label>
+								</div>
+							</div>
+						
+							<button class="left-arrow-container btn" ng-click="prevStep(13, list, balancedQuestions.mindset[0].questions[0].type, balancedQuestions.parent)">
+								<img src="assets/resource/img/arrow-back.svg" /> <span>back</span>
+							</button>
+
+							<button class="restart-arrow-container btn" ng-click="restartExp()">
+								<img src="assets/resource/img/arrow-restart.svg" /> <span>Restart</span>
+							</button>
+						</div>
+					</div>
+					
+					
+				</div>
+
+				<div class="type-container" ng-repeat="givingQuestions in function[0].selection.giving[0].questions" ng-show="funcGivingQuestions" ng-cloak>
+
+					<h2 ng-show="funcGiveMainTitle">{{givingQuestions.title}}</h2>
+					<h2 ng-show="funcGiveMindsetTitle">{{givingQuestions.mindset[0].questions[0].title}}</h2>
+
+					<div class="container" ng-show="funcGiveQuestions" ng-cloak>
+						<div class="form-check form-check-inline">
+							<div class="pref-selector"
+								ng-repeat="chosen in funcGiveQ">
+								<label class="pref-card"> <input
+									ng-click="nextStep(6, list, givingQuestions.type, givingQuestions.parent)"
+									type="radio" name="chosen.type" ng-model="list.selected"
+									value="{{chosen.key}}"> <img
+									src="{{chosen.image_url}}">
+								</label>
+							</div>
+						</div>
+
+						<button class="left-arrow-container btn" ng-click="prevStep(6, list, givingQuestions.type, givingQuestions.parent)">
+							<img src="assets/resource/img/arrow-back.svg" /> <span>back</span>
+						</button>
+
+						<button class="restart-arrow-container btn" ng-click="restartExp()">
+								<img src="assets/resource/img/arrow-restart.svg" /> <span>Restart</span>
+							</button>
+					</div>
+					
+					<div class="container" ng-show="funcGiveTQuestions" ng-cloak>
+						<div class="form-check form-check-inline">
+							<div class="pref-selector"
+								ng-repeat="chosen in funcGiveQEdt">
+								<label class="pref-card"> <input
+									ng-click="nextStep(9, list, givingQuestions.type, givingQuestions.parent, chosen.key)"
+									type="radio" name="chosen.type" ng-model="list.selected"
+									value="{{chosen.key}}"> <img
+									src="{{chosen.image_url}}">
+								</label>
+							</div>
+						</div>
+
+						<button class="left-arrow-container btn" ng-click="prevStep(9, list, givingQuestions.type, givingQuestions.parent)">
+							<img src="assets/resource/img/arrow-back.svg" /> <span>back</span>
+						</button>
+
+						<button class="restart-arrow-container btn" ng-click="restartExp()">
+								<img src="assets/resource/img/arrow-restart.svg" /> <span>Restart</span>
+							</button>
+					</div>
+					
+					<div class="container" ng-show="funcGivePQuestions" ng-cloak>
+						<div class="form-check form-check-inline">
+							<div class="pref-selector"
+								ng-repeat="chosen in funcGiveQEdp">
+								<label class="pref-card"> <input
+									ng-click="nextStep(9, list, givingQuestions.type, givingQuestions.parent, chosen.key)"
+									type="radio" name="chosen.type" ng-model="list.selected"
+									value="{{chosen.key}}"> <img
+									src="{{chosen.image_url}}">
+								</label>
+							</div>
+						</div>
+
+						<button class="left-arrow-container btn" ng-click="prevStep(9, list, givingQuestions.type, givingQuestions.parent)">
+							<img src="assets/resource/img/arrow-back.svg" /> <span>back</span>
+						</button>
+
+						<button class="restart-arrow-container btn" ng-click="restartExp()">
+								<img src="assets/resource/img/arrow-restart.svg" /> <span>Restart</span>
+							</button>
+					</div>
+					
+					<div ng-show="funcGiveMindsetQuestions" ng-cloak>
+						<div class="container" ng-show="showFuncGiveMindsetStep1" ng-cloak>
+							<div class="form-check form-check-inline">
+								<div class="pref-selector"
+									ng-repeat="chosen in funcGiveMindQOne">
+									<label class="pref-card"> <input
+										ng-click="nextStep(10, list, givingQuestions.mindset[0].questions[0].type, givingQuestions.parent, chosen.type)"
+										type="radio" name="{{chosen.type}}" ng-model="list.selected"
+										value="{{chosen.key}}"> <img src="{{chosen.image_url}}" />
+									</label>
+								</div>
+							</div>
+						
+							<button class="left-arrow-container btn" ng-click="prevStep(10, list, givingQuestions.mindset[0].questions[0].type, givingQuestions.parent)">
+								<img src="assets/resource/img/arrow-back.svg" /> <span>back</span>
+							</button>
+
+							<button class="restart-arrow-container btn" ng-click="restartExp()">
+								<img src="assets/resource/img/arrow-restart.svg" /> <span>Restart</span>
+							</button>
+						</div>
+						
+						<div class="container" ng-show="showFuncGiveMindsetStep2" ng-cloak>
+							<div class="form-check form-check-inline">
+								<div class="pref-selector"
+									ng-repeat="chosen in funcGiveMindQTwo">
+									<label class="pref-card"> <input
+										ng-click="nextStep(11, list, givingQuestions.mindset[0].questions[0].type, givingQuestions.parent, chosen.type)"
+										type="radio" name="{{chosen.type}}" ng-model="list.selected"
+										value="{{chosen.key}}"> 
+										<video loop autoplay muted width="100%">
+											<source src="{{chosen.image_url}}" type="video/mp4"></source>
+										</video>
+									</label>
+								</div>
+							</div>
+						
+							<button class="left-arrow-container btn" ng-click="prevStep(11, list, givingQuestions.mindset[0].questions[0].type, givingQuestions.parent)">
+								<img src="assets/resource/img/arrow-back.svg" /> <span>back</span>
+							</button>
+
+							<button class="restart-arrow-container btn" ng-click="restartExp()">
+								<img src="assets/resource/img/arrow-restart.svg" /> <span>Restart</span>
+							</button>
+						</div>
+						
+						<div class="container" ng-show="showFuncGiveMindsetStep3" ng-cloak>
+							<div class="form-check form-check-inline">
+								<div class="pref-selector"
+									ng-repeat="chosen in funcGiveMindQThree">
+									<label class="pref-card"> <input
+										ng-click="nextStep(12, list, givingQuestions.mindset[0].questions[0].type, givingQuestions.parent, chosen.type)"
+										type="radio" name="{{chosen.type}}" ng-model="list.selected"
+										value="{{chosen.key}}"> 
+                    <img src="{{chosen.image_url}}" />
+                    {{chosen.image_url}}
+									</label>
+								</div>
+							</div>
+						
+							<button class="left-arrow-container btn" ng-click="prevStep(12, list, givingQuestions.mindset[0].questions[0].type, givingQuestions.parent)">
+								<img src="assets/resource/img/arrow-back.svg" /> <span>back</span>
+							</button>
+
+							<button class="restart-arrow-container btn" ng-click="restartExp()">
+								<img src="assets/resource/img/arrow-restart.svg" /> <span>Restart</span>
+							</button>
+						</div>
+						
+						<div class="container" ng-show="showFuncGiveMindsetStep4" ng-cloak>
+							<div class="form-check form-check-inline">
+								<div class="pref-selector"
+									ng-repeat="chosen in funcGiveMindQFour">
+									<label class="pref-card"> <input
+										ng-click="nextStep(13, list, givingQuestions.mindset[0].questions[0].type, givingQuestions.parent, chosen.type)"
+										type="radio" name="{{chosen.type}}" ng-model="list.selected"
+										value="{{chosen.key}}"> 
+										<img src="{{chosen.image_url}}" />
+									</label>
+								</div>
+							</div>
+						
+							<button class="left-arrow-container btn" ng-click="prevStep(13, list, givingQuestions.mindset[0].questions[0].type, givingQuestions.parent)">
+								<img src="assets/resource/img/arrow-back.svg" /> <span>back</span>
+							</button>
+
+							<button class="restart-arrow-container btn" ng-click="restartExp()">
+								<img src="assets/resource/img/arrow-restart.svg" /> <span>Restart</span>
+							</button>
+						</div>
+					</div>
+					
+					
+				</div>
+
+
+
+
+			</div>
+
+
+			<div ng-show="loadResults" class="load-container" ng-cloak>
+
+				<h3>We're finding your<br />perfect match...</h3>
+				<img src={{gifUrl}}/>
+				<h6>In the next step, you'll be able to choose two samples from three matches, delivered to your door.</h6>
+			</div>
+
+			<div ng-show="showResults" class="results-container" ng-cloak>
+				<div ng-show="primaryResults" class="container primary">
+					<h3>You are a</h3>
+					<h1 >{{profileType}}</h1> 
+					<h3>{{profileSecType}}</h3>
+					<h6 ng-bind-html="profileDesc"></h6> 
+					<h6 ng-bind-html="profileDescTwo"></h6> 
+
+					<button ng-click="showFinalResults()" type="button" class="btn btn-outline-primary">Reveal my fragrance</button>
+				</div>
+
+				<div ng-show="secondaryResults" class="container secondary" ng-cloak>
+					
+					<div class="row primary-product">
+						<div class="col-md-6 img-fragrance"> 
+							<img ng-src="{{profileImgUrl}}" />
+
+							<div class="product-checkbox">
+								<input 
+								  id="one-prod" 
+								  type="checkbox" 
+								  ng-model="primary.checked" 
+								  ng-change="primaryCheckbox(primary)" 
+								  ng-show="primaryProductCB"
+								  >
+								<label for="one-prod" class="checker" ng-show="primaryProductCB"></label>
+								<span ng-show="priProdCB">Add a 1.5ml sample to basket*</span>
+								<span ng-show="priProdSelected" class="selected">sample selected</span>
+								<span ng-show="priProdNotAvailable" class="not-available">Two samples reached. Please remove one to select.</span>
+							</div>
+
+							<p>*The &pound;5 cost of your two samples is redeemable against<br />the purchase of a full-sized perfume. <a href="" target="_blank">T&amp;Cs apply.</a></p>
+						</div>
+	
+						<div class="col-md-6 copy-fragrance">
+							<h3>Your perfect match is</h3>
+							<h1 ng-bind-html="fragranceName"></h1> 
+							<h6 ng-bind-html="fragranceCopy"></h6>
+							<h6 ng-bind-html="identityCopy" class="identity-copy"> </h6>
+				  		<p>*The &pound;5 cost of your two samples is redeemable against<br />the purchase of a full-sized perfume. <a href="" target="_blank">T&amp;Cs apply.</a></p>
+						</div>
+					</div>
+
+					<div class="row secondary-product">
+						<div class="col-md-12 youmight">
+							<h3>You might also like</h3>
+						</div>
+
+						<div class="col-md-6" ng-repeat="secondary in secondaryProfile"> 							
+							<img ng-src="{{secondary.imgUrl}}">
+							<h4 ng-bind-html="secondary.name"></h4>
+							<h6 ng-bind-html="secondary.copy"></h6>					
+							<div class="product-checkbox">
+								<input
+								  id="two-prod-{{$index}}" 
+								  ng-show="secondaryProductCB{{$index}}" 
+								  type="checkbox" 
+								  ng-model="secondary.checked" 
+								  ng-change="secondaryCheckbox(secondary)">
+								<label 
+								  for="two-prod-{{$index}}" 
+								  ng-show="secondaryProductCB{{$index}}"
+								  class="checker"
+								  ></label>
+								<span ng-show="secProdCB{{$index}}">Add a 1.5ml sample to basket*</span>
+								<span ng-show="secProdSelected{{$index}}" class="selected">sample selected</span>
+								<span ng-show="secProdNotAvailable{{$index}}" class="not-available">Two samples reached. Please remove one to select.</span>
+							</div>
+						</div>
+						<div class="col-md-12">
+							<button class="checkout btn" 
+							ng-disabled="checkoutProducts" 
+							ng-click="">
+								<span>Checkout</span>
+							</button>
+						</div> 
+						<div class="col-md-12 map">
+							<img src="assets/resource/img/dropPin.png" />
+							<span>Prefer to try in-store? <a href="" target="_blank">Find your nearest store.</a></span>
+						</div>
+						<div class="contact-us">
+							<div class="input-group">
+								<span class="700-upper-text">Email my results</span>				
+								<input type="email" name="emailInput" novalidate class="form-control" placeholder="Email address*" ng-model="email" required>
+								<div class="email-checkboxes">
+									<div class="email-checkbox">
+										<input id="email-cb-1" type="checkbox" ng-model="comms.checked">
+										<label for="email-cb-1" class="checker"></label>
+										<span>I would like to receive communications from Molton Brown.</span>
+									</div>
+									<div class="email-checkbox">
+										<input id="email-cb-2" type="checkbox" ng-model="tcs.checked" ng-change="tcs(tcs)" required>
+										<label for="email-cb-2" class="checker"></label>
+										<span>I accept the <a href="#" target="_blank">Terms & Conditions and Privacy & Cookie Policy.</a>*</span>
+									</div>
+								</div>
+
+								<button id="email-submit" class="btn" type="button" ng-disabled="gdprCheck" ng-click="submitEmail()">
+									<span>Send</span>
+								</button>
+								<p>We always treat your personal details with the upmost care and never sell them the other companies. You can unsubscribe at any time.</p>
+							</div>
+
+						</div>
+						<div class="col-md-12 restart-xp">
+							<span class="restart-link" ng-click="restartExp()">restart the experience</span>
+						</div>
+					</div>
+				</div>
+      </div>
+    	</div>
+		</form>
+	</div> -->
+	<div>Heloo worl</div>

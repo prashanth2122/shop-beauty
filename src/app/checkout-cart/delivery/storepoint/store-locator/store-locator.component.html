@@ -1,0 +1,55 @@
+
+<div  class="clickCollect-Map-view">
+  <div id="map"></div>
+  <!-- <agm-map
+      *ngIf="geoPoint"
+      [latitude]="latitude" 
+      [longitude]="longitude"
+      [scrollwheel]="true"
+      [zoom]="zoom"
+      [fullscreenControl]='true'
+      [mapTypeControl]='true'
+      [scrollwheel]="false"
+      >
+      <agm-marker     
+      *ngFor="let data of stores;let k=index;" 
+      [latitude]="data.geoPoint.latitude"
+      [longitude]="data.geoPoint.longitude" 
+      [iconUrl]="data['iconUrl']"
+      clickableIcons="true"
+      (markerClick)="openWindow(k)"
+       style="width:24px;"  
+      >
+   
+      <agm-info-window
+      [isOpen]="data.open"
+       [disableAutoPan]="false">
+              <div class="mb-map-window-view">
+                <button 
+                    type="button" 
+                    class="close btn-close"
+                    (click)="closePopup()" 
+                    aria-label="Close">
+                  <span aria-hidden="true">X</span></button>
+                  <h4>LOCATION DETAILS</h4>
+                  <div class="cc-store-address">
+                    <h5>{{data.name}}</h5>
+                    <p>{{data.address.line1}},{{data.address.line2}}</p>
+                    <p class="ccprice">{{data.formattedDistance}}</p>
+                    <p><b>FREE</b></p>
+                    <p *ngIf="data.collectionTime">{{data.collectionTime}}</p>
+                    <ul class="store-timings">
+                      <li *ngFor="let item of data.kaoOpeningHoursList">
+                        <span class="day">{{item.day}}</span>
+                        <span class="rightTime">{{item.openingTime}}</span>
+                      </li>  
+                    </ul>
+                  </div>
+                  <div class="cc-store-choose">
+                    <button type="button" (click)="onSelectStore($event,data)"  class="btn btn-default btnChooseStore">SELECT</button>
+                  </div>
+                </div>
+                </agm-info-window>
+      </agm-marker>
+  </agm-map> -->
+</div>

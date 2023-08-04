@@ -1,0 +1,923 @@
+
+{
+  "titleBar":"Molton Brown\u00AE DE | Luxuriöse Geschenke | Offizieller Online-Shop",
+  "form":{
+    "label":{
+      "state":"Land/Staat/Region",
+      "loading":"laden..."
+        }
+  },
+  "changeCountry":"LAND ÄNDERN",
+  "NEWSLETTER" : "NEWSLETTER",
+  "FINDASTORE":"WO SIE UNS FINDEN",
+  "quickView":"Schnellansicht",
+ "yourBasketEmpty": "Ihr Warenkorb ... ist leer.",
+ "startShopping":"EINKAUF BEGINNEN",
+ "yourShoppingBasket" : "Ihr Warenkorb",
+ "continueShopping":"WEITER EINKAUFEN",
+ "secureCheckout":"SICHER BEZAHLEN",
+"basketBC":"WARENKORB",
+"sampleAndGiftBox" :"Proben",
+"sampleGiftMsg":"Vielen Dank für Ihren Einkauf. Bitte wählen Sie eine KOSTENLOSE Probe.",
+"add":"Hinzufügen",
+"checkout": "ZUR KASSE",
+"remove":"Entfernen",
+"product":"PRODUKT",
+"qty":"MENGE",
+ "price":"PREIS",
+ "total":"SUMME",
+ "enterPromoCode":"Aktionscode eingeben",
+"apply": "ÜBERNEHMEN",
+"subTotal":"Zwischensumme",
+"securityGauranteed":"SICHERHEIT GARANTIERT",
+"wouldLikeFreeGiftBox":"Möchten Sie auch eine KOSTENLOSE Geschenkbox und eine Geschenkbotschaft?",
+"yesIWouldLGiftBox":"Ja, ich hätte gerne eine kostenlose Geschenkbox.",
+"yesAlreadyGiftBoxed":"Your products are already gift boxed.",
+"YIWouldPGiftMsg":"Ich würde gerne eine Botschaft mit dem Geschenk überbringen.",
+"requiredInfo" :"Pflichtfelder",
+"signOrContinueAsGuest": "Anmelden oder als Gast fortfahren",
+"whtYrsEmailAdd":  "Wie lautet Ihre E-Mail-Adresse?",
+"weWillSndUOrdConfToThisAdd":"(Wir schicken Ihre Bestellbestätigung an diese Adresse)",
+"doYouHaveAnAccount":"Haben Sie ein Konto?",
+"noYouCanSaveYourDetailsLater":"Nein (Sie können die Angaben zu einem späteren Zeitpunkt speichern)",
+"yesMyPwdIs":"Ja, mein Passwort lautet:",
+"IHaveForgotPassword":"Ich habe mein Passwort vergessen",
+"continue":"Weiter",
+"needHelp":"Benötigen Sie Hilfe?",
+"telephoneCustomer":"Kundenservice@moltonbrown.de ",
+
+"quickViewData":{
+  "productCode":"Artikelnummer:",
+  "size":"Inhalt:",
+  "quantity":"Menge:",
+  "fullDetails":"Alle Details",
+  "shareThis":"TEILEN",
+  "outOfStk":"Ausverkauft",
+  "dlInstruction":"Klicken Sie hier für umfassende Informationen zu Liefergebieten und Dienstleistungen"
+},
+
+
+"login":{
+  "emailInputFocus":"Wie lautet Ihre E-Mail-Adresse?",
+  "invalidEmailAddress":"Diese E-Mail-Adresse ist nicht korrekt. Bitte prüfen Sie das Format myemail@myaddress.com",
+  "passwordInputFocus":"Wie lautet Ihr Passwort?",
+  "invalidPassword":"Das Passwort muss zwischen 6 und 20 Zeichen lang sein.",
+  "pswdContextual":"Das Passwort muss zwischen 6 und 20 Zeichen lang sein.",
+  "defaultShippingAdd":"Your default delivery/shipping address will be automatically added during checkout to make placing your next order quicker.",
+  "":"We will only contact you about your order.",
+  "updatePaymentDetails":"We will only contact you about your order."
+},
+
+
+"sidenavig":{
+"myAccount":"MEIN KONTO",
+"myProfile":"Mein Profil",
+"addressBook":"Adressbuch",
+"paymentDetails":"Zahlungsinformationen",
+"favourites":"Favoriten",
+"orderHistory":"Bestellhistorie",
+"logOut":"AUSLOGGEN"
+},
+
+"menu":{
+  "findAStore":"WO SIE UNS FINDEN",
+  "changeCountry":"LAND ÄNDERN",
+  "home":"Startseite",
+  "myAccount":"MEIN KONTO",
+  "signIn":"ANMELDEN",
+  "register":"REGISTRIEREN",
+  "logOut":"AUSLOGGEN",
+  "newsLetter":" NEWSLETTER",
+  "cancel":"stornieren",
+  "confirm":"bestätigen",
+  "update":"Aktualisieren ",
+  "close":"SCHLIESSEN",
+  "addToFav":"Zu den Favoriten hinzufügen",
+  "pleaseSelect":"Bitte auswählen",
+  "allStores":"Alle Geschäfte",
+  "mobileSearch":"Ich suche..."
+  },
+
+
+"myacc":{
+  "login/Register":"Anmelden/Registrieren",
+  "returningCustomers":"Wiederkehrende Kunden",
+  "requiredField":"Pflichtfeld",
+  "emailAddress":"E-Mail-Adresse",
+  "password":"Passwort",
+  "forgottenYourPassword":"Haben Sie Ihr Passwort vergessen?",
+  "login":"Anmelden",
+
+  "newCustomer":"Neuer Kunde",
+  "theBenefitsOfRegistering":"Die Vorteile der Registrierung",
+  "byRegisteringYourDetails":"Wenn Sie sich als Kunde registrieren und ein Konto erstellen, können Sie:",
+  "checkOrderHistoryStatus":"Ihre Bestellhistorie und den Status Ihrer Bestellungen aufrufen.",
+  "storeAndManageMultipleDeliveryAddresses":"mehrere Lieferadressen speichern und verwalten.",
+  "updateYourPersonalProfileAndPreferences":"Ihr persönliches Profil und Ihre persönlichen Einstellungen speichern.",
+  "enjoyASpeedierCheckout":"schneller an der Kasse zahlen.",
+  "register":"Registrieren",
+  "passError":"Das neue Passwort muss sich von dem alten Passwort unterscheiden.",
+  "passwordChanged":"Ihr Passwort wurde geändert"
+   },
+
+   "forgotPassword":{
+		"forgotpassword":"Haben Sie Ihr Passwort vergessen?",
+		"enterEmailAddress":"Bitte geben Sie Ihre E-Mail-Adresse ein. Wir schicken Ihnen eine E-Mail mit Ihren Zugangsdaten.",
+		"emailAddress":"E-Mail-Adresse",
+		"continueShopping":"Weiter einkaufen",
+    "submit":"Abschicken",
+    "passwordSent":"Ihr Passwort ist jetzt verschickt worden. Bitte überprüfen Sie Ihren Posteingang.",
+    "noProfile":"Profil nicht gefunden"
+		},	
+
+
+
+  "newCustRegisForm":{
+    "newCustomerRegistrationForm":"Anmeldeformular für Neukunden",
+    "loginDetails":"Zugangsdaten", 
+    "requiredField":"Pflichtfeld",
+    "email":"E-Mail",
+    "overAge":"Über 60",
+    "verifyEmail":"E-Mail-Adresse bestätigen",
+    "password":"Passwort",
+    "chooseCountry":"Bitte auswählen",
+    "verifyPassword":"Passwort bestätigen",
+    "personalDetails":"Persönliche Daten",
+    "title":"Titel",
+    "pleaseSelect":"Bitte auswählen",
+    "firstName":"Vorname",
+    "lastName":"Nachname",
+    "country":"Land",
+    "postcodeZipcode":"Postleitzahl",
+    "address":"Adresse",
+    "townCity":"Stadt",
+    "phoneNumber":"Telefonnummer",
+    "ageGroup":"Altersgruppe",
+    "gender":"Geschlecht",
+    "female":"Weiblich",
+    "male":"Männlich",
+    "joinOurGuestList":"Treten Sie unserer Gästeliste bei",
+    "beTheFirstToHearAboutOurLatestProd":"Seien Sie der Erste, der von unseren neuesten Produkteinführungen, limitierten Kollektionen, privaten Verkäufen und exklusiven Event-Einladungen erfährt. Alles direkt zu Ihrem Posteingang, Tür oder Telefon.",
+    "weAlwaysTreatYourPersonalDetails":"Wir behandeln Ihre persönlichen Daten stets mit größter Sorgfalt und verkaufen sie niemals an andere Unternehmen. Sie können sich jederzeit abmelden.",
+    "iWouldLikeTo":"Ich möchte Mitteilungen von Molton Brown erhalten.",
+    "termsConditions":"Terms & Bedingungen",
+    "accept":"Ich akzeptiere das ",
+    "termsCond":"AGBs",
+    "and":"(inkl. der Widerrufsbelehrung) und die",
+    "cookiePolicy":"Cookie-Richtlinie gelesen und bin mit diesen einverstanden.",
+    "submit":"Einreichen"
+    },
+
+   "myProfile":{
+    "myProfile":"Mein Profil",
+    "reviewYourInformation":"Prüfen Sie Ihre Eingaben. Um Eingaben zu aktualisieren, klicken Sie unten auf Profil bearbeiten.",
+    "myInformation":"Meine Daten",
+    "title":"Titel",
+    "firstName":"Vorname",
+    "lastName":"Nachname",
+    "emailAddress":"E-Mail-Adresse",
+    "ageGroup":"Altersgruppe",
+    "gender":"Geschlecht",
+    "address":"Adresse",
+    "townCity":"Stadt",
+    "country":"Land",
+    "postcodeZipcode":"Postleitzahl",
+    "phoneNumber":"Telefonnummer",
+    "editmyProfile":" Mein Profil bearbeiten ",
+    "afterChangesClickSave":" Wenn Sie die gewünschten Änderungen durchgeführt haben, klicken Sie auf Speichern. ",
+  
+    "changeMyPassword":"Passwort ändern",
+    "mustbet6and20char":"Das Passwort muss zwischen 6 und 20 Zeichen lang sein",
+    "recognisePwdError":"Dieses Passwort ist uns nicht bekannt. Bitte versuchen Sie es erneut.",
+    "requiredField":"Pflichtfeld",
+    "currentPassword":"Aktuelles Passwort",
+    "newPassword":"Neues Passwort",
+    "verifyPassword":"Passwort bestätigen",
+    "updatePasswrd":"Passwort aktualisieren",
+  
+    "expressCheckoutOptions":"Einstellungen zum Express Checkout",
+    "featureAllowsYouToProceedToCheckout":"Diese Option ermöglicht es, mit einem Klick zu bezahlen und Zeit zu sparen. Richten Sie Ihre Standardoptionen ein und verwenden Sie bei Ihrem nächsten Einkauf die Funktion Express Checkout.",
+    "defaultShippingMethod":"Standard-Versandmethode",
+    "defaultCard":"Standard-Kreditkarte",
+    "defaultShippingAddress":"Standard-Lieferadresse",
+    "edit":" Bearbeiten "
+  
+  },
+
+  "editMyProfile":{
+    "editMyProfile":"Profil bearbeiten",
+    "afterDesiredChangesClickSave":" Wenn Sie die gewünschten Änderungen durchgeführt haben, klicken Sie auf Speichern. ",
+    "title":"Titel",
+    "firstName":"Vorname",
+    "lastName":"Nachname",
+    "country":"Land",
+    "postcodeZipcode":"Postleitzahl",
+    "address":"Adresse",
+    "townCity":"Stadt",
+    "phoneNumber":"Telefonnummer",
+    "ageGroup":"Altersgruppe",
+    "pleaseSelect":"Bitte auswählen",
+    "gender":"Gender",
+    "female":"Weiblich",
+    "male":"Männlich",
+    "expressCheckoutOptions":"Einstellungen zum Express Checkout",
+    "defaultShippingMethod":"Standard-Versandmethode auswählen",
+    "selectDefaultShipping":"Select Default Shipping",
+    "from2businessdays ":" From 2 business days ",
+    "submit":"Einreichen"
+  },
+  "invalidcard":{
+    "errormsgblock":"Entschuldigen Sie bitte, bei der Bearbeitung Ihrer Bestellung ist ein Problem aufgetreten. Überprüfen Sie bitte Ihre Eingaben und versuchen Sie es dann erneut. Alternativ können Sie auch eine andere Zahlungsmethode verwenden.",
+    "emailandphone":"Falls Sie Fragen haben oder Hilfe benötigen, senden Sie bitte eine Email an",
+    "emailId":"Kundenservice@moltonbrown.de."
+  },
+
+  "addressBook":{
+    "addressBook":"Adressbuch",
+    "saveTimeSaveAddress":"Sparen Sie Zeit bei jeder Bestellung. Erstellen und verwalten Sie hier mehrere Adressen. Sie können Ihre Adressdaten jederzeit bearbeiten.",
+    "defaultShippingAddress":"Standard-Lieferadresse",
+    "edit":" Bearbeiten ",
+    "remove":"Entfernen",
+    "default":"Standard",
+    "addNewAddress":"Neue Adresse hinzufügen",
+    "title":"Titel",
+    "firstName":"Vorname",
+    "lastName":"Nachname",
+    "emailAdd":"E-Mail-Adresse*",
+    "country":"Land",
+    "postcodeZipcode":"Postleitzahl",
+    "address":"Adresse",
+    "townCity":"Stadt",
+    "phoneNumber":"Telefonnummer",
+    "clear":"Löschen",
+    "save":"Speichern",
+    "addNewAdd":"Neue Adresse hinzufügen",
+    "saveAdd":"ADRESSE SPEICHERN",
+    "cancel":"STORNIEREN",
+    "saveChanges":"SPEICHERN"
+  },
+  "breadcrumb":{
+    "home":"STARTSEITE"
+    
+    },
+  
+  "PaymentDetails":{
+    "PaymentDetails":"Zahlungsinformationen",
+    "card":"Karte",
+    "saveTimeSaveAddress":"Sparen Sie Zeit bei jeder Bestellung. Verwalten Sie hier Ihre Kreditkartendaten. Sie können die Angaben zu Ihren Zahlungsinformationen sowie die Rechnungsadresse jederzeit ändern.",
+    "mySavedCards":"Meine gespeicherten Karten",
+    "edit":" Bearbeiten ",
+    "remove":"Entfernen",
+    "makeDefaultCard":"Karte als Standard auswählen",
+    "paymentToolTip":"Ihre Zahlungsmethode wird während des Bezahlvorgangs automatisch übernommen, damit Sie Ihre nächste Bestellung noch schneller abwickeln können.",
+    "springCleanRemovedCardDetails":"Wir haben aufgeräumt und alle abgelaufenen und ungültigen Karteninformationen entfernt. Sorgen Sie sich also nicht um fehlende Informationen, denn diese wurden sicher gelöscht.",
+    "addNewCard":"Neue Karte hinzufügen",
+    "cardType":"Kartentyp",
+    "chooseCard":"Kartentyp auswählen",
+    "cardNumber":"Kartennummer",
+    "cardholderFirstName":"Vorname des Karteninhabers",
+    "cardholderLastName":"Nachname des Karteninhabers",
+    "startDate":"Start Date",
+    "selectMonth":"Monat",
+    "selectYear":"Jahr",
+    "expirationDate":"Ablaufdatum",
+    "expSelectMonth":"Monat*",
+    "expSelectYear":"Jahr*",
+    "chooseAddress":"Wählen Sie eine Adresse",
+    "enterNewBillingAdd":"Oder geben Sie eine neue Rechnungsadresse ein.",
+    "country":"Land",
+    "postcodeZip":"Postleitzahl",
+    "address":"Adresse",
+    "townCity":"Stadt",
+    "phoneNumber":"Telefonnummer",
+    "submit":"Abschicken"
+  },
+  
+  "favourites":{
+    "favourites":"Favoriten",
+    "favouritesNotYetAdded":"Um beim Einkauf Zeit zu sparen, fügen Sie einfach die Artikel, die Sie regelmäßig kaufen, Ihrer Favoritenliste hinzu. Sie können diese Artikel dem Warenkorb hinzufügen, ohne sie erneut suchen zu müssen.",
+    "myFavourites":"Meine Favoriten",
+    "addToBasket":"In den Warenkorb",
+    "removeThisProduct":"Dieses Produkt entfernen",
+    "goodChoiceFav":"Eine gute Wahl! Wir haben dieses Produkt zu Ihren hinzugefügt",
+    "addedToFav":"zu Favoriten hinzugefügt"
+  },
+  
+  "orderHistory":{
+    "orderHistory":"Bestellhistorie",
+    "viewOrderHistory":"Hier finden Sie alle aktuellen Informationen zu Ihren Bestellungen. Bitte beachten Sie, dass nur Bestellungen nach dem 21. September 2010 angezeigt werden. Wenn Sie eine Frage zu einer Bestellung vor diesem Datum haben, wenden Sie sich bitte an unseren Kundendienst.",
+    "myOrders":"Meine Bestellungen",
+    "noPreviousOrders":"Sie haben noch keine Bestellungen durchgeführt.",
+    "date":"Datum",
+    "orderNumber":"Bestellnummer",
+    "orderTotal":"Gesamtsumme",
+    "status":"Status",
+    "orderProcessing":"Bestellung wird bearbeitet",
+    "view":"View",
+    "continueShopping":" Weiter einkaufen "
+  },
+
+  "orderDetails":{
+    "orderDetails":"Bestelldetails",
+    "callCustomer":"Kundendienst kostenlos anrufen unter 08001013110",
+    "orderNumber":"Bestellnummer:",
+    "placedOn":"Aufgegeben am:",
+    "shipmentTrack":"Informationen zur Sendungsverfolgung",
+    "trackingNo":"Sendungsnummer",
+    "delOption":"Lieferoption",
+    "orderInfo":"Detaillierte Bestellinformationen",
+    "product":"Produkt",
+    "price":"Preis",
+    "quantity":"Menge",
+    "total":"Summe",
+    "subTotal":"Zwischensumme:",
+    "delivery":"Lieferung:",
+    "repeatOrderMsg":"Bestellung wiederholen. Wenn Sie eine Bestellung wiederholen, werden nur verfügbare Produkte Ihrem Warenkorb hinzugefügt."
+    },
+
+"resetPassword":{
+"uid":"Wie lautet Ihre E-Mail-Adresse?",
+"invalidEmail":"Diese E-Mail-Adresse ist nicht korrekt. Bitte prüfen Sie das Format myemail@myaddress.com",
+"backButton":"Zurück"
+},
+"register":{
+   "uid":"Wie lautet Ihre E-Mail-Adresse?",
+  "invalidEmailAddress":"Diese E-Mail-Adresse ist nicht korrekt. Bitte prüfen Sie das Format myemail@myaddress.com",
+  "confirmEmail":"Bitte bestätigen Sie Ihre E-Mail-Adresse.",
+  "matchEmail":"Die E-Mail-Adressen stimmen nicht überein.",
+  "passwordEnter":"Bitte geben Sie ein Passwort ein.",
+  "invalidPassword":"Das Passwort muss zwischen 6 und 20 Zeichen lang sein.",
+  "confirmPassword":"Bitte bestätigen Sie das Passwort.",
+  "matchPassword":"Die Passwörter stimmen nicht überein.",
+  "titleCode":"Bitte wählen Sie einen Titel.",
+  "country":"Please select a country.",
+  "firstName":"Wie lautet Ihr Vorname?",
+  "lastName":"Wie lautet Ihr Nachname?",
+  "exceptUkallCountryPostCode":"Bitte geben Sie eine  gültige Postleitzahl ein.",
+  "town":"Bitte geben Sie eine Stadt ein.",
+  "district":"Please enter a County/State/Region .",
+  "postCode":"Wie lautet Ihre Postleitzahl?",  
+  "postCodeInvalid":"Please enter a valid postcode or enter the address manually.",
+  "passwordInfo":"Das Passwort muss zwischen 6 und 20 Zeichen lang sein.",
+  "phonenumberInfo":"Wir werden Sie nur bezüglich Ihrer Bestellung kontaktieren.",
+  "line1":"Wie lautet die erste Zeile Ihrer Adresse?",
+  "city":"Bitte geben Sie eine Stadt ein.",
+  "phone":"Wie lautet Ihre Telefonnummer?",
+  "phoneLength":"Diese Telefonnummer ist nicht korrekt. Die Telefonnummer muss zwischen 8 und 14 Zeichen lang sein.",
+  
+  "termsCheckbox":"! Bitte stimmen Sie den allgemeinen Geschäftsbedingungen zu."
+  
+},
+"updatePassword":{
+
+"oldPassword":"Bitte geben Sie Ihr altes Passwort ein.",
+"password":" Bitte geben Sie ein Passwort ein.",
+  "confirmPassword":"Bitte bestätigen Sie das Passwort.",
+   "matchPassword":"Die Passwörter stimmen nicht überein.",
+  "passwordInfo":"Das Passwort muss zwischen 6 und 20 Zeichen lang sein."
+},
+  
+"checkoutFlow":{
+"deliveryHeader":"Lieferung",
+"deliveryQuestion":"Wohin sollen wir liefern?",
+"deliveryCheckoutService": "Ihr Lieferservice",
+"placeHolderFirst": "Vorname*",
+"placeHolderLast": "Nachname*",
+"placeHolderPhone": "Telefonnummer*",
+"placeHolderAdd": "Adresszeile 1*",
+"placeHolderAddr": "Adresszeile 2 (optional)",
+"placeHolderpostCode": "Postleitzahl",
+"placeHolderpostCity": "Stadt*",
+"titleError":"Bitte wählen Sie einen Titel.",
+"firstNameError":" Wie lautet Ihr Vorname? ",
+"lastNameError":" Wie lautet Ihr Nachname? ",
+"phoneNoError":"Wie lautet Ihre Telefonnummer?",
+"phoneNoLenError":"Diese Telefonnummer ist nicht korrekt. Die Telefonnummer muss zwischen 8 und 14 Zeichen lang sein.",
+"addError":" Wie lautet die erste Zeile Ihrer Adresse? ",
+"postCodeError":" Wie lautet Ihre Postleitzahl? ",
+"postCodeErr":" Wie lautet Ihre Postleitzahl? ",
+"cityError":" Bitte geben Sie eine Stadt ein. ",
+"editBasket":"Edit basket",
+"Totaltopay":"Zu zahlende Gesamtsumme",
+"continueToPay":" WEITER ZUR KASSE ",
+"yourOrder":"Your Order",
+"subTotal":"Zwischensumme",
+"reqInformation":"* Pflichtfelder",
+"payment":"Zahlung",
+"rights":"Alle Rechte vorbehalten.",
+"howToPay":"Wie möchten Sie zahlen?",
+"saveAddress":"SAVE ADDRESS",
+"deliveryTime":"Ihre Bestellung wird in",
+"cancelBtnCheckOut":"STORNIEREN",
+"confirmCheckoutAddress":"ADRESSE BESTÄTIGEN",
+"deliveryTimeCheckout":"Ihre Bestellung wird innerhalb von eingehen"
+},
+"paymentCard":{
+  "yourBillAdd":"Ihre Rechnungsadresse",
+  "changeBillAdd":"Rechnungsadresse ändern",
+  "correctBillAdd":"Dies ist meine korrekte Rechnungsadresse.*",
+  "correctBillAddErr":"! Bitte bestätigen Sie, dass Ihre Rechnungsadresse korrekt ist, oder nutzen Sie den Link, um die Rechnungsadresse zu ändern",
+  "yourCardDetail":"Angaben zu Ihrer Karte",
+  "expires":"Gültig bis",
+  "placeHCardNum":"Kartennummer*",
+  "placeHFirstN":"Vorname des Karteninhabers*",
+  "placeHLastN":"Nachname des Karteninhabers*",
+  "secureCode":"Sicherheitscode*",
+  "cardNumError":" Wie lautet Ihre Kartennummer? Das ist die lange Nummer auf der Vorderseite. ",
+  "cardNumErr":"Diese Kartennummer ist nicht korrekt. Bitte überprüfen und erneut versuchen.",
+  "firstNError":" Wie lautet der Vorname auf Ihrer Karte? ",
+  "lastNError":" Wie lautet der Nachname auf Ihrer Karte? ",
+  "monthError":"Bitte wählen Sie einen Monat.",
+  "yearError":"Bitte wählen Sie ein Jahr.",
+  "secureCodeErr":"Wie lautet der Sicherheitscode auf Ihrer Karte?",
+  "secureCodeError":"Dieser Sicherheitscode scheint falsch zu sein. Die Telefonnummer muss zwischen 3 und 4 Zeichen lang sein.",
+  "joinGuestList":"Tragen Sie sich für unseren Newsletter ein",
+  "beFirstToHear":"Erfahren Sie als Erste(r), welche Produktneuheiten, Kollektionen in limitierter Auflage und exklusiven Eventeinladungen es gibt. Erhalten Sie alle Infos per E-Mail, Post oder telefonisch.",
+  "weAlwaysTreat":"Wir behandeln Ihre persönlichen Daten zu jeder Zeit mit der größten Sorgfalt und leiten diese nicht an andere Unternehmen weiter. Sie können sich zu jeder Zeit abmelden.",
+  "receiveCommunication":"Ich möchte gern Benachrichtigungen von Molton Brown erhalten.",
+  "termsConditions":"Allgemeine Geschäftsbedingungen",
+  "termsConditionsError":"! Bitte stimmen Sie den allgemeinen Geschäftsbedingungen zu.",
+  "placeOrder":" PLACE ORDER ",
+  "chooseACard":"Wählen Sie eine Karte als Zahlungsmethode aus",
+  "maskededitaddress":"Rechnungsadresse für diese Zahlungsmethode bearbeiten."
+  },
+  "paymentPayPal":{
+    "clickPayPal":"Klicken Sie weiter unten auf den Button „Zahlung mit PayPal“, um Ihre Bestellung abzusenden und zu PayPal weitergeleitet zu werden.",
+    "payWith":" ZAHLUNG MIT "
+  },
+  "paymentGiftCard":{
+    "wantToSplit":"Wollen Sie die Zahlung auf eine Kredit- oder Debitkarte und einen Geschenkgutschein aufteilen?",
+    "noSplit":"Nein, ich möchte nur mit meinem Geschenkgutschein bezahlen.",
+    "yesSplit":"Ja, ich möchte meine Zahlung aufteilen.",
+    "placeHolderFirst": "Vorname*",
+    "placeHolderLast": "Nachname*",
+    "firstNameError":" Wie lautet Ihr Vorname? ",
+    "lastNameError":" Wie lautet Ihr Nachname? ",
+    "placeHolderNumb": "Nummer des Geschenkgutscheins*",
+    "placeHolderPIN": "PIN des Geschenkgutscheins*",
+    "placeHolderAmount": "Zu zahlender Betrag*",
+    "amountError":"Wieviel möchten Sie mit Ihrem Geschenkgutschein bezahlen?",
+    "amtError":" Geben Sie bitte einen gültigen Betrag ein. ",
+    "pinError":"Diese PIN scheint falsch zu sein. Es müssen 6 Ziffern sein.",
+    "splitMsg":"Teilen Sie Ihre Zahlung mit einer Debit- oder Kreditkarte auf"
+  },
+
+  
+"checkoutReg":{
+  "emailPlaceHolder":"Geben Sie Ihre E-Mail-Adresse ein*",
+  "passwrdPlaceHolder":"Geben Sie Ihr Passwort ein*",
+  "emlInputFocus":"Wie lautet Ihre E-Mail-Adresse?",
+  "invalidEmailAdd":"Diese E-Mail-Adresse ist nicht korrekt. Bitte prüfen Sie das Format myemail@myaddress.com",
+  "password":" Wie lautet Ihr Passwort?",
+  "invalidPassword":"Das Passwort muss zwischen 6 und 20 Zeichen lang sein.",
+  "passwordMismatch":"Ihre E-Mail-Adresse oder Ihr Passwort ist möglicherweise nicht korrekt. Bitte versuchen Sie es emeut."
+},
+  "phoneInfo":"We will only contact you about your order."  ,  
+
+
+  "giftCardNumber":"Geben Sie die 21-stellige Zahl auf der Rückseite Ihres Geschenkgutscheins ein",
+  "giftCardPin":"Rubbeln Sie das Feld auf der Rückseite Ihrer Karte frei, damit die 6-stellige Zahl erscheint.",
+  "amountToPay":"Wieviel möchten Sie mit Ihrem Geschenkgutschein bezahlen?",
+  "cardFormSecurityCode":"We will only contact you about your order.",
+  "postCodes":"Bitte geben Sie eine  gültige Postleitzahl ein.",
+  "giftCard" : [
+    {
+      "name": "Molton Brown Gift Cards",
+      "route": "/gift-cards",
+      "template": true
+    },
+    {
+      "name": "About Gift Cards",
+      "route": "/store/gift-cards/about"
+    },
+    {
+      "name": "Buy Gift Cards",
+      "route": "/store/gifts/gift-cards/cat0012/"
+    },
+    {
+      "name": "Check your Balance",
+      "route": "/store/gift-cards/check-balance"
+    },
+    {
+      "name": "Register your Card",
+      "route": "/store/gift-cards/protected/registerCard"
+    },
+    {
+      "name": "Transfer Balance",
+      "route": "/store/gift-cards/protected/transferBalance"
+    },
+    {
+      "name": "Report Lost/StolenCards",
+      "route": "/store/gift-cards/protected/reportLostStolenCards"
+    },
+    {
+      "name": "FAQs",
+      "route": "/store/gift-terms-conditions"
+    },
+    {
+      "name": "Terms & Conditions",
+      "route": "/store/gift-terms-conditions"
+    }
+  ],
+    "welcomeCart":" WILLKOMMEN",
+    "delAndPay":"LIEFERUNG UND ZAHLUNG",
+    "confirmation":" BESTÄTIGUNG",
+    "basePrice":"Grundpreis ",
+
+"savedCard":{
+
+"cardType":"Bitte wählen Sie einen Kartentyp.",
+"cardNumber":"Wie lautet Ihre Kartennummer? Das ist die lange Nummer auf der Vorderseite.",
+"cardHolderFirstName":"Wie lautet der Vorname auf Ihrer Karte?",
+"cardHolderLastName":"Wie lautet der Nachname auf Ihrer Karte?",
+"startDateMonth":"Please select a month.",
+"startDateYear":"Please select a year.",
+"newbillCountry" :"Bitte wählen Sie ein Land.",
+"postCode":"Wie lautet Ihre Postleitzahl?",
+"line1" :"Wie lautet die erste Zeile Ihrer Adresse?",
+"town":"Bitte geben Sie eine Stadt ein.",
+"phone":"Wie lautet Ihre Telefonnummer?",
+"recaptchaError":"Füllen Sie bitte alle Pflichtfelder aus, ehe Sie fortfahren. ",
+"editBill":"Rechnungsinformationen bearbeiten"
+},
+
+"newsLetter":{
+  "newsLetterGuest":"Tragen Sie sich für unseren Newsletter ein",
+  "newsLetterHear":"Erfahren Sie als Erste(r), welche Produktneuheiten, Kollektionen in limitierter Auflage und exklusiven Eventeinladungen es gibt. Erhalten Sie alle Infos per E-Mail, Post oder telefonisch.",
+  "emailAddress":"Wie lautet Ihre E-Mail-Adresse?",
+  "firstName":"Wie lautet Ihr Vorname?",
+  "lastName":"Wie lautet Ihr Nachname?",
+  "dateOfBirth":"Geburtsdatum",
+  "specialTreat":"(für ein ganz besonderes Geburtstagsgeschenk)",
+  "day":"Tag",
+  "month":"Monat",
+  "year":"Jahr",
+  "gender":"Geschlecht",
+  "female":"Weiblich",
+  "male":"Männlich",
+  "nonBinary":"Keine Angabe",
+  "recieveComm":"Ich möchte Mitteilungen von Molton Brown erhalten.",
+  "communication":"! Bitte stimmen Sie zu, wenn Sie Benachrichtigungen erhalten möchten.",
+  "submit":"ABSCHICKEN",
+  "terms":"! Bitte stimmen Sie den allgemeinen Geschäftsbedingungen zu.",
+  "requiredField":"*Pflichtfeld",
+  "personalDetails":"Wir behandeln Ihre persönlichen Daten zu jeder Zeit mit der größten Sorgfalt und leiten diese nicht an andere Unternehmen weiter. Sie können sich zu jeder Zeit abmelden.",
+  "thankYou":"Fast geschafft …",
+  "thankYouMsg":"Sie erhalten in Kürze eine Bestätigungs-E-Mail – schließen Sie Ihre Anmeldung ab, indem Sie auf den Link in der E-Mail klicken.",
+  "continueShopping":"WEITER EINKAUFEN"
+  },
+
+"payDetails":{
+  "cardType":"Bitte wählen Sie einen Kartentyp.",
+  "cardNumber":"What's your card number? This is the long number across the front.",
+  "cardholderFirstName":"Wie lautet der Vorname auf Ihrer Karte?",
+  "cardholderLastName":"Wie lautet der Nachname auf Ihrer Karte?",
+  "expirationDate":"Bitte wählen Sie einen Monat.",
+  "expiryDate":"Wählen Sie bitte ein gültiges Ablaufdatum",
+  "expirationYear":"Bitte wählen Sie ein Jahr.",
+  "country":"Bitte wählen Sie ein Land.",
+  "postCode":"Wie lautet Ihre Postleitzahl?",
+  "line1":"Wie lautet die erste Zeile Ihrer Adresse?",
+  "town":"Bitte geben Sie eine Stadt ein.",
+  "phone":"Wie lautet Ihre Telefonnummer?",
+  "invalidPhonenumber":"Diese Telefonnummer ist nicht korrekt. Die Telefonnummer muss zwischen 8 und 14 Zeichen lang sein."
+},
+"giftMsg":{
+  "giftMessage":"Bitte fügen Sie eine Geschenkbotschaft hinzu.",
+  "free":"GRATIS",
+  "invalidGiftCardno":"Geben Sie bitte einen gültigen Geschenkgutscheincode und/oder eine gültige PIN ein.",
+  "rightAmount":"Geben Sie bitte einen gültigen Geschenkgutscheincode und/oder eine gültige PIN ein.",
+  "addCard":"Ihre Geschenkkarte enthält nicht genügend Guthaben, um Ihre Bestellung abzuschließen. Bitte fügen Sie weitere Geschenkkarten hinzu oder verwenden Sie Ihre Debit- / Kreditkarte, um den Rest der Bestellung zu bezahlen. Bitte",
+  "afterClickHere":" um Ihr Guthaben auf der Geschenkkarte zu überprüfen.",
+  "submitMsg":"Bitte haben Sie etwas Geduld, während wir Ihre Bestellung bearbeiten ... ",
+  "orderTableDelivery":"Lieferung",
+  "yes":"Ja",
+  "no":"Nein"
+},
+"store":{
+  "search":"Enter a store name, postcode or town*",
+  "findStore":"FIND"
+},
+"feedback":{
+  "enquiryType":"Bitte wählen Sie die Art Ihrer Anfrage:",
+  "jobTitle":"Berufsbezeichnung",
+  "companyName":"Name des Unternehmens",
+  "businessType":"Geschäftsform",
+  "hotelName":"Hotelname",
+  "emailAdd":"E-Mail-Adresse",
+  "confirmEmail":"E-Mail-Adresse bestätigen",
+  "phoneNum":"Telefonnummer*",
+  "orderNum":"Bestellnummer",
+  "country":"Land",
+  "postZipCode":"Postleitzahl",
+  "address":"Adresse",
+  "townCity":"Stadt",
+  "countryState":"Region/Bundesland",
+  "webSite":"Website",
+  "msg":"Nachricht",
+  "spamSecure":"Spamschutz-Abfrage",
+  "mandatoryFld":"Alle mit * gekennzeichneten Felder sind Pflichtfelder.",
+  "submit":"Abschicken",
+  "First_Name":"Wie lautet Ihr Vorname?",
+  "Last_Name":"Wie lautet Ihr Nachname?",
+  "Email_Address":"Wie lautet Ihre E-Mail-Adresse?",
+  "invalidEmailAddress":"This email address doesn't look right. Please check the format is myemail@myaddress.com",
+  "Confirm_Email":"Bitte bestätigen Sie Ihre E-Mail-Adresse.",
+  "matchEmail":"Die E-Mail-Adressen stimmen nicht überein.",
+ "message":"Bitte geben Sie Ihre Nachricht ein",
+"captcha":"Bitte geben Sie den zutreffenden Text ein",
+"Job_Title": "Bitte geben Sie Ihre Berufsbezeichnung ein",
+"Company_name":"Wie lautet der Name des Unternehmens?",
+"Business_Type": "Bitte wählen Sie die Unternehmensart aus. ",
+ "Hotel_Name":"Bitte geben Sie den Namen des Hotels an",
+ "ordersOne":"Antworten auf Ihre Fragen zu Online-Bestellungen finden Sie unter .",
+ "ordersTwo":"Wenn Sie keine Antwort auf Ihre Fragen finden, füllen Sie einfach das Formular unten aus oder wenden Sie sich an unseren Kundendienst. Wir versuchen, alle Anfragen binnen 2 Werktagen zu beantworten.",
+ "compliments":"Falls Sie uns Komplimente zu unseren Produkten zukommen lassen möchten, füllen Sie einfach das unten stehende Formular aus, welches an unser Team vom Kundenservice weitergeleitet wird. Wir freuen uns darauf, von Ihnen zu hören.",
+ "complaintOne":"Molton Brown ist stolz auf seine Produkte und Dienstleistungen. Ihr Feedback ist daher ein wertvoller Beitrag zur kontinuierlichen Entwicklung dieser beiden Elemente.",
+ "complaintTwo":"Falls Sie uns auf ein Problem aufmerksam machen möchten, füllen Sie einfach das untenstehende Formular aus. Unser Kundendienst versucht binnen 2 Werktagen zu antworten.",
+ "prodEnqOne":"Molton Brown ist stolz auf seine Produkte. Ihr Feedback ist daher ein wertvoller Beitrag zur kontinuierlichen Entwicklung. Wenn Sie uns Feedback zu einem bestimmten Produkt geben möchten, füllen Sie einfach das untenstehende Formular aus.",
+ "prodEnqTwo":"Gegebenenfalls veröffentlichen wir Ihre Kommentare anonym auf unserer Website. Wenn Sie dies nicht möchten, lassen Sie es uns bitte wissen. Wir freuen uns darauf, von Ihnen zu hören.",
+ "prodFeedbkOne":"Molton Brown ist stolz auf seine Produkte. Ihr Feedback ist daher ein wertvoller Beitrag zur kontinuierlichen Entwicklung. Wenn Sie uns Feedback zu einem bestimmten Produkt geben möchten, füllen Sie einfach das untenstehende Formular aus.",
+ "prodFeedbkTwo":"Gegebenenfalls veröffentlichen wir Ihre Kommentare anonym auf unserer Website. Wenn Sie dies nicht möchten, lassen Sie es uns bitte wissen. Wir freuen uns darauf, von Ihnen zu hören.",
+ "stockistEnqOne":"Wenn Sie die Adresse eines Molton Brown Geschäfts erfahren möchten, erhalten Sie diese Information unter Wo Sie uns finden.",
+ "stockistEnqTwo":"Bei allgemeinen Anfragen zu Molton Brown Fachhändlern füllen Sie bitte das untenstehende Formular aus, um unseren Kundendienst zu kontaktieren. Wir versuchen, alle Anfragen binnen 2 Werktagen zu beantworten.",
+ "hotelAment":"Wenn Sie für die Vereinigten Staaten, Kanada und die Karibik anfragen, besuchen Sie bitte Molton Brown USA. Wenn Sie für Japan anfragen, besuchen Sie bitte Molton Brown Japan. Wenn Sie für Australien anfragen, besuchen Sie bitte Molton Brown Australia.",
+ "spaHotel":"Bei Anfragen für Japan besuchen Sie bitte Molton Brown Japan. Wenn Sie für Australien anfragen, besuchen Sie bitte Molton Brown Australia."
+},
+"cookie":{
+  "detailTxt":"Wir verwenden Cookies, um Ihnen eine optimale Erfahrung auf der Website bieten zu können. Durch das Aufrufen der Website erklären Sie sich mit der Verwendung von Cookies einverstanden.",
+  "ManageCookie":"Cookies verwalten",
+  "acceptCookie":"Cookies akzeptieren"
+},
+"products":{
+  "addToBasket":"In den Warenkorb",
+  "search":"Ihre Suche nach",
+  "adjustTo":"wurde zu geändert",
+  "productFor":"Produkte gefunden für"
+},
+"pickMix":{
+  "pickMix":"Pflegeprodukte in Reisegröße",
+  "createToiletries":"OLSEO - Erstellen Sie Ihre eigene Reisetasche.",
+  "removeProduct":"Produkt antippen oder anklicken, um es zu löschen",
+  "price":"PREIS:",
+  "threeFor":"3 für",
+  "sixFor":"6 für",
+  "pick":"AUSSUCHEN",
+  "packBuy":"EINPACKEN & KAUFEN",
+  "Continue":"WEITER",
+  "or":"oder",
+  "yourSelection":"IHRE AUSWAHL",
+  "addToBasket":"In den Warenkorb",
+  "optionalBag":"Weiteres Reiseset hinzufügen.",
+  "noBag":"Keine Tasche",
+  "travelPouch":"Kulturbeutel",
+  "free":"GRATIS",
+  "sorry":"ENTSCHULDIGUNG",
+  "reachMax":"Sie haben die maximale Anzahl an Produkten erreicht.",
+  "createAnother":"Sie möchten weitere Produkte? Bitte schließen Sie Ihre aktuelle Pick & Mix ab und beginnen Sie eine neue.",
+  "alternateRemove":"Alternativ können Sie auch eines der Produkte aus der aktuellen Auswahl löschen und das neue Produkt hinzufügen.",
+  "close":"SCHLIESSEN"
+
+},
+
+"addtoBasket":"In den Warenkorb",
+"yourBasket": "IHR WARENKORB",
+
+"pickerpopup":{
+  "headingChooseGift":"Wähle dein Geschenk",
+  "optionsBelow":"Herzliche Glückwünsche! Bitte wählen Sie aus den folgenden Optionen.",
+  "remove":"Angebot entfernen",
+  "add":"HINZUFÜGEN"
+},
+"orderConfirm":{
+  "editBasket":"Edit cart",
+  "thankyouHeading":"Vielen Dank für Ihre Bestellung.",
+  "yourOrdernum":"Ihre Bestellnummer lautet",
+  "beingProcess":" ",
+  "supportEmail":"Kundenservice@moltonbrown.de",
+  "serviceNumber":"+44 (0) 808 178 1188",
+  "orderConfirmEmail":"Sie erhalten in Kürze eine E-Mail mit der Bestellbestätigung an ",
+  "shortly":"",
+  "yourOrder":"Ihre Bestellung",
+  "checkmyaccount":"Sie können Ihre Bestellung und alle früheren Online-Bestellungen unter",
+  "Myaccount":" Mein Konto",
+  "continueShopping":"WEITER EINKAUFEN",
+  "questionOrder":"Haben Sie Fragen bezüglich Ihrer Bestellung? ",
+  "callUsOn":"Rufen Sie uns unter ",
+  "orEmail":"an oder senden Sie eine E-Mail an ",
+  "saveDetailsNextTime":"Sollen Ihre Angaben für das nächste Mal gespeichert werden? ",
+  "checkboxQuickerCreateAcc":"Erstellen Sie ein Konto für",
+  "emailEnd":"und sparen Sie Zeit an der Kasse ",
+  "Passwort":"Passwort*",
+  "confirmPswd":"Passwort bestätigen*",
+  "savePaydetNextTime":"Zahlungsangaben für das nächste Mal speichern.",
+  "createAcc":"KONTO ERSTELLEN",
+  "product":"PRODUKT", 
+  "qty":"MENGE", 
+  "price":"PREIS", 
+  "total":"SUMME" , 
+  "deliveryAddress":"Wir liefern an:",
+  "billingAddress":"Rechnungsadresse:",
+  "editAdd":"Adresse bearbeiten",
+  "editCard":"Karte bearbeiten",
+  "subTotal":"Zwischensumme ",
+  "accExists":"Für diese E-Mail-Adresse existiert bereits ein Konto. Melden Sie sich an oder setzen Sie Ihr Passwort zurück.",
+  "here":"hier.",
+  "orderWontAppear":"Allerdings wird diese Bestellung nicht in Ihrer Bestellübersicht erscheinen.",
+  "accCreated":"Konto eingerichtet für",
+  "checkYourOrder":"Welcome to Molton Brown. Sie können nun Ihre Bestellung und alle zukünftigen Online-Bestellungen unter",
+  "sample":"Probe(n)",
+  "giftBox":"Geschenkverpackung",
+  "giftMsg":"Geschenkbotschaft",
+  "viewEditMsg":"Nachricht ansehen und bearbeiten",
+  "giftBoxPH":"Bitte geben Sie eine Nachricht von bis zu 250 Zeichen (mit Leerzeichen) ein*",
+  "saveChange":"Änderungen speichern",
+  "deSpecificOrderconfirmationText":"überprüfen."
+},
+"outOfStockMsgs":{
+  "isOutofStock":"ist ausverkauft. Bitte entfernen, um fortzufahren."
+  },
+"changeCountrypopup":{
+  "Heading":"ANDERES LAND?",
+   "middleText":"Sie verlassen die Europa-Seite.",
+   "textSet1":"Auf der Seite, die Sie aufrufen, werden Preise,Lieferzeiten und -kosten für Ihr Land angezeigt, sodass Sie dort einkaufen können, ohne nachrechnen zu müssen.",
+   "textSet2":"Bitte beachten Sie, dass Ihr Warenkorb beim Wechsel zu einer anderen Seite geleert wird",
+   "textSet3":"Herzliche Grüße,",
+   "cancelButton":"STORNIEREN",
+   "continueButton":"WEITER"
+},
+"basketpage":{
+  "basketPagetotal":"Zwischensumme",
+  "remove":"ENTFERNEN",
+  "inStock":"Auf Lager",
+  "outOfStock":"Ausverkauft",
+  "pickAgain":"Wieder auswählen",
+  "couponAlreadyRedeemed":"Sie haben diese Aktion bereits eingelöst.",
+  "couponErrormsg":"Dieser Code kommt mir nicht bekannt vor. Bitte überprüfen Sie es und versuchen Sie es erneut."
+} ,
+
+  
+"miniCart":{
+  "viewBasket": "WARENKORB ANZEIGEN",
+  "subTotal":"ZWISCHENSUMME",
+  "qty":"MENGE:"
+
+},  
+"categoryLandingPage":{
+  "filterBy":"SORTIEREN NACH",
+  "clearAll":"Alles Löschen",
+  "viewAll":"Alles anzeigen"
+},
+"storeFinder":{
+  "storeFinder":"Molton Brown Stores in Ihrer Nähe",
+  "findNearStore":"Suchen Sie mithilfe unserer Filialsuche nach Ihrem nächstgelegenen Molton Brown Store, Fachhändler oder Hotelpartner.",
+  "placeHoldercity":"Geben Sie Stadt, Ort oder Postleitzahl ein",
+  "search":" SUCHE ",
+  "noStore":"Keine Geschäfte in der Nähe gefunden",
+  "tryAgain":"Bitte versuchen Sie es erneut.",
+  "suggestion":"Vorschläge:",
+  "spellCorrrectly":"Achten Sie darauf, dass Städte- und Straßennamen richtig geschrieben sind.",
+  "includeTown":"Geben Sie eine Stadt ein.",
+  "enterPostCode":"Geben Sie eine Postleitzahl ein.",
+  "widdenSearch":"Erweitern Sie Ihr Suchgebiet."
+  },
+"editorial":{
+  "More Stories":"More Stories",
+  "Features":"Features",
+  "Lifestyle":"Lifestyle",
+  "Travel":"Travel",
+  "Fragrance":"Fragrance",
+  "Perfumers":"Perfumers",
+  "News":"News",
+  "newsRoom":"Nachrichtenzentrale",
+  "inTheKnow":"Neuigkeiten",
+  "collections":"Kollektionen",
+  "films":"Filme",
+  "readMore":"Mehr lesen"
+},
+"footer":{
+  "browseInfo":"BROWSE INFORMATION",
+  "joinGuestList":"MELDEN SIE SICH FÜR UNSEREN NEWSLETTER AN"
+
+},
+
+"asmData":{
+  "username":"Wie lautet Ihr Nutzername?",
+  "patternInvalid":"Wie lautet Ihr Nutzername?",
+  "password":"Wie lautet Ihr Passwort?",
+  "invalidPassword":"Das Passwort muss zwischen 6 und 20 Zeichen lang sein."
+},
+"frData":{
+  "shopOurFavourites" :"Entdecken Sie die Lieblingsprodukte unsere Kunden"
+},  
+"loadingTxt":{
+  "loading":"laden..."
+},
+"pdp":{   
+  "deliveryInstructionHeading":"lieferung"
+ },
+ "sitemap":[
+  {
+      "title": "HILFE UND INFOS",
+      "sub_cat": [
+          {
+              "name": "Kontaktieren Sie uns",
+              "url": "/store/contact-us"
+          },
+          {
+              "name": "FAQ und Hilfe",
+              "url": "/store/faqs"
+          },
+          {
+              "name": "Anfrage von Tochtergesellschaften",
+              "url": "/store/affiliates"
+          },
+          {
+              "name": "Händler- und Presseanfragen",
+              "url": "/store/trade-enquiries"
+          }
+      ]
+  },
+  {
+      "title": "ÜBER UNS",
+      "sub_cat": [
+          {
+              "name": "Über uns",
+              "url": "/store/about-us"
+          },
+          {
+              "name": "Unsere Herkunft",
+              "url": "/store/features/molton-brown-history"
+          },
+          {
+            "name": "Karriere",
+            "url": "/store/careers/index"
+        }
+
+      ]
+  },
+  {
+      "title": "UNSERE SERVICES",
+      "sub_cat": [
+          {
+              "name": "Lieferung und Rücksendungen",
+              "url": "/store/german-delivery"
+          },
+          {
+            "name":"Wo Sie uns finden",
+            "url":"/store/company/stores"
+          },
+          {
+            "name":"Werbegeschenke",
+            "url":"/store/corporate-gifts"
+          },
+          {
+              "name": "Hotel Amenities",
+              "url": "/store/hotel-amenities"
+          }
+      ]
+  },
+  {
+      "title": "Our Policies",
+      "sub_cat": [
+          {
+              "name": "Allgemeine Geschäftsbedingungen",
+              "url": "/store/german-terms-conditions"
+          },
+          {
+              "name": "Datenschutz- und Cookie-Richtlinie",
+              "url": "/store/german-privacy-policy"
+          }
+      ]
+  }
+],     
+"notFoundPage":{
+  "Search":"Suche nach",
+  "AboutUs":"Über uns",
+  "mbStores":"Molton Brown Geschäfte",
+  "contactUs":"Kontaktieren Sie uns",
+  "delivery":"Lieferung",
+  "privacyPolicy":"Datenschutzrichtlinie",
+  "t&c":"Allgemeine Geschäftsbedingungen",
+  "faqs":"FAQs",
+  "siteMap":"Sitemap",
+  "ohDearieMe":"ACH DU SCHRECK! ES SCHEINT EIN KLEINES PROBLEM VORZULIEGEN ...",
+  "pageNotExsist":"Wir können die Seite, nach der Sie suchen, leider nicht finden – möglicherweise liegt das daran, dass diese Seite nicht mehr existiert, oder aber an einem Tippfehler im Link.",
+  "correctTheURL":"Überprüfen Sie die Adresse und Schreibweise oder gehen Sie zum Anfang zurück, zur",
+  "homeLink":"Homepage von Molton Brown",
+  "mbSupport":"Wenn nach wie vor Probleme auftreten, wenden Sie sich bitte an den Kundendienst via",
+  "mbemail":"E-Mail",
+  "giveUsCall":"Wir melden uns schnellstmöglich innerhalb von 48 Stunden von Montag bis Freitag bei Ihnen."
+},
+"sessionExpiredPage":{
+  "side-tracked":"Sie waren kurz weg? Keine Sorge.",
+  "descriptionLine1":"Ihre Sitzung ist abgelaufen, während Sie eine andere Seite besucht haben (das ist aus Sicherheitsgründen notwendig).",
+  "descriptionLine2":"Wenn Sie angemeldet waren, haben wir Ihren Warenkorb gespeichert. Melden Sie sich einfach erneut an, um fortzufahren.",
+  "descriptionLine3":"Wenn Sie nicht angemeldet waren, ist Ihr Warenkorb leer. Bitte wählen Sie die Produkte erneut aus, um Ihre Bestellung aufzugeben."
+},
+"fragranceFinder":{
+  "addSample":"Add a 1.5FL sample to cart*",
+  "productTandC":"*The $5 cost of your two samples is redeemable against"
+
+}    
+}

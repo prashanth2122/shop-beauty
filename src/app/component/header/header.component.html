@@ -1,0 +1,134 @@
+<div 
+  class="header-top"
+  [ngClass]="{ 'mb-menu-ML': sidemenuStatus, 'mb-menu-ML-none': !sidemenuStatus }"
+>
+  <div class="header-container container">
+    <div class="rowComponents tab-justify-center">
+      <div class="header-top-item" id="headTopPromotionalText">
+        <a class="header-top-amptext" #promotionalText></a>
+      </div>
+      <div class="tab-responsive-none header-top-right-cntnt ">
+        <ul class="header-top-left-menu">
+          <li>
+            <a class="storeFinder" (click)="onFindStoreClick($event)" 
+              ><span *ngIf="localData"> {{localData.FINDASTORE}} </span></a
+            >
+          </li>
+          <li>
+            <a (click)="onNewsletterClick()"  *ngIf="localData"> {{localData.NEWSLETTER}}
+            </a>
+          </li>
+          <li class="country-drpdown-list">
+            <a class="dropdown">
+              <a class="store_uk dropdown-toggle" data-toggle="dropdown" title="Change Country" *ngIf="localData"> {{localData.changeCountry}} </a>
+              <ul class="dropdown-menu country-menu">
+                <li
+                  *ngFor="let data of countries; let k = index"
+                  [hidden]="data.current"
+                >
+                  <a
+                    class=""
+                    [ngClass]="{
+                      store_eu: data.isoCode == 'EU',
+                      store_uk: data.isoCode == 'GB',
+                      store_de: data.isoCode == 'DE',
+                      store_us: data.isoCode == 'US',
+                      store_jp: data.isoCode == 'JP'
+                    }"
+                    data-toggle="modal"
+                    data-target="#popupcountryChange"
+                    (click)="onCountryChange(data)"
+                    >{{ data.countryName }}</a
+                  >
+                </li>
+              </ul>
+            </a>
+          </li>
+          <li class="account-dropdown profile">
+            <a 
+               (click)="onProfileClick()"  
+               title="My Account"
+                (mouseenter)="onHoverProfileIcon($event)"
+              ><span class="header-profile-icon"></span
+            ></a>
+            <ul class="acc-menu " *ngIf="loggedIn">
+              <span class="caret"></span>
+              <li><a (click)="onProfileClick()">{{'menu.myAccount' | translate}}</a></li>
+              <li class="logOut" (click)="onSignOut()"><a>{{'sidenavig.logOut' | translate}}</a></li>
+            </ul>
+          </li>
+          <li class="basket" id="rich_cart" (mouseleave)="onleaveRichCart($event)">
+          <app-cart
+                #cartRefElement
+                [message]="message"
+                [renderCart]="renderCart"
+          ></app-cart>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<app-header-submenu #submenuContainer [message]="message" (onDiscardSubscription)="discardSubscription($event)"></app-header-submenu>
+
+<div
+  class="modal"
+  id="popupcountryChange"
+  tabindex="-1"
+  role="dialog"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-full" role="document">
+    <div class="modal-content">
+      <div class="modal-body modal-country-height">
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <img
+            src="https://www.moltonbrown.co.uk/images/close_black.png?version=16"
+          /></button
+        ><br />
+
+        <div class="text-center cg-country">{{'changeCountrypopup.Heading' | translate}}</div>
+        
+        <p class="cg-country-sub text-center">
+          {{'changeCountrypopup.middleText' | translate}}
+        </p>
+
+        <p class="text-center">
+          {{'changeCountrypopup.textSet1' | translate}}
+        </p>
+
+        <p class="text-center">
+          {{'changeCountrypopup.textSet2' | translate}}
+        </p>
+        
+        <p class="text-center">
+          {{'changeCountrypopup.textSet3' | translate}}<br />
+          Molton Brown
+        </p>
+        <div class="form-inline text-center">
+          <button
+            class=" countryPop countryPopCancel"
+            (click)="onCancelModal(false)"
+            data-dismiss="modal"
+          >
+          {{'changeCountrypopup.cancelButton' | translate}}
+          </button>
+          <button
+            class=" countryPop countryPopConfirm"
+            (click)="onCancelModal(true)"
+            data-dismiss="modal"
+          >
+          {{'changeCountrypopup.continueButton' | translate}}
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

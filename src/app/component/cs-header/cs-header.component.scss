@@ -1,0 +1,316 @@
+@import"../../../variable";
+.ASM {
+    position: relative;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: #27394f;
+    color: $primary-color;
+    z-index: 99998;
+    -webkit-transition: -webkit-transform 0.3s ease-out;
+    -moz-transition: -moz-transform 0.3s ease-out;
+    -o-transition: -o-transform 0.3s ease-out;
+    transition: transform 0.3s ease-out;
+    height:max-content;
+    &-head-active{
+        display:block;
+    }
+    &-head-disabled{
+        display:none;
+    }
+    &-active{
+        display:block;
+    }
+    &-disabled{
+        display:none;
+    }
+    .first-top-row{
+        height:50px;
+        display: flex;
+        justify-content: space-between;
+        padding: 0 4em 1em;
+        border-bottom: 1px solid #39495e;
+    }
+    .ASM_logo{
+        float: left;
+        .title{
+            font-size:24px;
+            color: $mb-white;
+            font-weight: 700;
+            -webkit-font-smoothing: antialiased;
+        }
+  }
+.ASM_close{
+        float: right;
+        font-size: 35px;
+        font-weight: 200;
+        line-height: 20px;
+        color: #1473DF;
+        cursor: pointer;
+        background: transparent;
+        border: 0;
+        -webkit-appearance: none;
+        padding-left: 20px;
+        border-left: 1px solid #39495e;
+        outline: none;
+        border:0;
+        margin: 0;
+        margin-top: 20px;
+}
+form{
+    label{
+        color:$mb-white;
+        font-size:16px;
+    }
+    .input_group{
+        width:33%;
+    input{
+        width:100% !important;
+        height: 40px;
+        border:0;
+    }
+    
+}
+.ASM-sign-button{
+    width: 23%;
+    height: 40px;
+    background-color: #f9581b;
+    padding: 5px 10px;
+    box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.5);
+    color: $mb-white;
+    border: 0;
+    border-radius: 2px;
+    cursor: pointer;
+}
+}
+}
+
+.ASMBtn-wrapper{
+    position: absolute;
+    left: 25px;
+    right: -25px;
+    height: 1px;
+   .ASM-btn {
+       cursor:pointer;
+        border:0;
+        position: absolute;
+        left: 50%;
+        width: 50px;
+        -webkit-transform: translate(-50%, 0);
+        -ms-transform: translate(-50%, 0);
+        -o-transform: translate(-50%, 0);
+        transform: translate(-50%, 0);
+        cursor: pointer;
+        height: 40px;
+        padding: 4px 15px 5px;
+        background: $primary-color;
+        outline: none !important;
+
+        i{
+            font-size:32px;
+            color:$mb-white;
+        }
+    }
+}
+
+.cs-auto-completeBlock{
+    position: absolute;
+    top: 100%;
+    background: $mb-white;
+    border: solid #e5e5e5 1px;
+    width: 92%;
+    max-height: 200px;
+    height: auto;
+    overflow-y: auto;
+    overflow-x: hidden;
+    left: 15px;
+    ul{
+        padding: 10px;
+        list-style: none;
+    
+    li {
+        padding: 4px;
+        border-bottom: 1px solid #e5e5e5;
+        &:hover{
+            cursor: pointer;
+            a{
+                text-decoration: underline;
+            }
+        }
+        span {
+            float: right;
+            line-height: 20px;
+            width: 150px;
+            padding-left: 10px;
+            font-size: 14px;
+            &:hover{
+                text-decoration:underline;
+            }
+        }
+    }
+}
+.search_more {
+    padding: 10px 30px;
+    color: $mb-white !important;
+    background: $primary-color;
+    position: relative;
+    top: 6px;
+    left: 25%;
+    border: 0;
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+}
+.searchBlock-none{
+    z-index: -111;
+    visibility: hidden;
+    right:-100%;
+}
+.searchBlock-block{
+    z-index: 999;
+    right:0;
+}
+.session_btn{
+    background: #19bc33;
+    color: $mb-white !important;
+    font-weight: 400;
+    font-size: 18px;
+    margin-left: -1px;
+    vertical-align: bottom;
+    width: 100%;
+}
+.ASM-btn{
+    height: 48px;
+    border: 0;
+    padding: 0 15px;
+    font-size: 19px;
+    font-weight: 300;
+    text-transform: uppercase;
+    color: $primary-color;
+    display: inline-block;
+    float: none;
+    margin: 0;
+    vertical-align: baseline;
+}
+.cs-form{
+    input[type="text"].form-control{
+        width:100%;
+    }
+}
+.asm-align-center{
+    align-items: center;
+}
+.asm-content-space{
+    justify-content: space-around;
+}
+.asm-end-session{
+    background: #ff3b30;
+    color: $mb-white;
+    font-weight: 400;
+    width: 100%;
+}
+span.cs-content{
+    font-size:19px;
+}
+#timer{
+    span{
+        font-size:19px;
+        color:$mb-white;
+    }
+}
+.ASM-btn-customer-list {
+    vertical-align: bottom;
+    // border-left: 1px solid #39495e;
+    border-right: 1px solid #39495e;
+}
+.element-separator-height {
+    height: 50px;
+    padding-top: 10px;
+}
+.ASM_icon {
+    position: relative;
+    top: 1px;
+    display: inline-block;
+    font-family: 'asm_icons';
+    font-style: normal;
+    font-weight: normal;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+.ASM_loggedin_agent_store_name{
+    display: inline-block;
+    vertical-align: middle;
+    p{
+        span{
+            text-transform: uppercase;
+            font-weight:600;
+            margin-right: 20px;
+            color:$mb-white;
+        }
+    }
+}
+.ASM-signout{
+    color:$mb-white;
+    font-weight: 100;
+    height:35px;
+}
+.session_btn{
+    &:disabled{
+        opacity: 0.45;
+        filter: alpha(opacity=45);
+        background: #207241;
+    }
+}
+.ASM-btn-customers{
+    color:$mb-white;
+}
+.ASM-agent-blc{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 18px 5px;
+}
+.cs-form{
+    .err-msg{
+        color:red;
+        font-size:14px;
+        line-height: 2;
+        margin-left: 15px;
+    }
+}
+.ASM-csagent{
+    span.validUser{
+    color:#19bc33;
+ }
+}
+
+.cs-form-block{
+    padding: 18px 5px;  
+}
+.cs-form-customer-blc{
+    .cs-auto-search{
+    display:none;
+    &:hover{
+        display: block;
+    }
+   }
+    input{
+        &.cs-customer-inpt-fld{
+        &:focus{
+            +{
+.cs-auto-search{
+    display:block;
+}
+            }
+        }
+    }
+    }
+}
+.cs-err-msg{
+    text-indent: 45px;
+    color: $err-color;
+    padding: 5px 0;
+}

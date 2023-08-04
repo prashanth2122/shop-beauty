@@ -1,0 +1,78 @@
+
+    <div class="pickMix-selection-block clearfix pickmix-sticky-body">
+        <div class="pickMix-selection-title clearfix text-center">
+            <span>{{'pickMix.yourSelection' | translate}}</span>
+            <a (click)="onEditPick()">{{'myProfile.edit' | translate}}</a>
+        </div>  
+      <div class="pickBuy-item-list">
+          <div class="pickBuy-item" *ngFor="let data of products;let k=index;">
+            <div class="pickBuy-item-img">
+              <picture >
+                  <source srcset="{{data.amplienceImageName}}?$pickAndMixImg$&amp;fmt=webp" type="image/webp">
+                  <source srcset="{{data.amplienceImageName}}?$pickAndMixImg$&amp;fmt=jpg" type="image/jpeg">
+                  <img src="{{data.amplienceImageName}}?$pickAndMixImg$&amp;fmt=jpg">
+               </picture>
+            </div>
+            <p class="text-center sample-quantity more-info">
+                <a class="sample-info-tooltip showsInlineBlock"
+                  [ngClass]="{'sample-info-tooltip':!data.selected, 'close-sample-info':data.selected}"
+                  (click)="showTooltip($event,data.code,k)"></a>
+              </p>
+              <div class="more-info-content" [ngClass]="{'left':data.left,'right':data.right}" *ngIf="data.selected" >
+                <p class="more-info-scroll" [innerHtml]="data.name"></p>
+              </div>
+          </div>
+        </div>
+    </div>      
+
+    <div class="review clearfix">
+        <h4 class="pack-heading" *ngIf="products.length==6">{{'pickMix.optionalBag' | translate}}</h4>
+    </div>
+
+    <div class="pm-basket-container">
+      <div class="pm-basket-item-list"  >
+          <div class="pm-basket-item"  *ngIf="products.length==6">
+            <form [formGroup]="pickForm">
+              <div class="pm-basket-item-block pm-bag-block" >
+                  <label class="product-img" for="withoutBag" style="display: block;">
+                    <span class="pm-checkBox">
+                      <img src="../../../assets/imgs/stowaway-bag-ghost.jpg">
+                      <div class="product-description">
+                          <h3 class="product-title">{{'pickMix.noBag' | translate}}</h3>
+                      </div>
+                    </span>
+                  </label>                
+                  <div class="pm-radio-block" >
+                    <input type="radio" id="withoutBag" value="noBag" formControlName="pick">
+                    <span class="custom-radio"></span>
+                  </div>
+              </div>
+              <div class="pm-basket-item-block pm-bag-block" >            
+                  <label class="product-img" for="withBag" style="display: block;">        
+                    <span class="pm-checkBox">
+                    <img src="../../../assets/imgs/BAG564_uk_Travel-Pouch.webp"  >
+                    <div class="product-description">
+                        <h3 class="product-title">{{'pickMix.travelPouch' | translate}} <br>{{'pickMix.free' | translate}}</h3>
+                    </div>
+                  </span>
+                </label>
+             
+                <div class="pm-radio-block" >
+                  <input type="radio" id="withBag"   value="Bag" formControlName="pick">
+                  <span class="custom-radio"></span>
+                </div>
+              </div>
+           </form>
+        </div>
+      </div>
+        <div class="price-container clearfix">
+          <span class="price total-price ">{{'pickMix.price' | translate}} <span [innerHtml]="totalPackPrice"></span></span>
+          <button 
+             class="cta cta-pick-buy" 
+             [disabled]="disableAction" 
+             (click)="onAddToBasket($event)"
+             >
+             {{'pickMix.addToBasket' | translate}}
+            </button>
+       </div>
+    </div>

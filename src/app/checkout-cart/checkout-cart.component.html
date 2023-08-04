@@ -1,0 +1,187 @@
+
+<div class="parent-checkout-container">
+<div class="mb-store-front-container">
+<header class="checkout-header">
+  <div class="header-container clearfix  hide-tabs">
+    <div class="header-left">
+      <div class="secure-msg">{{'secureCheckout' | translate}}</div>
+      <div class="help-number">
+        <span>{{'needHelp' | translate }}</span>
+         <span *ngIf="!deEmail" class="telephone" [ngClass]="{'deEmailIcon': deEmail}"><a>{{'telephoneCustomer' | translate}}</a></span>
+         <span *ngIf="deEmail" class="telephone"  [ngClass]="{'deEmailIcon': deEmail}"><a href="mailto:{{'telephoneCustomer' | translate}}">{{'telephoneCustomer' | translate}}</a></span>
+      </div>
+    </div>
+    <div class="header-logo">
+      <a class="logo"  (click)="goToHome($event)"> </a>
+    </div>
+    <div class="header-right">
+      <!-- <a href="https://seal.digicert.com/seals/popup/?tag=JgZZluWH&url=http://www.moltonbrown.co.uk&lang=en"
+         ><img
+          src="https://www.moltonbrown.co.uk/images/digicert_header.png?version=15"
+      /></a> -->
+
+      <table 
+           width="135" 
+           border="0" 
+           cellpadding="2" 
+           cellspacing="0" 
+           title="Click to Verify - This site chose GeoTrust SSL for secure e-commerce and confidential communications.">
+        <tbody>
+          <tr>
+            <td 
+               width="135" 
+               align="center" 
+               valign="top">
+              <script 
+                    type="text/javascript" 
+                    src="https://seal.geotrust.com/getgeotrustsslseal?host_name={{addressInfo.hostname}}&amp;size=M&amp;lang=en">
+              </script>
+              <a 
+                 href="https://sealsplash.geotrust.com/splash?&amp;dn={{addressInfo.hostname}}" 
+                 tabindex="-1" 
+                 target="GEOTRUST_SSL_Splash">
+                   <img 
+                       name="gts_seal" 
+                       border="true" 
+                       src="https://seal.geotrust.com/getgeotrustsslseal?at=0&amp;sealid=1&amp;dn={{addressInfo.hostname}}&amp;lang=en&amp;gmtoff=0" 
+                       (contextmenu)="onDigicertContextMenu()" 
+                       alt="Click to Verify - This site has chosen a GeoTrust SSL Certificate to improve Web site security"
+                       style="height: 59px;">
+                      </a>
+                         <br>
+                    <a 
+                        href="http://www.geotrust.com/ssl/" 
+                        target="_blank" 
+                        style="color: #000000; text-decoration: none; font: bold 7px verdana, sans-serif; letter-spacing: .5px; text-align: center; margin: 0px; padding: 0px;">
+                      </a>
+              </td>
+        </tr>
+     </tbody>
+    </table>
+    </div>
+  </div>
+  <div class="tab-block " >
+    <div >
+      <div class="col-md-3 text-left header-left">
+        <span class="secure-msg">{{'secureCheckout' | translate}}</span>
+      </div>
+      <div class="col-md-6 text-center header-logo">
+        <a class="logo" href="/store/index"  (click)="goToHome($event)"> </a>
+      </div>
+      <div class="col-md-3 text-right header-right">
+        <a id="mbChckLogo"
+          ><img
+            src="https://www.moltonbrown.co.uk/images/digicert_header.png?version=15"
+        /></a>
+      </div>
+    </div>
+    <div class="help-number clearfix">
+      {{'needHelp' | translate }}
+      <a *ngIf="!deEmail" href="tel:{{'telephoneCustomer' | translate}}" class="telephone">{{'telephoneCustomer' | translate}}</a>
+      <a *ngIf="deEmail" href="mailto:{{'telephoneCustomer' | translate}}" class="telephone">{{'telephoneCustomer' | translate}}</a>
+    </div>
+  </div>
+
+  <div
+    class="modal"
+    id="modalCheckoutPopup"
+    tabindex="-1"
+    role="dialog"
+    aria-hidden="true"
+>
+  <div
+    class="chck-modal-dialog modal-dialog modal-full container modal-dialog-scrollable modal-lg checkout-modal"
+    role="document"
+  >
+    <div class="modal-content">
+      <div class="chck-modal-header modal-header">
+        <button type="button" class="close" data-dismiss="modal">
+          &times;
+        </button>
+        <h4 class="modal-title text-center">{{ modalTitle }}</h4>
+      </div>
+      <div class="modal-body chck-modal-body" style="position: relative;">
+        <span  #policyEl></span>
+      </div>
+      <div class="dl-overlay"  [ngClass]="{'dl-overlay-show':pageLoad,'dl-overlay-hide':!pageLoad}">
+          <div class="b2c-title"> 
+                  <span class="loading-txt">  </span>  
+          </div>
+      </div>
+    </div>
+  </div>
+</div>
+</header>
+
+  <div class="checkout-container justify-content-center sample-container">
+    <div class="step-indicator clearfix checkout-cart">
+      <ol>
+        <li class="step active"
+          [ngClass]="{
+             current: singletonServ.welcomeTab 
+            }">
+          <span class="step-indicator-one">{{ "welcomeCart"| translate }}</span>
+          <span class="step-indicator-one-non-current">1</span>
+        </li>
+        <li class="step active" 
+            [ngClass]="{ 
+              current: singletonServ.shippingTab 
+            }">
+          <span class="step-indicator-two">{{ "delAndPay"| translate }}</span>
+          <span class="step-indicator-two-non-current">2</span>
+        </li>
+        <li class="step active"
+            [ngClass]="{ 
+              current: singletonServ.confirmationtab
+             }">
+          <span class="step-indicator-two">{{ "confirmation"| translate }}</span>
+          <span class="step-indicator-two-non-current">3</span>
+        </li>
+     </ol>
+    </div>
+
+       <router-outlet></router-outlet>
+
+  </div>
+
+
+<footer class="checkout-footer">
+  <div class="footer-links clearfix">
+    <ul>
+      <li *ngFor="let data of footerLinks; let k = index">
+        <a
+          (click)="onOpenCartModal(data)"
+          data-toggle="modal"
+          data-target="#modalCheckoutPopup"
+          >{{ data.name }}</a
+        >
+      </li>
+  </ul>
+  </div>
+  <div class="secure-block">
+    <div class="text-uppercase security-label">
+      {{ "securityGauranteed" | translate }}
+    </div>
+    <div class="payment-gateway-icons rowComponents">
+      <a class="norton-secure"></a>
+      <span class="visa-secure"></span>
+      <span class="master-card"></span>
+      <span class="american-express"></span>
+      <span class="vpay-secure"></span>
+      <span class="paypal-secure"></span>
+      <span class="mb-secure"></span>
+      <span class="klarna" *ngIf="deEmail"></span>
+      <span class="sepa" *ngIf="deEmail"></span>
+
+    </div>
+  </div>
+  <div class="copywrite">
+    &copy; Molton Brown Limited 2020.&nbsp;{{'checkoutFlow.rights' | translate}}</div>
+</footer>
+</div>
+</div>
+
+
+
+<div class="backdrop" (click)="onDismiss($event)" [ngClass]="{'display-overlay':loadOverlay}"></div>
+    

@@ -1,0 +1,477 @@
+<!-- start of masked card -->
+
+<ng-container [ngSwitch]="switchMode">
+  <section *ngSwitchCase="'encryptCard'">
+    <div class="encryptCard">
+      <div class="CustomerDetails" *ngFor="let card of cardList">
+        <section class="choose-card" [formGroup]="group" custom-focus>
+          <div class="form-group">
+            <div class="radio" *ngIf="card">
+              <div>
+                <input
+                type="radio"
+                id="{{'card'+card.profileID}}"
+                name="cardType"
+                class="savedcard-radio"
+                [checked]="card.isDefault"
+                [value]="card"
+                formControlName="cardType"
+                (change)="onChangeCardtypo(card)"
+              /> 
+              <label  for="{{'card'+card.profileID}}" class="card-radio-label">
+                <i
+                  class="card-logo"
+                  [ngClass]="{
+                    'master-card': card.cardType == 'master',
+                    'amex-card': card.cardType == 'amex',
+                    'visa-card': card.cardType == 'visa'
+                  }"
+                >
+                </i
+                >
+                <span *ngIf="card.ccaccountnumber">
+                    {{replaceEncryptNumber(card.ccaccountnumber)}}
+                </span>
+                &nbsp;
+              </label>
+              </div>
+            <div>
+               <span
+                class="help-block inline expiry-date"
+                style="display: -webkit-inline-box;"
+                *ngIf="card.expirationmonth"
+                >{{'paymentCard.expires' | translate}} {{ card.expirationmonth }}/{{
+                  card.expirationyear
+                }}</span
+              >
+              <span class="help-block inline edit-expiry">
+                <a (click)="onEditCardForm(card)">{{'myProfile.edit' | translate}}</a></span
+              >
+            </div>
+             
+             
+            </div>
+          </div>
+
+          <div
+            class="form-group security-code savedcard1 shows"
+            *ngIf="card.isDefault"
+          >
+            <label class="sr-only" for="securityCode">Security code</label>
+            <a
+              class="contextual-help"
+              show-delay="100" ngbTooltip="{{'groupSecurityCode'|translate}}"  [placement]="mobileDevice?'top':'right'"  
+            ></a>
+            <input
+              autocomplete="off"
+              placeholder="{{'paymentCard.secureCode' | translate}}"
+              type="text"
+              [attr.minlength]="getSecureLength(card.cardType)"
+              [attr.maxlength]="getSecureLength(card.cardType)"
+              #myInput
+              class="form-control mandatory"
+              formControlName="secureCode"
+              [ngClass]="{
+                'has-error  not-valid':!group.get('secureCode').valid && group.get('secureCode').touched,
+                'valid': group.get('secureCode').valid
+              }"
+            />
+            <div
+              *ngIf="!group.controls['secureCode'].valid && group.get('secureCode').touched"
+              class="not-valid-error-msg"
+            >
+              <span *ngIf="group.controls['secureCode'].errors.required"
+                >{{'paymentCard.secureCodeErr' | translate}}</span
+              >
+              <span *ngIf="group.controls['secureCode'].errors.patternInvalid"
+                >{{'paymentCard.secureCodeError' | translate}}</span
+              >
+              <span *ngIf="group.controls['secureCode'].errors.invalid"
+                >{{'paymentCard.secureCodeError' | translate}}</span
+              >
+            </div>
+          </div>  
+        </section>
+      </div>
+      <a title="Add new card" class="add-new-card" (click)="onAddNewCard()"
+      >{{'PaymentDetails.addNewCard' | translate}}</a
+    >
+    </div>
+</section>
+<!-- End of masked card -->
+
+
+
+<!-- start of New masked card  -->
+  
+  <section *ngSwitchCase="'updateCard'">
+      <div class="section-heading">
+          <legend class="add-new-card-text">{{'PaymentDetails.addNewCard' | translate}}</legend>
+        </div>
+    <form class="new-card-form" [formGroup]="cardDetailForm" custom-focus>
+        <div class="error-info-block">
+            <div class="err_msg"  *ngIf="errorvalidationMsg">
+              {{'invalidcard.errormsgblock' | translate}}
+                <br>
+                <br>
+                <div>
+                  {{'invalidcard.emailandphone' | translate}} <br>
+                  <a href="mailto:{{'invalidcard.emailId' | translate}}">{{'invalidcard.emailId' | translate}}</a>
+                >
+                </div> 
+                <br>
+            </div>
+        </div>
+      <app-cd-card
+         [newCard]="newCardOption"
+         (changeCard)="changeCard($event)"
+         [group]="cardDetailForm.get('paymentCard')"
+      ></app-cd-card>
+      <div class="section-heading">
+        <h2>{{'orderConfirm.billingAddress' | translate}}</h2>
+      </div>
+
+      <section [ngSwitch]="switchBillingAddresType" >
+        <section  *ngSwitchCase="'retrieveAddress'"  >
+          <div
+            class="form-inline "
+            *ngFor="let address of addressList; let k = index"
+            style="justify-content: flex-start;"
+          >
+            <div class="radio existing-customer-list">
+              <input
+                name="address"
+                id="{{'retrieve'+address.id}}"
+                type="radio"
+                class="password-radio"
+                [checked]="address.defaultAddress"
+                (change)="onAddressChange(address)"
+              />
+              <label for="{{'retrieve'+address.id}}" class="radio-inline ">
+                <!-- <span>{{ address.firstName + "  " + address.lastName }},&nbsp;</span> -->
+                <span *ngIf="address.line1">{{address.line1}},&nbsp;</span>
+                <span *ngIf="address.line2">{{address.line2}},&nbsp;</span>
+                <span *ngIf="address.town">{{address.town}},&nbsp;</span>
+                <span *ngIf="address.country">{{address.country.name}},&nbsp;</span>
+                <span *ngIf="address.postalCode">{{address.postalCode}}</span>
+              </label>
+            </div>
+            <div class="action-link">
+              <span (click)="editBlAddress(address)">
+                {{'myProfile.edit' | translate}}
+              </span>
+            </div>
+          </div>
+          <div class="form-group clearfix reg-add-new-delivery-address">
+            <a (click)="onAddNewBlAddess($event)">{{'addressBook.addNewAdd' | translate}}</a>
+          </div>
+        </section>
+         <section  *ngSwitchCase="'newAddress'">
+            <div class="section-heading">
+              <legend>{{'addressBook.addNewAdd' | translate}}</legend>
+            </div> 
+            <app-address-form
+            (discardAddressForm)="discardNewCCAddressForm($event)"
+            (submitAddressForm)="submitNewAddressForm($event)"
+            >
+            </app-address-form>
+         </section>
+         <section  *ngSwitchCase="'editAddress'">
+          <div class="section-heading">
+            <legend>{{'orderConfirm.editAdd' | translate}}</legend>
+          </div> 
+          <app-address-form
+          [detail]="editAddresData"
+          (discardAddressForm)="discardEditCCAddressForm($event)"
+          (submitAddressForm)="submitEditCCAddressForm($event)"
+          >
+          </app-address-form>
+       </section>
+      </section>
+
+      <div class="form-group" *ngIf="!newAddress">
+        <div
+          class="form-group buttons-add-new-card clearfix desktop-button-section">
+          <a
+            class="btn btn-default pull-left disabled-active reset-btn"
+            (click)="onCancel($event)"
+            >{{'addressBook.cancel' | translate}}</a
+          >
+          <button
+            class="btn btn-default pull-right"
+            (click)="onSubmitUpdateDetails($event)"
+          >
+          {{'addressBook.saveChanges' | translate}}
+          </button>
+        </div>
+        <div
+          class="form-group buttons-add-new-card clearfix mob-button-section">
+          <button
+            class="btn btn-default pull-right"
+            (click)="onSubmitUpdateDetails($event)"
+          >
+          {{'addressBook.saveChanges' | translate}}
+          </button>
+          <a
+            class="btn btn-default pull-left disabled-active reset-btn"
+            (click)="onCancel($event)"
+            >{{'addressBook.cancel' | translate}}</a
+          >
+        </div>
+
+      </div>
+    </form>
+  </section>
+<!-- End of New masked card  -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- start of edit masked card -->
+  <section *ngSwitchCase="'editCard'">
+    <div class="mask-card-edit-info">
+      <div class="section-heading">
+        <h2>{{'orderConfirm.editCard' | translate}}</h2>
+      </div>
+      <form [formGroup]="updateCardForm">
+        <fieldset *ngIf="cardData">
+          <p *ngIf="!savedBillingForm" class="edit-card-context-header">{{'paymentCard.maskededitaddress' | translate}}</p>
+          <div class="form-group selected-card-detail">
+            <i
+              class="card-logo"
+              [ngClass]="{
+                'master-card': cardData.cardType == 'master',
+                'amex-card': cardData.cardType == 'amex',
+                'visa-card': cardData.cardType == 'visa'
+              }"
+            ></i>
+            <input formControlName="cardType" type="hidden" />
+            <span class="inline masked-card"> {{replaceEncryptNumber(cardData.ccaccountnumber)}}</span>
+            <span class="ae-card-expiry" *ngIf="!savedBillingForm">Expires {{ cardData.expirationmonth }}/{{
+              cardData.expirationyear
+            }}</span>
+            <p class="card-holder-name" *ngIf="!savedBillingForm">{{cardData.firstName}}&nbsp;{{cardData.lastName}}</p>
+          </div>
+          <section *ngIf="savedBillingForm; else editSavedCardBillingAddress">
+            <div class="form-group card_field" style="position: relative;">
+              <label class="sr-only">Card Holder First Name</label>
+              <input
+                formControlName="firstName"
+                autocomplete="off"
+                placeholder="Card holder first name*"
+                type="text"
+                class="form-control  mandatory "
+                [ngClass]="{
+                  'has-error  not-valid':
+                    !updateCardForm.get('firstName').valid &&
+                    updateCardForm.get('firstName').touched,
+                  'valid': updateCardForm.get('firstName').valid
+                }"
+                required
+              />
+              <div
+                *ngIf="!updateCardForm.controls['firstName'].valid &&updateCardForm.get('firstName').touched"
+                class="not-valid-error-msg"
+              >
+                <span
+                  *ngIf="updateCardForm.controls['firstName'].errors.required"
+                >
+                {{'paymentCard.firstNError' | translate}}
+                </span>
+                <span
+                  *ngIf="
+                    updateCardForm.controls['firstName'].errors.patternInvalid
+                  "
+                >
+                {{'paymentCard.firstNError' | translate}}
+                </span>
+              </div>
+            </div>
+            <div class="form-group card_field"  style="position: relative;">
+              <label class="sr-only">Card last Name</label>
+              <input
+                formControlName="lastName"
+                autocomplete="off"
+                placeholder="Card holder last name*"
+                type="text"
+                class="form-control  mandatory "
+                [ngClass]="{
+                  'has-error  not-valid': !updateCardForm.get('lastName').valid &&updateCardForm.get('lastName').touched,
+                  'valid': updateCardForm.get('lastName').valid
+                }"
+                required
+              />
+              <div
+                *ngIf="!updateCardForm.controls['lastName'].valid && updateCardForm.get('lastName').touched"
+                class="not-valid-error-msg"
+              >
+                <span
+                  *ngIf="updateCardForm.controls['lastName'].errors.required"
+                >
+                {{'paymentCard.lastNError' | translate}}
+                </span>
+                <span
+                  *ngIf="
+                    updateCardForm.controls['lastName'].errors.patternInvalid
+                  "
+                >
+                {{'paymentCard.lastNError' | translate}}
+                </span>
+              </div>
+            </div>
+            <div>{{'paymentCard.expires' | translate}}</div>
+            <div class="monthYearAlign ">
+              <span class="custom-dropdown big card_field small-dropdown" style="position: relative;">
+                <select
+                  #paymentCardMonthEl 
+                  id="editCardMonthEl"
+                  formControlName="month"
+                  autocomplete="off"
+                  (change)="onChangeMonthOpt($event)"
+                  class="mandatory form-control selectDropdown"
+                  [ngClass]="{
+                    'has-error  not-valid':
+                      !updateCardForm.controls['month'].valid &&
+                      updateCardForm.get('month').touched
+                  }"
+                >
+                  <option value=""  selected>{{'newsLetter.month' | translate}}* </option
+                  >
+                  <option [ngValue]="month" *ngFor="let month of expireMonth">{{
+                    month.month
+                  }}</option>
+                </select>
+                <div
+                  *ngIf="!updateCardForm.controls['month'].valid &&
+                      updateCardForm.get('month').touched"
+                  class="not-valid-error-msg"
+                >
+                  <span *ngIf="updateCardForm.controls['month'].errors.required">
+                      <span *ngIf="updateCardForm.controls['month'].errors.required.raiseValidate">
+                        {{'payDetails.expiryDate' | translate}}
+                      </span>
+                      <span *ngIf="!updateCardForm.controls['month'].errors.required.raiseValidate">
+                        {{'paymentCard.monthError' | translate}}
+                      </span>
+                   </span>
+                </div>
+              </span>
+              <span class="custom-dropdown big card_field small-dropdown"   style="position: relative;">
+                <select
+                  formControlName="year"
+                  autocomplete="off"
+                  class="mandatory form-control selectDropdown"
+                  (change)="onChangeOpt($event)"
+                  [ngClass]="{
+                    'has-error  not-valid':
+                      !updateCardForm.controls['year'].valid &&
+                      updateCardForm.get('year').touched
+                  }"
+                >
+                  <option value=""  selected>{{'newsLetter.year' | translate}}* </option
+                  ><option  [ngValue]="month" *ngFor="let month of expireYear">{{
+                    month.year
+                  }}</option>
+                </select>
+                <div
+                  *ngIf="!updateCardForm.controls['year'].valid &&
+                      updateCardForm.get('year').touched "
+                  class="not-valid-error-msg"
+                >
+                  <span *ngIf="updateCardForm.controls['year'].errors.required"
+                    >{{'paymentCard.yearError' | translate}}</span
+                  >
+                </div>
+              </span>
+            </div>
+
+            <section class="saved-delivery-addresses">
+              <fieldset>
+                <legend>{{'orderConfirm.billingAddress' | translate}}</legend>
+                <div class="flex-display">
+                <label class="billing-label" *ngIf="cardData.billingAddress">
+                  <span *ngIf="cardData.billingAddress.line1">
+                    {{ cardData.billingAddress.line1 }}&nbsp;,</span
+                  >
+                  <span *ngIf="cardData.billingAddress.line2">
+                    {{ cardData.billingAddress.line2 }}&nbsp;,</span
+                  >
+                  <span *ngIf="cardData.billingAddress.town">
+                    {{ cardData.billingAddress.town }}&nbsp;,</span
+                  >
+                  <span *ngIf="cardData.billingAddress.postalCode">
+                    {{ cardData.billingAddress.postalCode }}&nbsp;,</span
+                  >
+                  <span *ngIf="cardData.billingAddress.country">
+                    {{ cardData.billingAddress.country.name }}</span
+                  >
+                </label>
+
+                <span
+                  class="edit-action"
+                  (click)="onEditbillingAddress(cardData)"
+                  >{{'myProfile.edit' | translate}}
+                  </span>
+                </div>
+              </fieldset>
+            </section>
+          </section>
+          <ng-template #editSavedCardBillingAddress>
+            <app-address-form
+            (discardAddressForm)="discardEditBlAddressForm($event)"
+            (submitAddressForm)="submitEditBlAddressForm($event)"
+            [detail]="cardData.billingAddress"
+           >
+           </app-address-form>
+          </ng-template>
+        </fieldset>
+
+        <div class="form-group" *ngIf="savedBillingForm" >
+          <div class="form-group buttons-add-new-card clearfix desktop-button-section">
+            <a class="btn btn-default pull-left disabled-active reset-btn"
+              (click)="onCancelEditCard($event)">{{'addressBook.cancel' | translate}}</a>
+            <button
+              class="btn btn-default pull-right"
+              (click)="onSubmitUpdateCdDetails($event)"
+            >
+            {{'addressBook.saveChanges' | translate}}
+            </button>
+          </div>
+          <div class="form-group buttons-add-new-card clearfix mob-button-section">
+            <button
+              class="btn btn-default pull-right"
+              (click)="onSubmitUpdateCdDetails($event)"
+              >
+              {{'addressBook.saveChanges' | translate}}
+            </button>
+          <a class="btn btn-default pull-left disabled-active reset-btn"
+            (click)="onCancelEditCard($event)">{{'addressBook.cancel' | translate}}</a>
+          </div>
+        </div>
+      </form>
+    </div>
+  </section>
+</ng-container>
+<!-- End  of Edit masked card -->
+
+
+<div [ngClass]="{ 'overlay-bg-show': loading, 'overlay-bg-hide': !loading }">
+  <app-loading></app-loading>
+</div>

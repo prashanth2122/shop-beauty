@@ -1,0 +1,581 @@
+<section class="registration_form edit-profile" style="position: relative;">
+  <div class="dl-overlay"  
+  [ngClass]="{
+        'dl-overlay-show':overlayLoad,
+        'dl-overlay-hide':!overlayLoad
+  }">
+<div class="b2c-title"> 
+  <span class="loading-txt"> loading... </span>  
+</div>
+</div>
+
+  <form
+    [formGroup]="registrationForm"
+    (keydown)="keyDownFunction($event)"
+    (ngSubmit)="onSubmitForm($event)"
+    custom-focus
+  >
+    <div class="col-xs-12 row">
+      <div class="col-sm-12 col-md-4 ">
+        <label class="register_label " for="reg_title"
+          >{{'editMyProfile.title' | translate}}<span class="redstar">*</span></label
+        >
+      </div>
+
+ 
+      <div class="col-sm-12 col-md-8 text-left ">
+        <span class="login_fields">
+          <select *ngIf ="!deContent"
+            class="mandatory form-control"
+            formControlName="titleCode"
+            [ngClass]="{
+              'has-error  not-valid':!registrationForm.controls['titleCode'].valid && registrationForm.get('titleCode').touched
+            }"
+          >
+            <option value="" selected="selected">{{'menu.pleaseSelect' | translate}}</option>
+            <option value="miss">Miss</option>
+            <option value="mrs">Mrs</option>
+            <option value="ms">Ms</option>
+            <option value="mr">Mr</option>
+            <option value="dr">Dr</option>
+          </select>
+          <select *ngIf ="deContent"
+          class="mandatory form-control"
+          formControlName="titleCode"
+          [ngClass]="{
+            'has-error  not-valid':!registrationForm.controls['titleCode'].valid && registrationForm.get('titleCode').touched
+          }"
+        >
+          <option value="" selected="selected">{{'menu.pleaseSelect' | translate}}</option>
+          <option value="mrs">Frau</option>
+          <option value="mr">Herr</option>
+        </select>
+          <div
+            *ngIf="
+              !registrationForm.controls['titleCode'].valid &&
+              registrationForm.get('titleCode').touched
+            "
+            class="not-valid-error-msg"
+          >
+            <span
+              [hidden]="!registrationForm.controls['titleCode'].errors.required"
+              >{{ "register.titleCode" | translate }}</span
+            >
+          </div>
+        </span>
+      </div>
+    </div>
+    <div class="col-xs-12 row">
+      <div class="col-sm-12 col-md-4 ">
+        <label class="register_label " for="reg_firstname"
+          >{{'editMyProfile.firstName' | translate}}<span class="redstar">*</span></label
+        >
+      </div>
+      <div class="col-sm-12 col-md-8 text-left ">
+        <span class="login_fields">
+          <input
+            formControlName="firstName"
+            type="text"
+            autocomplete="off"
+            class="mandatory form-control reg_field "
+            [ngClass]="{
+              'has-error  not-valid':
+                !registrationForm.controls['firstName'].valid &&
+                registrationForm.get('firstName').touched,
+                'valid':registrationForm.get('firstName').valid,
+                  'invalid':!registrationForm.get('firstName').valid
+            }"
+          />
+          <div
+            *ngIf="
+              !registrationForm.controls['firstName'].valid &&
+              registrationForm.get('firstName').touched
+            "
+            class="not-valid-error-msg"
+          >
+            <span
+              [hidden]="!registrationForm.controls['firstName'].errors.required"
+            >
+              {{ "register.firstName" | translate }}
+            </span>
+            <span
+              *ngIf="
+                registrationForm.controls['firstName'].errors.patternInvalid
+              "
+            >
+              {{ "register.firstName" | translate }}
+            </span>
+          </div>
+        </span>
+      </div>
+    </div>
+    <div class="col-xs-12 row">
+      <div class="col-sm-12 col-md-4 ">
+        <label class="register_label " for="reg_lastname"
+          >{{'editMyProfile.lastName' | translate}}<span class="redstar">*</span></label
+        >
+      </div>
+      <div class="col-sm-12 col-md-8 text-left ">
+        <span class="login_fields">
+          <input
+            type="text"
+            formControlName="lastName"
+            autocomplete="off"
+            class="mandatory form-control reg_field "
+            [ngClass]="{
+              'has-error  not-valid':
+                !registrationForm.controls['lastName'].valid &&
+                registrationForm.get('lastName').touched,
+                'valid':registrationForm.get('lastName').valid,
+                  'invalid':!registrationForm.get('lastName').valid
+            }"
+          />
+          <div
+            *ngIf="
+              !registrationForm.controls['lastName'].valid &&
+              registrationForm.get('lastName').touched
+            "
+            class="not-valid-error-msg"
+          >
+            <span
+              [hidden]="!registrationForm.controls['lastName'].errors.required"
+            >
+              {{ "register.lastName" | translate }}
+            </span>
+            <span
+              *ngIf="
+                registrationForm.controls['lastName'].errors.patternInvalid
+              "
+            >
+              {{ "register.lastName" | translate }}
+            </span>
+          </div>
+        </span>
+      </div>
+    </div>
+    <div class="col-xs-12 row">
+      <div class="col-sm-12 col-md-4 ">
+        <label class="register_label " for="reg_email"
+          >Email<span class="redstar">*</span></label
+        >
+      </div>
+      <div class="col-sm-12 col-md-8 text-left ">
+        <span class="login_fields">
+          <input
+            type="email"
+            formControlName="uid"
+            autocomplete="off"
+            autocomplete="off"
+            class="mandatory form-control reg_field"
+           />
+          <!-- <div
+            *ngIf="
+              !registrationForm.controls['uid'].valid &&
+              registrationForm.get('uid').touched
+            "
+            class="not-valid-error-msg"
+          >
+            <span
+              [hidden]="!registrationForm.controls['uid'].errors.required"
+              >{{ "register.uid" | translate }}</span
+            >
+            <span
+              [hidden]="!registrationForm.controls['uid'].errors.patternInvalid"
+              >{{ "register.invalidEmailAddress" | translate }}</span
+            >
+          </div> -->
+        </span>
+      </div>
+    </div>
+
+    <div class="col-xs-12 row">
+      <div class="col-sm-12 col-md-4 ">
+        <label class="register_label " for="reg_country"
+          >{{'editMyProfile.country' | translate}}<span class="redstar">*</span></label
+        >
+      </div>
+      <div class="col-sm-12 col-md-8 text-left ">
+        <span class="login_fields">
+          <select
+            class="mandatory form-control"
+            formControlName="country"
+            (change)="onChangeCountry($event)"
+            [ngClass]="{
+              'has-error  not-valid':
+                !registrationForm.controls['country'].valid &&
+                registrationForm.get('country').touched
+            }"
+          >
+            <option value="" selected="selected">Choose Country*</option>
+            <option
+              *ngFor="let data of countries; let k = index"
+              [ngValue]="data"
+              >{{ data.name }}</option
+            >
+          </select>
+          <div
+            *ngIf="
+              !registrationForm.controls['country'].valid &&
+              registrationForm.get('country').touched
+            "
+            class="not-valid-error-msg"
+          >
+            <span
+              [hidden]="!registrationForm.controls['country'].errors.required"
+            >
+              {{ "register.country" | translate }}</span
+            >
+          </div>
+        </span>
+      </div>
+    </div>
+    <div class="col-xs-12 row">
+      <div class="col-sm-12 col-md-4 ">
+        <label class="register_label " for="reg_postcode"
+          >{{'editMyProfile.postcodeZipcode' | translate}}<span class="redstar">*</span></label
+        >
+      </div>
+      <div class="col-sm-12 col-md-8 text-left editLookup lookupbtn-mobile">
+        <span class="login_fields">
+
+            <a class="contextual-help"   *ngIf="!ukLoopBtnStatus && !usSpecific" ngbTooltip="{{'register.exceptUkallCountryPostCode'|translate}}"  [placement]="mobileDevice?'top':'right'"  
+            show-delay="100"></a>
+          <input
+            #myInput
+            type="text"
+            (keydown)="onSearchKeyUp($event)"
+            class="mandatory form-control "
+            formControlName="postalCode"
+            maxlength="10"
+            [ngClass]="{
+              'has-error  not-valid':(!registrationForm.controls['postalCode'].valid && registrationForm.get('postalCode').touched),
+              'valid':registrationForm.get('postalCode').valid,
+              'invalid':!registrationForm.get('postalCode').valid,
+              'not-valid-postcode': !postCodeStatus
+            }"
+          />
+          <span class="postcode-status" *ngIf="!postCodeStatus">Please enter a valid postcode or enter the address manually.</span>
+          <div
+            *ngIf="
+              !registrationForm.controls['postalCode'].valid &&
+              registrationForm.get('postalCode').touched
+            "
+            class="not-valid-error-msg"
+          >
+        
+          <span
+          [hidden]="
+            !registrationForm.controls['postalCode'].errors.patternInvalid
+          "
+        >{{'checkoutFlow.postCodeErr' | translate}}</span>
+            <span
+              [hidden]="
+                !registrationForm.controls['postalCode'].errors?.required
+              "
+            >
+              {{ "register.postCode" | translate }}</span
+            >
+          </div>
+          <div class="postcode-msg-block">
+            <span>Please enter a valid postcode or enter the address manually.</span>
+          </div>
+        </span>
+        <span class="ml-8 find-address" *ngIf="ukLoopBtnStatus">
+          <button class="buttonStyle mt-1" (click)="onLookupAddress($event)">
+            Lookup Address
+          </button>
+        </span>
+      </div>
+    </div>
+    <div class="col-xs-12 row " *ngIf="postalAddresses">
+      <div class="col-sm-12 col-md-4  ">
+        <label class="register_label "
+          >Select address<span class="redstar">*</span></label
+        >
+      </div>
+
+      <div class="col-sm-12 col-md-8 text-left ">
+        <span class="login_fields">
+          <select
+            class="mandatory form-control"
+            formControlName="address"
+            (change)="onSelectPlace($event.target.value)"
+          >
+            <option value="" selected>Select an Address</option>
+            <option
+              *ngFor="let data of postalAddresses; let k = index"
+              [value]="data.Id"
+              >{{ data.StreetAddress }}, &nbsp;{{ data.Place }}</option
+            >
+          </select>
+        </span>
+      </div>
+    </div>
+    <div class="col-xs-12 row">
+      <div class="col-sm-12 col-md-4 ">
+        <label class="register_label" for="reg_address"
+          >{{'editMyProfile.address' | translate}}<span class="redstar">*</span></label
+        >
+      </div>
+      <div class="col-sm-12 col-md-8 text-left ">
+        <span class="login_fields">
+          <input
+            type="text"
+            formControlName="line1"
+            class="mandatory form-control reg_field "
+            [ngClass]="{
+              'has-error  not-valid':
+                !registrationForm.controls['line1'].valid &&
+                registrationForm.get('line1').touched,
+                'valid':registrationForm.get('line1').valid,
+                  'invalid':!registrationForm.get('line1').valid
+            }"
+          />
+          <div
+            *ngIf="
+              !registrationForm.controls['line1'].valid &&
+              registrationForm.get('line1').touched
+            "
+            class="not-valid-error-msg"
+          >
+            <span
+              [hidden]="!registrationForm.controls['line1'].errors.required"
+            >
+              {{ "register.line1" | translate }}</span
+            >
+          </div>
+          <input
+            type="text"
+            class="mandatory"
+            formControlName="line2"
+            style="margin-top:15px;"
+          />
+        </span>
+      </div>
+    </div>
+    <div class="col-xs-12 row">
+      <div class="col-sm-12 col-md-4 ">
+        <label class="register_label " 
+          >{{'editMyProfile.townCity' | translate}}<span class="redstar">*</span></label
+        >
+      </div>
+      <div class="col-sm-12 col-md-8 text-left ">
+        <span class="login_fields">
+          <input
+            type="text"
+            formControlName="town"
+            class="mandatory form-control reg_field"
+            [ngClass]="{
+              'has-error  not-valid':
+                !registrationForm.controls['town'].valid &&
+                registrationForm.get('town').touched,
+                'valid':registrationForm.get('town').valid,
+                  'invalid':!registrationForm.get('town').valid
+            }"
+          />
+          <div
+            *ngIf="
+              !registrationForm.controls['town'].valid &&
+              registrationForm.get('town').touched
+            "
+            class="not-valid-error-msg"
+          >
+            <span [hidden]="!registrationForm.controls['town'].errors.required">
+              {{ "register.town" | translate }}</span
+            >
+          </div>
+        </span>
+      </div>
+    </div>
+
+    <div class="col-xs-12 row" *ngIf="!usSpecificForm; else usStates">
+      <div class="col-sm-12 col-md-4 ">
+        <label class="register_label" 
+          >{{ "form.label.state" | translate }}
+          </label
+        >
+      </div>
+      <div class="col-sm-12 col-md-8 text-left ">
+        <span class="login_fields">
+          <input 
+                placeholder="County (optional)"
+                type="text" 
+                formControlName="district"  
+            />
+
+        </span>
+      </div>
+    </div>
+    <ng-template #usStates>
+      <div class="col-xs-12 row">
+        <div class="col-sm-12 col-md-4 ">
+          <label class="register_label " >{{ "form.label.state" | translate }}
+            <span class="redstar" >*</span>
+          </label>
+        </div>
+        <div class="col-sm-12 col-md-8 text-left ">
+          <span class="login_fields">
+            <select
+              *ngIf="stateList"
+              class="mandatory form-control"
+              formControlName="district"
+              [ngClass]="{
+                'has-error  not-valid':
+                  !registrationForm.controls['district'].valid &&
+                  registrationForm.get('district').touched
+              }"
+            >
+              <option
+                *ngFor="let data of stateList; let k = index"
+                [ngValue]="data"
+                >{{ data.name }}</option
+              >
+            </select>   
+            <input
+              *ngIf="!stateList"
+              autocorrect="off"
+              formControlName="district"
+              placeholder="State"
+              type="text"
+              class="form-control  mandatory"
+              autocapitalize="on"
+              [ngClass]="{
+                'has-error not-valid':
+                  !registrationForm.get('district').valid &&
+                  registrationForm.get('district').touched
+              }"
+            />
+
+            <div
+            *ngIf="
+              !registrationForm.controls['district'].valid &&
+              registrationForm.get('district').touched
+            "
+            class="not-valid-error-msg"
+          >
+            <span [hidden]="!registrationForm.controls['district'].errors.required">
+              {{ "register.district" | translate }}</span
+            >
+          </div>
+          </span>
+        </div>
+      </div>
+    </ng-template>
+
+    <div class="col-xs-12 row">
+      <div class="col-sm-12 col-md-4 ">
+        <label class="register_label " 
+          >{{'editMyProfile.phoneNumber' | translate}}<span class="redstar">*</span></label
+        >
+      </div>
+      <div class="col-sm-12 col-md-8 text-left ">
+        <span class="login_fields regPhone">
+             <a
+            class="contextual-help"
+            show-delay="100" ngbTooltip="{{'register.phonenumberInfo'|translate}}" [placement]="mobileDevice?'top':'right'"  
+          ></a>
+          <input
+            type="text"
+            formControlName="phone"
+            class="form-control  mandatory"
+            [ngClass]="{
+              'has-error not-valid':
+                (!registrationForm.get('phone').valid &&
+                  registrationForm.get('phone').touched) ||
+                registrationFormInvalid,
+                'valid':registrationForm.get('phone').valid,
+                  'invalid':!registrationForm.get('phone').valid
+            }"
+          />
+          <a
+            class="registrationForm contextual-help"
+            show-delay="500" ngbTooltip="{{'register.phonenumberInfo'|translate}}" [placement]="mobileDevice?'top':'right'"  
+          ></a>
+          <div
+            *ngIf="
+              (!registrationForm.controls['phone'].valid &&
+                registrationForm.get('phone').touched) ||
+              (isValidFormSubmitted != null && !isValidFormSubmitted)
+            "
+            class="not-valid-error-msg"
+          >
+            <span *ngIf="registrationForm.controls['phone'].errors.required"
+              >{{'checkoutFlow.phoneNoError' | translate}}</span>
+            <span
+              *ngIf="registrationForm.controls['phone'].errors.patternInvalid"
+            >
+            {{'checkoutFlow.phoneNoLenError' | translate}}
+            </span>
+          </div>
+        </span>
+      </div>
+    </div>
+    <div class="col-xs-12 row">
+      <div class="col-sm-12 col-md-4 ">
+        <label class="register_label " for="reg_title">{{'editMyProfile.ageGroup' | translate}}</label>
+      </div>
+      <div class="col-sm-12 col-md-8 text-left ">
+        <span class="login_fields">
+          <select class="mandatory" formControlName="agegroup">
+            <option value="" selected>{{'editMyProfile.pleaseSelect' | translate}}</option>
+            <option value="16-18">16-18</option>
+            <option value="19-25">19-25</option>
+            <option value="26-45">26-45</option>
+            <option value="46-60">46-60</option>
+            <option value="Over 60">Over 60</option>
+          </select>
+        </span>
+      </div>
+    </div>
+    <div class="col-xs-12 row">
+      <p class="col-sm-12 col-md-4 text-right">
+        <label class="register_label "> {{'editMyProfile.gender' | translate}} </label>
+      </p>
+      <p class="col-sm-12 col-md-8 text-left genderAlign">
+        <input
+          id="gender_female"
+          type="radio"
+          value="FEMALE"
+          class="pull-left"
+          formControlName="gender"
+        />
+        <span class="pull-left gender">{{'editMyProfile.female' | translate}}</span>
+        <input
+          id="gender_male"
+          type="radio"
+          value="MALE"
+          class="pull-left"
+          formControlName="gender"
+        />
+        <span class="pull-left gender">{{'editMyProfile.male' | translate}}</span>
+      </p>
+    </div>
+    <div class="col-xs-12 expressCheckoutOptions">
+      <p>{{'editMyProfile.expressCheckoutOptions' | translate}}</p>
+    </div>
+    <div class="col-xs-12 row">
+      <p class="col-sm-4">
+        <label class="default-shipping-p">{{'editMyProfile.defaultShippingMethod' | translate}}</label>
+      </p>
+      <p class="col-sm-8 text-left">
+        <span class="select_field">
+          <select class="shipping_select" formControlName="dlMode">
+            <option value="" selected="selected">{{'editMyProfile.selectDefaultShipping' | translate}}</option>
+            <option *ngFor="let dl of dlModes" [ngValue]="dl">
+              {{
+                dl.description
+                  ? dl.description
+                  : dl.serviceName
+                  ? dl.serviceName
+                  : ""
+              }}
+            </option>
+          </select>
+        </span>
+      </p>
+    </div>
+    <div class="text-left sbmt-block">
+      <button class="buttonStyle" type="submit" [disabled]="enableAction">{{'editMyProfile.submit' | translate}}</button>
+    </div>
+  </form>
+</section>

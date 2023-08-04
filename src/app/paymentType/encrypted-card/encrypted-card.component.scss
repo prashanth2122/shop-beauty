@@ -1,0 +1,397 @@
+@import"../../../variable";
+.CustomerDetails {
+ .form-group .radio{
+    display: flex;
+    @media screen and(max-width:768px) {
+      flex-direction:column;
+    }
+  }
+  .security-code {
+    width:160px;
+      @media screen and(max-width:768px){
+    width: calc(100% - 20px);
+      }
+    input {
+      width: 160px;
+      @media screen and(max-width:768px){
+        width: 100%;
+      }
+    }
+    .contextual-help {
+      right: -20px;
+      top: 3px;
+  
+      @media screen and(max-width:768px){
+       right: -20px;
+      top: 3px;
+      }
+    } 
+  }
+
+  .expiry-date {
+    width: 175px;
+    margin-top: 4px;
+  }
+  .edit-expiry {
+    width: 60px;
+    text-align: right;
+    margin-top: 4px;
+    float: right;
+    @media screen and(max-width:768px){
+      width: auto;
+    }
+    a {
+      font-size: 14px;
+      text-decoration: underline;
+    }
+  }
+}
+.form-group {
+  position: relative;
+}
+
+.add-new-card {
+  text-decoration: underline !important;
+  cursor: pointer;
+}
+.new_card-form {
+  form {
+    .monthYearAlign {
+      display: flex;
+      justify-content: space-between;
+      width: 65%;
+      span{
+        margin:5px;
+      }
+      select {
+        min-width: 165px;
+      }
+    }
+    input {
+      width: 65%;
+    }
+    select {
+      width: 45%;
+    }
+    .securityCode {
+      position: relative;
+      width: 160px;
+      input {
+        width: 160px;
+      }
+      .contextual-help {
+        left: 25%;
+        top: 3px;
+      }
+    }
+  }
+}
+.saved-billing-addr-new-card {
+  .reg-address-radio {
+    label.radio-inline {     
+      &:before {
+        top: 0px;
+      }
+    }
+  }
+}
+
+.btn-default.disabled-active {
+  background-color: $light-grey;
+  opacity: 1;
+}
+.reg-add-new-delivery-address {
+  a {
+    text-decoration: underline !important;
+    cursor: pointer;
+  }
+}
+.reset-btn {
+  display: flex;
+  -webkit-writing-mode: horizontal-tb !important;
+  writing-mode: horizontal-tb !important;
+  text-rendering: auto;
+  justify-content: center;
+  align-items: center;
+}
+.btn {
+  border: 0;
+  width: 180px;
+  height: 48px;
+  border-radius: 0;
+  text-transform: uppercase;
+  font-size: 14px;
+  transition: background 0.3s ease-in-out;
+  position: relative;
+  background: $primary-color;
+  color: $mb-white;
+}
+.add-card {
+  margin: 15px 0;
+}
+.new-card-form {
+  .section-heading {
+    h2 {
+      font-size: 18px;
+      line-height: 20px;
+      font-weight: 700;
+      margin: 0 0 18px 0;
+    }
+    legend{
+      font-size:16px !important;
+      color: $primary-color;
+      border: 0;
+      margin: 0 0 12px 0;
+      display: block;
+      width: 100%;
+      padding: 0;
+      line-height: 1.42857;
+      }
+      
+  }
+//   .delivery-customer-info{
+//     display: inline-block;
+//      width: 80%;
+//     text-transform: capitalize;
+//     position: relative;
+//     vertical-align: -webkit-baseline-middle;
+//     margin-left:10px;
+// .customer-dt{
+//     // display:flex;
+// overflow: hidden;
+// text-overflow: ellipsis;
+// white-space: nowrap;
+// }
+// }
+
+  .existing-customer-list {
+    width: calc(85%);
+    @media screen and(max-width:$screen-sm) {
+      width: calc(78%);
+    }
+    label {
+      justify-content: start;
+      padding-left: 30px;
+      line-height: 1.65;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      display: block;
+      span{
+        font-size:14px;
+      }
+      &:before {
+        top: 0;
+      }
+    }
+  }
+  .action-link {
+    align-self: flex-start;
+    line-height: 2.65;
+    line-height: 3;
+    text-align: right;
+    float: right;
+    width: 15%;
+    span {
+      text-decoration: underline;
+      text-transform: capitalize;
+      font-size: 14px;
+      cursor: pointer;
+    }
+  }
+}
+.reg-add-new-delivery-address {
+  a {
+    text-decoration: underline !important;
+  }
+}
+.choose-card {
+  .card-radio-label {
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: 500;
+    width: 300px;
+    span{      
+    font-size: 14px;
+    text-transform: uppercase;
+    }
+ 
+  }
+  .expiry-date {
+    width: 175px;
+    margin-top: 4px;
+    font-weight: 400;
+    font-size:14px;
+    @media screen and(max-width:768px) {
+      margin-top:10px;
+      margin-left:28px;
+    }
+  }
+  .edit-expiry{
+      a{
+          font-size:14px;
+          &:hover{
+              cursor: pointer;
+          }
+      }
+  }
+}
+.flex-display{
+  display: flex;
+  justify-content: space-between;
+}
+
+.billing-label{
+  padding: 4px 0 15px 0px;
+  position: relative;
+  width: 90%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  span{
+    font-size:14px;
+  }
+}
+.saved-delivery-addresses{
+  legend{
+    font-size: 18px;
+    @media screen and(max-width:768px){
+      font-size:16px;
+      font-weight: 500;
+    }
+  }
+}
+.card-logo {
+  margin: 0 10px 0 0;
+  text-indent: -9999px;
+  overflow: hidden;
+  background: url("../../../assets/imgs/sprite-credit-cards.png") no-repeat -9999px top;
+  width: 45px;
+  height: 28px;
+  vertical-align: middle;
+  display: inline-block;
+  &.master-card {
+    background-position: -101px 0;
+  }
+  &.amex-card {
+    background-position: -152px 0;
+  }
+  &.visa-card {
+    background-position: 0 0;
+  }
+}
+.edit-action{
+  font-size:14px;
+  text-decoration: underline;
+  cursor: pointer;
+}
+.not-valid-error-msg
+{
+  width: 305px;
+  left:2%;  
+  @media screen and(max-width:768px) {    
+  width: 95%;
+  }
+}
+.security-code .contextual-help ~ .not-valid, .security-code .contextual-help ~ .valid {
+  background-position: 81% 11px !important;
+  background-size: unset !important;
+  @media screen and(max-width:768px) {
+      background-position: 90% 11px !important;
+  }
+}
+.selected-card-detail{
+
+  span{
+    font-size: 14px;
+  }
+  .ae-card-expiry {
+    margin-left: 30px;
+}
+p.card-holder-name {
+  padding: 10px 0 0;
+  margin: 0 0 0 60px;
+}
+}
+.buttons-add-new-card{
+    margin-top: 25px !important;
+  .btn{
+  background-color:#464646;
+  margin-bottom: 10px;
+  font-size: 15px;
+  color:$mb-white !important;
+  &.disabled-active {
+    background-color: $light-grey;
+    opacity: 1;
+  }
+}
+}
+
+.desktop-button-section{
+  display: block;
+}
+.mob-button-section {
+  display: none;  
+  @media screen and(max-width:768px) {
+      display: block;
+  }   
+}
+  @media screen and(max-width:768px){
+.buttons-add-new-card{
+  //display: flex;
+    //flex-direction:column-reverse;
+    .btn{
+      width:100%;
+    }
+  }
+  .desktop-button-section{
+    display: none;
+  }
+}
+.encryptCard{
+  padding:9px 0 0;
+
+}
+.mask-card-edit-info{
+  .edit-card-context-header{
+    margin-bottom: 8px;
+  }
+  .masked-card{
+    font-size:14px;
+    text-transform: uppercase;
+  }
+}
+.section-heading{
+  .add-new-card-text{
+    margin-left: 2px;
+  }
+}
+
+.reg_user{
+    
+  .input[type="text"].form-control.not-valid, input[type="tel"].form-control.not-valid {
+      background-position: 90% 8px !important;
+      background-size: 7px !important;
+  }
+  }
+  .error-info-block{
+    .err_msg{
+      text-transform: none;
+      a{
+        text-transform: none;
+        text-decoration: underline;
+      }
+    }
+  }
+
+  select.form-control{
+    &.has-error{
+    &:focus{
+     ~{ 
+       .not-valid-error-msg {
+        display: block !important;
+      }
+    }
+  }
+}
+ }

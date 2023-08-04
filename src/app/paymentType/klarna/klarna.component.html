@@ -1,0 +1,135 @@
+<div *ngIf="billingAddress;else changeBillingAddress">
+  <div class="error-info-block">
+    <div class="err_msg" *ngIf="outofStock">
+      <p class="err_form_msg">
+        We're sorry you have selected more of the following product(s) than are in stock.
+        Please change the quantity to a number that's available.Thanks.
+      </p>
+      <div class="stock-list" >
+        <li class="err_form_msg" *ngFor="let data of outofStockList">
+          {{ data.name }}
+        </li>
+      </div>
+    </div>
+      <div class="err_msg"  *ngIf="errorvalidationMsg">
+        {{'invalidcard.errormsgblock' | translate}}
+          <br>
+          <br>
+          <div>
+            {{'invalidcard.emailandphone' | translate}} <br>
+            <a href="mailto:{{'invalidcard.emailId' | translate}}">{{'invalidcard.emailId' | translate}}</a>
+          </div> 
+          <br>
+      </div>
+  </div>
+  <form
+  class="klarna-form"
+  [formGroup]="klarnaForm"
+  custom-focus
+  (ngSubmit)="onKlarnaDetailSubmit($event)" 
+
+  >
+  <p class="redstar kl-msg" *ngIf="errorMsg">
+      <span *ngIf="klarnaStatus">
+          Entschuldigen Sie bitte, bei der Bearbeitung Ihrer Bestellung ist ein Problem aufgetreten. Überprüfen Sie bitte Ihre Eingaben und versuchen Sie es dann erneut. Alternativ können Sie auch eine andere Zahlungsmethode verwenden.
+      </span>
+    </p>
+    <section>
+      <div class="section-heading" *ngIf="klarnaStatus">
+        <h2>{{'paymentCard.yourBillAdd' | translate}}</h2>
+      </div>
+      <div style="display:block">
+        <div class="payer-saved-address clearfix" *ngIf="klarnaStatus">
+          <div>
+            <div class="saved-address clearfix">
+              <p *ngIf="shippingAddress.customerAddress">
+               <span *ngIf="shippingAddress.customerAddress.line1">
+                  {{shippingAddress.customerAddress.line1}}<br>
+                </span>
+              
+               <span  *ngIf="shippingAddress.customerAddress.line2">
+                 {{shippingAddress.customerAddress.line2}}<br>
+                </span>
+           
+               <span  *ngIf="shippingAddress.customerAddress.town">
+                 {{shippingAddress.customerAddress.town}}<br>
+                </span>
+                
+               <span  *ngIf="shippingAddress.customerAddress.postalCode">
+                  {{shippingAddress.customerAddress.postalCode}}<br>
+                </span>
+                
+               <span  *ngIf="shippingAddress.customerAddress.country">
+                  {{shippingAddress.customerAddress.country.name}}<br>
+                </span>
+                
+                <span *ngIf="shippingAddress.customerAddress.phone">
+                  {{shippingAddress.customerAddress.phone}}
+                </span>
+              </p>
+              <a class="change-address-btn" title="Change billing address" (click)="onChangeBillingAddress()">
+                {{'paymentCard.changeBillAdd' | translate}}
+              </a>
+            </div>
+            <div class="form-group form-checkbox ">
+              <div class="checkbox  bl_checkbox">
+                <input 
+                style="padding-top: 0px;" 
+                id="klarnaBlAddress" 
+                type="checkbox" 
+                value="true" 
+                class="checkbox" 
+                formControlName="billingForm"
+                (change)="onChangeBLAddress($event)" 
+                [ngClass]="{ 
+                  'has-error  not-valid':!klarnaForm.controls['billingForm'].valid &&  klarnaForm.get('billingForm').touched}"
+               >
+                <label for="klarnaBlAddress" class="klarna-label">{{'paymentCard.correctBillAdd' | translate}}</label>
+              </div>
+              <div class="terms-error-msg-bottom error-block"
+              *ngIf="(getTypeOf(klarnaForm.value['billingForm'])) ||(!klarnaForm.controls['billingForm'].valid &&  klarnaForm.get('billingForm').touched) ">
+              <span class="check-error-msg-bottom">
+                {{'paymentCard.correctBillAddErr' | translate}}
+              </span>
+            </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <div id="klarna-container">
+      </div>
+    </section>
+    <app-mb-terms  
+    *ngIf="klarnaStatus"     
+       (setPolicyTerms)="onSetPolicyTerms($event)"  
+       (setTerms)="onSetTerms($event)" 
+        [formType]="klarnaForm.get('terms')">
+      </app-mb-terms>
+  </form>
+  </div>
+  <ng-template #changeBillingAddress>
+    <app-billing-address 
+    [shippingUserAddress]="shippingAddress"
+    (onResetAddress)="onResetAddress()"
+    (onSetBillingAddress)="onSetBillingAddress($event)"
+    [payType]="payType"
+      ></app-billing-address>
+  </ng-template>
+
+
+  <div 
+  class="dl-overlay payer-loading"
+  [ngClass]="{
+     'dl-overlay-show':loading,
+     'dl-overlay-hide':!loading
+   }">
+   <div class="b2c-title text-center pay-load"> 
+      <div class="load-txt" >
+      <span class="pay-load-text">
+        {{'giftMsg.submitMsg' | translate}}
+      </span>  
+      </div>  
+   </div>
+</div>
+  

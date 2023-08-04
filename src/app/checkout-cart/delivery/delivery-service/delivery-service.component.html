@@ -1,0 +1,337 @@
+<div class="dt-delivery-details" style="position: relative;">
+  <div class="user-delivery-details" *ngIf="shippingInfo">
+    <div
+      class="user-delivery-method user-delivery-bg  clearfix"
+      *ngIf="!euSpecific"
+    >
+      <i class="icon-uk-std-dt icon-bg-block"></i>
+      <div class="delivery-method" >{{ 
+        (!ukspecific)?
+        (shippingInfo.deliveryType)?shippingInfo.deliveryType:'Ship to an address'
+        : (shippingInfo.deliveryType)?shippingInfo.deliveryType:'UK & International delivery'  
+         }}</div>
+      <div class="edit-details">
+        <a
+          (click)="onEditDeliveryType('delivery')"
+          class="edit-delivery-details"
+        >Edit this</a>
+        <i class="icon-valid-white icon-bg-block"></i>
+      </div>
+    </div>
+
+    <div class=" user-delivery-bg  clearfix"  *ngIf="shippingInfo.dlShippingAddress">
+      <div class="addressLine">
+        <i class="icon-home icon-bg-block"></i>
+        <div class="delivery-customer-info">
+          <div class="customer-dt">
+            <span *ngIf="shippingInfo.dlShippingAddress.titleCode">
+              {{shippingInfo.dlShippingAddress.titleCode}}
+            </span>
+            <span *ngIf="shippingInfo.dlShippingAddress.firstName">{{
+                shippingInfo.dlShippingAddress.firstName}}
+            </span>
+            <span *ngIf="shippingInfo.dlShippingAddress.lastName">
+              {{shippingInfo.dlShippingAddress.lastName}},&nbsp;
+            </span>
+            <span *ngIf="shippingInfo.dlShippingAddress.line1">
+                {{shippingInfo.dlShippingAddress.line1}},&nbsp;
+              </span>
+              <span *ngIf="shippingInfo.dlShippingAddress.line2">
+                  {{shippingInfo.dlShippingAddress.line2}},&nbsp;
+              </span>
+              <span *ngIf="shippingInfo.dlShippingAddress.town">
+                    {{shippingInfo.dlShippingAddress.town}},&nbsp;
+              </span>
+              <span *ngIf="shippingInfo.dlShippingAddress.district">
+                  {{shippingInfo.dlShippingAddress.district}},&nbsp;
+              </span>
+              <span *ngIf="shippingInfo.dlShippingAddress.postalCode">
+                  {{shippingInfo.dlShippingAddress.postalCode}},&nbsp;
+              </span>
+              <span *ngIf="shippingInfo.dlShippingAddress.country">
+                  {{shippingInfo.dlShippingAddress.country.name}}
+              </span>
+          </div>
+        </div>
+        <div class="edit-details" *ngIf="!shippingInfo.dlShippingAddress.phone">
+          <a
+            (click)="onEditDeliveryType('profile')"
+            class="edit-delivery-details"
+            >Edit this</a>
+          <i class="icon-valid-white icon-bg-block"></i>
+        </div>
+      </div>
+      <div
+        class="mt-25 deliverPhoneNumber"
+        *ngIf="shippingInfo.dlShippingAddress.phone"
+      >
+        <i class="icon-telephone icon-bg-block"></i>
+        <div class="delivery-method">
+          {{ shippingInfo.dlShippingAddress.phone }}
+        </div>
+        <div class="edit-details">
+          <a
+            (click)="onEditDeliveryType('profile')"
+            class="edit-delivery-details"
+            >Edit this</a>
+          <i class="icon-valid-white icon-bg-block"></i>
+        </div>
+      </div>
+    </div>
+
+    <div class="pt-10 clearfix" *ngIf="shippingInfo.payType">
+      <i
+        class=" icon-bg-block"
+        [ngClass]="{
+          'icon-international-sml': getIntcon(shippingInfo.payType),
+          'icon-uk-std-dt': getStdIcon(shippingInfo.payType),
+          'icon-calendar-sml': shippingInfo.payType.date
+        }"
+      >
+      </i>
+      <div
+        class="delivery-method delivery-type"
+        *ngIf="!shippingInfo.payType.date; else namedDay"
+      >
+        <span
+          >{{
+            shippingInfo.payType.description
+              ? shippingInfo.payType.description
+              : shippingInfo.payType.zoneName
+          }}&nbsp;</span
+        >
+        <span *ngIf="shippingInfo.payType.serviceName"
+          >
+          <span *ngIf="shippingInfo.dlShippingAddress.country.isocode !='VI' ">&#40;</span>
+          {{ shippingInfo.payType.serviceName }}
+          <span *ngIf="shippingInfo.dlShippingAddress.country.isocode !='VI' ">&#41;</span>
+          </span
+        >
+        <span *ngIf="shippingInfo.payType.deliveryCost">
+          {{
+            shippingInfo.payType.deliveryCost
+              ? shippingInfo.payType.deliveryCost.formattedValue
+                ? shippingInfo.payType.deliveryCost.formattedValue
+                : shippingInfo.payType.deliveryCost
+              : ""
+          }}
+        </span>
+      </div>
+      <ng-template #namedDay>
+        <div class="delivery-method delivery-type">
+          <span *ngIf="shippingInfo.payType.serviceName">{{ shippingInfo.payType.serviceName }}&nbsp;</span>
+          <span *ngIf="shippingInfo.payType.date">-&nbsp;{{ shippingInfo.payType.date }}&nbsp;</span>
+          <span *ngIf="shippingInfo.payType.deliveryCost">
+            {{
+              shippingInfo.payType.deliveryCost
+                ? shippingInfo.payType.deliveryCost.formattedValue
+                  ? shippingInfo.payType.deliveryCost.formattedValue
+                  : shippingInfo.payType.deliveryCost
+                : ""
+            }}
+          </span>
+        </div>
+      </ng-template>
+      <div class="edit-details">
+        <a (click)="onEditDeliveryServiceType($event)" class="edit-delivery-details">
+          Edit this</a>
+        <i class="icon-valid-white icon-bg-block"></i>
+      </div>
+    </div>
+    <div *ngIf="totalToPay" class="pt-10 clearfix totalto-pay">
+      {{'checkoutFlow.Totaltopay' | translate}}
+      <div class="edit-details" *ngIf="singletonServ.cartObj">
+       {{ singletonServ.cartObj.totalPriceWithTax.formattedValue }}
+    </div>
+    </div>
+    
+  </div>
+
+  <section 
+         class="panel-body dl-service-methods" 
+         *ngIf="serviceBody" 
+         [ngClass]="{'dl-service-height':serviceLoad}">
+      <div 
+           class="dl-overlay"  
+           [ngClass]="{
+             'dl-overlay-show':serviceLoad,
+             'dl-overlay-hide':!serviceLoad
+            }">
+          <div class="b2c-title">
+              <span class="loading-txt"> loading... </span> 
+             </div>
+      </div>
+    <div class="dl-service" [ngClass]="{ delivery_service: payselect }">
+      <h2 class="del-service-title">
+        {{'checkoutFlow.deliveryCheckoutService'| translate }}
+      </h2>
+      <div class="dl-service-py-table">
+        <div
+          *ngIf="outstation; else localDelivery"
+          class="dl-service-py-table-cell"
+        >
+          <div class="choose-service-block ">
+            <div
+              class="dt-outstaion "
+              *ngFor="let oustation of outstationDelivery"
+            >
+              <div class="mb-dt-selected">
+                <i class="icon-dt-international">
+                  <img
+                    src="{{
+                      euSpecific
+                        ? 'assets/imgs/StandardDelivery.png'
+                        : 'assets/imgs/InternationalDelivery.png'
+                    }}"
+                  />
+                </i>
+                <h5>
+                  <span *ngIf="oustation.description">
+                    {{
+                      oustation.description
+                        ? oustation.description
+                        : "International Delivery"
+                    }}
+                  </span>
+                  <span class="delivery-country">
+                    <span *ngIf="euSpecific">
+                      {{ oustation.zoneName }} </span
+                    >&nbsp;
+                    {{ oustation.countryName }}
+                  </span>
+                </h5>
+                <h5 class="outstation-dt-price">
+                  {{ oustation.deliveryCost }}
+                </h5>
+              </div>
+              <div class="service-block  ct-payment contOrder" >
+                <h5 class="order-delivery-date width-align" style="font-size:14px;" >
+                  {{'checkoutFlow.deliveryTimeCheckout' | translate}} {{ oustation.serviceName }}.
+                </h5>
+                <button   (click)="outstationDt($event, oustation)"  class=" btn-continue-payment " >
+                      <span class="icon-padlock"></span>{{'checkoutFlow.continueToPay' | translate}}
+                 </button>
+         
+              </div>
+            </div>
+          </div>
+        </div>
+        <ng-template #localDelivery>
+          <span
+            *ngFor="let data of deliveryPayments; let k = index"
+            class="dl-service-py-table-cell"
+          >
+            <a
+              class="mb-payment-type mb-type-delevery"
+              [ngClass]="{
+                'mb-dt-selected': data.active,
+                'disabled': data.disabled =='disable',
+                'deactive':data.disableShippingMethod
+              }"
+              (click)="onDeleveryType($event, data, k)"
+            >
+              <i class="mb-icon-dt-uk"> <img [src]="getImgIcon(data)"/></i>
+
+              <h5 class="mb-dt-header mb-dt-margin">
+                {{ data.name ? data.name : data.description }}
+              </h5>
+              <p class="mb-dt-price mb-dt-margin">
+                {{
+                  data.deliveryCost
+                    ? data.deliveryCost.formattedValue
+                      ? data.deliveryCost.formattedValue
+                      : data.deliveryCost
+                    : ""
+                }}
+              </p>
+            </a>
+            <div
+              class="service-block  dl-py-method contOrder"
+              *ngIf="
+                data.active &&
+                deliveryTypeselected != 'UK-next-day-named-day-or-Saturday'
+              "
+            >  <h5 class="order-delivery-date width-align" style="font-size:14px;">
+              {{'checkoutFlow.deliveryTimeCheckout' | translate}}
+                {{ data.serviceName ? data.serviceName : "" }}.
+              </h5>
+            <button   (click)="onSecureDlPaymentCheck($event, data, k)"  class="btn-continue-payment " >
+              <span class="icon-padlock"></span>{{'checkoutFlow.continueToPay' | translate}}
+            </button>
+            
+              
+            </div>
+          </span>
+        </ng-template>
+
+      </div>
+      <div *ngIf="isHazardous" class="hazardous-text text-right" >
+          <a>We cannot ship hazardous products via Express or Priority.</a>
+      </div>  
+    </div>
+
+
+
+
+
+    <!-- Named Day Template -->
+    <section
+      class="card-body1 named-day-section"
+      *ngIf="deliveryTypeselected == 'UK-next-day-named-day-or-Saturday'"
+    >
+      <div class="named-day-delivery clearfix delivery-service-method "   
+      [ngClass]="{'named-day-block':nameDayLoad}"     
+      >
+      <div class="dl-overlay"  [ngClass]="{'dl-overlay-show':nameDayLoad,'dl-overlay-hide':!nameDayLoad}">
+          <div class="b2c-title">
+              <span class="loading-txt"> loading... </span> 
+            </div>
+      </div>
+        <div class="choose-delivery-day clearfix" *ngIf="shippingServices">
+          <h4 class="delivery-date-title" >Choose a delivery date</h4>
+          <h4 class="ukstd">
+            Some locations may take 2 days.
+            <a
+              (click)="onOpenCartModal()"
+              data-toggle="modal"
+              data-target="#modalCheckoutPopup"
+              >Find out more{{ namedDayId }}</a
+            >
+          </h4>
+          <div
+            class="named-day-delivery-available"
+            *ngFor="let data of shippingServices; let i = index"
+          >
+            <button
+              class="available-day-row "
+              (click)="onSelectNameDay($event,data, i)"
+              [ngClass]="{ 
+                'active-day': data.active,
+                'avail-day':!data.deliveryCost
+              }"
+              [disabled]="!data.deliveryCost"
+            >
+              <div class="named-day delivery-day">{{ data.date }}</div>
+              <div class="delivery-day-type named-day">
+                {{ data.serviceName }}
+              </div>
+              <div class="delivery-day-price named-day" *ngIf=" data.deliveryCost">
+                {{ data.deliveryCost }}
+              </div>
+            </button>
+          </div>
+
+          <div class="service-block contOrder" *ngIf="namedDay">
+            <h5 class="order-delivery-date width-align" style="font-size:14px;">
+              {{'checkoutFlow.deliveryTime' | translate}} <span> {{ namedDay.date }}</span>.
+            </h5>
+              <button   (click)="onSecureCheck()"  class="btn-continue-payment pull-right" >
+                  <span class="icon-padlock"></span>{{'checkoutFlow.continueToPay' | translate}}
+                </button>
+           
+          </div>
+        </div>
+      </div>
+    </section>
+  </section>
+</div>

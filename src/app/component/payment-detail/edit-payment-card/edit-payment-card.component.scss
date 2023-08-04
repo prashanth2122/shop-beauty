@@ -1,0 +1,385 @@
+
+
+@import"../../../../variable";
+.card_Form{
+    input[type="text"].form-control.not-valid{
+        background-position: 94% 1px;
+        background-size: 5px
+    }
+    .col-xs-12{
+        width: 100%;
+        margin-bottom: 5px;
+        padding: 10px 0 0 0;
+    }
+}
+.login-fields.start-date {
+    display: flex;
+    width: 250px;
+    justify-content: space-between;
+}
+.login-fields .small_fields {
+    width: 119px!important;
+    min-width: 119px !important;
+    height: 25px;margin:5px 0;
+    font-size: 12px !important;padding: 0;
+}
+.edit-card-expire-year{
+    right:35%;
+    width:35%;
+}
+.edit-card-expire-month{
+    width:35%;
+}
+.login-fields-small{
+    input[type="text"].form-control,
+    input[type="email"].form-control,
+    input[type="password"].form-control {
+    &.not-valid{
+        background-position:95% 2px !important;
+        background-size:4px !important;
+    }
+    }
+}
+
+.login_fields{
+    input[type="text"].form-control,
+    input[type="email"],input[type="password"],
+    input[type="email"].form-control,
+    input[type="password"].form-control,
+    input[type="tel"].form-control {
+       ~{
+           .not-valid-error-msg{
+               display:none  ;
+           
+           }
+       }
+    &.not-valid{    
+       &:focus{
+        box-shadow: none;
+       ~{
+        .not-valid-error-msg{
+           display:block ;
+         }
+        }
+       }
+     }
+       width: 65%;
+       display: block;
+       height: 48px;
+       border: 1px solid $light-grey;
+       border-radius: 0;
+       margin: 5px 0;
+       &.not-valid {
+           background-image: url('https://www.moltonbrown.co.uk/images/exclamation-symbol.png');
+           background-position: 95% 4px;
+           border: 1px solid $mb-error-bg !important;
+           background-repeat: no-repeat;    background-size: 4px;
+       }
+       &.valid {
+           background-image: url('https://www.moltonbrown.co.uk/images/tick-symbol.png') !important;
+           background-position: 95% 13px;
+           background-repeat: no-repeat;
+       }
+    }
+}
+aside {
+    border: 0;
+    text-align: left;
+    padding:4px 10px 20px 10px;
+    &.leftColumn{
+        max-width: 23%;
+    }
+     h3.facet_header {
+        font-size: 14px;
+        line-height: 30px;
+        color: #666;
+        font-weight: 700;
+        text-transform: uppercase;
+        cursor: pointer;
+        text-align: left!important;
+        margin-bottom: 0!important;
+    }
+ 
+}
+
+.facet_header {
+    font-size: 14px!important;
+    color: #666!important;
+    font-weight: 700;
+    text-transform: uppercase;
+    cursor: pointer;
+}    
+.rightColumn{
+           width:764px !important;
+        //    flex: 0 0 70%;
+        //    max-width: 70%;
+        // margin: auto;
+  @media screen and (max-width:$screen-sm) {
+      width: 100% !important;
+      //margin: auto;
+  }
+@media screen and (max-width:580px) {
+    width:100% !important;
+}
+       }   .checkout-middle-content .container{
+   
+        padding: 0px !important;
+    }
+  @media screen and (max-width:$screen-sm) {
+       aside.account{
+           max-width:100% !important;
+           width:100%;
+
+       } 
+       .facet_header {
+        
+        background: #777373;
+        padding: 10px 15px;
+        color: $mb-white !important;
+        display: none;
+       }
+       .asideMenuMobile{
+           flex-direction: column;
+       }
+       aside.leftColumn {
+           ul{
+                li{
+                margin: 10px 0px;
+                padding: 5px;
+                font-size: 14px;
+                border-bottom: 1px solid $light-grey;
+          }
+        }
+       }
+        .checkout-middle-content .container{
+            width: 100%;
+            padding: 0px !important;
+        }
+        .asideMenuMobile {
+            .rightColumn{
+            flex: 0 0 100% !important;
+            max-width: 100% !important;
+        }
+    }
+    }
+ul{
+    list-style: none;
+    li{
+        line-height: 17px;
+        color: #484848;
+        margin: 0;
+        ul {
+            margin: 5px 0 10px 15px;
+        }
+        a{
+            cursor: pointer;
+            font-size: 12px;
+            &:hover{
+                text-decoration: underline;
+            }
+        }
+    }
+}
+
+.login-fields.credit-expire {
+    display: flex;
+    width: 250px;
+    justify-content: space-between;
+    select.smallselect{
+        width: 119px!important;
+       min-width: 119px!important;
+        height:25px;
+        margin: 5px;
+        padding: 0;
+    }
+}
+.edit-form-action-block{
+    margin: 0;
+    padding: 0;
+.cancel-btn{
+    padding: 7px 12px;
+    line-height: 3;
+    font-size:14px;
+    background:#ccc;
+    color: $primary-color !important;
+    font-weight: 400;
+    cursor: pointer;
+}
+.col-2{
+    padding: 0;
+}
+}
+.rightColumn{
+    .reset-billing-form{
+
+        h2{
+            font-size: 28px;
+            margin-bottom: 0;
+            padding: 0 0 7px;
+            color: $primary-color;
+        }
+         form{
+            label.register_label{
+                font-size: 12px;
+            }
+           .col-md-4{
+               text-align:right;
+           }  
+         }
+    }
+    h3{
+    font-weight: 700;
+    font-size: 14px;
+    color: $primary-color!important;
+    padding-left: 0!important;
+    padding-bottom: 10px!important;
+    }
+    .edit-profile {
+        border: 1px solid #aaa;
+        padding: 20px 10px;
+        float: left;
+        margin: 15px 0;
+        @media screen and (max-width:$screen-sm) {
+            padding: 0 15px;
+            border: none;
+        }
+    }
+}
+.lookup-address{
+    color:$mb-white !important;
+    font-size:12px;
+    cursor: pointer;
+} .contextual-help {
+    position: absolute;
+    top: 5px !important;
+}
+.login_fields .contextual-help ~ .not-valid, .login_fields .contextual-help ~ .valid {
+    background-position: 91% 4px !important;
+}
+@media screen and (max-width:$screen-sm) {
+    .rightColumn .blue-header {
+        display: block;
+        overflow: hidden;
+        padding: 15px;
+        margin: 0;
+        font-size: 15px;
+        font-weight: 700;
+        color: $mb-white;
+        background: #90d2c5;
+        
+    }
+    .text-right {
+        text-align: left!important;
+    }
+}
+.captcha-error-cntnt{
+    p{
+        display: block;
+        border: 2px solid $err-color;
+        background-color: #fafafa;
+        margin: 0;
+        width: 100%;
+        padding: 10px 15px;
+        font-size: 12px;
+        text-align: left;
+        color: $err-color ;
+    }
+}
+.login_fields{
+    input[type="text"].form-control,
+    input[type="email"],input[type="password"],
+    input[type="email"].form-control,
+    input[type="password"].form-control,
+    input[type="tel"].form-control {
+        font-size: 13px;
+       ~{
+           .not-valid-error-msg{
+               display:none  ;
+           
+           }
+       }
+    &.not-valid{    
+       &:focus{
+        box-shadow: none;
+       ~{
+        .not-valid-error-msg{
+           display:block ;
+         }
+        }
+       }
+     }
+       width: 65%;
+       display: block;
+       height: 48px;
+       border: 1px solid $light-grey;
+       border-radius: 0;
+     //  margin: 5px 0;
+       &.not-valid {
+           background-image: url('https://www.moltonbrown.co.uk/images/exclamation-symbol.png');
+           background-position: 95% 4px;
+           border: 1px solid $mb-error-bg !important;
+           background-repeat: no-repeat;    background-size: 4px;
+       }
+       &.valid {
+           background-image: url('https://www.moltonbrown.co.uk/images/tick-symbol.png') !important;
+           background-position: 95% 13px;
+           background-repeat: no-repeat;
+       }
+    }
+}
+.dl-overlay{
+    min-height: 250px;
+    background-color: $mb-white;
+    position: absolute;
+    width: 100%;
+    z-index: 9999;
+    height: 100%;
+    display: none;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    &-hide{
+      opacity: 0;
+      display: none;
+    }
+    &-show{
+      opacity: 1;
+      display: block;
+    }
+    transition: all ease-in 500ms;
+    .b2c-title {
+      position: absolute;
+      top: 5%;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 14px !important;
+      margin: 0 auto;
+      text-align: center;
+      &::before {
+        content: "";
+        background: url("../../../../assets/imgs/loading-compass.svg") no-repeat center center;
+        background-size: 20px 20px;
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        transform: translateZ(0) scale(1, 1);
+        -webkit-transform: translateZ(0) scale(1, 1);
+        -ms-transform: translateZ(0) scale(1, 1);
+        transform: translateZ(0) scale(1, 1);
+        -webkit-animation: spin 2.5s linear infinite;
+        animation: spin 2.5s linear infinite;
+        outline: 1px solid transparent;
+    }
+    .loading-txt{
+      float: right !important;
+      padding-left: 5px !important;
+      font-size: 14px !important;
+     padding-top: 2px !important;
+    }
+   }
+  }
+  @media screen and (max-width:$screen-sm) {
+      .no-padding-mob {
+          padding-left: 0;
+      }
+  }

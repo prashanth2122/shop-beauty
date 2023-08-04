@@ -1,0 +1,180 @@
+@import "../../../variable";
+.registration_form{
+    width: 100%;
+    padding: 20px 10px;
+    margin: 12px 0 15px;
+    border: 1px solid #aaaaaa;
+    @media screen and(max-width:$screen-sm){
+        width:100%;
+        border: none;
+        margin: 0;
+        padding: 0;
+    }
+    .required_text{
+        font-size:12px;
+    }
+    h2 {
+        font-weight: 700;
+        font-size: 14px;
+    }
+    .col-xs-12{
+        width: 100%;
+        margin-bottom: 5px;
+        padding: 10px 0 0 0;
+    }
+    label{
+        font-size: 12px;
+    }
+    
+}
+.redcolor {
+    color: $err-color;
+}
+.register_label{
+    float:right;
+    padding-top: 5px;
+    color: #535353;
+    font-weight:normal;
+    @media screen and(max-width:$screen-sm){
+       float: left;
+    }
+}
+.no-padding{
+    padding:0;
+}
+
+.login_fields .contextual-help ~.not-valid, .login_fields .contextual-help ~.valid {
+    background-position: 92% 4px !important;
+}
+.register-in {
+    padding: 3% 0 0 0;
+    margin: 10px 0px;
+    font-size: 28px ;
+    @media screen and(max-width:$screen-sm){
+        display: block;
+        overflow: hidden;
+        padding: 15px;
+        margin: 0;
+        font-size: 15px;
+        font-weight: 700;
+        color: #000;
+       
+    }
+}
+.registration_form{
+p {
+    color: #260e03!important;
+    line-height: 20px;
+    font-size: 13px!important;
+}
+select {
+    width: 250px!important;
+    height: 25px!important;
+    padding: 0 5px!important;
+}
+}
+.defualt_shipping_label{
+   font-size:12px; 
+}
+.update_btn{
+    position: absolute;
+    bottom: 5px;
+}
+
+input[type="text"].form-control,
+input[type="tel"].form-control {
+&.not-valid{
+    background-position:95% 2px !important;
+    background-size:4px !important;
+}
+}
+.customer_profile-form{
+   .update_btn{
+    padding: 15px;
+    position: relative;
+    top: -98px;
+    width: 67%;
+    z-index: 111;
+    float: left;
+    @media screen and (max-width:$screen-sm){
+        top: -64px;
+        padding-left: 0!important;
+    }
+ }
+
+}
+
+.not-valid-postcode{
+        background-image: url(https://www.moltonbrown.co.uk/images/exclamation-symbol.png);
+        background-position: 93% 0px;
+        background-repeat: no-repeat;
+}
+.postcode-status{
+    position: absolute;
+    bottom: 100%;
+    background-color: $mb-error-bg;
+    color: $header-color-white;
+    padding: 10px;
+    left: 6%;
+    text-align: center;
+    width: 88%;
+    z-index: 9;
+    &::after{
+        content: "";
+        position: absolute;
+        width: 12px;
+        height: 12px;
+        border: 0;
+        left: 5%;
+        -webkit-transform: rotate(45deg);
+        -ms-transform: rotate(45deg);
+        transform: rotate(45deg);
+        background: $mb-error-bg;
+        bottom: -7px;
+    }
+  }
+  .customer_profile-form{
+      .update_btn{
+          .cancel-btn{
+            background:$mb-cancel-grey;
+            color: $primary-color;
+        }
+
+      }
+  }
+
+  .login_fields{
+   input[type="text"].form-control.valid, .login_fields input[type="email"].valid{
+    background-position: 98% 4px !important;
+    background-size: 16px;
+   }
+   
+    input{
+        font-size: 13px;
+       
+        }
+    
+    
+        }
+        .regPhone{
+            input[type="text"].form-control.valid{
+                background-position: 91% 4px !important;
+               }
+               input[type="text"].form-control.not-valid{
+                background-position: 91% 4px !important;
+               }
+        }
+        @media screen and(max-width:$screen-sm) {
+            .ml-8 {
+                margin-left: 0;
+            }
+        }
+        @media screen and(max-width:$screen-sm) {
+            .registration_form .mob-addnew-address {
+                padding-top: 20px;
+                padding-bottom: 0;
+            }
+        }
+        .login-custom,.lookup-address {
+            float: left;
+        }

@@ -1,0 +1,83 @@
+<div class="my-account" *ngIf="updateProfile; else editProfileBlock">
+  <h2 id="addressBookTitle">{{'addressBook.addressBook' | translate}}</h2>
+  <div class="my-account-wrapper">
+  <p>
+    {{'addressBook.saveTimeSaveAddress' | translate}}
+  </p>
+
+  <div class="col-sm-12 edit-profile" style="position: relative;">
+    <h3>{{'addressBook.addressBook' | translate}}</h3>
+    <div class="dl-overlay"  
+    [ngClass]="{
+          'dl-overlay-show':overlayLoad,
+          'dl-overlay-hide':!overlayLoad
+    }">
+  <div class="b2c-title"> 
+    <span class="loading-txt"> loading... </span>  
+  </div>
+</div>
+    <div class="makeDefault relativeness profile_adrss" *ngIf="addressList">
+      <b>{{'addressBook.defaultShippingAddress' | translate}}</b>
+      <a
+        class="contextual-help"
+        show-delay="100" ngbTooltip="{{'login.defaultShippingAdd'|translate}}" [placement]="mobileDevice?'top':'right'"  
+      ></a>
+    </div>
+    <div class="rowComponents">
+      <div
+        class="col-sm-4 addressSize padding-top-15 mob-padding-0"
+        *ngFor="let data of addressList"
+      >
+        <div class="address-book">
+          <div class="locality" *ngIf="data.firstName">
+           <span class="title-code" *ngIf="data.titleCode">{{data.titleCode}}&nbsp;</span>{{ data.firstName }}&nbsp;{{ data.lastName }}
+          </div>
+          <div class="adr">
+            <div class="street-address" *ngIf="data.line1">
+              {{ data.line1 }}
+            </div>
+            <div class="street-address" *ngIf="data.line2">{{ data.line2 }}</div>
+            <div class="locality" *ngIf="data.town">
+              {{ data.town }}
+            </div>
+            <div *ngIf="data.district">
+                {{ data.district }}
+              </div>
+            <div class="postal-code" *ngIf="data.postalCode">{{ data.postalCode }}</div>
+            <div *ngIf="data.country">
+              {{ data.country.name }}
+            </div>
+          </div>
+          <div class="tel">{{ data.phone }}</div>
+        </div>
+        <p><a class="myaccount-edit" title="Edit" (click)="onEditAddress(data)">{{'addressBook.edit' | translate}}</a></p>
+        <p [hidden]="data.defaultAddress">
+          <a class="myaccount-remove" title="" (click)="onRemoveAddress(data)">{{'addressBook.remove' | translate}}</a>
+        </p>
+        <p [hidden]="data.defaultAddress">
+          <a  class="myaccount-default" title="" (click)="onSetDefaultAddress(data)">{{'addressBook.default' | translate}}</a>
+        </p>
+      </div>
+    </div>
+  </div>
+  <app-customer-profile-form
+    (cancelUpdate)="cancelUpdate($event)"
+    [customerId]="customerId"
+  ></app-customer-profile-form>
+</div>
+</div>
+
+<ng-template #editProfileBlock>
+  <div class="my-account">
+    <h2 class="title profile blue-header">{{'myProfile.editmyProfile' | translate}}</h2>
+    <div class="edit-profile-wr">
+    <p>{{'myProfile.afterChangesClickSave' | translate}}</p>
+    <app-customer-profile-form
+      [updateAddress]="customerUpdate"
+      [customerId]="customerId"
+      (cancelUpdate)="cancelUpdate($event)"
+      [customerData]="customerData"
+    ></app-customer-profile-form>
+  </div>
+  </div>
+</ng-template>

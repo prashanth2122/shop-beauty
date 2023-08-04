@@ -1,0 +1,631 @@
+<div class="clearfix" >
+  <section class="order-confirmation-main" *ngIf="order;else overlayConfirmation">
+    <div class="basket-section order-confirmation-section basket-order-conf-sec" *ngIf="order">
+      <div class="panel-heading">
+        <h4 class="thanks-msg" >{{'orderConfirm.thankyouHeading' |translate}}</h4>
+      </div>
+      <div class="orders-container order-confirmation-msg">
+
+        <section class="orderdetails-section">
+          <h4>{{'orderConfirm.yourOrdernum' | translate}} {{ order.code }}<span *ngIf = "!inreviewcard">.</span>
+            <span *ngIf = "inreviewcard">{{'orderConfirm.beingProcess'| translate}}.</span> 
+            <span *ngIf="order.deliveryMode.deliveryDate">&nbsp;It will be delivered on <br />{{ order.deliveryMode.deliveryDate }}</span>
+          </h4>
+           <div class="order-confirmation-msg-detail">
+             <div>{{'orderConfirm.orderConfirmEmail'|translate}}{{ retreiveUser(order.user.uid) }} {{'orderConfirm.shortly'|translate}}.</div>
+             <div *ngIf="!guestUser && !accountCreation" class="oc_reguser_order-context">
+                {{'orderConfirm.checkmyaccount'| translate}}
+                <a routerLink="/store/myaccount/profile" routerLinkActive="active"  (click)="gotoMyAccount($event)">{{'orderConfirm.Myaccount'| translate}}</a>
+              </div>
+          </div>
+   
+          <h4>{{'orderConfirm.questionOrder'|translate}}</h4>
+          <div class="order-confirmation-msg-detail">
+            {{'orderConfirm.callUsOn' | translate}}{{ customerCenter }}
+            <span>
+             {{'orderConfirm.orEmail'| translate}}
+              <a href="mailto:{{'orderConfirm.supportEmail' | translate}}"
+                >{{'orderConfirm.supportEmail' | translate}}</a
+              >
+            </span>
+
+          </div>
+          <div class="form-group order-confrm-btn">
+            <a
+               routerLink="/store" 
+               routerLinkActive="active"
+               title="Continue Shopping"              
+               class="btn btn-default reset-btn"
+               (click)="onNavigateHome($event)"
+            >
+              {{'orderConfirm.continueShopping'| translate}}
+          </a>
+          </div>
+
+          <div *ngIf="accountCreation" class="oc_reguser_order-context acc-div">
+            <h4 class="acc-create">{{'orderConfirm.accCreated' | translate}} {{ retreiveUser(order.user.uid) }}</h4>
+           <div class="user-welcome-msg"> {{'orderConfirm.checkYourOrder' | translate}}
+              <a routerLink="/store/myaccount/profile" routerLinkActive="active"  (click)="gotoMyAccount($event)"> {{'menu.myAccount' | translate}}</a>
+              {{'orderConfirm.deSpecificOrderconfirmationText' | translate}}
+            </div>
+          </div>
+        </section>
+        <section *ngIf="guestUser" class="guest-user-section">
+          <div class="form-group guest-user-block ">
+            <h4>{{'orderConfirm.saveDetailsNextTime' | translate}} (optional)</h4>
+            <legend>
+              {{'orderConfirm.checkboxQuickerCreateAcc'|translate}} {{guestEmail}} {{'orderConfirm.emailEnd'| translate}}
+            </legend>
+          </div>
+          <div class="duplicate-msg" *ngIf="duplicateUser">
+            {{'orderConfirm.accExists' | translate}} <a routerLink="/store/myaccount/profile/passwordReset" routerLinkActive="active" (click)="goToResetPassword($event)" class="account">{{'orderConfirm.here' | translate}}</a>
+            {{'orderConfirm.orderWontAppear' | translate}}
+          </div>
+          <form
+             *ngIf="userCreation;else userCreationMsg"
+              class="oc_form"
+              [formGroup]="guestForm"
+              (ngSubmit)="onSubmitForm($event)"
+              custom-focus
+          >
+            <fieldset>
+              <div class="order-conf-input form-group">
+                <input
+                  formControlName="password"
+                  placeholder="{{'orderConfirm.Passwort'|translate}}"
+                  type="password"
+                  class="form-control  mandatory"
+                  [ngClass]="{
+                    'has-error  not-valid':
+                      !guestForm.controls['password'].valid &&
+                      guestForm.get('password').touched,
+                      'valid':guestForm.get('password').valid,
+                        'invalid':!guestForm.get('password').valid,
+                        'cred-error':showCrentialError
+                  }"
+                />
+                <a
+                  class="contextual-help"
+                  show-delay="100" ngbTooltip="{{'register.invalidPassword'|translate}}" [placement]="mobileDevice?'top':'right'"  
+                ></a>
+                <div
+                  *ngIf="
+                    !guestForm.controls['password'].valid &&
+                    guestForm.get('password').touched
+                  "
+                  class="not-valid-error-msg"
+                >
+                  <span
+                    [hidden]="!guestForm.controls['password'].errors.required"
+                    >{{ "register.passwordEnter" | translate }}</span
+                  >
+                  <span
+                    [hidden]="
+                      !guestForm.controls['password'].errors.patternInvalid
+                    "
+                    >{{ "register.invalidPassword" | translate }}</span
+                  >
+                </div>
+              </div>
+              <div class="order-conf-input form-group ">
+                <input
+                  formControlName="confirmPassword"
+                  placeholder="{{'orderConfirm.confirmPswd'|translate}}"
+                  type="password"
+                  class="form-control  mandatory"
+                  [ngClass]="{
+                    'has-error  not-valid':
+                      !guestForm.controls['confirmPassword'].valid &&
+                      guestForm.get('confirmPassword').touched,
+                      'valid':guestForm.get('confirmPassword').valid,
+                        'invalid':!guestForm.get('confirmPassword').valid,
+                        'cred-error':showCrentialError
+                  }"
+                />
+                <div
+                  *ngIf="
+                    !guestForm.controls['confirmPassword'].valid &&
+                    guestForm.get('confirmPassword').touched
+                  "
+                  class="not-valid-error-msg"
+                >
+                  <span
+                    [hidden]="
+                      !guestForm.controls['confirmPassword'].errors.required
+                    "
+                    >{{ "register.confirmPassword" | translate }}</span
+                  >
+                  <span
+                    [hidden]="
+                      !guestForm.controls['confirmPassword'].errors
+                        .appCustomValidator
+                    "
+                    >{{ "register.matchPassword" | translate }}</span
+                  >
+                </div>
+              </div>
+              <div class="checkbox" *ngIf="savePayType">
+                <input 
+                   type="checkbox" 
+                   formControlName="saveCard" 
+                   id="orderconf-checkbox" 
+                   class="checkbox" />
+                <label for="orderconf-checkbox" class="orderconf-checkboxs">{{'orderConfirm.savePaydetNextTime'|translate}} </label>
+              </div>
+              <div class="form-group clearfix pull-left">
+                <button type="submit" class="btn btn-default pull-right">
+                 {{'orderConfirm.createAcc'|translate}} 
+                </button>
+              </div>
+            </fieldset>
+          </form>
+          <ng-template #userCreationMsg>
+            <div>
+              <div class="order-confirmation-msg-detail"><b>{{'orderConfirm.accCreated' | translate}} {{guestEmail}}</b></div>
+              <div class="acc-creation-msg">
+                {{'orderConfirm.checkYourOrder' | translate}}
+                  <a routerLink="/store/myaccount/profile" routerLinkActive="active" (click)="onShowProfilePage($event)" class="account">{{'menu.myAccount' | translate}} </a> .
+              </div>
+            </div> 
+          </ng-template>
+        </section>
+      </div>
+    </div>
+    <div class="basket-section order-confirmation-section">
+      <div class="panel-heading ">
+        <h4 class="Yourorder">{{'orderConfirm.yourOrder' | translate}}</h4>
+      </div>
+      <div class="orders-container order-confirmation entries" *ngIf="order.entries">
+        <div class="order-header">
+          <div>
+            <legend>{{'orderConfirm.product'|translate}}</legend>
+          </div>
+          <div>
+            <legend>{{'orderConfirm.qty'|translate}}</legend>
+          </div>
+          <div>
+            <legend>{{'orderConfirm.price'|translate}}</legend>
+          </div>
+          <div>
+            <legend class="total-field">{{'orderConfirm.total'|translate}}</legend>
+          </div>
+        </div>
+        <div *ngFor="let entry of order.entries" [hidden]="getHidden(entry)">
+          <div class="order-product-mbl-container">
+            <div class="order-product-img">
+              <a  
+                   routerLink="{{getRouterPath(entry)}}"
+                   routerLinkActive="active"
+                   (click)="onShowProductDtls($event,entry.product)" 
+                   title="{{countrySite}} | {{entry.product.productDisplayName}}"
+                   *ngIf="!entry.isBundle">
+                    <picture>
+                      <source
+                      srcset="{{entry.product.amplienceImageName}}?$mobMediumImgRetina$ 1x,{{entry.product.amplienceImageName}}?$mobMediumImg$ 2x"
+                      type="image/webp"
+                    />
+                      <img
+                      src="{{entry.product.amplienceImageName}}?"
+                      srcset="{{entry.product.amplienceImageName}}?$mobMediumImgRetina$ 1x,{{entry.product.amplienceImageName}}$mobMediumImgRetina$ 2x"
+                      alt="{{countrySite}} {{entry.product.productDisplayName}}"
+                      crossorigin="anonymous"
+                    />
+                    </picture>
+                    <!-- mobile image-->
+              </a>
+                <picture *ngIf="entry.isBundle">
+                  <source
+                    [srcset]="getPixMixImage(entry['product'][0])"
+                    type="image/webp"
+                  />
+                  <source
+                    [srcset]="getPixMixImageJpg(entry['product'][0])"
+                    type="image/jpeg"
+                  />
+                  <img [src]="getPixMixImageJpg(entry['product'][0])" />
+                </picture>
+            </div>
+            <div class="order-product">
+              <div class="order-product-info">
+                <a  
+                   title="{{countrySite}} | {{entry.product.productDisplayName}}"
+                    routerLink="{{getRouterPath(entry)}}"
+                    routerLinkActive="active"
+                    (click)="onShowProductDtls($event,entry.product)" 
+                    *ngIf="!entry.isBundle; else bundleTypeImage">
+                    <picture *ngIf="!entry.isBundle">
+                      <source
+                        srcset="{{entry.product.amplienceImageName}}?$thImg$&amp;fmt=webp"
+                        type="image/webp"
+                      />
+                      <source
+                        srcset="{{entry.product.amplienceImageName}}?$thImg$&amp;fmt=jpg"
+                        type="image/jpeg"
+                      />
+                      <img
+                        src="{{entry.product.amplienceImageName}}?$thImg$&amp;fmt=jpg"
+                        class="order-prd-image-show"
+                      />
+                    </picture>
+                </a>
+                <picture *ngIf="entry.isBundle">
+                  <source
+                    [srcset]="getPixMixImage(entry['product'][0])"
+                    type="image/webp"
+                  />
+                  <source
+                    [srcset]="getPixMixImageJpg(entry['product'][0])"
+                    type="image/jpeg"
+                  />
+                  <img
+                    [src]="getPixMixImageJpg(entry['product'][0])"
+                    class="order-img"
+                  />
+                </picture>
+                <span class="order-product-name" [ngClass]="{'os-product-sample':entry.product.isSample}">
+                  <span *ngIf="!entry.isBundle; else bundleType">
+                  <a class="orderconf-img-title"  [innerHtml]="entry.product.productDisplayName">
+                  </a>
+                  <div *ngIf="!guestUser&&!entry.isBundle&&!entry.product.isSample" class="add-favourites">
+                      <div class="add-favourites-ds">
+                        <span *ngIf="!entry.product.favourite; else favouriteBlock">
+                          <a 
+                             (click)="addToFavourite($event, entry)" 
+                             title="Add This Item To Your Favourites" >
+                             {{'menu.addToFav' | translate}}
+                            </a>
+                        </span>
+                        <ng-template #favouriteBlock>
+                          <span>
+                            <a 
+                               routerLink="/store/myaccount/profile/myFavorites"  
+                               routerLinkActive="active" 
+                               (click)="onRouteFavourite($event)"  
+                               >
+                               {{'favourites.addedToFav' | translate}}
+                              </a>
+                          </span>
+                        </ng-template>
+                      </div>
+                    </div>
+                   </span>
+                  <ng-template #bundleType>
+                      <span class="order-product-name" *ngIf="entry.bundleTemplateId" > 
+                          <!-- Pick &amp; Mix Travel x 3 -->
+                          {{getBundleContent(entry) }}
+                          <ul class="bundle-list" style="list-style: outside disc" >
+                            <div   *ngFor="let bottle of entry['product']; let j = index">
+                            <li
+                                 *ngIf="!bottle.product.isSample"
+                                 class="padding" 
+                                 style="margin-left: 0.5cm;" 
+                                 
+                                  >
+                                  <span>{{getBundleProductQuantity(entry, bottle)}}&nbsp;x&nbsp;</span>
+                                  <span [innerHtml]="bottle.product.productDisplayName"></span>
+                            </li>
+                          </div>
+                             </ul>
+    
+                             <ul
+                             class="bundle-list"
+                             *ngIf="entry['product'][0]['isTravelPouchSelected']"
+                           >
+                             <li 
+                               class="padding" 
+                               style="margin-left: 0.5cm;" >
+                               <span>1&nbsp;x&nbsp;</span>
+                               {{'pickMix.travelPouch' | translate}}
+                             </li>
+                           </ul>
+                           </span>
+                  </ng-template>
+                </span>
+              </div>
+              <div class="quantity-update">
+                <span class="quantity-mob-title">QTY &nbsp;&nbsp;</span>
+                <div class="input-group">
+                  <span class="text-center">
+                    {{ entry.quantity }}
+                  </span>
+                </div>
+              </div>
+              <div class="product-price">
+                <div>
+                  <span
+                    *ngIf="entry.isBundle"
+                    [innerHtml]="getBundlePrice(entry)"
+                  ></span>
+                  <span
+                    *ngIf="!entry.isBundle"
+                    [innerHtml]="getProdPrice(entry)"
+                  ></span>
+                </div>
+                <p *ngIf="isocode=='de'&&!entry.isBundle" class="oc-de-base-price">
+                  <span class="product-base-price" *ngIf="entry.product.basePriceForProduct" [innerHtml]="entry.product.basePriceForProduct">
+                  </span>
+                </p>
+              </div>
+              <div class="product-total">
+                <span class="mob-product-subtotal">{{'orderConfirm.subTotal'|translate}}&nbsp;&nbsp;</span>
+                <span
+                  *ngIf="entry.isBundle"
+                  [innerHtml]="getBundleTotalPrice(entry)"
+                ></span>
+                <span
+                  *ngIf="!entry.isBundle"
+                  [innerHtml]="getTotalPrice(entry)"
+                ></span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="oc-samples">
+            <div *ngFor="let entry of order.entries" [hidden]="getSampleHidden(entry)">
+            <legend class="sample-header">{{'orderConfirm.sample' | translate}}</legend>
+            <div class="order-product-mbl-container">
+              <div class="order-product-img">
+                <a>
+                  <picture>
+                    <source
+                    srcset="https://media.moltonbrown.co.uk/i/moltonbrown/{{
+                      entry.product.code
+                    }}.webp?$thImg$ 1x, https://media.moltonbrown.co.uk/i/moltonbrown/{{
+                      entry.product.code
+                    }}.webp?$thImgRetina$ 2x"  media="(max-width: 768px)"
+                    type="image/webp"
+                  />
+                  <source
+                    srcset="https://media.moltonbrown.co.uk/i/moltonbrown/{{
+                      entry.product.code
+                    }}.webp?$thImg$ 1x, https://media.moltonbrown.co.uk/i/moltonbrown/{{
+                      entry.product.code
+                    }}.webp?$thImgRetina$ 2x"  media="(min-width: 769px)"
+                    type="image/webp"
+                  />
+                  <img
+                    src="https://media.moltonbrown.co.uk/i/moltonbrown/{{
+                      entry.product.code
+                    }}"
+                    srcset="https://media.moltonbrown.co.uk/i/moltonbrown/{{
+                      entry.product.code
+                    }}?$thImg$ 1x,https://media.moltonbrown.co.uk/i/moltonbrown/{{
+                      entry.product.code
+                    }}?$thImgRetina$ 2x"
+                    alt="{{entry.product.productDisplayName}}"
+                    crossorigin="anonymous"
+                  />
+
+                  </picture>
+                </a>
+              </div>
+              <div class="order-product">
+                <div class="order-product-info">
+                  <picture *ngIf="!entry.isBundle">
+                    <source
+                    srcset="https://media.moltonbrown.co.uk/i/moltonbrown/{{
+                      entry.product.code
+                    }}.webp?$mobMediumImg$ 1x, https://media.moltonbrown.co.uk/i/moltonbrown/{{
+                      entry.product.code
+                    }}.webp?$mobMediumImgRetina$ 2x"  media="(max-width: 768px)"
+                    type="image/webp"
+                  />
+                  <source
+                    srcset="https://media.moltonbrown.co.uk/i/moltonbrown/{{
+                      entry.product.code
+                    }}.webp?$smallImg$ 1x, https://media.moltonbrown.co.uk/i/moltonbrown/{{
+                      entry.product.code
+                    }}.webp?$smallImgRetina$ 2x"  media="(min-width: 769px)"
+                    type="image/webp"
+                  />
+                  <img
+                    src="https://media.moltonbrown.co.uk/i/moltonbrown/{{
+                      entry.product.code
+                    }}.webp?$smallImg$"
+                    srcset="https://media.moltonbrown.co.uk/i/moltonbrown/{{
+                      entry.product.code
+                    }}?$smallImg$ 1x,https://media.moltonbrown.co.uk/i/moltonbrown/{{
+                      entry.product.code
+                    }}?$smallImg$ 2x"
+                    alt="{{entry.product.productDisplayName}}"
+                    crossorigin="anonymous"
+                  />
+                  </picture>
+                  <span class="order-product-name" [ngClass]="{'os-product-sample':entry.product.isSample}">
+                    <span>
+                    <a class="orderconf-img-title"  [innerHtml]="entry.product.productDisplayName">
+                    </a>
+                     </span>
+                  </span>
+                </div>
+                <div class="quantity-update">
+                  <span class="quantity-mob-title">QTY &nbsp;&nbsp;</span>
+                  <div class="input-group">
+                    <span class="text-center">
+                      {{ entry.quantity }}
+                    </span>
+                  </div>
+                </div>
+                <div class="product-price">
+                    <span
+                      *ngIf="!entry.isBundle"
+                      [innerHtml]="getProdPrice(entry)"
+                    ></span>
+                </div>
+                <div class="product-total">
+                  <span class="mob-product-subtotal">{{'orderConfirm.subTotal'|translate}}&nbsp;&nbsp;</span>
+                  <span
+                    *ngIf="!entry.isBundle"
+                    [innerHtml]="getTotalPrice(entry)"
+                  ></span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="order-confirmation-lastBlock clearfix">
+          <div class="order-confirmation-billingAddress" *ngIf="deSiteSpecific">
+            <div class="oc-bill-header">
+              <h5>{{'orderConfirm.deliveryAddress' | translate}}</h5>
+              <span *ngIf="deSiteSpecific && order.deliveryAddress.titleCode">
+                {{ order.deliveryAddress.titleCode }} {{ order.deliveryAddress.firstName }} {{ order.deliveryAddress.lastName }}
+              </span>
+              <span *ngIf="!deSiteSpecific && order.deliveryAddress.titleCode">{{
+                order.deliveryAddress.titleCode
+              }}</span>
+              <span *ngIf="!deSiteSpecific && order.deliveryAddress.firstName">{{
+                order.deliveryAddress.firstName
+              }}</span>
+              <span *ngIf="!deSiteSpecific && order.deliveryAddress.lastName">{{
+                order.deliveryAddress.lastName
+              }}</span>
+              <span *ngIf="order.deliveryAddress.line1">{{
+                order.deliveryAddress.line1
+              }}</span>
+              <span *ngIf="order.deliveryAddress.postalCode">{{
+                order.deliveryAddress.postalCode
+              }}</span>
+              <span *ngIf="order.deliveryAddress.town">{{
+                order.deliveryAddress.town
+              }}</span>
+
+              <span *ngIf="order.deliveryAddress.country">{{
+                order.deliveryAddress.country.name
+              }}</span>
+            </div>
+            <div class="oc-bill-header noborder-mob">
+              <h5>{{'orderConfirm.billingAddress'| translate}}</h5>
+
+              <span *ngIf="deSiteSpecific && order.paymentInfo.billingAddress.titleCode">
+                {{ order.paymentInfo.billingAddress.titleCode }} {{ order.paymentInfo.billingAddress.firstName }} {{ order.deliveryAddress.lastName }}
+              </span>
+
+              <span *ngIf="!deSiteSpecific && order.paymentInfo.billingAddress.titleCode">{{
+                order.paymentInfo.billingAddress.titleCode
+              }}</span>
+              <span *ngIf="!deSiteSpecific && order.paymentInfo.billingAddress.firstName">{{
+                order.paymentInfo.billingAddress.firstName
+              }}</span>
+              <span *ngIf="!deSiteSpecific && order.paymentInfo.billingAddress.lastName">{{
+                order.paymentInfo.billingAddress.lastName
+              }}</span>
+              <span *ngIf="order.paymentInfo.billingAddress.line1">{{
+                order.paymentInfo.billingAddress.line1
+              }}</span>
+              <span *ngIf="order.paymentInfo.billingAddress.postalCode">{{
+                order.paymentInfo.billingAddress.postalCode
+              }}</span>
+              <span *ngIf="order.paymentInfo.billingAddress.town">{{
+                order.paymentInfo.billingAddress.town
+              }}</span>
+
+              <span *ngIf="order.paymentInfo.billingAddress.country">{{
+                order.paymentInfo.billingAddress.country.name
+              }}</span>
+            </div>
+          </div>
+          <div class="order-confirmation-table">
+            <div class="order-confirmation-table-cols">
+              <div class="oc-sub-header  clearfix" *ngIf="order.orderDiscounts.value !=0" >
+                  <span>Promotion</span>
+                <span id="order_discount"  class="price-format pull-right">
+                      {{ order.orderDiscounts.formattedValue }}</span>
+              </div>
+            <div class="oc-sub-header">
+              <span>{{'orderConfirm.subTotal'|translate}}</span
+              ><span class="pull-right">{{
+                order.subTotal.formattedValue
+              }}</span>
+            </div>
+
+            <div  *ngIf="order.productTaxDE">
+              <div class="oc-vat">inkl.MwSt.</div>
+              <div class="order-summary-subtotal-price price-format">
+                <span [innerHtml]="order.productTaxDE.formattedValue"></span>
+              </div>
+            </div>
+            <div class="oc-sub-delivery-info" *ngIf="order.deliveryCost">
+              <span>{{'giftMsg.orderTableDelivery' | translate}}</span
+              ><span class="pull-right text-uppercase" *ngIf="order.deliveryCost.value !=0">{{
+                order.deliveryCost.formattedValue
+              }}</span>
+              <span class="pull-right text-uppercase" *ngIf="order.deliveryCost.value ===0">
+                {{'giftMsg.free' | translate}}
+              </span>
+              <div class="oc-sub-header" *ngIf="usSpecific && order.totalTax">
+                <span>Sales Tax</span
+                ><span class="pull-right">{{
+                  order.totalTax.formattedValue
+                }}</span>
+              </div>
+
+              <div *ngIf="order.deliveryMode">
+                <div class="oc-delivery" >
+                <span  *ngIf="order.deliveryMode">
+                  <span *ngIf="order.deliveryMode.pointOfServiceName">
+                    <div *ngIf="order.deliveryMode.delDescription">
+                      {{ order.deliveryMode.delDescription }}
+                    </div>
+                    <div *ngIf="order.deliveryMode.pointOfServiceName">
+                      {{ order.deliveryMode.pointOfServiceName }}
+                    </div>
+                    <div *ngIf="order.deliveryMode.serviceName">
+                      &#40;{{ order.deliveryMode.serviceName }}&#41;
+                    </div>
+                  </span>
+                  <span *ngIf="!order.deliveryMode.pointOfServiceName">
+                    <div *ngIf="order.deliveryMode.description">
+                      {{ order.deliveryMode.description }}
+                    </div>
+                    <div *ngIf="order.deliveryMode.zoneName">
+                      {{ order.deliveryMode.zoneName }}
+                    </div>
+                    <div class="name-day" *ngIf="order.deliveryMode.serviceName">
+                      {{ order.deliveryMode.serviceName }}
+                    </div>
+                    <div *ngIf="order.deliveryMode.deliveryDate">
+                        {{ order.deliveryMode.deliveryDate }}
+                    </div>
+                    <div *ngIf="deSiteSpecific">
+                      {{ countryName}}
+                  </div>
+                  </span>
+                </span>
+                </div>
+              </div>
+            </div>
+            <div class="de-payment-tab" *ngIf="deSiteSpecific">
+              <span>
+                Zahlungsart
+              </span>
+              <span>
+               {{cardTypede}}
+              </span>
+            </div>
+            <div class="oc-total">
+              <span>{{'orderConfirm.total'|translate}}</span>
+              <span class="pull-right">{{
+                order.totalPriceWithTax.formattedValue
+              }}</span>
+            </div>
+          </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div>
+<ng-template #overlayConfirmation>
+<div
+class="oc-container-load-block"
+style="display: block"
+>
+<div class="loading-backdrop">
+  <div class="b2c-title">
+      <span class="loading-txt"> loading... </span> 
+  </div>
+</div>
+</div>
+</ng-template>

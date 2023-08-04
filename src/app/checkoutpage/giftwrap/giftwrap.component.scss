@@ -1,0 +1,370 @@
+@import "../../../variable";
+
+.section-giftmessage {
+    #deContent{
+        width: 55%;
+    }
+    width: 100%;
+    margin: 20px 0;
+    float: left;
+    border: 1px solid $light-grey;
+    padding: 20px;
+    position: relative;
+    height: 100%;
+    background: url(https://www.moltonbrown.co.uk/MBPromoImages/CheckoutGraphics/gift-boxes-v2.jpg) right bottom no-repeat #ffffff;
+    overflow: hidden;
+    background-size: 80% 100%;
+    overflow: hidden;
+    @media screen and(max-width:768px){
+        margin: 0;
+        border: none;
+        border-bottom: 1px solid $light-grey;
+        background-image: none;
+    }
+    img{
+        position: absolute;
+        bottom: 0px;
+        right: 0px;
+    }
+    legend {
+        width: 70%;
+        position: relative;
+        font-size: 18px; color: $primary-color;
+        font-weight: 700;
+        margin: 0 0 12px 0;
+        @media screen and(max-width:768px){
+        font-size: 16px;
+        width: 100%;
+        }
+    }
+    .form-giftSampleHeader {
+        padding-bottom: 12px;
+        .form-checkbox {
+            padding-top: 5px;
+        }
+        .form-group {
+            margin: 0;
+            position: relative;
+        }
+    }
+}
+.form-checkbox{
+    padding-top: 5px;
+}
+.form-group {
+    margin-bottom: 0px;
+}
+@media screen and (max-width:$screen-sm) {
+    .section-giftmessage img{
+        display: none;
+    }   
+}
+
+.gift-box{
+    input[type="checkbox"]{
+      &:disabled{
+        cursor: not-allowed;
+        ~{
+            label{
+                color: #dddbdb;
+                &::before{
+                    background-color: #dddbdb;
+                    border:1px solid #dddbdb;
+                }
+            }
+        }
+      }
+   }
+}
+textarea.form-control.not-valid{
+    background-image: none;
+}
+.gift-message {
+    position: relative;
+    width: 335px;    
+    textarea{
+         width:335px;
+        border-radius: 0;
+        text-align: center;
+        resize: both;
+        height: auto;
+        } 
+    
+    // transition: visibility 0s linear 0.33s, opacity 0.33s linear;
+    @media(max-width:480px){
+        width:100%;
+        padding-top:25px;
+    }
+    // transition: all .3s linear;
+    &.shows{
+        height:auto;
+        visibility: visible;
+        opacity: 1;        
+    }
+    &.hides{
+        height:0;    
+        visibility: hidden;
+        opacity: 0;  
+    }
+} 
+textarea .form-control{
+    border-radius:0px !important;
+
+}
+.giftMessageChar{
+    width: 100%;
+    text-align: right;
+}
+.gift-msg{
+    text-align:center;
+}
+.gift-message-form{
+    .gift-form-checklist{
+        .checkbox{
+            label{
+                @media(max-width:768px){
+                  //line-height: 40px; 
+                } 
+                &::before{
+                  top:-6px !important;
+                  @media(max-width:400px){
+                        top:3px !important;
+                  }
+                }
+                &::after{
+                  top:-2px !important;
+                 
+                  @media(max-width:400px){
+                      top:7px !important;
+                }
+                }
+                
+              }
+            input[type="checkbox"]{
+                cursor: not-allowed;
+                &:disabled{
+                   ~{
+                       label{
+                           cursor: not-allowed;
+                           color:#d4d4d4;
+                           &::before{
+                              cursor: not-allowed;
+                               background-color: #d4d4d4;
+                               border-color: #c2c2c2;
+                           }
+                           &::after{
+                            cursor: not-allowed;
+                           }
+                       }
+                }   
+               }
+            }
+            padding:0;
+        }
+      }
+
+  .gift-box-message-contianer{
+    textarea{
+      height: auto;
+      resize: both;
+      opacity: 1;
+    }
+    .giftMessageChar{
+        opacity: 1;
+        height: auto;
+    }
+  }
+  .gift-message-wrapper{
+    position: relative;
+    width: 335px;
+}
+}
+.giftwrap-selection{
+    justify-content: start;
+    .radio{
+        margin-right: 10px;
+        input[type="radio"]{
+            cursor: pointer;
+         &:disabled{
+             cursor: not-allowed;
+            ~{
+                label{
+                  color: #d4d4d4;
+                  &:after{
+                      opacity: 0.65;
+                  }
+                  &:before{
+                    border: 1px solid #c2c2c2;
+                   }
+                }
+         }   
+        }
+        ~{
+        label{
+            
+            &.radio-existingGuest{
+                &:after {
+                 top: 4px;
+               }
+          }
+       }
+    }
+         &:checked{
+              ~{
+               label{
+                &.radio-existingGuest{
+                    &:after {
+                     top: 4px;
+                   }
+                   &:before{
+                    border: 1px solid #727272;
+                   }
+              }
+           }
+         }
+        }
+      }
+    }
+}
+.accordionGiftMsg {
+	position: relative;
+    width: 80%;
+	.trigger {
+		#giftMessage{
+            visibility: hidden;
+            height: 0;
+            width: 0;
+			&:checked + label {
+                color:#000;
+                position: relative;
+                &:after {
+                    display: inline-block;
+                    position: absolute;
+                    content: "";
+                    width: 30px;
+                    height: 30px;
+                    left: 0px;
+                    top: 0;
+                    border-radius: 0;
+                    background: url(https://www.moltonbrown.co.uk/images/sample-tick.png) 2px 2px no-repeat;
+                    transition: transform .1s cubic-bezier(.8,-.33,.2,1.33);
+                    transition: transform .1s cubic-bezier(.8,-.33,.2,1.33),-webkit-transform .1s cubic-bezier(.8,-.33,.2,1.33);
+                }
+            }
+            +{
+                label{                    
+                    /* padding: 10px 0px; */
+                    padding-left: 38px;
+                    position: relative;
+                    font-size: 14px;
+                    color: #464646;
+                    cursor: pointer;
+                    position: relative;
+                    height: 35px;
+                    display: table-cell;
+                    vertical-align: middle;
+                  @media(max-width:$screen-sm){  
+                    //   padding-top: 0px;
+                  }
+                  &:before {
+                    content: "";
+                    display: inline-block;
+                    position: absolute;
+                    width: 32px;
+                    height: 32px;
+                    left: 0;
+                    top: 0;
+                    border: 1px solid #a1a1a1;
+                    border-radius: 0;
+                    background-color: #ccc;
+                    transition: border .15s ease-in-out;
+                }
+                }
+            }
+    
+		}
+
+		.checkbox {
+			position: relative;
+			display: block;
+			width: 100%;
+			margin: 0;
+			cursor: pointer;
+		}
+
+		.content {
+            height:0px;
+			position: relative;
+			padding: 0;
+			font-size: 14px;
+			line-height: 1.5;
+            transition: height 500ms ease-in-out;
+            background-color: transparent;
+			h3 {
+				margin: 30px 0 15px 30px;
+			}
+
+			p {
+				margin: 0 30px 30px;
+            }
+            textarea{
+                visibility: hidden;
+                max-height: 0px;
+            }
+            .giftMessageChar{
+                visibility: hidden;
+                max-height: 0px;
+                width:65%;
+                color:$primary-color;
+            }
+		}
+    }
+    @media(max-width:$screen-sm){
+        width:100%;
+        .giftMessageChar{
+            width:100%;
+        }
+        label{ 
+            padding: 0px;
+        }
+    }
+}
+
+#giftMessage:checked ~ .content,
+#checkbox-2:checked ~ .content,
+#checkbox-3:checked ~ .content {
+    height: 125px;
+    max-height: 125px;
+    visibility: visible;
+    transition: height 800ms ease-in-out;
+    textarea{
+     height: 100%;
+     max-height: 125px;
+     height: 125px;
+     animation: 380ms fadeIn;
+     animation-fill-mode: forwards;     
+     visibility: hidden;
+     margin-top: 5px;
+     resize: both;
+     @media(max-width: $screen-sm){
+         resize: none;
+     }
+    }
+    .giftMessageChar{
+        visibility: visible;
+        max-height: auto;
+    }	
+    @media(max-width:$screen-sm){  
+     .giftMessageChar{
+        width:100%;
+     }
+   }
+}
+@keyframes fadeIn {
+    99% {
+      visibility: hidden;
+    }
+    100% {
+      visibility: visible;
+    }
+  }

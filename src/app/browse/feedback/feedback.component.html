@@ -1,0 +1,647 @@
+<div *ngIf="recaptchaErr" class="error-cntnt">
+
+    <div>Please enter valid information for the following required (*) items</div>
+      <div>{{'savedCard.recaptchaError' | translate}}</div>
+    <div>
+    If you continue to experience problems whilst placing an order 
+    please call {{'orderConfirm.serviceNumber' | translate}} or email      <a href="mailto:{{csServiceContact}}">{{csServiceContact}}</a> for assistance. 
+    </div>
+
+   </div>
+
+
+
+<section *ngIf="feedbackFormSubmits">
+  <div class="container reg_form feedbackForm mob-container" *ngIf="checkOnlineOrderType">
+    <div class="rowComponents">
+      <h2 class="col-sm-12 register-in" *ngIf="!usHeading">{{checkOnlineOrderType.header}}</h2>
+      <h2 class="col-sm-12 register-in"*ngIf="usHeading">{{checkOnlineOrderType.headerUS}}</h2>
+      <form [formGroup]="contactEnquiryForm" (ngSubmit)="onSubmit($event)" custom-focus
+        class="contact_enquiry_form">
+        <label class="enquiryType" for="enquirySelect">
+          {{'feedback.enquiryType' | translate}}
+        </label>
+        <div class="col-xs-12 row">
+          <div class="col-sm-12 col-md-4 ">
+            <select class="menu-drop" formControlName="Order_Type" (change)="onChangeEnquire($event)">
+              <option [ngValue]="data" *ngFor="let data of feedbackQueries">
+                {{(isoCode=='US')?data.nameUs:data.name}}
+              </option>
+            </select>
+          </div>
+        </div>
+        <div class="col-xs-12 required_text">
+          &nbsp;<span class="redcolor">*</span>{{'myacc.requiredField' | translate}}
+          <div *ngIf="checkOnlineOrderType.enableElements.orderPara">
+            
+            <p class="feedbackPara">
+              {{'feedback.ordersOne' | translate}}
+            </p>
+
+           <p class="feedbackPara">
+            {{'feedback.ordersTwo' | translate}}</p>
+          </div>
+       <div *ngIf="checkOnlineOrderType.enableElements.complimentsPara">
+         <p class="feedbackPara">
+          {{'feedback.compliments' | translate}}
+         </p>
+           </div>
+           <div *ngIf="checkOnlineOrderType.enableElements.complaintsPara">
+             <p class="feedbackPara"> {{'feedback.complaintOne' | translate}}
+</p>
+
+           <p class="feedbackPara">
+
+            {{'feedback.complaintTwo' | translate}}
+           </p> </div>
+           <div *ngIf="checkOnlineOrderType.enableElements.productEnPara">
+              <p>{{'feedback.prodEnqTwo' | translate}}
+           </p>
+<p>  {{'feedback.prodEnqOne' | translate}}</p>
+           </div>
+           <div *ngIf="checkOnlineOrderType.enableElements.productFeedbackPara">
+             <p class="feedbackPara">
+              {{'feedback.prodFeedbkOne' | translate}}
+             </p>
+<p>                {{'feedback.prodFeedbkTwo' | translate}}
+             </p>
+           </div>
+           <div *ngIf="checkOnlineOrderType.enableElements.stockistPara">
+             <p class="feedbackPara">
+              {{'feedback.stockistEnqOne' | translate}}
+             </p>
+             <p class="feedbackPara">
+              {{'feedback.stockistEnqTwo' | translate}}
+             </p>
+           </div>
+           <div *ngIf="checkOnlineOrderType.enableElements.hotelAmenities">
+             <p class="feedbackPara">
+              {{'feedback.hotelAment' | translate}}
+             </p>
+           </div>
+           <div *ngIf="checkOnlineOrderType.enableElements.spaHotelPara">
+             <p >
+              {{'feedback.spaHotel' | translate}}
+             </p>
+           </div>
+        </div>
+        <div class="col-xs-12 row">
+          <div class="col-sm-12 col-md-4 ">
+            <label class="enquiry_label title-label " for="reg_title">{{'addressBook.title' | translate}}</label>
+          </div>
+          <div class="col-sm-12 col-md-8 text-left ">
+            <span class="login_fields">
+              <select class="mandatory form-control" formControlName="Title">
+                <option value="null" selected>{{'menu.pleaseSelect' | translate}}</option>
+                <option value="miss">Miss</option>
+                <option value="mrs">Mrs</option>
+                <option value="ms">Ms</option>
+                <option value="mr">Mr</option>
+                <option value="dr">Dr</option>
+              </select>
+
+            </span>
+          </div>
+        </div>
+        <div class="col-xs-12 row">
+          <div class="col-sm-12 col-md-4 ">
+            <label class="enquiry_label " for="reg_First_Name">{{'addressBook.firstName' | translate}}<span class="redstar">*</span></label>
+          </div>
+          <div class="col-sm-12 col-md-8 text-left ">
+            <span class="login_fields">
+              <input type="text" formControlName="First_Name" class="mandatory form-control reg_field " [ngClass]="{
+              'has-error  not-valid':
+                !contactEnquiryForm.controls['First_Name'].valid &&
+                contactEnquiryForm.get('First_Name').touched,
+                valid: contactEnquiryForm.get('First_Name').valid,
+                invalid: !contactEnquiryForm.get('First_Name').valid
+            }" />
+              <div *ngIf="
+                  !contactEnquiryForm.controls['First_Name'].valid &&
+                  contactEnquiryForm.get('First_Name').touched
+                " class="not-valid-error-msg">
+                <span [hidden]="
+                    !contactEnquiryForm.controls['First_Name'].errors.required
+                  ">
+                  {{ "feedback.First_Name" | translate }}
+                </span>
+                <span *ngIf="
+                    contactEnquiryForm.controls['First_Name'].errors.patternInvalid
+                  ">
+                  {{ "feedback.First_Name" | translate }}
+                </span>
+              </div>
+            </span>
+          </div>
+        </div>
+        <div class="col-xs-12 row">
+          <div class="col-sm-12 col-md-4 ">
+            <label class="enquiry_label " for="reg_Last_Name">{{'addressBook.lastName' | translate}}<span class="redstar">*</span></label>
+          </div>
+          <div class="col-sm-12 col-md-8 text-left ">
+            <span class="login_fields">
+              <input type="text" formControlName="Last_Name" class="mandatory form-control reg_field " [ngClass]="{
+              'has-error  not-valid':
+                !contactEnquiryForm.controls['Last_Name'].valid &&
+                contactEnquiryForm.get('Last_Name').touched,
+                valid: contactEnquiryForm.get('Last_Name').valid,
+                invalid: !contactEnquiryForm.get('Last_Name').valid
+            }" />
+              <div *ngIf="
+                  !contactEnquiryForm.controls['Last_Name'].valid &&
+                  contactEnquiryForm.get('Last_Name').touched
+                " class="not-valid-error-msg">
+                <span [hidden]="
+                    !contactEnquiryForm.controls['Last_Name'].errors.required
+                  ">
+                  {{ "feedback.Last_Name" | translate }}
+                </span>
+                <span *ngIf="
+                    contactEnquiryForm.controls['Last_Name'].errors.patternInvalid
+                  ">
+                  {{ "feedback.Last_Name" | translate }}
+                </span>
+              </div>
+            </span>
+          </div>
+        </div>
+        <div *ngIf="checkOnlineOrderType.enableElements.bussinesType">
+          <div class="col-xs-12 row">
+            <div class="col-sm-12 col-md-4 ">
+              <label class="enquiry_label " for="job">{{'feedback.jobTitle' | translate}}</label>
+            </div>
+            <div class="col-sm-12 col-md-8 text-left ">
+              <span class="login_fields">
+                <input type="text" formControlName="Job_Title" class="mandatory form-control reg_field "/>
+                <!-- <div *ngIf="
+          !contactEnquiryForm.controls['Job_Title'].valid &&
+          contactEnquiryForm.get('Job_Title').touched
+        " class="not-valid-error-msg">
+                  <span [hidden]="
+            !contactEnquiryForm.controls['Job_Title'].errors.required
+          ">
+                    {{ "feedback.Job_Title" | translate }}
+                  </span>
+                </div> -->
+              </span>
+            </div>
+          </div>
+
+          <div class="col-xs-12 row">
+            <div class="col-sm-12 col-md-4 ">
+              <label class="enquiry_label " for="reg_compName">{{'feedback.companyName' | translate}}<span class="redstar">*</span></label>
+            </div>
+            <div class="col-sm-12 col-md-8 text-left ">
+              <span class="login_fields">
+                <input type="text" formControlName="Company_name" class="mandatory form-control reg_field" [ngClass]="{
+              'has-error  not-valid':
+                !contactEnquiryForm.controls['Company_name'].valid &&
+                contactEnquiryForm.get('Company_name').touched,
+                valid: contactEnquiryForm.get('Company_name').valid,
+                invalid: !contactEnquiryForm.get('Company_name').valid
+            }" />
+                <div *ngIf="
+          !contactEnquiryForm.controls['Company_name'].valid &&
+          contactEnquiryForm.get('Company_name').touched
+        " class="not-valid-error-msg">
+                  <span [hidden]="!contactEnquiryForm.controls['Company_name'].errors.required">
+                    {{ "feedback.Company_name" | translate }}</span>
+
+                </div>
+              </span>
+            </div>
+          </div>
+          <div class="col-xs-12 row">
+            <div class="col-sm-12 col-md-4 ">
+              <label class="enquiry_label " for="reg_Business_Type">{{'feedback.businessType' | translate}}<span class="redstar">*</span></label>
+            </div>
+
+            <div class="col-sm-12 col-md-8 text-left ">
+              <span class="login_fields">
+                <select class="mandatory form-control" formControlName="Business_Type" [ngClass]="{
+              'has-error  not-valid':
+                !contactEnquiryForm.controls['Business_Type'].valid &&
+                contactEnquiryForm.get('Business_Type').touched,
+                valid: contactEnquiryForm.get('Business_Type').valid,
+                invalid: !contactEnquiryForm.get('Business_Type').valid
+            }">
+                  <option value="">{{'menu.pleaseSelect' | translate}}</option>
+                  <option value="Retailer">Retailer</option>
+                  <option value="Distributor">Distributor</option>
+                  <option value="Wholesaler">Wholesaler</option>
+                  <option value="Hotel">Hotel</option>
+                  <option value="Spa">Spa</option>
+                  <option value="Supplier">Supplier</option>
+                </select>
+                <div *ngIf="
+            !contactEnquiryForm.controls['Business_Type'].valid &&
+            contactEnquiryForm.get('Business_Type').touched
+          " class="not-valid-error-msg">
+                  <span [hidden]="!contactEnquiryForm.controls['Business_Type'].errors.required">
+                    {{ "feedback.Business_Type" | translate }}</span>
+
+                </div>
+              </span>
+
+            </div>
+          </div>
+        </div>
+          <div *ngIf="checkOnlineOrderType.enableElements.Hotel_Name">
+
+            <div class="col-xs-12 row">
+              <div class="col-sm-12 col-md-4 ">
+                <label class="enquiry_label " for="reg_Hotel_Name">{{'feedback.hotelName' | translate}}<span class="redstar">*</span></label>
+              </div>
+              <div class="col-sm-12 col-md-8 text-left ">
+                <span class="login_fields">
+                  <input type="text" formControlName="Hotel_Name" class="mandatory form-control reg_field" [ngClass]="{
+                    'has-error  not-valid':
+                      !contactEnquiryForm.controls['Hotel_Name'].valid &&
+                      contactEnquiryForm.get('Hotel_Name').touched,
+                      valid: contactEnquiryForm.get('Hotel_Name').valid,
+                      invalid: !contactEnquiryForm.get('Hotel_Name').valid
+                  }" />
+                  <div *ngIf="!contactEnquiryForm.controls['Hotel_Name'].valid && contactEnquiryForm.get('Hotel_Name').touched" class="not-valid-error-msg">
+                    <span [hidden]="!contactEnquiryForm.controls['Hotel_Name'].errors.required">
+                      {{ "feedback.Hotel_Name" | translate }}</span>
+                  </div>
+                </span>
+              </div>
+            </div>
+          </div>
+          <div class="col-xs-12 row">
+            <div class="col-sm-12 col-md-4 ">
+              <label class="enquiry_label " for="reg_email">{{'feedback.emailAdd' | translate}}<span class="redstar">*</span></label>
+            </div>
+            <div class="col-sm-12 col-md-8 text-left ">
+              <span class="login_fields">
+                <input type="email" formControlName="Email_Address" class="mandatory form-control reg_field" [ngClass]="{
+              'has-error  not-valid':
+                !contactEnquiryForm.controls['Email_Address'].valid &&
+                contactEnquiryForm.get('Email_Address').touched,
+                valid: contactEnquiryForm.get('Email_Address').valid,
+                invalid: !contactEnquiryForm.get('Email_Address').valid
+            }" />
+                <div *ngIf="
+          !contactEnquiryForm.controls['Email_Address'].valid &&
+          contactEnquiryForm.get('Email_Address').touched
+        " class="not-valid-error-msg">
+                  <span
+                    [hidden]="!contactEnquiryForm.controls['Email_Address'].errors.required">{{ "feedback.Email_Address" | translate }}</span>
+
+                  <span [hidden]="
+          !contactEnquiryForm.controls['Email_Address'].errors.patternInvalid
+        "> {{ "feedback.invalidEmailAddress" | translate }}</span>
+
+                </div>
+              </span>
+            </div>
+          </div>
+          <div class="col-xs-12 row">
+            <div class="col-sm-12 col-md-4 ">
+              <label class="enquiry_label " for="reg_email">{{'feedback.confirmEmail' | translate}}<span class="redstar">*</span></label>
+            </div>
+            <div class="col-sm-12 col-md-8 text-left ">
+              <span class="login_fields">
+                <input type="email" formControlName="Confirm_Email" class="mandatory form-control reg_field" [ngClass]="{
+              'has-error  not-valid':
+                !contactEnquiryForm.controls['Confirm_Email'].valid &&
+                contactEnquiryForm.get('Confirm_Email').touched,
+                valid: contactEnquiryForm.get('Confirm_Email').valid,
+                invalid: !contactEnquiryForm.get('Confirm_Email').valid
+            }" />
+                <div *ngIf="
+          !contactEnquiryForm.controls['Confirm_Email'].valid &&
+          contactEnquiryForm.get('Confirm_Email').touched
+        " class="not-valid-error-msg">
+                  <span [hidden]="
+            !contactEnquiryForm.controls['Confirm_Email'].errors.required
+          ">{{ "feedback.Confirm_Email" | translate }}</span>
+                  <span [hidden]="
+            !contactEnquiryForm.controls['Confirm_Email'].errors
+              .appCustomValidator
+          ">{{ "feedback.matchEmail" | translate }}</span>
+                </div>
+              </span>
+            </div>
+          </div>
+          <div *ngIf="checkOnlineOrderType.enableElements.addressFields">
+            <div class="col-xs-12 row">
+              <div class="col-sm-12 col-md-4 ">
+                <label class="enquiry_label " >{{'feedback.phoneNum' | translate}} </label>
+              </div>
+              <div class="col-sm-12 col-md-8 text-left ">
+                <span class="login_fields">
+                  <input type="text" formControlName="Phone_Number" class=" form-control" />
+
+                </span>
+              </div>
+            </div>
+
+            <div class="col-xs-12 row">
+              <div class="col-sm-12 col-md-4 ">
+                <label class="enquiry_label " for="reg_Town">{{'feedback.orderNum' | translate}}
+
+                </label>
+              </div>
+              <div class="col-sm-12 col-md-8 text-left ">
+                <span class="login_fields">
+                  <input type="text" formControlName="Order_Number" class="mandatory form-control reg_field " />
+
+                </span>
+              </div>
+            </div>
+
+
+
+            <div class="col-xs-12 row">
+              <div class="col-sm-12 col-md-4 ">
+                <label class="enquiry_label " for="reg_Country">{{'feedback.country' | translate}}</label>
+              </div>
+              <div class="col-sm-12 col-md-8 text-left ">
+                <span class="login_fields">
+                  <select 
+                  class="mandatory form-control" 
+                  formControlName="Country" 
+                  (change)="onChangeCountry($event)" 
+                  [ngClass]="{
+                 'has-error  not-valid':!contactEnquiryForm.controls['Country'].valid
+                  &&contactEnquiryForm.get('Country').touched,
+                 valid: contactEnquiryForm.get('Country').valid,
+                 invalid: !contactEnquiryForm.get('Country').valid
+                  }"
+                  >
+                    <option value="" selected>Choose Country </option>
+                    <option *ngFor="let data of countries; let k = index" [ngValue]="data">{{ data.name }}</option>
+                  </select>
+
+                </span>
+              </div>
+            </div>
+
+            <div class="col-xs-12 row">
+              <div class="col-sm-12 col-md-4 ">
+                <label class="enquiry_label " for="reg_postcode">{{'feedback.postZipCode' | translate}} </label>
+              </div>
+              <div class="col-sm-12 col-md-8 text-left ">
+                <span class="login_fields">
+                  <input 
+                    #myInput 
+                    type="text" 
+                    class="mandatory form-control" 
+                    formControlName="Postcode" 
+                    (keydown)="onSearchKeyUp($event)"
+                    maxlength="10" />
+                  <div class="postcode-msg-block">
+                    <span>Please enter a valid postcode or enter the address manually.</span>
+                  </div>
+                </span>
+
+                <div *ngIf="postalcodeerror" class="not-valid-error-msg feedback-form-postalcode-error">
+                  Please enter a valid postcode or enter the address manually.
+                </div>
+
+                <span class="ml-8 find-address" *ngIf="ukLoopBtnStatus">
+                  <button class="buttonStyle mt-1" (click)="onLookupAddress($event)">
+                    Lookup Address
+                  </button>
+                </span>
+              </div>
+            </div>
+
+
+            <div class="col-xs-12 row " *ngIf="postalAddresses">
+                <div class="col-sm-12 col-md-4 ">
+                    <label class="enquiry_label" >Select Address</label>
+                </div>
+                <div class="col-sm-12 col-md-8 text-left">
+                    <span class="login_fields">
+                      <select 
+                        class="mandatory form-control" 
+                        formControlName="Address" 
+                        (change)="onSelectPlace($event.target.value)"
+                        [ngClass]="{
+                          'has-error  not-valid':
+                            !contactEnquiryForm.controls['Address'].valid &&
+                            contactEnquiryForm.get('Address').touched,
+                            valid: contactEnquiryForm.get('Address').valid,
+                            invalid: !contactEnquiryForm.get('Address').valid
+                        }">
+                        <option value="">Select an Address</option>
+                        <option *ngFor="let data of postalAddresses; let k = index" [value]="data.Id">{{ data.StreetAddress }},
+                          &nbsp;{{ data.Place }}</option>
+                      </select>
+                  </span>
+                </div>
+              </div>
+
+
+
+            <div class="col-xs-12 row">
+              <div class="col-sm-12 col-md-4 ">
+                <label class="enquiry_label ">{{'feedback.address' | translate}}</label>
+              </div>
+              <div class="col-sm-12 col-md-8 text-left ">
+                <span class="login_fields">
+                  <input type="text" formControlName="line1" class="mandatory form-control reg_field" />
+                  <input type="text" class="mandatory form-control mt-15" formControlName="line2" />
+                  <input type="text" class="mandatory form-control mt-15" formControlName="line3" />
+                </span>
+              </div>
+            </div>
+            <div class="col-xs-12 row">
+              <div class="col-sm-12 col-md-4 ">
+                <label class="enquiry_label " for="reg_Town">{{'feedback.townCity' | translate}}</label>
+              </div>
+              <div class="col-sm-12 col-md-8 text-left ">
+                <span class="login_fields">
+                  <input type="text" formControlName="Town" class="mandatory form-control" />
+
+                </span>
+              </div>
+            </div>
+
+            <div class="col-xs-12 row" *ngIf="!usSpecificForm; else usStates">
+                <div class="col-sm-12 col-md-4 ">
+                  <label  class="enquiry_label ">{{'feedback.countryState' | translate}}</label>
+                </div>
+                <div class="col-sm-12 col-md-8 text-left">
+                  <span class="login_fields">
+                    <input type="text" formControlName="State" />
+                  </span>
+                </div>
+              </div>
+              <ng-template #usStates>
+                <div class="col-xs-12 row">
+                  <div class="col-sm-12 col-md-4 ">
+                    <label  class="enquiry_label ">State<span class="redstar">*</span></label>
+                  </div>
+                  <div class="col-sm-12 col-md-8 text-left ">
+                    <span class="login_fields">
+                      <select *ngIf="stateList" class="mandatory form-control" formControlName="State"  [ngClass]="{
+                        'has-error  not-valid':
+                          !contactEnquiryForm.controls['State'].valid &&
+                          contactEnquiryForm.get('State').touched,
+                          valid: contactEnquiryForm.get('State').valid,
+                          invalid: !contactEnquiryForm.get('State').valid
+                      }">
+                        <option value="" selected>Choose State* </option>
+                        <option *ngFor="let data of stateList; let k = index" [ngValue]="data">{{ data.name }}</option>
+                      </select>
+                       <div 
+                       *ngIf="!contactEnquiryForm.controls['State'].valid && contactEnquiryForm.get('State').touched "
+                       class="not-valid-error-msg"
+                       >
+                         <span *ngIf="contactEnquiryForm.controls['State'].errors.required">What's your state</span>
+                      </div>
+                      <input 
+                       *ngIf="!stateList" 
+                       autocorrect="off" 
+                       formControlName="State" 
+                       type="text" 
+                       class="form-control  mandatory" 
+                       autocapitalize="on" 
+                        [ngClass]="{
+                          'has-error not-valid':!contactEnquiryForm.get('State').valid && contactEnquiryForm.get('State').touched,
+                          'valid':contactEnquiryForm.get('State').valid,
+                          'invalid':!contactEnquiryForm.get('State').valid,
+                           'cred-error':showCrentialError
+                        }" /> 
+                    <div *ngIf="!contactEnquiryForm.controls['State'].valid && contactEnquiryForm.get('State').touched" class="not-valid-error-msg">
+                      <span *ngIf="contactEnquiryForm.controls['State'].errors.required">What's your state</span>
+                   </div>
+                    </span>
+                  </div>
+                </div>
+              </ng-template>
+          </div>
+
+          <div *ngIf="checkOnlineOrderType.enableElements.GiftSection">
+            <div class="col-xs-12 row">
+              <div class="col-sm-12 col-md-4 ">
+                <label class="enquiry_label">Fax Number</label>
+              </div>
+              <div class="col-sm-12 col-md-8 text-left ">
+                <span class="login_fields">
+                  <input type="text" formControlName="Fax_Number" class="mandatory form-control  " />
+                </span>
+              </div>
+            </div>
+          </div>
+          <div *ngIf="checkOnlineOrderType.enableElements.GiftSection">
+            <div class="col-xs-12 row">
+              <div class="col-sm-12 col-md-4 ">
+                <label class="enquiry_label">Budget per Gift</label>
+              </div>
+              <div class="col-sm-12 col-md-8 text-left ">
+                <span class="login_fields">
+                  <input type="text" formControlName="Budget" class="mandatory form-control  " />
+                </span>
+              </div>
+            </div>
+            <div class="col-xs-12 row">
+              <div class="col-sm-12 col-md-4 ">
+                <label class="enquiry_label">Number of Gifts</label>
+              </div>
+              <div class="col-sm-12 col-md-8 text-left ">
+                <span class="login_fields">
+                  <input type="text" formControlName="Number_of_Gifts" class="mandatory form-control  " />
+                </span>
+              </div>
+            </div>
+
+
+          </div>
+          <div *ngIf="checkOnlineOrderType.enableElements.webSiteSection">
+            <div class="col-xs-12 row">
+              <div class="col-sm-12 col-md-4 ">
+                <label class="enquiry_label ">Web Site</label>
+              </div>
+              <div class="col-sm-12 col-md-8 text-left ">
+                <span class="login_fields">
+                  <input type="text" formControlName="Website" class="mandatory form-control  " />
+                </span>
+              </div>
+            </div>
+          </div>
+          <div class="col-xs-12 row">
+            <div class="col-sm-12 col-md-4 ">
+              <label class="enquiry_label ">{{'feedback.msg' | translate}}<span class="redstar">*</span></label>
+            </div>
+            <div class="col-sm-12 col-md-8 text-left ">
+              <span class="login_fields">
+                <textarea type="text" formControlName="Message" class="mandatory form-control reg_field " [ngClass]="{
+              'has-error  not-valid':
+                !contactEnquiryForm.controls['Message'].valid &&
+                contactEnquiryForm.get('Message').touched,
+                valid: contactEnquiryForm.get('Message').valid,
+                invalid: !contactEnquiryForm.get('Message').valid
+            }"></textarea>
+                <div *ngIf="
+          !contactEnquiryForm.controls['Message'].valid &&
+          contactEnquiryForm.get('Message').touched
+        " class="not-valid-error-msg">
+                  <span [hidden]="!contactEnquiryForm.controls['Message'].errors.required">
+                    {{ "feedback.message" | translate }}</span>
+                </div>
+              </span>
+            </div>
+          </div>
+          <div class="col-xs-12 row">
+            <div class="col-sm-12 col-md-4 ">
+              <label class="enquiry_label ">{{'feedback.spamSecure' | translate}} <span class="redstar">*</span></label>
+            </div>
+            <div class="col-sm-12 col-md-8 text-left ">
+              <span class="login_fields">
+                <re-captcha formControlName="captcha"></re-captcha>
+                <div>
+                  {{'feedback.mandatoryFld' | translate}}
+                </div>
+              </span>
+            </div>
+          </div>
+
+
+
+
+
+
+
+          <div class="col-xs-12 row">
+            <div class="col-xs-1 col-sm-12 col-md-2"></div>
+          </div>
+
+          <div class="col-sm-12 text-right">
+            <button class="buttonStyle" type="submit">
+              {{'feedback.submit' | translate}}
+            </button>
+          </div>
+
+      </form>
+    </div>
+  </div>
+</section>
+<!--  -->
+<div class="plp-container-load-block" *ngIf="pageLoad">
+  <div class="b2c-title">
+   <span class="loading-txt"> loading... </span> 
+  </div>
+</div>
+
+<section *ngIf="feedbackFormSubmit">
+  <div class="container ">
+    
+    <div class="row">
+				<div style="float:left; margin-left:25px; margin-top:15px;">
+<div style="clear:both;"></div>
+<h1 class="title">Thank you</h1>
+<div style="clear:both;"></div>
+<p>Thank you, your enquiry has been successfully submitted.<br>We aim to answer all email messages and enquiries within 2 working days.</p>
+<div style="clear:both;"></div><br>
+<a href="/store/index" class=" btn-default feedbackAfterSubmit" style="background-color: #464646;color: #fff !important;">
+Continue
+</a>
+</div>
+</div>
+  </div>
+</section>

@@ -1,0 +1,580 @@
+@import "../../../../variable";
+.delivery-method {
+  .delivery-wrap {
+    transition: all 1s ease-out;
+    .section-heading {
+      margin-top: 0;
+      h2 {
+        font-size: 18px;
+        margin: 0 0 12px 0;
+        line-height: 1.42857;
+      }
+      legend{
+        font-size:16px !important;
+        color: $primary-color;
+        border: 0;
+        margin: 0 0 12px 0;
+        display: block;
+        width: 100%;
+        padding: 0;
+        line-height: 1.42857;
+        font-weight: 700;
+        }
+    }
+    .delivery-section-panel-body {
+      .existing-reg-field-block {
+        .existing-customer-list {
+          width: calc(90%);    
+          transition: all 1s ease-out;    
+          label {
+            justify-content: start;
+            padding-left: 30px;
+            line-height: 1.65;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            display: block;
+            span{
+              font-size: 14px;
+            }
+            &:before {
+              top: 0;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+.form-group {
+  position: relative;
+}
+.reg-confirm-address {
+  button {
+    @media screen and(max-width:768px) {
+      width: 100%;
+    }
+  }
+}
+.reg-add-address {
+  margin-top:8px;
+  a {
+    cursor: pointer;
+    text-decoration: underline !important;
+    color: $edition-color !important;
+  }
+}
+.btn-default {
+  background-color: $edition-color;
+  color: $mb-white;
+}
+.regUser-hide {
+  display: none;
+}
+.regUser-block {
+  display: block;
+}
+.personal-details {
+  padding-top: 12px;
+  legend {
+    font-size: 1.2857142857em;
+    color: $primary-color;
+    border: 0;
+    margin: 0 0 12px 0;
+  }
+  .form-group{
+    .not-valid-error-msg{
+      left: 2% !important;
+     &:after{
+       width: 12px;
+       height: 12px;
+       bottom: -6px;
+     }
+    }
+  }
+  .form-control {
+    display: block;
+    width: 335px;
+    height: 48px;
+    border-radius: 0;
+    @media (max-width: $screen-tablet) {
+      width: 100%;
+    }
+  }
+  select.form-control {
+    @media (max-width: $screen-tablet) {
+      width: 100% !important ;
+    }
+  }
+  .btn-find-address {
+    width: 180px;
+    @media (max-width: $screen-tablet) {
+      width: 100%;
+      top: 5px;
+    }
+  }
+
+  .form-inline {
+    justify-content: flex-start;
+  }
+}
+
+input.form-control.short-field {
+  width: 110px !important;
+}
+.form-inline .form-group,
+.form-inline .radio-inline {
+  margin-right: 10px;
+  @media screen and(max-width:768px) {
+    margin-right: 0!important;
+  }
+}
+
+
+select.form-control {
+  // min-width: 240px;
+  // width: 240px ;
+  @media screen and(max-width:768px) {
+    width: 100% !important;
+  }
+  option {
+    width: inherit !important;
+  }
+}
+.action-link {
+  align-self: flex-start;
+  span {
+    text-decoration: underline;
+    text-transform: capitalize;
+    font-size: 14px;
+    cursor: pointer;
+  }
+}
+.existing-reg-field-block {
+  .radio input[type="radio"],
+  .form-inline .radio input[type="radio"] {
+    opacity: 0;
+    position: absolute;
+    z-index: 99;
+    top:10px;
+    // width: 100%;
+    height: 35px;
+    cursor: pointer;
+  }
+}
+.form-group {
+  @media (max-width: $screen-tablet) {
+    width: 100%;
+  }
+}
+.manual_field {
+  @media (max-width: $screen-tablet) {
+    justify-content: space-between !important;
+  }
+  .form-group {
+    @media (max-width: $screen-tablet) {
+      width: 47%;
+      margin-right: 0 !important;
+      input.form-control.short-field {
+        margin: 0 !important;
+        @media (max-width: $screen-tablet) {
+          width: 100% !important;
+        }
+      }
+    }
+  }
+}
+
+.b2c-title {
+  font-size: 24px;
+  .loading-txt{
+    float: right !important;
+  padding-left: 5px !important;
+  font-size: 14px !important;
+  padding-top: 2px !important;
+
+  }
+}
+.f-space-between {
+  justify-content: space-between !important;
+}
+.shippment_form {
+  .contextual-help {
+    right: 34%;
+    top: 3px;
+    @media (max-width: $screen-tablet) {
+      right: 0;
+      top: 0;
+      width: 48px;
+      height: 48px;
+      //   display:none;
+    }
+    
+  }
+  .not-valid-error-msg {
+    width: 305px;
+    span{
+      font-size: small !important;
+    }
+    @media screen and(max-width:768px) {
+      width: 90%;
+    }
+  }
+}
+.delivery-new-form-body {
+  input[type="text"].form-control {
+    background-position: 85% 11px !important;
+    width: 335px;
+    height: 48px;
+    @media screen and(max-width:768px) {
+      width: 100%;
+    }
+    input[type="text"].form-control.not-valid{
+      background-position: 85% 11px;
+      background-size: 6px;
+    }
+    &.ng-valid{
+      background-position: 92% 13px !important;
+    
+    }
+  }
+  .form-control.not-valid:focus {
+   border: 1px solid $light-grey !important;
+}
+
+
+  .shippment_form .form-group {
+    .form-control {
+      font-size: 14px !important;
+      line-height: 1.42;
+      @media screen and(max-width:768px) {
+        &.telInput {
+          width: calc(100% - 26px) !important;
+        }
+      }
+    }
+    input[type="text"].not-valid{
+      background-position: 90% 11px;
+      background-size: 6px;
+    }
+  }
+
+  @media screen and(max-width:$screen-sm) {
+    .marginB {
+      .form-group {
+        margin-right: 0px !important;
+        margin-bottom: 0 !important;
+      }
+    }
+  }
+  .form-inline.manual_field {
+    @media screen and(max-width:$screen-sm) {
+      .marginB {
+        .form-group {
+          margin-right: 0px !important;
+          margin-bottom: 0 !important;
+        }
+      }
+      // flex-direction: column;
+      align-items: flex-start;
+      .short-field {
+        margin-bottom: 10px !important;
+      }
+    }
+  }
+}
+.form-inline.manual_field {
+    margin-bottom: 10px;
+}
+select.not-valid {
+  border: 1px solid $mb-error-bg !important;
+}
+select.selectDropdown {
+  background-image: linear-gradient(45deg, transparent 50%, #666666 50%),
+    linear-gradient(135deg, #666666 50%, transparent 50%), linear-gradient(to right, $light-grey 1%, #ebebeb 2%);
+  background-position: calc(100% - 20px) calc(14px + 5px), calc(100% - 10px) calc(15px + 4px), 100% 0;
+  background-size: 11px 11px, 11px 12px, 43px 48px;
+  background-repeat: no-repeat;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  -o-appearance: none;
+  appearance: none;
+  &::-ms-expand {
+    display: none;
+  }
+  &:focus {
+   ~{
+    .not-valid-error-msg{
+      display: block !important;
+    }
+   }
+  }
+}
+.slct-address{
+  &:focus {
+    width: auto;
+  }
+}
+a.contextual-help{
+  cursor: pointer;
+}
+/*select dropdown ends*/
+
+select:-internal-list-box {
+height:45px;
+}
+.address_label{
+  font-size:14px;
+  span{
+    font-size:14px;
+  }
+  .name-title{
+    text-transform: capitalize;
+  }
+}
+
+.help-block {
+  display: block;
+  margin: 5px 0 10px 0;
+  
+  a{
+    
+    color: $edition-color !important;
+    &:hover{
+      color: $primary-color !important;
+    }
+  }
+}
+.postcode-status{
+  position: absolute;
+  bottom: 100%;
+  background-color: $mb-error-bg;
+  color: $mb-white;
+  padding: 10px;
+  left: 6%;
+  text-align: center;
+  width: 88%;
+  z-index: 9;
+}
+.disabled-active {
+  cursor: pointer;
+  background-color: $light-grey !important;
+  opacity: 1;
+  padding: 6px;
+  &:hover{
+    background-color:$light-grey;
+    opacity: 1;
+  }
+}
+.delivery-radio-button{
+  .delivery-radio-block{
+    justify-content: space-between;
+    .existing-customer-list{
+      margin:0px;
+      label{
+          width: 450px;
+          padding: 2px 0 15px 34px;
+          position: relative;
+          display: block;
+          white-space: nowrap;
+          overflow: hidden;
+          font-weight: normal;
+          margin: 0;
+          text-overflow: ellipsis;  
+          span{
+            font-size: inherit;
+          }        
+          &::before{
+            left: 2px;
+            top: 2px;
+          }
+        }
+  input[type="radio"]:checked ~ label:after {
+    position: absolute;
+    content: "";
+    width: 14px;
+    height: 14px;
+    left: 6px;
+    top: 6px;
+    } 
+    @media(max-width:$screen-sm){
+       display: contents;
+      label{
+        width:80%;
+      }
+    }
+}
+  }
+}
+.tooltip-inner{
+  min-width: 150px !important;
+  max-width: 165px !important;
+  }
+  .error-info-block{
+    .err_form_msg {
+      color: $err-color;
+      padding-right: 5px;
+      font-weight: 400;
+      font-size: 13px;
+      margin: 5px 0px;
+      color: $err-color;
+    }
+    .stock-list{
+      padding: 5px;
+    }
+}
+.loading-postcode-search{
+    min-height:75px;
+    height:100%;
+    position: absolute;
+    top:-6px;
+    width:100%;
+}
+.uk-post-code{
+  &::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+    text-transform: capitalize !important;
+  }
+  &::-moz-placeholder { /* Firefox 19+ */
+    text-transform: capitalize;
+  }
+  &:-ms-input-placeholder { /* IE 10+ */
+    text-transform: capitalize;
+  }
+  &:-moz-placeholder { /* Firefox 18- */
+    text-transform: capitalize;
+  }
+}
+
+.delivery-new-form-body .postalcode-block input[type="text"].form-control.pcode{
+
+    width: calc(100% - 21px) !important;
+    @media(max-width:$screen-sm){
+      width: calc(100% - 26px) !important;
+    }
+}
+
+.delivery-new-form-body .postalcode-block input[type="text"].form-control.ng-valid {
+  background-position: 85% 13px !important;
+}
+.postalcode-block{
+width:35% !important;
+
+@media(max-width:$screen-sm){
+width:100% !important;
+
+}
+.pcode{
+  
+~.contextual-help{
+  right:0 !important;
+}
+}
+}
+
+ .postalcode-block{
+  .not-valid{
+    background-position: 85% 11px !important;
+  }
+}
+
+
+.select-selected.has-error {
+  border: 1px solid #b63432 !important;
+}
+app-custom-select{
+  &.has-error{
+    .dropdown{
+      button{
+        border: 1px solid #b63432 !important;
+        ~{
+          .dropdown-err{
+            display: block;
+          }
+        }
+
+      }
+    }
+  //   a{
+  //   &.custom-country-select{
+  //     &:focus{
+  //     +{
+  //       .not-valid-select-error-msg{
+  //         display: block;
+  //       }
+  //     }
+  //   }
+  // }
+  // }
+  }
+}
+.shippingButtons{
+  button{
+    &:disabled{
+      cursor: not-allowed;
+    }
+  }
+}
+.bootstrap-select{
+  width: 335px;
+  height: 48px;
+  button{
+      &.dropdown-toggle{
+        width: 335px;
+        height: 48px;
+        background-color: $mb-white;
+        border:1px solid $light-grey;
+        border-radius: 0;
+        background-image: url('../../../../assets/imgs/select-box-right-bg.png');
+        background-position: right top;
+        background-repeat: no-repeat;
+        background-color: #fff;
+        color: #666;
+        text-transform: none;
+        font-size: 14px;
+        top: 0px;
+        min-width: 245px;
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-align: center;
+        align-items: center;
+        .filter-option{
+          &:after{
+            border-top: 12px solid;
+            border-right: 12px solid transparent;
+            border-bottom: 0;
+            border-left: 12px solid transparent;
+          }
+        }
+        &:after{
+          border-top: 12px solid;
+          border-right: 12px solid transparent;
+          border-bottom: 0;
+          border-left: 12px solid transparent;
+        }
+    }
+ }
+ .dropdown-menu{
+   &.show{
+     background-color: $mb-white !important;
+   }
+ }
+}
+:not(.input-group)>.bootstrap-select.form-control:not([class*=col-]) {
+  width: 335px;
+  height: 48px;
+}
+.dlformstateDropdown{
+  &.has-error{
+    ~{
+      button{
+        &.dropdown-toggle{
+         border: 1px solid #b63432 !important;
+       }
+     }
+   }
+  }
+}

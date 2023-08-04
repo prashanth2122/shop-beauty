@@ -1,0 +1,10 @@
+.pos-relative{
+    .not-valid-error-msg{
+        span{
+        font-size: .9285714286em !important;
+        }
+    }
+    input[type="text"].form-control.valid{
+        background-position: 92% 13px !important;
+    }
+}

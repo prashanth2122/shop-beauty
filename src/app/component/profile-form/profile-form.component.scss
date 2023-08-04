@@ -1,0 +1,394 @@
+@import"../../../variable";
+.registration_form{
+    width: 720px;
+    padding: 10px 20px;
+    margin: 12px 0 15px 25px;
+    border: 1px solid #d7d7d7;
+    @media screen and(max-width:$screen-sm){
+        border:none;
+        padding-top: 0;
+        margin-top: 0!important;
+    }
+    .required_text{
+        font-size:12px;
+    }
+    h2 {
+        font-weight: 700;
+        font-size: 14px;
+        padding-top: 15px;
+        @media screen and(max-width:$screen-sm){
+            padding-top: 15px!important; 
+        }
+    }
+    .col-xs-12{
+        width: 100%;
+        margin-bottom: 5px;
+        padding: 10px 0 0 0;
+        @media screen and(max-width:767px) {
+            margin-bottom: 0px;
+        }
+    }
+}
+
+.redcolor {
+    color: $err-color;
+}
+.register_label{
+    float:right;
+    padding-top: 5px;
+    color: #535353;
+    font-weight:normal;
+    font-size:12px;
+    @media screen and(max-width:767px) {
+        float: left;
+        padding-top: 0;
+    }
+}
+.no-padding{
+    padding:0;
+}
+.guest-list {
+    font-size: 12px;
+}
+.checkboxAlignBox{
+    align-self: center;
+    @media screen and (max-width:$screen-sm){
+        width:15%;float:left;
+    }
+}
+.checkboxAlign{
+    line-height: 12px;
+    padding-left: 0px;
+    @media screen and (max-width:$screen-sm){
+        width:80%;
+    }
+}
+.gender{
+    line-height: 13px;
+    margin-left: 5px;
+    margin-right: 15px;
+}
+.genderAlign{
+    margin-top: 8px;
+    // padding-left: 0px;
+}
+.login_fields{
+    width: 250px;
+    position: relative;
+    padding: 0!important;
+    display: inline-block;
+    input{
+        font-size: 13px;
+    }
+    input,select{
+        height: 25px!important;
+        &.not-valid{
+            background-position: 95% 4px;
+            border:1px solid $mb-error-bg;
+                background-size:4px;
+            @media screen and(max-width:$screen-sm){
+                background-position: 95% 4px;
+                }
+    }
+}
+}
+
+.register-in {
+    padding: 3% 0 0 0;
+    margin: 10px 0px;
+    font-size: 28px;
+@media screen and(max-width:$screen-sm){
+    display: block;
+    overflow: hidden;
+    padding: 15px;
+    margin: 0;
+    font-size: 15px;
+    font-weight: 700;
+    color: #000;
+    
+}
+}
+
+
+.overlay-bg-show{
+    display:block;
+}
+.overlay-bg-hide{
+    display:none;
+}
+.err-text{
+    font-size: 10px;
+    color:$err-color;
+}
+.password{
+    font-size:10px;
+}
+input[type="text"].form-control,
+input[type="tel"].form-control {
+&.not-valid{
+    background-position:95% 2px !important;
+    background-size:4px !important;
+}
+}
+.password_field{
+   .contextual-help{
+       width:30px;
+       height:30px;
+       right:-10px;
+   } 
+ 
+}
+.login_fields{
+    .contextual-help{
+        width:30px;
+        height:30px;
+        right:-10px;
+        background-size: 7px;
+    } 
+}
+.reg_form{
+.password_field{
+
+}}
+.has-match-error{
+  +{
+   .not-valid-error-msg{
+       display:block;
+   }
+  }
+}
+
+.login_fields{
+    input[type="text"].form-control,
+    input[type="email"],input[type="password"],
+    input[type="email"].form-control,
+    input[type="password"].form-control,
+    input[type="tel"].form-control {
+       ~{
+           .not-valid-error-msg{
+               display:none  ;
+           
+           }
+       }
+       
+    &.not-valid{    
+       &:focus{
+        box-shadow: none;
+       ~{
+        .not-valid-error-msg{
+           display:block ;
+         }
+        }
+       }
+     }
+       width: 65%;
+       display: block;
+       height: 48px;
+       border: 1px solid $light-grey;
+       border-radius: 0;
+      // margin: 5px 0;
+       &.not-valid {
+           background-image: url('https://www.moltonbrown.co.uk/images/exclamation-symbol.png');
+           background-position: 95% 4px;
+           border: 1px solid $mb-error-bg !important;
+           background-repeat: no-repeat;    background-size: 4px;
+       }
+       &.valid {
+           background-image: url('https://www.moltonbrown.co.uk/images/tick-symbol.png') !important;
+           background-position: 95% 13px;
+           background-repeat: no-repeat;
+       }
+    }
+}
+select.form-control {
+    height: 48px;
+    margin: 5px 0;
+}
+.error-block{
+    display:block !important;
+}
+.terms-error-msg-bottom{
+    color: $err-color;
+    /* margin: 5px 0; */
+    overflow: hidden;
+    display: none;
+    margin-left: 154px;
+    font-size: 12px;
+    display:none;
+    @media screen and (max-width:$screen-xs) {
+       margin-left:0px; 
+    }
+}
+.login_fields .contextual-help ~ .not-valid, .login_fields .contextual-help ~ .valid {
+    background-position: 91% 4px !important;
+    
+}
+.form-control:focus{
+    border-color: $mb-skyblue !important;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6) !important;
+   }
+.display-overlay {
+    display: block;
+    top: 0;
+    background-color: transparent;
+  }
+  .offset-2{
+      p{
+          color: $primary-color;
+          font-size: 12px;
+      }
+  }
+  p.offset-2{
+    color: $primary-color;
+    font-size: 12px;
+  }
+  p.checkboxAlign{
+    color: $primary-color; 
+    font-size: 12px;
+    a{
+        cursor: pointer;
+    }
+  }
+  .not-valid-postcode{
+    background-image: url(https://www.moltonbrown.co.uk/images/exclamation-symbol.png);
+    background-position: 93% 0px;
+    background-repeat: no-repeat;
+}
+.postcode-status{
+position: absolute;
+bottom: 100%;
+background-color: $mb-error-bg;
+color: $header-color-white;
+padding: 10px;
+left: 6%;
+text-align: center;
+width: 88%;
+z-index: 9;
+&::after{
+    content: "";
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    border: 0;
+    left: 5%;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+    background: $mb-error-bg;
+    bottom: -7px;
+}
+}
+.cred-error{
+    border:1px solid $mb-error-bg !important;
+}
+.credential-err-msg{
+    font-size:14px;
+    position: absolute;
+    bottom: 100%;
+    background-color: $mb-error-bg;
+    color: $mb-white;
+    padding: 10px;
+    left: 6%;
+    text-align: center;
+    width: 88%;
+    z-index: 9;
+    &::after{
+        content: '';
+        position: absolute;
+        width: 12px;
+        height: 12px;
+        border: 0;
+        left: 5%;
+        -webkit-transform: rotate(45deg);
+        -ms-transform: rotate(45deg);
+        transform: rotate(45deg);
+        background: $mb-error-bg;
+        bottom: -7px;
+    }
+}
+@media screen and(max-width:768px){
+    ngb-tooltip-window {
+        -webkit-transform: none !important;
+        -ms-transform: none !important;
+        transform: none !important;
+        background-color: #dc282800 !important;
+        left: auto !important;
+        right: 0;
+        top: -48px !important;
+        &.bs-tooltip-right .arrow::before {
+          right: 0;
+          border-width: 0.4rem .4rem .4rem 6px;
+          border-right-color: #0000;
+          border-top-color: black;
+          top: 27px;
+      }
+    }  
+    .ml-8 {
+        margin-left: 0;
+    }
+    .mob-space {
+        margin-left: 20px;
+    }
+    .rowComponents .registration_form h2.personalDetails {
+        padding-top: 15px!important;
+    }
+}
+
+
+.dl-overlay{
+    min-height: 250px;
+    background-color: $mb-white;
+    position: absolute;
+    width: 100%;
+    z-index: 9999;
+    height: 100%;
+    display: none;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    &-hide{
+      opacity: 0;
+      display: none;
+    }
+    &-show{
+      opacity: 1;
+      display: block;
+    }
+    transition: all ease-in 500ms;
+    .b2c-title {
+      position: absolute;
+      top: 5%;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 14px !important;
+      margin: 0 auto;
+      text-align: center;
+      &::before {
+        content: "";
+        background: url("../../../assets/imgs/loading-compass.svg") no-repeat center center;
+        background-size: 20px 20px;
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        transform: translateZ(0) scale(1, 1);
+        -webkit-transform: translateZ(0) scale(1, 1);
+        -ms-transform: translateZ(0) scale(1, 1);
+        transform: translateZ(0) scale(1, 1);
+        -webkit-animation: spin 2.5s linear infinite;
+        animation: spin 2.5s linear infinite;
+        outline: 1px solid transparent;
+    }
+    .loading-txt{
+      float: right !important;
+      padding-left: 5px !important;
+      font-size: 14px !important;
+     padding-top: 2px !important;
+    }
+   }
+  }
+  @media screen and(max-width:768px){
+    ngb-tooltip-window.bs-tooltip-right .arrow {
+        top: 25px;
+        width: 16px;
+    }
+  }

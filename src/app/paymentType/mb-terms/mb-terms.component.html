@@ -1,0 +1,138 @@
+<section class="mb-terms-section">
+    <div class="order-totals">
+      <div *ngIf="!deBtn">
+            <div class="view-summary OneLinkHide text-center" >
+                  <a class="btn-view-order-summary" (click)="viewOrder()">View your order</a>
+            </div>
+            <div class="showing-total OneLinkHide text-center">
+                  <div class="amount-to-pay" id="total-to-pay">
+                    {{'checkoutFlow.Totaltopay' | translate}}<span *ngIf="singletonServ.cartObj">
+                      {{ singletonServ.cartObj.totalPriceWithTax.formattedValue }}</span>
+                  </div>
+            </div>
+        </div>
+        <div *ngIf="deBtn">
+          <div class="view-summary OneLinkHide text-center paymentpage-mobileordersummary" >
+            <a class="btn-view-order-summary" (click)="viewOrder()">Kostenpflichtig bestellen</a>
+         </div>
+          <app-order-summary
+              [osDetail]="osDetail" 
+          >
+       </app-order-summary>
+        </div>
+           </div>
+          <fieldset>
+            <section [formGroup]="formType">
+              <div>
+                <div>
+                  <h2 class="join-title">{{'paymentCard.joinGuestList' | translate}}</h2>
+                  <div
+                    class="jointxtone"
+                  
+                  >
+                    <span
+                      >{{'paymentCard.beFirstToHear' | translate}}</span
+                    >
+                  </div>
+                  <div
+                    class="jointxttwo"
+                  >
+                    <span
+                      >{{'paymentCard.weAlwaysTreat' | translate}}</span
+                    >
+                  </div>
+                </div>
+                <div class="checkbox input-checkbox">
+                  <input
+                    id="placeOrderPolicy"
+                    type="checkbox"
+                    class="checkbox"
+                    [checked]="formType.controls['policy'].value"
+                    (change)="onChangePolicy($event)" 
+                  />
+                  <label class="terms-lbl top-mar-label" for="placeOrderPolicy"> {{'paymentCard.receiveCommunication' | translate}}</label>
+                </div>
+                <h2 class="terms-title">{{'paymentCard.termsConditions' | translate}}</h2>
+                <div class="checkbox above-placeorder">
+                  <input
+                    type="checkbox"
+                    class="checkbox"
+                    [checked]="formType.controls['terms'].value"
+                    (change)="onChangeTerms($event)"
+                    id="option"
+                  />
+
+                  <label class="terms-lbl top-mar-label" for="option" 
+                  [class.terms-not-valid]="getTypeOf(formType.value['terms'])"
+                  [ngClass]="{ 
+                    'terms-not-valid':!formType.controls['terms'].valid && formType.get('terms').touched
+                  }"          
+                  >
+              
+                    {{'newCustRegisForm.accept' | translate}} 
+                    <a
+                      data-toggle="modal"
+                      class="terms-lbl-content"
+                      data-target="#modalTermsPopup"
+                      (click)="onClickTerms($event)"
+                    >
+                      {{'newCustRegisForm.termsCond' | translate}}</a>
+                    <span class="terms-label-text">  {{'newCustRegisForm.and' | translate}} </span>
+                    <a
+                      data-toggle="modal"
+                      data-target="#modalTermsPopup"
+                      (click)="onClickPrivacy($event)"
+                    >
+                    {{'newCustRegisForm.cookiePolicy' | translate}}
+                    </a>
+                    .*
+                  </label>
+                </div>
+                <div class="terms-error-msg-bottom error-block termserror"
+                [@errorHideShow]="((getTypeOf(formType.value['terms'])) ||(!formType.controls['terms'].valid &&  formType.get('terms').touched)) ? 'err-open' : 'err-hide'"
+                >
+                <span *ngIf ="!deBtn">
+                  <!-- {{'paymentCard.termsConditionsError' | translate}} -->
+                  ! Please agree to the terms & conditions.
+                </span>
+                <span *ngIf ="deBtn">
+                ! Bitte stimmen Sie den allgemeinen Geschäftsbedingungen zu.
+              </span>
+              </div>
+              </div>
+              <div class="text-right">
+                <button
+                  type="submit"
+                  class="btn place-order-btn btn-width"
+                >
+                <span *ngIf="paypal && !deBtn" class="place_order"> PAY WITH <span class="icon-paypal">PayPal</span></span>
+                <span *ngIf="!paypal && !deBtn" class="place_order" >PLACE ORDER</span> 
+                <span *ngIf="paypal && deBtn" class="place_order" style="font-size: 12px;"> ZAHLUNG MIT <span class="icon-paypal">PayPal</span></span>
+                <span *ngIf="!paypal && deBtn" class="place_order" style="font-size: 13px;" >KOSTENPFLICHTIG BESTELLEN</span> 
+                </button>
+              </div>
+            </section>
+          </fieldset>
+</section>
+<div
+  class="modal"
+  id="modalTermsPopup"
+  tabindex="-1"
+  role="dialog"
+  aria-hidden="true"
+>
+  <div
+    class="chck-modal-dialog modal-dialog modal-full container modal-dialog-scrollable"
+    role="document"
+  >
+    <div class="modal-content">
+      <div class="chck-modal-header modal-header">
+        <button type="button" class="close" data-dismiss="modal">
+          &times;
+        </button>
+        <h4 class="modal-title text-center">{{ modalTitle }}</h4>
+      </div>
+      <div class="modal-body chck-modal-body" #termEl></div>
+    </div>
+  </div>
+</div>

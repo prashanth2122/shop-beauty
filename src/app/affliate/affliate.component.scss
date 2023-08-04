@@ -1,0 +1,73 @@
+@media screen and (max-width:874px) {
+    #affiliate-banner {
+        position: relative;
+    }
+    .affiliate-enquiry-page .amp-dc-block-wrap .affiliate-banner .amp-dc-banner-info-wrap {
+        width: 100%;
+        position: absolute;
+        background: none;
+        padding-top: 15px;
+    }
+    .affiliate-enquiry-page .amp-dc-block-wrap .affiliate-banner .amp-dc-banner-info-wrap .amp-dc-banner-info {
+        width: 100%;
+        float: left;
+        margin: 0;
+        background: #fff!important;
+    }
+    #affiliate-enquiry-page {
+        padding-top: 15px;
+    }
+    .affiliate-enquiry-page .amp-dc-block-wrap .affiliate-banner {
+        height: auto;
+        margin-bottom: 25px;
+    }
+    .affiliate-enquiry-page .amp-dc-block-wrap .afiliate-enquiry-rectangle-1,.affiliate-enquiry-page .amp-dc-block-wrap .affiliate-enquiry-rectangle-02 {
+        padding: 28px 36px;
+        height: auto;
+        text-align: left;
+    }
+    .affiliate-enquiry-page .amp-dc-block-wrap .afiliate-enquiry-rectangle-1 ul li,.affiliate-enquiry-page .amp-dc-block-wrap .affiliate-enquiry-rectangle-02 ul li {
+        padding: 3px 0;
+    }
+    .amp-dc-block-wrap,.custom-row {
+        margin-bottom: 15px;
+    }
+    .affiliate-text-block h2 {
+        i {
+        font-size: 23px!important;
+    }
+        margin-bottom: 15px;
+    }
+    .amp-dc-external-block .generic-button {
+        width: 100%;
+        text-align: center;
+        padding: 15px!important;
+        text-transform: uppercase;
+        position: relative;
+    }
+    .amp-dc-external-block .generic-button:after {
+        content: '';
+        border-style: solid;
+        border-color: transparent;
+        border-width: 5px 0 5px 5px;
+        border-left-color: #ffffff;
+        display: inline-block;
+        font-size: 0;
+        height: 0;
+        line-height: 0;
+        margin-left: 6px;
+        visibility: visible;
+        width: 0;
+    }
+    .affiliate-enquiry-page .amp-dc-splitBlock .amp-dc-split-part .we-work-with {
+        text-align: left;
+        margin: 0;
+        h2 {
+            font-size: 23px;
+        }
+    }
+    .amp-dc-splitBlock .amp-dc-split-part:first-child {
+        padding-bottom: 0!important;
+    }
+    
+}

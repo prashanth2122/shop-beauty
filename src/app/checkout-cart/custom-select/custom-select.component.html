@@ -1,0 +1,23 @@
+  <form [formGroup]="parentForm">
+    <div >
+    <a class="form-group custom-country-select custom-no-margin">     
+       <div  class="dropdown-err">
+          <span>Please select a country</span>
+         </div>
+       <select 
+         class="mandatory form-control  selectDropdown cntry-select" 
+         formControlName="{{formInnerControlName}}"
+         > 
+         <option value="" selected>{{dropdownDetails.option}}</option>               
+        <option
+          *ngFor="let data of countries; let k = index"
+          [ngValue]="data"
+          >{{ data.name }}</option>
+      </select>
+    </a>
+    <!-- <div class="not-valid-select-error-msg"
+  >
+Please select a country
+  </div> -->
+  </div>
+ </form>

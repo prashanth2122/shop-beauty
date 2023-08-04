@@ -1,0 +1,184 @@
+@import"../../../variable";
+.order-tbl{
+    table {
+        border-radius: 5px;
+        border-collapse: collapse;
+    }
+    
+    thead {
+        background-color: #d4d4d4b8;
+    }
+    
+    th, td {
+        text-align: left;
+        padding: 15px 25px;
+        font-size: 12px;
+    }
+    th,td{
+        &.od{
+            &-sn{
+                width:6%;
+                padding: 15px 10px;
+            }
+            &-slct{
+                width:auto;
+            }
+            &-number{
+                width:20%;
+            }
+            &-cs-name{
+                width:23%;
+            }
+            &-date{
+                width:18%;
+            }
+            &-val{
+                width:12%;
+            }
+            &-action{
+                width:15%;
+                button{
+                    &.od-check-in{
+                        background-color: #EA4E33;
+                        color:$mb-white;
+                    }
+                    &.od-collect{
+                      background-color: $primary-color;
+                      color:$mb-white;
+                  }
+                    background-color: orange;
+                    padding: 8px 15px;
+                    font-size: 14px;
+                    border: 0;
+                    outline: 0;
+                    color: $mb-white;
+                    &.action-bg{
+                        background-color: $primary-color;
+                        color:$mb-white;
+                    }
+                }
+            }
+        }
+    }
+}
+.btn-sbmt{
+    text-decoration: none;
+    background: $primary-color;
+    padding: 5px 10px;
+    font-size: 14px;
+    color: $mb-white;
+    float: left;
+    display: inline-block;
+    margin: 0 20px 0 0;
+    border: 0;
+  }
+
+tbody {
+    display:block;
+    max-height:350px;
+    overflow:auto;
+}
+thead, tbody tr {
+    display:table;
+    width:100%;
+    table-layout:fixed;/* even columns width , fix width of table too*/
+}
+thead,tbody {
+    width: calc( 100% - -0.0125%);
+}
+
+
+    input[type="checkbox"].od-slct-checkbox {
+      position: absolute;
+      padding: 0;
+      height: 25px !important;
+      width: 25px !important;
+      margin-bottom: 0;
+      opacity: 0;
+      cursor: pointer;
+      z-index: 111;
+      &:checked {
+        & + .od-slct-lbl:after {
+          content: "";
+          display: block;
+          position: absolute;
+          top: 4px;
+          left: 4px;
+          width: 12px;
+          height: 12px;
+          background: transparent url(https://css.moltonbrown.co.uk/images/checked.gif) 0 0 no-repeat;
+        //   @media screen and (max-width: $screen-sm) {
+        //     top: 5px;
+        //   }
+        }
+      }
+    }
+    .od-slct-lbl {
+      font-size: 12px;
+      padding-left:18px;
+      position: relative;
+      &.disable-cntnt {
+        color: #c7c5c5;
+        &:before {
+          border-color: #f8f8f8 !important;
+        }
+        &:after {
+          border-color: #f8f8f8 !important;
+        }
+      }
+      &::before {
+        content: "";
+        -webkit-appearance: none;
+        background-color: transparent;
+        border: 1px solid #999999;
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), inset 0px -15px 10px -12px rgba(0, 0, 0, 0.05);
+        padding: 8px;
+        display: inline-block !important;
+        vertical-align: middle;
+        cursor: pointer;
+        margin-right: 5px;
+        position: absolute;
+        left:0;
+      }
+    }
+ 
+.od-td-color{
+    color:#EA4E33;
+    font-weight: 700;
+}
+.portal-query{
+    // text-transform: capitalize;
+}
+.portal-modal-body{
+    // height:350px;
+    // width:450px;
+}
+.portal-modal-content{
+    max-height: 400px;
+    max-width: 450px;
+    margin: 0 auto;
+    .order-info-content{
+        line-height: 4;
+    }
+}
+.portal-modal-footer{
+    padding: 15px 8px;
+    text-align: center;
+ button{
+    background: #000;
+    color: #fff;
+    width: 75px;
+    margin: 0px 8px;
+    height: 45px;
+}
+}
+
+.od-check-in{
+    background-color: #EA4E33;
+    padding: 15px;
+    font-size: 14px;
+    border: 0;
+    outline: 0;
+    color: $mb-white !important;
+    width:100%;
+}

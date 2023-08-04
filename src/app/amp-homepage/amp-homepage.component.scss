@@ -1,0 +1,194 @@
+@import"../../variable";
+#landingpage-conatiner .main__inner-wrapper{
+
+margin-right: auto;
+margin-left: auto;
+text-rendering: optimizeLegibility;
+@media screen and (max-width:$screen-sm) {
+width: 100%;
+}
+}
+
+ul.amp-dc-nav-wrap{
+    width:964px;
+    .navigation-link{
+        font-size:14px;
+    }
+    
+@media screen and (max-width:$screen-sm) {
+    display: none !important;
+}
+}
+
+.amp-dc-card-list-wrap{   
+    
+    @media screen and (max-width:1440px){
+        width:990px;
+    }  
+    @media screen and (max-width:$screen-medium){
+    
+            width: 92%;
+        
+    }
+
+}
+#card-list-slot1 .amp-dc-card-list-wrap{
+    margin:auto !important;
+
+}
+.amp-dc-card.image-431x291{
+    margin:27px 29px 0;
+
+    @media screen and (max-width:$screen-medium){
+    
+        margin:27px 0 0 !important;
+    
+}
+
+}
+#heritageSlot{
+    width:880px;
+    margin:35px auto 0;
+        @media screen and (max-width:$screen-sm){
+        width:100%;
+        padding:0 25px;
+    }
+
+    @media screen and (max-width:425px){
+        padding:0 25px !important;
+    }
+
+}
+
+.landingpage_wrapper{
+    min-height: calc(100vh - 132px);
+    height: 100%;
+    #dlBannerslot{
+        width:930px;
+        margin:auto;
+        @media (max-width:$screen-medium) {
+            width:100%;
+        }
+    }
+    .amp-dc-card-wrap {
+        opacity: 0;
+        @media (max-width:$screen-sm) {
+            opacity: 1 !important;
+        }
+        &.fade-wrapper{
+            
+        transition: opacity 4s;
+            opacity: 1 !important;
+       }
+    }
+    .amp-dc-card-link {
+        line-height: 2;
+    }
+}
+#card-list-slot1{
+    .amp-dc-card-link {
+        &:hover{
+            background-color:$primary-color;
+            color:$mb-white !important;
+        }
+    }
+}
+// @media (max-width:1024px) {
+//     #crSlot{
+//         width: 100%;
+//         margin: auto;
+//     } 
+ 
+//  }
+// @media (max-width:1440px an){
+//    #crSlot{
+//        width: 986px;
+//        margin: auto;
+//    } 
+
+// }
+// @media (min-width:1441px){
+//     #crSlot{
+//         width: 1250px;
+//         margin: auto;
+//     } 
+ 
+//  }
+@media screen and (max-width: 1440px){
+    #crSlot,.crSlot{
+        width:990px;
+        margin:0 auto;
+        @media screen and (max-width: 768px){
+            width: 100%;
+        }
+    }
+}
+@media screen and (max-width: 768px){
+    .slick-next:before {
+        //display: none;
+    }
+    .tmspslot #uk-hp-prod-feed-personalised-per-collection-fr_carousel.slick-initialized {
+        width: 95% !important;
+    }
+    .slick-prev, .slick-next {
+        top: 35%!important;
+    }
+    .amp-dc-card {
+        padding-top: 22px;
+    }
+    .switch-one {
+        border-bottom: 1px solid #ccc;
+    }
+    #uk-timer-web-thumbcontainer {
+        width: 100%;
+        text-align: center;
+    }
+    app-amp-homepage .FR-free_del-banner .imagecontainer .animated-banner {
+        width: 100%;
+    }
+}
+
+
+
+.fab {
+    display: inline-block;
+    font: 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+.fa-instagram:before {
+    font-family: "Font Awesome 5 Brands";
+    content: "\f16d";
+}
+.curralate-hp-fanreel{
+font-weight:500;
+font-size:18px;
+}
+.curralate-hp-fanreel span{
+font-weight:500;
+font-size:18px;
+}
+
+
+ .curralate-hp-fanreel .fa-instagram {
+  
+    font-size: 29px;
+    vertical-align: middle;
+    margin-right: 4px;
+}
+
+.shop-the-gallery .arrow-right:after {
+
+    border-top: 5px solid transparent;
+    border-left: 5px solid;
+    border-bottom: 5px solid transparent;
+    content: "";
+    display: inline-block;
+    height: auto;
+    width: auto;
+    margin-left: 3px;
+    vertical-align: baseline;
+    visibility: visible;
+}

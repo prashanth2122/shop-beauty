@@ -1,0 +1,36 @@
+
+<div class="pager-cntnt paginations" *ngIf="totalProducts>numberOfproducts"
+  [ngClass]="{'container-display-block':catalogSpecific,'container-display-none':!catalogSpecific}">
+  <div>
+      <nav aria-label="Page navigation">
+        <li class="page_viewAll showProd" *ngIf="viewAllProducts">
+          <a (click)="showFirstPage($event,1)">SHOW FIRST PAGE</a>
+          &nbsp;&nbsp;&nbsp;
+        </li>
+        <ul class="pagination" *ngIf="pager&&!viewAllProducts">
+          <li class="page_viewAll">
+            <a (click)="onviewAllClick($event)">{{'categoryLandingPage.viewAll'|translate}}</a>
+            &nbsp;&nbsp;&nbsp;
+          </li>
+          <li class="page-item" [hidden]="pagination.currentPage==0">
+            <a class="page-link next pagePrevImg" aria-label="Previous" (click)="fetchProductNextperPage($event,true)"
+              title="Go To {{(pageNumber)? 'Page '+convertPrevString():'Next Page'}}">
+           </a>
+          </li>
+          <li *ngFor="let page of pgItems.pages;let k=index" class="page-item"
+           [ngClass]="{'page-active':getCurrentPage(page)}">
+              <a class="page-link" (click)="fetchProductperPage($event,page)">{{page}}</a>
+          </li>
+          <li class="page-item" [hidden]="pagination.currentPage+1 === pagination.totalPages">
+            <a class="page-link next pageNxtImg" aria-label="Next" (click)="fetchProductNextperPage($event,false)"
+              title="Go To {{(pageNumber)? 'Page '+convertNextString():'Next Page'}}">
+             </a>
+          </li>
+          <li class="page_viewAll1">
+            <a (click)="onviewAllClick($event) " class="page_viewAll11">{{'categoryLandingPage.viewAll'|translate}}</a>
+            &nbsp;&nbsp;&nbsp;
+          </li>
+        </ul>
+      </nav>
+  </div>
+</div>
